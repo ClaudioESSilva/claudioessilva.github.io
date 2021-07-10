@@ -50,7 +50,7 @@ From the <a href="https://docs.microsoft.com/en-us/sql/t-sql/statements/create-p
 
 <blockquote>...SQL Server converts the original text of the CREATE [enter object type here] statement to an obfuscated format. The output of the obfuscation is not directly visible in any of the catalog views in SQL Server. Users who have no access to system tables or database files cannot retrieve the obfuscated text. However, the text is available to privileged users who can either access system tables over the DAC port or directly access database files. Also, users who can attach a debugger to the server process can retrieve the decrypted procedure from memory at runtime. For more information about accessing system metadata, see Metadata Visibility Configuration.</blockquote>
 
-If you want to understand the <a href="https://sqlperformance.com/2016/05/sql-performance/the-internals-of-with-encryption">Internals of With Encryption</a> make sure you read Paul White’s (<a href="https://www.sql.kiwi/">b</a> | <a href="https://twitter.com/sql_kiwi">t</a>) blog post.
+If you want to understand the <a href="https://sqlperformance.com/2016/05/sql-performance/the-internals-of-with-encryption">Internals of With Encryption</a> make sure you read Paul White’s ([b](https://www.sql.kiwi/) \| [t](https://twitter.com/sql_kiwi)) blog post.
 
 <h2>A Story</h2>
 
