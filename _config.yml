@@ -11,8 +11,8 @@ description: SQL, PowerShell, and more from a SQL Server DBA
 # List of links in the navigation bar
 navbar-links:
   Posts:
-    - SQL Server: "https://claudioessilva.eu/tags/#SQL%20Server"
-    - PowerShell: "https://claudioessilva.eu/tags/#PowerShell"
+    - SQL Server: "https://claudioessilva.eu/tag/#SQL%20Server"
+    - PowerShell: "https://claudioessilva.eu/tag/#PowerShell"
   #Projects: "projects"
   About: "about"
 

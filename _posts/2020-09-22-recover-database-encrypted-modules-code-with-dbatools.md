@@ -4,7 +4,7 @@ title: Recover database encrypted modules code with dbatools
 date: 2020-09-22 10:30
 author: claudiosobralsilva
 comments: true
-categories: [Automation, dbatools, Decrypt, PowerShell, Scripting, Security, SQLServer, syndicated, WITH ENCRYPTION]
+tags: [Automation, dbatools, Decrypt, PowerShell, Scripting, Security, SQLServer, syndicated, WITH ENCRYPTION]
 ---
 This article was initially posted on <a href="https://www.sqlservercentral.com/articles/recover-database-encrypted-modules-code-with-dbatools">SQLServerCentral</a> @ 2020-08-18.
 It was interesting some comments I read about it, mainly why people still use `WITH ENCRYPTION` when it's simple to overcome this when we have the right permissions.
