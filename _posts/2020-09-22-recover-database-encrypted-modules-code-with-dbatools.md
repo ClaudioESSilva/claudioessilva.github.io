@@ -73,7 +73,7 @@ There are multiple ways to retrieve the decrypted version of an encrypted module
 
 The last one will be our focus in this article. Here I will be focusing on how we can do it at scale and with a couple of different use cases.
 
-If you want to understand how dbatools does it, Sander Stad ([b](https://www.sqlstad.nl/) | [t](https://www.sqlstad.nl/)) was the person that wrote this dbatools' function and he explains it on his blog post <a href="https://www.sqlstad.nl/powershell/decrypting-sql-server-objects-with-dbatools/">Decrypting SQL Server Objects With dbatools</a>.
+If you want to understand how dbatools does it, Sander Stad ([b](https://www.sqlstad.nl/) \| [t](https://www.sqlstad.nl/)) was the person that wrote this dbatools' function and he explains it on his blog post <a href="https://www.sqlstad.nl/powershell/decrypting-sql-server-objects-with-dbatools/">Decrypting SQL Server Objects With dbatools</a>.
 
 Here I will be focusing on how we can do it at scale and with a couple of different use cases.
 
@@ -99,14 +99,14 @@ If you want to connect using DAC from a remote server, you need to configure the
 <h4>Using dbatools to check/set the 'remote admin connection' configuration</h4>
 
 ``` powershell
-Get-DbaSpConfigure -SqlInstance &quot;instance1&quot; -ConfigName RemoteDacConnectionsEnabled
+Get-DbaSpConfigure -SqlInstance "instance1" -ConfigName RemoteDacConnectionsEnabled
 ```
 
 If you want to be able to run this from a remote server, the output should say 1 in the `ConfiguredValue` property.
 
 If the output says 0 (zero), you can use dbatools to change it to 1, by doing:
 ``` powershell
-Set-DbaSpConfigure -SqlInstance &quot;instance1&quot; -ConfigName RemoteDacConnectionsEnabled -Value 1
+Set-DbaSpConfigure -SqlInstance "instance1" -ConfigName RemoteDacConnectionsEnabled -Value 1
 ```
 
 NOTE: In some cases, you may need to restart the instance.
@@ -127,7 +127,7 @@ Before I go through all objects, I decided to start by doing a test by decryptin
 
 The following code will decrypt just a single object and output the result to the console
 ``` powershell
-Invoke-DbaDbDecryptObject -SqlInstance &quot;instance1&quot; -Database &quot;WithEncryption&quot; -ObjectName &quot;MySecretSauce&quot;
+Invoke-DbaDbDecryptObject -SqlInstance "instance1" -Database "WithEncryption" -ObjectName "MySecretSauce"
 ```
 
 ![decryptsingleobject](/img/2020/09/decryptsingleobject.png)
@@ -137,7 +137,7 @@ Invoke-DbaDbDecryptObject -SqlInstance &quot;instance1&quot; -Database &quot;Wit
 Now that I understand what my outcome is, let's try to decrypt two objects from the same database
 
 ``` powershell
-Invoke-DbaDbDecryptObject -SqlInstance &quot;instance1&quot; -Database &quot;WithEncryption&quot; -ObjectName &quot;MySecretSauce&quot;, &quot;MySecret&quot;
+Invoke-DbaDbDecryptObject -SqlInstance "instance1" -Database "WithEncryption" -ObjectName "MySecretSauce", "MySecret"
 ```
 
 ![decrypttwoobjects](/img/2020/09/decryptsingleobjects.png)
@@ -145,7 +145,7 @@ Invoke-DbaDbDecryptObject -SqlInstance &quot;instance1&quot; -Database &quot;Wit
 
 NOTE: If you want to decrypt all encrypted objects that belong to a specific database you just need to omit the `-ObjectName` parameter.
 ``` powershell
-Invoke-DbaDbDecryptObject -SqlInstance &quot;instance1&quot; -Database &quot;WithEncryption&quot;
+Invoke-DbaDbDecryptObject -SqlInstance "instance1" -Database "WithEncryption"
 ```
 
 <h2>What if I want to save the results to file?!</h2>
@@ -160,7 +160,7 @@ Ultimately, I have decided to do the following:
 
 To do so, with dbatools, we just need to define the `-ExportDestination` parameter and indicate to which folder we want to output our decrypted T-SQL code. This command will create a folder for each type of objects, and within and you will find one SQL script per object that was decrypted.
 ``` powershell
-Invoke-DbaDbDecryptObject -SqlInstance &quot;instance1&quot; -Database &quot;WithEncryption&quot; -ExportDestination &quot;d:\temp\&quot;
+Invoke-DbaDbDecryptObject -SqlInstance "instance1" -Database "WithEncryption" -ExportDestination "d:\temp\"
 ```
 
 ![outout](/img/2020/09/outout.png)
@@ -178,8 +178,8 @@ If you want to replace all encrypted (Stored Procedures, for example) version by
 
 To check which stored procedures are encrypted, you can use the `Get-DbaDbStoredProcedure`
 ``` powershell
-$instance = &quot;instance1&quot;
-$database = &quot;myDB&quot;
+$instance = "instance1"
+$database = "myDB"
 $SPs = Get-DbaDbStoredProcedure -SqlInstance $instance -Database $database -ExcludeSystemSp | Where-Object IsEncrypted -eq $true
 $SPs | Select-Object InstanceName, Database, Schema, Name
 # The next line is a comment on purpose to avoid accidents :-). However, it is an option that you can use to DROP the stored procedures
@@ -188,10 +188,10 @@ $SPs | Select-Object InstanceName, Database, Schema, Name
 
 Here is a script to run the steps two and three:
 ``` powershell
-$instance = &quot;instance1&quot;
-$database = &quot;myDB&quot;
-$modulesFolder = &quot;D:\temp\$instance\$database\StoredProcedure&quot;
-$objectsList = (Get-ChildItem -Path $modulesFolder -Recurse -Filter &quot;*.sql*&quot;) | Select-Object -ExpandProperty FullName
+$instance = "instance1"
+$database = "myDB"
+$modulesFolder = "D:\temp\$instance\$database\StoredProcedure"
+$objectsList = (Get-ChildItem -Path $modulesFolder -Recurse -Filter "*.sql*") | Select-Object -ExpandProperty FullName
 foreach ($object in $objectsList) {
     $TSQLcode = (Get-Content -Path $object -Raw) -replace '\bWITH ENCRYPTION\b', ''
     Invoke-DbaQuery -SqlInstance $instance -Database $database -Query $TSQLcode
