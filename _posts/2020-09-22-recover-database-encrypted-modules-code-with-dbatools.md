@@ -7,9 +7,9 @@ comments: true
 categories: [Automation, dbatools, Decrypt, PowerShell, Scripting, Security, SQLServer, syndicated, WITH ENCRYPTION]
 ---
 This article was initially posted on <a href="https://www.sqlservercentral.com/articles/recover-database-encrypted-modules-code-with-dbatools">SQLServerCentral</a> @ 2020-08-18.
-It was interesting some comments I read about it, mainly why people still use <code>WITH ENCRYPTION</code> when it's simple to overcome this when we have the right permissions.
+It was interesting some comments I read about it, mainly why people still use `WITH ENCRYPTION` when it's simple to overcome this when we have the right permissions.
 
-SQL Server offers an option to encrypt the code of your modules when using the <code>WITH ENCRYPTION</code> syntax.
+SQL Server offers an option to encrypt the code of your modules when using the `WITH ENCRYPTION` syntax.
 This allows to hide/obfuscate the modules' code and thus keep away from prying eyes.
 It's often used to protect business rules since it allows you to protect some intellectual property.
 
@@ -27,18 +27,18 @@ These are the objects' types that can be encrypted:
 . TR - Triggers
 . FN, IF, TF - Functions
 
-On the other hand, the following types also appear in <code>sys.sql_modules</code>, but they can't be encrypted:
+On the other hand, the following types also appear in `sys.sql_modules`, but they can't be encrypted:
 . RF - Replication-filter-procedure
 . R - Rule
 . D - Default
 
-You can run the following T-SQL statement to check on <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sql-modules-transact-sql">sys.sql_modules</a> which objects you have and if they are encrypted or not (the <code>definition</code> column has the <code>NULL</code> value).
-[code language="sql"]
+You can run the following T-SQL statement to check on <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sql-modules-transact-sql">sys.sql_modules</a> which objects you have and if they are encrypted or not (the `definition` column has the `NULL` value).
+``` sql
 SELECT sm.object_id, o.name, o.type, sm.definition
   FROM sys.sql_modules sm
 	INNER JOIN sys.objects O
 	   ON sm.object_id = o.object_id
-[/code]
+```
 
 ![syssqlmodules](/img/2020/09/sys-sql_modules.png)
 
@@ -46,7 +46,7 @@ SELECT sm.object_id, o.name, o.type, sm.definition
 
 <h3>What happens to the module text when we specify WITH ENCRYPTION?</h3>
 
-From the <a href="https://docs.microsoft.com/en-us/sql/t-sql/statements/create-procedure-transact-sql">CREATE PROCEDURE</a> documentation, <code>WITH ENCRYPTION</code>:
+From the <a href="https://docs.microsoft.com/en-us/sql/t-sql/statements/create-procedure-transact-sql">CREATE PROCEDURE</a> documentation, `WITH ENCRYPTION`:
 
 <blockquote>...SQL Server converts the original text of the CREATE [enter object type here] statement to an obfuscated format. The output of the obfuscation is not directly visible in any of the catalog views in SQL Server. Users who have no access to system tables or database files cannot retrieve the obfuscated text. However, the text is available to privileged users who can either access system tables over the DAC port or directly access database files. Also, users who can attach a debugger to the server process can retrieve the decrypted procedure from memory at runtime. For more information about accessing system metadata, see Metadata Visibility Configuration.</blockquote>
 
@@ -84,9 +84,9 @@ There are a few items you need to follow along with this article.
 <h3>dbatools</h3>
 
 You can install the latest version of the module from the PowerShell Gallery by running the following command:
-[code language="PowerShell"]
+``` powershell
 Install-Module -Name dbatools
-[/code]
+```
 
 <h3>DAC</h3>
 
@@ -98,16 +98,16 @@ If you want to connect using DAC from a remote server, you need to configure the
 
 <h4>Using dbatools to check/set the 'remote admin connection' configuration</h4>
 
-[code language="PowerShell"]
+``` powershell
 Get-DbaSpConfigure -SqlInstance &quot;instance1&quot; -ConfigName RemoteDacConnectionsEnabled
-[/code]
+```
 
-If you want to be able to run this from a remote server, the output should say 1 in the <code>ConfiguredValue</code> property.
+If you want to be able to run this from a remote server, the output should say 1 in the `ConfiguredValue` property.
 
 If the output says 0 (zero), you can use dbatools to change it to 1, by doing:
-[code language="PowerShell"]
+``` powershell
 Set-DbaSpConfigure -SqlInstance &quot;instance1&quot; -ConfigName RemoteDacConnectionsEnabled -Value 1
-[/code]
+```
 
 NOTE: In some cases, you may need to restart the instance.
 
@@ -126,9 +126,9 @@ Before I go through all objects, I decided to start by doing a test by decryptin
 <h4>Decrypt a single object on a single database</h4>
 
 The following code will decrypt just a single object and output the result to the console
-[code language="PowerShell"]
+``` powershell
 Invoke-DbaDbDecryptObject -SqlInstance &quot;instance1&quot; -Database &quot;WithEncryption&quot; -ObjectName &quot;MySecretSauce&quot;
-[/code]
+```
 
 <img src="https://claudioessilvaeu.files.wordpress.com/2020/06/decryptsingleobject.png?w=656" alt="" width="656" height="114" class="aligncenter size-large wp-image-2350" />
 
@@ -136,16 +136,16 @@ Invoke-DbaDbDecryptObject -SqlInstance &quot;instance1&quot; -Database &quot;Wit
 
 Now that I understand what my outcome is, let's try to decrypt two objects from the same database
 
-[code language="PowerShell"]
+``` powershell
 Invoke-DbaDbDecryptObject -SqlInstance &quot;instance1&quot; -Database &quot;WithEncryption&quot; -ObjectName &quot;MySecretSauce&quot;, &quot;MySecret&quot;
-[/code]
+```
 
 <img src="https://claudioessilvaeu.files.wordpress.com/2020/06/decrypttwoobjects.png?w=656" alt="" width="656" height="254" class="aligncenter size-large wp-image-2351" />
 
-NOTE: If you want to decrypt all encrypted objects that belong to a specific database you just need to omit the <code>-ObjectName</code> parameter.
-[code language="PowerShell"]
+NOTE: If you want to decrypt all encrypted objects that belong to a specific database you just need to omit the `-ObjectName` parameter.
+``` powershell
 Invoke-DbaDbDecryptObject -SqlInstance &quot;instance1&quot; -Database &quot;WithEncryption&quot;
-[/code]
+```
 
 <h2>What if I want to save the results to file?!</h2>
 
@@ -157,35 +157,35 @@ Ultimately, I have decided to do the following:
 
 <h3>Saving results to a local folder</h3>
 
-To do so, with dbatools, we just need to define the <code>-ExportDestination</code> parameter and indicate to which folder we want to output our decrypted T-SQL code. This command will create a folder for each type of objects, and within and you will find one SQL script per object that was decrypted.
-[code language="PowerShell"]
+To do so, with dbatools, we just need to define the `-ExportDestination` parameter and indicate to which folder we want to output our decrypted T-SQL code. This command will create a folder for each type of objects, and within and you will find one SQL script per object that was decrypted.
+``` powershell
 Invoke-DbaDbDecryptObject -SqlInstance &quot;instance1&quot; -Database &quot;WithEncryption&quot; -ExportDestination &quot;d:\temp\&quot;
-[/code]
+```
 <img src="https://claudioessilvaeu.files.wordpress.com/2020/06/outout.png" alt="" width="622" height="151" class="aligncenter size-full wp-image-2331" />
 
 <h3>Compile SQL scripts but without encryption on a different/same database</h3>
 
-If you open any of these decrypted files, you will see that the <code>WITH ENCRYPTION</code> keywords are there, which means that it will encrypt the code if you run it.
+If you open any of these decrypted files, you will see that the `WITH ENCRYPTION` keywords are there, which means that it will encrypt the code if you run it.
 
 <img src="https://claudioessilvaeu.files.wordpress.com/2020/06/afterdecrypt.png?w=656" alt="" width="656" height="109" class="aligncenter size-large wp-image-2358" />
 
 If you want to replace all encrypted (Stored Procedures, for example) version by the decrypted version, you will need to:
 1. drop encrypted Stored Procedures objects
-2. Comment/remove the <code>WITH ENCRYPTION</code>
+2. Comment/remove the `WITH ENCRYPTION`
 3. Compile them on the database
 
-To check which stored procedures are encrypted, you can use the <code>Get-DbaDbStoredProcedure</code>
-[code language="PowerShell"]
+To check which stored procedures are encrypted, you can use the `Get-DbaDbStoredProcedure`
+``` powershell
 $instance = &quot;instance1&quot;
 $database = &quot;myDB&quot;
 $SPs = Get-DbaDbStoredProcedure -SqlInstance $instance -Database $database -ExcludeSystemSp | Where-Object IsEncrypted -eq $true
 $SPs | Select-Object InstanceName, Database, Schema, Name
 # The next line is a comment on purpose to avoid accidents :-). However, it is an option that you can use to DROP the stored procedures
 # $SPs | Foreach-object {$_.Drop()}
-[/code]
+```
 
 Here is a script to run the steps two and three:
-[code language="PowerShell"]
+``` powershell
 $instance = &quot;instance1&quot;
 $database = &quot;myDB&quot;
 $modulesFolder = &quot;D:\temp\$instance\$database\StoredProcedure&quot;
@@ -194,7 +194,7 @@ foreach ($object in $objectsList) {
     $TSQLcode = (Get-Content -Path $object -Raw) -replace '\bWITH ENCRYPTION\b', ''
     Invoke-DbaQuery -SqlInstance $instance -Database $database -Query $TSQLcode
 }
-[/code]
+```
 
 Here we can see that the Stored Procedure is no longer encrypted
 <img src="https://claudioessilvaeu.files.wordpress.com/2020/06/outout_noencrypted.png?w=656" alt="" width="656" height="83" class="aligncenter size-large wp-image-2336" />
