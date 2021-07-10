@@ -84,7 +84,7 @@ google_analytics: "UA-27703765-1"
 # --- Comments --- #
 
 # Fill in your Disqus shortname (NOT the userid) if you want to support Disqus comments
-#disqus: "ClaudioESSilva"
+disqus: "ClaudioESSilva"
 
 # --- Misc --- #
 
