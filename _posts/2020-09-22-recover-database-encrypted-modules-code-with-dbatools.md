@@ -73,7 +73,7 @@ There are multiple ways to retrieve the decrypted version of an encrypted module
 
 The last one will be our focus in this article. Here I will be focusing on how we can do it at scale and with a couple of different use cases.
 
-If you want to understand how dbatools does it, Sander Stad (<a href="https://www.sqlstad.nl/">b</a> | <a href="https://www.sqlstad.nl/">t</a>) was the person that wrote this dbatools' function and he explains it on his blog post <a href="https://www.sqlstad.nl/powershell/decrypting-sql-server-objects-with-dbatools/">Decrypting SQL Server Objects With dbatools</a>.
+If you want to understand how dbatools does it, Sander Stad ([b](https://www.sqlstad.nl/) | [t](https://www.sqlstad.nl/)) was the person that wrote this dbatools' function and he explains it on his blog post <a href="https://www.sqlstad.nl/powershell/decrypting-sql-server-objects-with-dbatools/">Decrypting SQL Server Objects With dbatools</a>.
 
 Here I will be focusing on how we can do it at scale and with a couple of different use cases.
 
@@ -130,7 +130,7 @@ The following code will decrypt just a single object and output the result to th
 Invoke-DbaDbDecryptObject -SqlInstance &quot;instance1&quot; -Database &quot;WithEncryption&quot; -ObjectName &quot;MySecretSauce&quot;
 ```
 
-<img src="https://claudioessilvaeu.files.wordpress.com/2020/06/decryptsingleobject.png?w=656" alt="" width="656" height="114" class="aligncenter size-large wp-image-2350" />
+![decryptsingleobject](/img/2020/09/decryptsingleobject.png)
 
 <h4>We can also decrypt more than one object in the same execution</h4>
 
@@ -140,7 +140,8 @@ Now that I understand what my outcome is, let's try to decrypt two objects from 
 Invoke-DbaDbDecryptObject -SqlInstance &quot;instance1&quot; -Database &quot;WithEncryption&quot; -ObjectName &quot;MySecretSauce&quot;, &quot;MySecret&quot;
 ```
 
-<img src="https://claudioessilvaeu.files.wordpress.com/2020/06/decrypttwoobjects.png?w=656" alt="" width="656" height="254" class="aligncenter size-large wp-image-2351" />
+![decrypttwoobjects](/img/2020/09/decryptsingleobjects.png)
+
 
 NOTE: If you want to decrypt all encrypted objects that belong to a specific database you just need to omit the `-ObjectName` parameter.
 ``` powershell
@@ -161,13 +162,14 @@ To do so, with dbatools, we just need to define the `-ExportDestination` paramet
 ``` powershell
 Invoke-DbaDbDecryptObject -SqlInstance &quot;instance1&quot; -Database &quot;WithEncryption&quot; -ExportDestination &quot;d:\temp\&quot;
 ```
-<img src="https://claudioessilvaeu.files.wordpress.com/2020/06/outout.png" alt="" width="622" height="151" class="aligncenter size-full wp-image-2331" />
+
+![outout](/img/2020/09/outout.png)
 
 <h3>Compile SQL scripts but without encryption on a different/same database</h3>
 
 If you open any of these decrypted files, you will see that the `WITH ENCRYPTION` keywords are there, which means that it will encrypt the code if you run it.
 
-<img src="https://claudioessilvaeu.files.wordpress.com/2020/06/afterdecrypt.png?w=656" alt="" width="656" height="109" class="aligncenter size-large wp-image-2358" />
+![decrypttwoobjects](/img/2020/09/afterdecrypt.png)
 
 If you want to replace all encrypted (Stored Procedures, for example) version by the decrypted version, you will need to:
 1. drop encrypted Stored Procedures objects
@@ -197,7 +199,8 @@ foreach ($object in $objectsList) {
 ```
 
 Here we can see that the Stored Procedure is no longer encrypted
-<img src="https://claudioessilvaeu.files.wordpress.com/2020/06/outout_noencrypted.png?w=656" alt="" width="656" height="83" class="aligncenter size-large wp-image-2336" />
+
+![outoutnoencrypted](/img/2020/09/outout_noencrypted.png)
 
 <h2>Wrapping up</h2>
 
