@@ -22,7 +22,7 @@ I got the following message when running on a specific host:
 
 <blockquote>WARNING: Get-DbaSqlService - No ComputerManagement Namespace on HOST001. Please note that this function is available from SQL 2005 up.</blockquote>
 
-<a href="https://claudioessilva.github.io/img//2017/09/warning_get-dbasqlservice_2005.png"><img class="aligncenter wp-image-540 size-full" src="https://claudioessilva.github.io/img//2017/09/warning_get-dbasqlservice_2005.png" alt="" width="968" height="25" /></a>
+<a href="https://claudioessilva.github.io/img/2017/09/warning_get-dbasqlservice_2005.png"><img class="aligncenter wp-image-540 size-full" src="https://claudioessilva.github.io/img/2017/09/warning_get-dbasqlservice_2005.png" alt="" width="968" height="25" /></a>
 
 Trying to get more information, I have executed the same command but added the `-Verbose` switch
 
@@ -60,7 +60,7 @@ Get-CimInstance -CimSession $CIMsession -NameSpace root\Microsoft\SQLServer -Que
 #Get-CimInstance -CimSession $CIMsession -Namespace $(&quot;root\Microsoft\SQLServer\ComputerManagement10&quot;) -Query &quot;SELECT * FROM SqlService&quot;
 ```
 
-<a href="https://claudioessilva.github.io/img//2017/09/output_select__namespace_computermanagement1.png"><img class="aligncenter wp-image-545 size-large" src="https://claudioessilva.github.io/img//2017/09/output_select__namespace_computermanagement1.png?w=656" alt="" width="656" height="44" /></a>
+<a href="https://claudioessilva.github.io/img/2017/09/output_select__namespace_computermanagement1.png"><img class="aligncenter wp-image-545 size-large" src="https://claudioessilva.github.io/img/2017/09/output_select__namespace_computermanagement1.png?w=656" alt="" width="656" height="44" /></a>
 
 This can return more than one line with different ComputerManagement (like ComputerManagement10). It depends on the versions you have installed on the host. The number "10" refers to the SQL Server 2008.
 Now I can uncomment the last command and run it. The result is:
@@ -84,7 +84,7 @@ At line:1 char:5
 + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiObjectCommand</blockquote>
 
 I remembered, from past experiences, that SQL Server Configuration manager relies on WMI classes to show the information, so I tried to open it and I got the following error message:
-<img class="size-full wp-image-542 aligncenter" src="https://claudioessilva.github.io/img//2017/09/sqlserverconfigurationmanager_invalidclass_error.png" alt="" width="403" height="171" />
+<img class="size-full wp-image-542 aligncenter" src="https://claudioessilva.github.io/img/2017/09/sqlserverconfigurationmanager_invalidclass_error.png" alt="" width="403" height="171" />
 
 <blockquote>Cannot connect to WMI provider. You do not have permission or the server in unreachable. Note that you can only manage SQL Server 2005 and later servers with SQL Server Configuration Manager.
 <strong>Invalid class [0x80041010]</strong></blockquote>
@@ -104,13 +104,13 @@ There you can find a file with <em>mof</em> extension. The file name <em>sqlmgmp
 Now on the command line run the following command:
 <strong>mofcomp sqlmgmproviderxpsp2up.mof</strong>
 The output:
-<a href="https://claudioessilva.github.io/img//2017/09/output_mofcomp_mof.png"><img class="aligncenter size-full wp-image-546" src="https://claudioessilva.github.io/img//2017/09/output_mofcomp_mof.png" alt="" width="642" height="99" /></a></li>
+<a href="https://claudioessilva.github.io/img/2017/09/output_mofcomp_mof.png"><img class="aligncenter size-full wp-image-546" src="https://claudioessilva.github.io/img/2017/09/output_mofcomp_mof.png" alt="" width="642" height="99" /></a></li>
     <li>Install localization info:
 Navigate to the Shared sub-folder that indicates the locale of your SQL Server installation. In my case is the 1033 (english-US).
 Inside that folder you will find a file with the <em>.mfl</em> extension. The file name is <em>sqlmgmprovider.mfl.</em><strong> </strong>On the command line run the following command:
 <strong>mofcomp sqlmgmprovider.mfl </strong>
 The output:
-<a href="https://claudioessilva.github.io/img//2017/09/output_mofcomp_mfl.png"><img class="aligncenter size-full wp-image-547" src="https://claudioessilva.github.io/img//2017/09/output_mofcomp_mfl.png" alt="" width="645" height="99" /></a></li>
+<a href="https://claudioessilva.github.io/img/2017/09/output_mofcomp_mfl.png"><img class="aligncenter size-full wp-image-547" src="https://claudioessilva.github.io/img/2017/09/output_mofcomp_mfl.png" alt="" width="645" height="99" /></a></li>
 </ol>
 
 With these 2 actions, we are done.
@@ -119,13 +119,13 @@ Now we can try to open the SQL Server Configuration Manager again and it opens l
 
 Let's go back and rerun our commands.
 On the host:
-<a href="https://claudioessilva.github.io/img//2017/09/output_gwmi_locally_ok.png"><img class="aligncenter size-large wp-image-548" src="https://claudioessilva.github.io/img//2017/09/output_gwmi_locally_ok.png?w=656" alt="" width="656" height="89" /></a>
+<a href="https://claudioessilva.github.io/img/2017/09/output_gwmi_locally_ok.png"><img class="aligncenter size-large wp-image-548" src="https://claudioessilva.github.io/img/2017/09/output_gwmi_locally_ok.png?w=656" alt="" width="656" height="89" /></a>
 
 Remotely:
-<a href="https://claudioessilva.github.io/img//2017/09/output_getciminstance_remotely_ok.png"><img class="aligncenter size-large wp-image-549" src="https://claudioessilva.github.io/img//2017/09/output_getciminstance_remotely_ok.png?w=656" alt="" width="656" height="46" /></a>
+<a href="https://claudioessilva.github.io/img/2017/09/output_getciminstance_remotely_ok.png"><img class="aligncenter size-large wp-image-549" src="https://claudioessilva.github.io/img/2017/09/output_getciminstance_remotely_ok.png?w=656" alt="" width="656" height="46" /></a>
 
 And from dbatools Get-DbaSqlService command:
-<a href="https://claudioessilva.github.io/img//2017/09/output_get-dbasqlservice_ok.png"><img class="aligncenter size-large wp-image-550" src="https://claudioessilva.github.io/img//2017/09/output_get-dbasqlservice_ok.png?w=656" alt="" width="656" height="51" /></a>
+<a href="https://claudioessilva.github.io/img/2017/09/output_get-dbasqlservice_ok.png"><img class="aligncenter size-large wp-image-550" src="https://claudioessilva.github.io/img/2017/09/output_get-dbasqlservice_ok.png?w=656" alt="" width="656" height="51" /></a>
 
 No more "invalid class" messages and we get the output we want!
 

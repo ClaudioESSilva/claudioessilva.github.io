@@ -41,7 +41,7 @@ $query = &quot;SELECT ConnString FROM &lt;table/view&gt;&quot;
 # Get the list of servers
 $ServerList = Invoke-DbaQuery -SqlInstance $centralServer -Database $centralDatabase -Query $query | Select-Object -ExpandProperty ConnString
 ```
-</br>
+
 
 <h2>Running dbatools' Export-DbaInstance command</h2>
 
@@ -129,7 +129,6 @@ $folderName = &quot;SQL-SERVER-01-20200602&quot;
 $split = $folderName -split '-'
 $split[0..($split.Count-2)] -join '-'
 ```
-</br>
 
 <h3>Move folder with the files from the temp folder to the final folder</h3>
 
@@ -216,11 +215,11 @@ git add .
 git commit -m &quot;Export-DbaInstance @ $((Get-Date).ToString(&quot;yyyyMMdd-HHmmss&quot;))&quot;
 git push
 ```
-</br>
+
 
 <h3>Example of the output for one of the instances</h3>
 
-<img src="https://claudioessilva.github.io/img//2020/05/exportdbainstance_togit_folderout.png" alt="" width="447" height="360" class="aligncenter size-full wp-image-2092" />
+<img src="https://claudioessilva.github.io/img/2020/05/exportdbainstance_togit_folderout.png" alt="" width="447" height="360" class="aligncenter size-full wp-image-2092" />
 
 <h2>Summary</h2>
 

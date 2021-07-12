@@ -15,11 +15,11 @@ The client provided the scripts with all modules (Stored Procedures, functions, 
 <li>Copy and paste de object code</li>
 <li>Save the file
 This is how the file look like:
-<img src="https://claudioessilva.github.io/img//2018/06/savedwithdefaultencoding_ansi1.png?w=300" alt="" width="300" height="53" class="aligncenter size-medium wp-image-1458" /></p></li>
+<img src="https://claudioessilva.github.io/img/2018/06/savedwithdefaultencoding_ansi1.png?w=300" alt="" width="300" height="53" class="aligncenter size-medium wp-image-1458" /></p></li>
 <li><p>Run a PowerShell script that does a find and replace based on a hashtable. Apply all the changes and save the file again.</p></li>
 <li><p>The file refresh on SSMS
 This is how the file look like after the find and replace:
-<img src="https://claudioessilva.github.io/img//2018/06/afterfindreplacepowershellandsaveasutf81.png?w=300" alt="" width="300" height="43" class="aligncenter size-medium wp-image-1457" /></p></li>
+<img src="https://claudioessilva.github.io/img/2018/06/afterfindreplacepowershellandsaveasutf81.png?w=300" alt="" width="300" height="43" class="aligncenter size-medium wp-image-1457" /></p></li>
 <li><p>Unicode characters are broken :-(</p></li>
 </ol>
 

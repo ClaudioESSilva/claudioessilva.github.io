@@ -60,7 +60,7 @@ You can download it from <a href="https://powerbi.microsoft.com/en-us/desktop/" 
 
 Note: If you try to open a Power BI file saved on a more recent version than the one you are using you <u>may</u> see an error message like:
 
-<a href="https://claudioessilva.github.io/img//2018/02/wrong_powerbi_version1.png" target="_blank" rel="noopener"><img class="aligncenter size-full wp-image-1241" src="https://claudioessilva.github.io/img//2018/02/wrong_powerbi_version1.png" alt="" width="458" height="259"></a>
+<a href="https://claudioessilva.github.io/img/2018/02/wrong_powerbi_version1.png" target="_blank" rel="noopener"><img class="aligncenter size-full wp-image-1241" src="https://claudioessilva.github.io/img/2018/02/wrong_powerbi_version1.png" alt="" width="458" height="259"></a>
 
 This was the result of an attempt to open a file on the December 2017 version that was saved on a more recent (the February 2018) version.
 
@@ -84,7 +84,7 @@ Note: When using pbit, if no objects appear, please make sure you have entered t
 
 The pbix file will keep the last data you saw on the dashboard. If you have rerun all or some tests, don't forget to click the "Refresh" button!
 
-<a href="https://claudioessilva.github.io/img//2018/02/refresh_button.png"><img class="aligncenter size-large wp-image-1220" src="https://claudioessilva.github.io/img//2018/02/refresh_button.png?w=656" alt="" width="656" height="404"></a>
+<a href="https://claudioessilva.github.io/img/2018/02/refresh_button.png"><img class="aligncenter size-large wp-image-1220" src="https://claudioessilva.github.io/img/2018/02/refresh_button.png?w=656" alt="" width="656" height="404"></a>
 
 Only after refreshing the data source you will get all the data (re) loaded and thus get the most recent version of it.
 
@@ -96,7 +96,7 @@ If you never used Power BI before you may not know that you can maximize just on
 
 See this example (click to open on new window):
 
-<a href="https://claudioessilva.github.io/img//2018/02/68f25aec-d9a5-44be-8959-447506aecc8c1.gif" target="_blank" rel="noopener"><img class="aligncenter size-large wp-image-1228" src="https://claudioessilva.github.io/img//2018/02/68f25aec-d9a5-44be-8959-447506aecc8c1.gif?w=400" alt="" width="400" height="250"></a>
+<a href="https://claudioessilva.github.io/img/2018/02/68f25aec-d9a5-44be-8959-447506aecc8c1.gif" target="_blank" rel="noopener"><img class="aligncenter size-large wp-image-1228" src="https://claudioessilva.github.io/img/2018/02/68f25aec-d9a5-44be-8959-447506aecc8c1.gif?w=400" alt="" width="400" height="250"></a>
 
 <h4>By Environment</h4>
 
@@ -110,7 +110,7 @@ To help you to read this dashboard, on the left side you have the quick filters 
 There are two other ways to filter the information - you can select a row on the matrix or on the grid to see information just related to that row.
 Example:
 
-<a href="https://claudioessilva.github.io/img//2018/02/filteronmatrixorgrid.gif" target="_blank" rel="noopener"><img class="aligncenter size-large wp-image-1231" src="https://claudioessilva.github.io/img//2018/02/filteronmatrixorgrid.gif?w=656" alt="" width="656" height="369"></a>
+<a href="https://claudioessilva.github.io/img/2018/02/filteronmatrixorgrid.gif" target="_blank" rel="noopener"><img class="aligncenter size-large wp-image-1231" src="https://claudioessilva.github.io/img/2018/02/filteronmatrixorgrid.gif?w=656" alt="" width="656" height="369"></a>
 
 <h4>By Time</h4>
 
@@ -124,7 +124,7 @@ On the next example, I can see that my Production environment is the one taking 
 
 Take a look:
 
-<a href="https://claudioessilva.github.io/img//2018/02/bytime_withexclude.gif" target="_blank" rel="noopener"><img class="aligncenter size-large wp-image-1233" src="https://claudioessilva.github.io/img//2018/02/bytime_withexclude.gif?w=656" alt="" width="656" height="369"></a>
+<a href="https://claudioessilva.github.io/img/2018/02/bytime_withexclude.gif" target="_blank" rel="noopener"><img class="aligncenter size-large wp-image-1233" src="https://claudioessilva.github.io/img/2018/02/bytime_withexclude.gif?w=656" alt="" width="656" height="369"></a>
 
 <h3>Rules</h3>
 
@@ -135,7 +135,7 @@ If these rules are not followed when writing the tests, you can see some weird r
 
 On this example, you can see six instances, but the last two "Procedures" and "table" appear because the test wasn't write in the right way.
 
-<a href="https://claudioessilva.github.io/img//2018/02/notfollowingrules1.png" target="_blank" rel="noopener"><img class="aligncenter size-large wp-image-1236" src="https://claudioessilva.github.io/img//2018/02/notfollowingrules1.png?w=656" alt="" width="656" height="352"></a>
+<a href="https://claudioessilva.github.io/img/2018/02/notfollowingrules1.png" target="_blank" rel="noopener"><img class="aligncenter size-large wp-image-1236" src="https://claudioessilva.github.io/img/2018/02/notfollowingrules1.png?w=656" alt="" width="656" height="352"></a>
 
 Also, we have a <a href="https://github.com/potatoqualitee/dbachecks/blob/master/tests/Unit.Tests.ps1#L60" rel="noopener" target="_blank">unit test</a> to help you check for these "Context" rules!
 

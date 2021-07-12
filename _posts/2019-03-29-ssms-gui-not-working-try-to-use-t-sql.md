@@ -21,7 +21,7 @@ As I was not sure about it, I jumped to the documentation.
 I double checked that the login they were mentioning had any permissions on the <a href="https://docs.microsoft.com/en-us/sql/relational-databases/databases/msdb-database">msdb database</a>. In this case, the login was already part of one of the <a href="https://docs.microsoft.com/en-us/sql/ssms/agent/sql-server-agent-fixed-database-roles">SQL Server Agent Fixed Database Roles</a>, namely the <a href="https://docs.microsoft.com/en-us/sql/ssms/agent/sql-server-agent-fixed-database-roles#sqlagentoperatorrole-permissions">SQLAgentOperatorRole, which have the following permissions described here</a>.
 
 If we take a look at the 1st row of the grid we can see that a login can change a Job Schedule if they own it.
-<img src="https://claudioessilva.github.io/img//2019/03/sqlagentoperatorrole_permissions-1.png" alt="" width="800" height="395" class="aligncenter size-full wp-image-1637" />
+<img src="https://claudioessilva.github.io/img/2019/03/sqlagentoperatorrole_permissions-1.png" alt="" width="800" height="395" class="aligncenter size-full wp-image-1637" />
 
 <h2>Fair enough, let's try it</h2>
 
@@ -50,7 +50,7 @@ Now that the login we want to use to change the schedule is the owner of it, the
 <h2>Bug on GUI, or missing detail on documentation?</h2>
 
 I tested on SSMS and the GUI is disabled
-<img src="https://claudioessilva.github.io/img//2019/03/editscheduleonsssm_disabled.png" alt="" width="800" height="475" class="aligncenter size-full wp-image-1634" />
+<img src="https://claudioessilva.github.io/img/2019/03/editscheduleonsssm_disabled.png" alt="" width="800" height="475" class="aligncenter size-full wp-image-1634" />
 
 I had SSMS v17.3 which is a little bit out of date, so I upgraded to v17.9.1 which is the current GA (General Availability) version but I got the same behaviour. I have also installed the most recent version which is v18.0 preview 7 (by the time of this post) but, then again the same behaviour.
 

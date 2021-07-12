@@ -45,7 +45,7 @@ The output will be an Excel (xlsx) file that will have multiple spreadsheets. In
 
 Here is a sneak-peak of the result that you will see right after opening the file.
 
-<img src="https://claudioessilva.github.io/img//2020/06/featureimage.png?w=656" alt="" width="656" height="263" class="aligncenter size-large wp-image-2257" />
+<img src="https://claudioessilva.github.io/img/2020/06/featureimage.png" alt="" width="656" height="263" class="aligncenter size-large wp-image-2257" />
 
 The formatted table with headers, filters and top freeze-row will be there too!
 
@@ -89,7 +89,7 @@ For instance, because we are talking about logins, I would run the following com
 Find-DbaCommand -Tag Login
 ```
 
-<img class="aligncenter size-large wp-image-2203" src="https://claudioessilva.github.io/img//2020/06/find-dbacommand__tag_login.png?w=656" alt="" width="656" height="246" />
+<img class="aligncenter size-large wp-image-2203" src="https://claudioessilva.github.io/img/2020/06/find-dbacommand__tag_login.png?w=656" alt="" width="656" height="246" />
 
 The dbatools' team has tagged all these (+20) commands as to be related with logins.
 

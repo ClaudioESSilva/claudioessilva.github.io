@@ -43,7 +43,7 @@ SELECT
 FROM sys.fn_xe_file_target_read_file(@LogPath + '\system_health*.xel', null, null, null)
 WHERE object_name like 'xml_deadlock_report'
 ```
-</br>
+
 
 <h3>Using PowerShell to save the files to the filesystem</h3>
 
@@ -87,7 +87,7 @@ $results.foreach {
 ```
 
 The output on the folder will be something like:
-<img src="https://claudioessilva.github.io/img//2020/05/featureimage_2.png" alt="" width="186" height="240" class="aligncenter size-full wp-image-2020" />
+<img src="https://claudioessilva.github.io/img/2020/05/featureimage_2.png" alt="" width="186" height="240" class="aligncenter size-full wp-image-2020" />
 
 <h2>Bonus step - if you want</h2>
 

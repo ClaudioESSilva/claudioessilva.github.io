@@ -6,7 +6,7 @@ author: claudiosilva
 comments: true
 tags: [Conferences, dbachecks, dbatools, PowerShell, share, Speaking, SQLServer, syndicated, TSQL2sDay]
 ---
-<a href="https://scribnasium.com/2018/05/giving-back-t-sql-tuesday-102-invite/"><img src="https://claudioessilva.github.io/img//2017/09/tsql2sday.jpg" alt="https://scribnasium.com/2018/05/giving-back-t-sql-tuesday-102-invite/" width="244" height="244" class="aligncenter size-full wp-image-599" /></a>
+<a href="https://scribnasium.com/2018/05/giving-back-t-sql-tuesday-102-invite/"><img src="https://claudioessilva.github.io/img/2017/09/tsql2sday.jpg" alt="https://scribnasium.com/2018/05/giving-back-t-sql-tuesday-102-invite/" width="244" height="244" class="aligncenter size-full wp-image-599" /></a>
 
 This month’s T-SQL Tuesday is brought to us by Riley Major‏ (<a href="https://scribnasium.com">b</a> \| <a href="https://twitter.com/RileyMajor">t</a>) and he encourage us to talk about how we are helping by giving back to our community.
 
@@ -22,7 +22,7 @@ At that time I didn't even know that a community exists, but when I went to prof
 That was when I started using more and more the internet for study, found some blogs posts and the <a href="http://www.sqlservercentral.com/">SQLServerCentral</a>. So I can say that I started consuming the knowledge from the community back on 2006.
 
 A year later I started my intership in what was my first IT job. At the time I needed to work with a bit of everything but more focused on SQL Server development. The guy that was on my place before I arrived took a manager position but he was a big lover of SQL Server and I learnt a LOT from him! At the time he subscribed the <a href="http://www.itprotoday.com/sql-server-pro-digital-magazine-archives">SQLServer Magazine</a> in paper! (later the name changed for SQLServer Pro).
-[caption id="attachment_1404" align="aligncenter" width="342"]<a href="https://claudioessilva.github.io/img//2018/05/sqlservermagazine.png"><img src="https://claudioessilva.github.io/img//2018/05/sqlservermagazine.png?w=342" alt="SQLServer Magazine October 2007" width="342" height="450" /></a> SQLServer Magazine<br />October 2007[/caption]
+[caption id="attachment_1404" align="aligncenter" width="342"]<a href="https://claudioessilva.github.io/img/2018/05/sqlservermagazine.png"><img src="https://claudioessilva.github.io/img/2018/05/sqlservermagazine.png?w=342" alt="SQLServer Magazine October 2007" width="342" height="450" /></a> SQLServer Magazine<br />October 2007[/caption]
 You can found the maganize archives in PDF format <a href="http://www.itprotoday.com/sql-server-pro-digital-magazine-archives">here</a>.
 
 That was when I start knewing who people like <a href="https://twitter.com/ItzikBenGan">Itzik Ben-Gan</a> and <a href="https://twitter.com/sqlqueen">Kalen Delaney</a> were!

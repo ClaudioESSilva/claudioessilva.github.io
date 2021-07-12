@@ -16,11 +16,11 @@ Let's say you are scripting a table and you have a Non-Clustered index or a trig
 This is a tedious work and you can easily miss some objects. What can we do on SSMS to make this task easier?
 
 You can accomplish this task by using the "Generate Scripts..." option under "Tasks" when you right-click on the database:
-<img src="https://claudioessilva.github.io/img//2019/05/ssms_generatescripts.png" alt="" width="599" height="448" class="aligncenter size-full wp-image-1692" />
+<img src="https://claudioessilva.github.io/img/2019/05/ssms_generatescripts.png" alt="" width="599" height="448" class="aligncenter size-full wp-image-1692" />
 
 This will open the wizard and at the "Set Scripting Options" you can just click on the "Advanced" button and there you can change the properties.
 Here you can see that some defaults are in place, and "Script Indexes" is one of them.
-<img src="https://claudioessilva.github.io/img//2019/05/ssms_scriptingoptions.png" alt="" width="718" height="727" class="aligncenter size-full wp-image-1693" />
+<img src="https://claudioessilva.github.io/img/2019/05/ssms_scriptingoptions.png" alt="" width="718" height="727" class="aligncenter size-full wp-image-1693" />
 
 This is much easier right? All-in-one in a single scripting operation.
 
@@ -34,7 +34,7 @@ To search for commands within <a href="https://dbatools.io">dbatools</a> we can 
 Find-DbaCommand -Tag Export
 ```
 
-<img src="https://claudioessilva.github.io/img//2019/05/find-dbacommand_export.png" alt="" width="800" height="96" class="aligncenter size-full wp-image-1694" />
+<img src="https://claudioessilva.github.io/img/2019/05/find-dbacommand_export.png" alt="" width="800" height="96" class="aligncenter size-full wp-image-1694" />
 
 This command give to us a nice `Synopsis` text that help to find which command is the one we want. From the output we can see that we have (as of v0.9.824) 5 commands tagged as Export.
 
@@ -50,7 +50,7 @@ Get-Help Export-DbaScript -Detailed
 <h3>Example using our "MyTable" object</h3>
 
 Here is how `MyTable` looks like:
-<img src="https://claudioessilva.github.io/img//2019/05/mytable_treedefinition.png" alt="" width="291" height="236" class="aligncenter size-full wp-image-1695" />
+<img src="https://claudioessilva.github.io/img/2019/05/mytable_treedefinition.png" alt="" width="291" height="236" class="aligncenter size-full wp-image-1695" />
 
 <ul>
 <li>3 Columns</li>
@@ -64,7 +64,7 @@ Get-DbaDbTable -SqlInstance SQL1 -Database DB1 -Table MyTable | Export-DbaScript
 
 Note: I'm using `-PassThru` parameter to output the script to the console, by default it will create a SQL file.
 
-<img src="https://claudioessilva.github.io/img//2019/05/export-dbascript_defaultoutput.png" alt="" width="800" height="133" class="aligncenter size-full wp-image-1696" />
+<img src="https://claudioessilva.github.io/img/2019/05/export-dbascript_defaultoutput.png" alt="" width="800" height="133" class="aligncenter size-full wp-image-1696" />
 
 The output of this execution is even more incomplete when comparing with SSMS. Here, we dont even get the default constraint scripted.
 
@@ -79,7 +79,7 @@ $options | Get-Member
 ```
 
 Use `Get-Member` so you can see what properties the object offers.
-<img src="https://claudioessilva.github.io/img//2019/05/scriptingoptions_get-member.png" alt="" width="727" height="771" class="aligncenter size-full wp-image-1697" />
+<img src="https://claudioessilva.github.io/img/2019/05/scriptingoptions_get-member.png" alt="" width="727" height="771" class="aligncenter size-full wp-image-1697" />
 
 Here we start seeing what we need.
 
@@ -90,7 +90,7 @@ $options.NonClusteredIndexes
 $options.DriDefaults
 ```
 
-<img src="https://claudioessilva.github.io/img//2019/05/nci_dridefaults_defaultvalue.png" alt="" width="261" height="53" class="aligncenter size-full wp-image-1698" />
+<img src="https://claudioessilva.github.io/img/2019/05/nci_dridefaults_defaultvalue.png" alt="" width="261" height="53" class="aligncenter size-full wp-image-1698" />
 
 `False`! That explains why they are "missing" from our default `Export-DbaScript` output.
 
@@ -105,7 +105,7 @@ $options.DriDefaults = $true
 Get-DbaDbTable -SqlInstance SQL1 -Database DB1 -Table MyTable | Export-DbaScript -Passthru -ScriptingOptionsObject $options
 ```
 
-<img src="https://claudioessilva.github.io/img//2019/05/export-dbascript_diffoptionsoutput.png" alt="" width="800" height="252" class="aligncenter size-full wp-image-1699" />
+<img src="https://claudioessilva.github.io/img/2019/05/export-dbascript_diffoptionsoutput.png" alt="" width="800" height="252" class="aligncenter size-full wp-image-1699" />
 
 Nice! Now we can see all the stuff.
 

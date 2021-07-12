@@ -34,7 +34,7 @@ You can run the following code to get the parameter description:
 ``` powershell
 Get-Help Set-DbcConfig -Parameter temporary
 ```
-<a href="https://claudioessilva.github.io/img//2018/03/temporaryparameter_helpdescription.png"><img src="https://claudioessilva.github.io/img//2018/03/temporaryparameter_helpdescription.png?w=656" alt="" width="656" height="174" class="aligncenter size-large wp-image-1351" /></a>
+<a href="https://claudioessilva.github.io/img/2018/03/temporaryparameter_helpdescription.png"><img src="https://claudioessilva.github.io/img/2018/03/temporaryparameter_helpdescription.png?w=656" alt="" width="656" height="174" class="aligncenter size-large wp-image-1351" /></a>
 
 Here is a demonstration:
 https://youtu.be/bVm4yVE5vrk
@@ -53,7 +53,7 @@ If you run
 Get-Help Import-DbcConfig -Detailed
 ```
 you can see the `-Temporary` is also available in this command.
-<a href="https://claudioessilva.github.io/img//2018/04/gethelp_importdbcconfig_temporaryparameter.png"><img src="https://claudioessilva.github.io/img//2018/04/gethelp_importdbcconfig_temporaryparameter.png?w=656" alt="" width="656" height="375" class="aligncenter size-large wp-image-1356" /></a>
+<a href="https://claudioessilva.github.io/img/2018/04/gethelp_importdbcconfig_temporaryparameter.png"><img src="https://claudioessilva.github.io/img/2018/04/gethelp_importdbcconfig_temporaryparameter.png?w=656" alt="" width="656" height="375" class="aligncenter size-large wp-image-1356" /></a>
 
 Hope this bring some new ideas like making your single, ad-hoc, one-time tests easier to configure!"
 I have an idea that I will share on my next post about dbachecks!

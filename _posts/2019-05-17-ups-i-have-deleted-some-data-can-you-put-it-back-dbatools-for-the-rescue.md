@@ -23,7 +23,7 @@ To search for commands within <a href="https://dbatools.io">dbatools</a> we can 
 Find-DbaCommand -Pattern Copy*Table*Data
 ```
 
-<img class="aligncenter size-full wp-image-1677" src="https://claudioessilva.github.io/img//2019/05/find-dbacommand.png" alt="" width="640" height="97">
+<img class="aligncenter size-full wp-image-1677" src="https://claudioessilva.github.io/img/2019/05/find-dbacommand.png" alt="" width="640" height="97">
 
 Note: As you can see, we can use wildcards to do the search when using `-Pattern` parameter.
 
@@ -36,7 +36,7 @@ Don't forget to use `Get-Help` cmdlet to find the available parameters and get s
 Get-Help Copy-DbaDbTableData -Detailed
 ```
 
-<img class="aligncenter size-full wp-image-1679" src="https://claudioessilva.github.io/img//2019/05/get-help_detailed.png" alt="" width="800" height="578">
+<img class="aligncenter size-full wp-image-1679" src="https://claudioessilva.github.io/img/2019/05/get-help_detailed.png" alt="" width="800" height="578">
 
 <h2>Let's try the command and copy the data</h2>
 

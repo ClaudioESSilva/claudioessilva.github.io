@@ -14,7 +14,7 @@ Other options, we know they exist but because the default value it’s ok (so fa
 <h2>The oddity</h2>
 
 Few days ago I was talking with a friend that show me some "odd behavior" when working with dates on SQL Server.
-<img src="https://claudioessilva.github.io/img//2018/09/oddity_ouput.png" alt="" width="656" height="186" class="aligncenter size-full wp-image-1544" />
+<img src="https://claudioessilva.github.io/img/2018/09/oddity_ouput.png" alt="" width="656" height="186" class="aligncenter size-full wp-image-1544" />
 
 <h3>Are you mad?! Is this SQL Server bugged?</h3>
 
@@ -47,7 +47,7 @@ Or it stands for 2000 and the `DATEPART` function is returning the wrong value?
 <h3>Both are returning the correct value! Say hello to "Two Digit Year Cutoff" configuration</h3>
 
 You can find it on the advanced tab in the Server Proprieties:
-<img src="https://claudioessilva.github.io/img//2018/09/ssms_twodigityearcutoff.png" alt="" width="656" height="594" class="aligncenter size-full wp-image-1547" />
+<img src="https://claudioessilva.github.io/img/2018/09/ssms_twodigityearcutoff.png" alt="" width="656" height="594" class="aligncenter size-full wp-image-1547" />
 Or by running the <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-configure-transact-sql">sp_configure</a> command:
 ``` sql
 EXEC sp_configure 'show advanced options', 1;
@@ -57,14 +57,14 @@ GO
 EXEC sp_configure 'two digit year cutoff';
 GO
 ```
-<img src="https://claudioessilva.github.io/img//2018/09/sp_configure_twodigityearcutoff.png" alt="" width="656" height="252" class="aligncenter size-full wp-image-1546" />
+<img src="https://claudioessilva.github.io/img/2018/09/sp_configure_twodigityearcutoff.png" alt="" width="656" height="252" class="aligncenter size-full wp-image-1546" />
 
 Or even using <a href="https://dbatools.io">dbatools</a> PowerShell module:
 ``` powershell
 Get-DbaSpConfigure -SqlInstance sql2016 -ConfigName 'TwoDigitYearCutoff'
 ```
 Output:
-<img src="https://claudioessilva.github.io/img//2018/09/dbatools_twodigityearcutoff1.png" alt="" width="655" height="243" class="aligncenter size-full wp-image-1565" />
+<img src="https://claudioessilva.github.io/img/2018/09/dbatools_twodigityearcutoff1.png" alt="" width="655" height="243" class="aligncenter size-full wp-image-1565" />
 
 That's right! <a href="https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-two-digit-year-cutoff-server-configuration-option?view=sql-server-2017">This option</a> is the one that makes the last column value being translated to 2000 and not 1900.
 
@@ -97,7 +97,7 @@ SELECT dt, DATEPART(YEAR, dt), DATEPART(YEAR, '01-Jan-00 12:00:00 AM +00:00')
 ```
 
 Output:
-<img src="https://claudioessilva.github.io/img//2018/09/changesetting_checkdifferences.png" alt="" width="656" height="513" class="aligncenter size-full wp-image-1550" />
+<img src="https://claudioessilva.github.io/img/2018/09/changesetting_checkdifferences.png" alt="" width="656" height="513" class="aligncenter size-full wp-image-1550" />
 
 Remember, this only happens when you use a literal string.
 
@@ -106,7 +106,7 @@ To set a new value using dbatools:
 Set-DbaSpConfigure -SqlInstance sql2016 -ConfigName 'TwoDigitYearCutoff' -Value 1999
 ```
 Output:
-<img src="https://claudioessilva.github.io/img//2018/09/dbatools_set_twodigityearcutoff1.png" alt="" width="656" height="132" class="aligncenter size-full wp-image-1566" />
+<img src="https://claudioessilva.github.io/img/2018/09/dbatools_set_twodigityearcutoff1.png" alt="" width="656" height="132" class="aligncenter size-full wp-image-1566" />
 
 <h3>What about the returning value?</h3>
 

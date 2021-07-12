@@ -6,7 +6,7 @@ author: claudiosilva
 comments: true
 tags: [SQLServer, syndicated, triggers, TSQL2sDay]
 ---
-<a href="https://voiceofthedba.com/2018/09/03/t-sql-tuesday-106-trigger-headaches-or-happiness//"><img src="https://claudioessilva.github.io/img//2017/09/tsql2sday.jpg" alt="https://voiceofthedba.com/2018/09/03/t-sql-tuesday-106-trigger-headaches-or-happiness/" width="244" height="244" class="aligncenter size-full wp-image-599" /></a>
+<a href="https://voiceofthedba.com/2018/09/03/t-sql-tuesday-106-trigger-headaches-or-happiness//"><img src="https://claudioessilva.github.io/img/2017/09/tsql2sday.jpg" alt="https://voiceofthedba.com/2018/09/03/t-sql-tuesday-106-trigger-headaches-or-happiness/" width="244" height="244" class="aligncenter size-full wp-image-599" /></a>
 
 This month’s T-SQL Tuesday is brought by Steve Jones (<a href="https://voiceofthedba.com">b</a> \| <a href="https://twitter.com/way0utwest">t</a>) and he wants to know if triggers causes headaches or happiness to us.
 

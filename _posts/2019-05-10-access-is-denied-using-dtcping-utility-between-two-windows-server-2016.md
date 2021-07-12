@@ -6,7 +6,7 @@ author: claudiosilva
 comments: true
 tags: [Access is denied, Cluster, Documentation, Firewall, MSDTC, RPC, Rules, SQLServer, syndicated, Windows Server 2016, WSFC]
 ---
-<img src="https://claudioessilva.github.io/img//2019/05/featureimage_smaller-1.png" alt="" width="800" height="297" class="aligncenter size-full wp-image-1666" />
+<img src="https://claudioessilva.github.io/img/2019/05/featureimage_smaller-1.png" alt="" width="800" height="297" class="aligncenter size-full wp-image-1666" />
 
 Few days ago a client requested the configuration of MSDTC (Microsoft Distributed Transaction Coordinator).
 

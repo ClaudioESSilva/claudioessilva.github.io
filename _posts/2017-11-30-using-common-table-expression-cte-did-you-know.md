@@ -36,7 +36,7 @@ SELECT Col1
 Sorry to disappoint you but it will run the CTE's code twice and return the value(s) from each execution.
 As we are using the function NEWID(), two different values will be generated.
 
-<img class="alignnone size-full wp-image-1127" src="https://claudioessilva.github.io/img//2017/11/output1.png" alt="output.png" width="381" height="371" />
+<img class="alignnone size-full wp-image-1127" src="https://claudioessilva.github.io/img/2017/11/output1.png" alt="output.png" width="381" height="371" />
 
 To complete the question: "Did you know that CTE's code will be executed as many times as you use it?"
 

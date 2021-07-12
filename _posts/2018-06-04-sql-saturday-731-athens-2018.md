@@ -6,7 +6,7 @@ author: claudiosilva
 comments: true
 tags: [Conferences, PowerShell, ReportingServicesTools, Speaking, SQLServer, syndicated]
 ---
-<img src="https://claudioessilva.github.io/img//2018/06/sqlsat731_bigger.png" alt="" width="600" height="150" class="aligncenter" />
+<img src="https://claudioessilva.github.io/img/2018/06/sqlsat731_bigger.png" alt="" width="600" height="150" class="aligncenter" />
 In less than two weeks (on 16th June) it's time for <a href="http://www.sqlsaturday.com/731/EventHome.aspx">SQL Saturday Athens</a> and I'm proud to announce that I will be speaking!
 
 This will be my first SQL Saturday ever both as speaker and attendee outside Portugal so I'm especially thrilled and excited to be part of it!

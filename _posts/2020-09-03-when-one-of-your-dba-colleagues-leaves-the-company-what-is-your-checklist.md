@@ -44,7 +44,7 @@ We found a job that stopped running on the 'View History' of the job we could se
 
 <blockquote>'EXECUTE AS LOGIN' failed for the requested login 'domain\username'.  The step failed.</blockquote>
 
-<img src="https://claudioessilva.github.io/img//2020/09/sqlserveragent_job_errormessage-1.png" alt="" width="501" height="485" class="aligncenter size-full wp-image-2411" />
+<img src="https://claudioessilva.github.io/img/2020/09/sqlserveragent_job_errormessage-1.png" alt="" width="501" height="485" class="aligncenter size-full wp-image-2411" />
 
 Note: What else can we learn from this? Whenever possible use a non-user dedicated account (service account is OK) for these processes. This will make it much easier to keep everything working. However, you need to be sure that the ownership of that account is transferred to a new person, otherwise, this request can be deleted and everything fails anyways.
 
@@ -85,7 +85,7 @@ Find-DbaUserObject -SqlInstance 'myInstance' -Pattern 'u_ssc'
 ```
 This will find all objects where the login contains 'u_ssc' word. This means if you have a Windows Login and a SQL Server Login with 'u_ssc' on the name, it will get results for both.
 
-<img src="https://claudioessilva.github.io/img//2020/09/find-dbauserobject-1.png?w=656" alt="" width="656" height="278" class="aligncenter size-large wp-image-2415" />
+<img src="https://claudioessilva.github.io/img/2020/09/find-dbauserobject-1.png" alt="" width="656" height="278" class="aligncenter size-large wp-image-2415" />
 In this example you can see that this login owns not only our job that has been falling but also a database.
 
 <h4>Multiple instances</h4>

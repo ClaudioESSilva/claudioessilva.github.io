@@ -143,7 +143,7 @@ SELECT
 ```
 
 Let's say I have a `Customers` table with 3 columns `ID, NAME, COMPANY_NAME` the output will be:
-<a href="https://claudioessilva.github.io/img//2018/08/output_triggers.png"><img src="https://claudioessilva.github.io/img//2018/08/output_triggers.png" alt="" width="656" height="36" class="aligncenter size-full wp-image-1516" /></a>
+<a href="https://claudioessilva.github.io/img/2018/08/output_triggers.png"><img src="https://claudioessilva.github.io/img/2018/08/output_triggers.png" alt="" width="656" height="36" class="aligncenter size-full wp-image-1516" /></a>
 
 Example of the full string for the INSTEAD OF INSERT trigger:
 ```

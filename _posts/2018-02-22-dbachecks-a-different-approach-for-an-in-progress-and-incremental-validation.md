@@ -60,7 +60,7 @@ Invoke-DbcCheck -SqlInstance $sqlInstances -Checks $_ -PassThru -Show Fails | Up
 
 This will output:
 
-<a href="https://claudioessilva.github.io/img//2018/02/quickerrefresh_11.png"><img class="aligncenter size-full wp-image-1280" src="https://claudioessilva.github.io/img//2018/02/quickerrefresh_11.png" alt="" width="503" height="323"></a>
+<a href="https://claudioessilva.github.io/img/2018/02/quickerrefresh_11.png"><img class="aligncenter size-full wp-image-1280" src="https://claudioessilva.github.io/img/2018/02/quickerrefresh_11.png" alt="" width="503" height="323"></a>
 
 <h2>Total number of files</h2>
 

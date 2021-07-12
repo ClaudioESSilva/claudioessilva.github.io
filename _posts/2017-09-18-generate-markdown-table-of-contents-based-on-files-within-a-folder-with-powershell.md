@@ -50,7 +50,7 @@ UPDATE: Thanks to Jaap Brasser (<a href="http://www.jaapbrasser.com">b</a> \| <a
 https://gist.github.com/ClaudioESSilva/12b1d90b64031cb0283bc36180439ede
 
 Running this code pointing to my "NewProject" folder
-<img class="aligncenter size-full wp-image-777" src="https://claudioessilva.github.io/img//2017/09/folderstructure.png" alt="" width="549" height="133" />
+<img class="aligncenter size-full wp-image-777" src="https://claudioessilva.github.io/img/2017/09/folderstructure.png" alt="" width="549" height="133" />
 
 I will get this output (This have fake links but just to show the output format)
 

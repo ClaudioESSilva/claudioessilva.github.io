@@ -96,7 +96,7 @@ Using the `SendUsingAccount` property I tried to set the email address that I wa
 <h3>Using `Get-Member` to know more</h3>
 
 I took a closer look and using the `Get-Member` I was able to be sure what data type this property accepts.
-<img src="https://claudioessilva.github.io/img//2020/02/sendingusingaccount_datatype.png" alt="" width="515" height="156" class="aligncenter size-full wp-image-1908" />
+<img src="https://claudioessilva.github.io/img/2020/02/sendingusingaccount_datatype.png" alt="" width="515" height="156" class="aligncenter size-full wp-image-1908" />
 
 As we can see it expects an object of type `Account`.
 

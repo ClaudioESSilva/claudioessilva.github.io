@@ -6,7 +6,7 @@ author: claudiosilva
 comments: true
 tags: [BestPractices, dbatools, Pester, PowerShell, SQLServer, syndicated, Tests, Unit Test]
 ---
-<a href="https://sqldbawithabeard.com/2017/09/05/tsql2sday-94-lets-get-all-posh/"><img class="size-full wp-image-599 alignleft" src="https://claudioessilva.github.io/img//2017/09/tsql2sday.jpg" alt="" width="244" height="244" /></a>This month’s T-SQL Tuesday is brought to us by my good friend Rob Sewell (<a href="https://sqldbawithabeard.com" target="_blank" rel="noopener">b</a> \| <a href="https://twitter.com/sqldbawithbeard" target="_blank" rel="noopener">t</a>). Together “Let’s get all Posh – What are you going to automate today?”
+<a href="https://sqldbawithabeard.com/2017/09/05/tsql2sday-94-lets-get-all-posh/"><img class="size-full wp-image-599 alignleft" src="https://claudioessilva.github.io/img/2017/09/tsql2sday.jpg" alt="" width="244" height="244" /></a>This month’s T-SQL Tuesday is brought to us by my good friend Rob Sewell (<a href="https://sqldbawithabeard.com" target="_blank" rel="noopener">b</a> \| <a href="https://twitter.com/sqldbawithbeard" target="_blank" rel="noopener">t</a>). Together “Let’s get all Posh – What are you going to automate today?”
 
 I have written some blog posts on how I use PowerShell to automate mundane tasks or some other more complex scenarios like:  <a href="http://redglue.org/find-and-fix-sql-server-databases-with-empty-owner-property-using-dbatools-powershell-module/" target="_blank" rel="noopener">Find and fix SQL Server databases with empty owner property using dbatools PowerShell module</a> or <a href="http://redglue.org/have-you-backed-up-your-sql-logins-today/" target="_blank" rel="noopener">Have you backed up your SQL Logins today?</a>  or even using ReportingServicesTools module for deploy reports - <a href="http://redglue.org/ssrs-report-deployment-made-easy-700-times-faster/" target="_blank" rel="noopener">SSRS Report Deployment Made Easy – 700 times Faster</a>.
 
@@ -49,14 +49,14 @@ Get-DbaDatabase -SqlServer sql2016 | Format-Table
 
 This returns the following information from all existing databases on this SQL2016 instance.
 
-<a href="https://claudioessilva.github.io/img//2017/09/get-dbadatabase_sql2016_ft.png"><img class="aligncenter size-large wp-image-579" src="https://claudioessilva.github.io/img//2017/09/get-dbadatabase_sql2016_ft.png?w=656" alt="" width="656" height="284" /></a>
+<a href="https://claudioessilva.github.io/img/2017/09/get-dbadatabase_sql2016_ft.png"><img class="aligncenter size-large wp-image-579" src="https://claudioessilva.github.io/img/2017/09/get-dbadatabase_sql2016_ft.png?w=656" alt="" width="656" height="284" /></a>
 <h4>Too little information</h4>
 That's true, when we look to it, it brings not enough information. I can't even get the "PageVerify" and "AutoShrink" properties that I want. But that is because we, by default, only output a bunch of properties and this doesn't mean that the others are not there.
 
 To confirm this we can run the same code without the " | Format-Table" that is useful to output the information in a table format but depending on the size of your window it can show more or less columns.
 By running the command without the "format-table" we can see the following (just showing the first 3 databases):
 
-<a href="https://claudioessilva.github.io/img//2017/09/get-dbadatabase_sql2016_without_ft2.png"><img class="aligncenter size-full wp-image-582" src="https://claudioessilva.github.io/img//2017/09/get-dbadatabase_sql2016_without_ft2.png" alt="" width="617" height="607" /></a>
+<a href="https://claudioessilva.github.io/img/2017/09/get-dbadatabase_sql2016_without_ft2.png"><img class="aligncenter size-full wp-image-582" src="https://claudioessilva.github.io/img/2017/09/get-dbadatabase_sql2016_without_ft2.png" alt="" width="617" height="607" /></a>
 
 Now, we can see more properties available look to the ones inside the red rectangle.
 <h4>I continue not to see the ones I want</h4>
@@ -84,7 +84,7 @@ $databases | Get-Member -Name *auto*
 
 Which will output something like this:
 
-<a href="https://claudioessilva.github.io/img//2017/09/databases_gm_whereauto.png"><img class="aligncenter size-large wp-image-583" src="https://claudioessilva.github.io/img//2017/09/databases_gm_whereauto.png?w=656" alt="" width="656" height="164"></a>
+<a href="https://claudioessilva.github.io/img/2017/09/databases_gm_whereauto.png"><img class="aligncenter size-large wp-image-583" src="https://claudioessilva.github.io/img/2017/09/databases_gm_whereauto.png?w=656" alt="" width="656" height="164"></a>
 
 So, we have found our "AutoShrink" property. With this in mind, lets query all the properties we want.
 ``` powershell
@@ -93,7 +93,7 @@ $databases | Select-Object SqlInstance, Name, AutoShrink, PageVerify
 
 And here we have the result:
 
-<a href="https://claudioessilva.github.io/img//2017/09/databases_data.png"><img class="aligncenter size-large wp-image-584" src="https://claudioessilva.github.io/img//2017/09/databases_data.png?w=656" alt="" width="656" height="351" /></a>
+<a href="https://claudioessilva.github.io/img/2017/09/databases_data.png"><img class="aligncenter size-large wp-image-584" src="https://claudioessilva.github.io/img/2017/09/databases_data.png?w=656" alt="" width="656" height="351" /></a>
 <h3>Scaling for multiple instances</h3>
 This is where the fun begins.
 We can pass multiple instance names and the command will go through all of them and output a single object with the data.
@@ -105,7 +105,7 @@ $databases | Select-Object SqlInstance, Name, AutoShrink, PageVerify
 
 Which outputs:
 
-<a href="https://claudioessilva.github.io/img//2017/09/get-dbadatabase_sql2016_sql20121.png"><img class="aligncenter size-large wp-image-592" src="https://claudioessilva.github.io/img//2017/09/get-dbadatabase_sql2016_sql20121.png?w=656" alt="" width="656" height="471" /></a>
+<a href="https://claudioessilva.github.io/img/2017/09/get-dbadatabase_sql2016_sql20121.png"><img class="aligncenter size-large wp-image-592" src="https://claudioessilva.github.io/img/2017/09/get-dbadatabase_sql2016_sql20121.png?w=656" alt="" width="656" height="471" /></a>
 
 As you can see I have passed two different instances sql2016 (in red) and sql2012 (in green) and the output brought both information.
 <h3>Using Out-GridView to filter results</h3>
@@ -116,11 +116,11 @@ For the next example, I have misconfigurated two databases so we can find them a
 $databases | Select-Object SqlInstance, Name, AutoShrink, PageVerify | Out-GridView
 ```
 
-<a href="https://claudioessilva.github.io/img//2017/09/databases_data_ogv.png"><img class="aligncenter size-large wp-image-586" src="https://claudioessilva.github.io/img//2017/09/databases_data_ogv.png?w=656" alt="" width="656" height="613" /></a>
+<a href="https://claudioessilva.github.io/img/2017/09/databases_data_ogv.png"><img class="aligncenter size-large wp-image-586" src="https://claudioessilva.github.io/img/2017/09/databases_data_ogv.png?w=656" alt="" width="656" height="613" /></a>
 
 As you can see, inside red rectangles we have two not optimal configurations regarding the SQL Server best practices. You can also see the green rectangle on the top left corner where you can type text and the results will be filter as you type. So if you type "true" you will end just with one record.
 
-<a href="https://claudioessilva.github.io/img//2017/09/databases_data_ogv_filter.png"><img class="aligncenter size-large wp-image-587" src="https://claudioessilva.github.io/img//2017/09/databases_data_ogv_filter.png?w=656" alt="" width="656" height="164" /></a>
+<a href="https://claudioessilva.github.io/img/2017/09/databases_data_ogv_filter.png"><img class="aligncenter size-large wp-image-587" src="https://claudioessilva.github.io/img/2017/09/databases_data_ogv_filter.png?w=656" alt="" width="656" height="164" /></a>
 <h3>Checking the MaxMemory configuration</h3>
 Now, that you have seen how to do it for one command, you can start exploring the other ones. As I said in the beginning of this post we will also check the MaxMemory setting for each instance. We will use the <a href="https://dbatools.io/functions/get-dbamaxmemory/" target="_blank" rel="noopener">Get-DbaMaxMemory</a>. From the help page we can see the description that says:
 <blockquote>This command retrieves the SQL Server ‘Max Server Memory’ configuration setting as well as the total physical installed on the server.</blockquote>
@@ -130,7 +130,7 @@ Let's run it through our two instances:
 Get-DbaMaxMemory -SqlInstance sql2012, sql2016
 ```
 
-<a href="https://claudioessilva.github.io/img//2017/09/get-dbamaxmemory_2instances.png"><img class="aligncenter size-full wp-image-588" src="https://claudioessilva.github.io/img//2017/09/get-dbamaxmemory_2instances.png" alt="" width="497" height="176" /></a>
+<a href="https://claudioessilva.github.io/img/2017/09/get-dbamaxmemory_2instances.png"><img class="aligncenter size-full wp-image-588" src="https://claudioessilva.github.io/img/2017/09/get-dbamaxmemory_2instances.png" alt="" width="497" height="176" /></a>
 
 We can see that SQL2012 instance is running on a host with 6144MB of total memory but its MaxMemory setting is set to 3072MB and also, SQL2016 instance has 4608MB configured form the 18423MB existing on the host.
 <h2>Final thought on this fast introduction to dbatools PowerShell module</h2>
@@ -143,7 +143,7 @@ Example, if you want to know which commands we have that works with "memory" you
 Find-DbaCommand -Pattern memory
 ```
 
-<a href="https://claudioessilva.github.io/img//2017/09/find-dbacommand.png"><img class="aligncenter size-large wp-image-590" src="https://claudioessilva.github.io/img//2017/09/find-dbacommand.png?w=656" alt="" width="656" height="140" /></a>
+<a href="https://claudioessilva.github.io/img/2017/09/find-dbacommand.png"><img class="aligncenter size-large wp-image-590" src="https://claudioessilva.github.io/img/2017/09/find-dbacommand.png?w=656" alt="" width="656" height="140" /></a>
 <h2>Automating even more</h2>
 Using the dbatools module we could verify if the best practice is in place or not. But we had to run the command and then verify the values by filtering and looking for each row.
 
@@ -159,13 +159,13 @@ As quick example - if we run the following code:
 
 We are checking if the login returned by the `whoami` is base\claudio.
 
-<a href="https://claudioessilva.github.io/img//2017/09/pester_whoami_ok.png"><img class="aligncenter size-full wp-image-594" src="https://claudioessilva.github.io/img//2017/09/pester_whoami_ok.png" alt="" width="481" height="196" /></a>
+<a href="https://claudioessilva.github.io/img/2017/09/pester_whoami_ok.png"><img class="aligncenter size-full wp-image-594" src="https://claudioessilva.github.io/img/2017/09/pester_whoami_ok.png" alt="" width="481" height="196" /></a>
 
 This return green which means it's ok!
 
 If is not ok (because I'm testing to "base\claudio.silva"), will retrieve something like this:
 
-<a href="https://claudioessilva.github.io/img//2017/09/pester_whoami_nok.png"><img class="aligncenter size-large wp-image-595" src="https://claudioessilva.github.io/img//2017/09/pester_whoami_nok.png?w=656" alt="" width="656" height="197" /></a>
+<a href="https://claudioessilva.github.io/img/2017/09/pester_whoami_nok.png"><img class="aligncenter size-large wp-image-595" src="https://claudioessilva.github.io/img/2017/09/pester_whoami_nok.png?w=656" alt="" width="656" height="197" /></a>
 <h3>Quick walkthrough on Pester syntax</h3>
 As you can see, to do a test we need a:
 <ul>
@@ -224,7 +224,7 @@ To run this tests we should save a file with the ".Tests.ps1" ending name. Let's
 Invoke-Pester .\SQLServerBestPractices.Tests.ps1
 ```
 
-<a href="https://claudioessilva.github.io/img//2017/09/pester_tests_with_fails.png"><img class="aligncenter size-large wp-image-596" src="https://claudioessilva.github.io/img//2017/09/pester_tests_with_fails.png?w=656" alt="" width="656" height="754" /></a>
+<a href="https://claudioessilva.github.io/img/2017/09/pester_tests_with_fails.png"><img class="aligncenter size-large wp-image-596" src="https://claudioessilva.github.io/img/2017/09/pester_tests_with_fails.png?w=656" alt="" width="656" height="754" /></a>
 <h3>To much noise - can't find the failed tests easily</h3>
 You are right, showing all the greens make us lose the possible red ones. But Pester has an option to show just the failed tests.
 
@@ -232,11 +232,11 @@ You are right, showing all the greens make us lose the possible red ones. But Pe
 Invoke-Pester .\SQLServerBestPractices.Tests.ps1 -Show Failed
 ```
 
-<a href="https://claudioessilva.github.io/img//2017/09/pester_tests_with_show_failed_only.png"><img class="aligncenter size-large wp-image-597" src="https://claudioessilva.github.io/img//2017/09/pester_tests_with_show_failed_only.png?w=656" alt="" width="656" height="199" /></a>
+<a href="https://claudioessilva.github.io/img/2017/09/pester_tests_with_show_failed_only.png"><img class="aligncenter size-large wp-image-597" src="https://claudioessilva.github.io/img/2017/09/pester_tests_with_show_failed_only.png?w=656" alt="" width="656" height="199" /></a>
 
 But, be aware that `-Show Fails` can be a better solution, specially when you are working with multiple Tests.ps1 files.
 
-<img style="max-width:100%;" src="https://claudioessilva.github.io/img//2017/09/pester_tests_with_fails_summary_value.png" />
+<img style="max-width:100%;" src="https://claudioessilva.github.io/img/2017/09/pester_tests_with_fails_summary_value.png" />
 
 This way you can see where your error come from.
 <h3>Reading and fixing the errors</h3>

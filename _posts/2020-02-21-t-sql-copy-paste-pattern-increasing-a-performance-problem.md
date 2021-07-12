@@ -63,7 +63,7 @@ EXEC sp_WhoIsActive @get_plans = 1
 <br>
 I have copied the XML that contains the sqlplan to <a href="http://sentryone.com/plan-explorer" rel="noopener" target="_blank">SentryOne Plan Explorer</a> and this was what I saw
 
-<img src="https://claudioessilva.github.io/img//2020/02/executionplanpattern-1.jpg" alt="" width="460" height="513" class="aligncenter size-full wp-image-1938" />
+<img src="https://claudioessilva.github.io/img/2020/02/executionplanpattern-1.jpg" alt="" width="460" height="513" class="aligncenter size-full wp-image-1938" />
 
 Within the red circle we can see a concatenation operator (first one on top left) which will get the result of each EXISTS sub query (8 in total).
 
@@ -117,13 +117,13 @@ SELECT column1
 This way we will just hit the `table3` once instead of one time per `OR EXISTS()`.
 
 The actual plan seems to have a much better shape:
-<img src="https://claudioessilva.github.io/img//2020/02/afterchangesingleorexists.png" alt="" width="592" height="217" class="aligncenter size-full wp-image-1947" />
+<img src="https://claudioessilva.github.io/img/2020/02/afterchangesingleorexists.png" alt="" width="592" height="217" class="aligncenter size-full wp-image-1947" />
 
 A different approach would be a single `IN ()` condition with all variables comma separated. However, I preferred this way as it's easy to show to the developement team the differences between now and before.
 
 In fact, when we use the `IN` operator the optimizer will expand it to various `OR` conditions. Example:
 
-<img src="https://claudioessilva.github.io/img//2020/02/predicateexpandstoors.png" alt="" width="497" height="635" class="aligncenter size-full wp-image-1934" />
+<img src="https://claudioessilva.github.io/img/2020/02/predicateexpandstoors.png" alt="" width="497" height="635" class="aligncenter size-full wp-image-1934" />
 
 <h3>Result</h3>
 

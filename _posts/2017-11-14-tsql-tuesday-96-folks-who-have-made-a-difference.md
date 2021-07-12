@@ -6,7 +6,7 @@ author: claudiosilva
 comments: true
 tags: [Career, community, share, SQLFamily, SQLServer, TSQL2sDay]
 ---
-<a href="https://sqlonice.com/tsql-tuesday-96-three-people-who-made-a-difference/" target="_blank" rel="noopener"><img class=" size-full wp-image-599 aligncenter" src="https://claudioessilva.github.io/img//2017/09/tsql2sday.jpg" alt="tsql2sday" width="244" height="244" /></a>This month’s T-SQL Tuesday is brought to us by Ewald Cress‏ (<a href="https://sqlonice.com/">blog</a> | <a href="https://twitter.com/sqlonice">twitter</a>) and is all about "folks who have made a difference" in our careers.
+<a href="https://sqlonice.com/tsql-tuesday-96-three-people-who-made-a-difference/" target="_blank" rel="noopener"><img class=" size-full wp-image-599 aligncenter" src="https://claudioessilva.github.io/img/2017/09/tsql2sday.jpg" alt="tsql2sday" width="244" height="244" /></a>This month’s T-SQL Tuesday is brought to us by Ewald Cress‏ (<a href="https://sqlonice.com/">blog</a> | <a href="https://twitter.com/sqlonice">twitter</a>) and is all about "folks who have made a difference" in our careers.
 
 Thank you, Ewald! This is a great topic!
 

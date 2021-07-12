@@ -7,7 +7,7 @@ comments: true
 tags: [DidYouKnow..., PowerShell, shortcuts, syndicated, tips &amp; tricks, TSQL2sDay]
 ---
 This month’s (#127) T-SQL Tuesday is brought by <a href="https://sqlstudies.com/2020/06/02/tsql-tuesday-127-invite-non-sql-tips-and-tricks/">Kenneth Fisher</a> (<a href="https://sqlstudies.com/">B</a> \| <a href="https://twitter.com/sqlstudent144">T</a>) and he asked about Non SQL Tips and tricks.
-<img src="https://claudioessilva.github.io/img//2017/09/tsql2sday.jpg" alt="https://sqlstudies.com/2020/06/02/tsql-tuesday-127-invite-non-sql-tips-and-tricks/" width="244" height="244" class="aligncenter size-full wp-image-599" />
+<img src="https://claudioessilva.github.io/img/2017/09/tsql2sday.jpg" alt="https://sqlstudies.com/2020/06/02/tsql-tuesday-127-invite-non-sql-tips-and-tricks/" width="244" height="244" class="aligncenter size-full wp-image-599" />
 
 As a Windows user I know there are lots of shortcuts and small hacks, that I love, which make my life much easier!
 Here is my small contribution:
@@ -25,7 +25,7 @@ Here is my small contribution:
 <h3>Open "Add or Remove programs"</h3>
 
 A way to open the "Add or Remove programs" menu quicker, you can `SHIFT + DEL` on the shortcut (example: Docker Desktop) on desktop and the prompt popup will have there a link to this option.
-<img src="https://claudioessilva.github.io/img//2020/06/addremoveprogramshortcut.png" alt="" width="490" height="312" class="aligncenter size-full wp-image-2166" />
+<img src="https://claudioessilva.github.io/img/2020/06/addremoveprogramshortcut.png" alt="" width="490" height="312" class="aligncenter size-full wp-image-2166" />
 
 <h4>The ones I use without thinking</h4>
 

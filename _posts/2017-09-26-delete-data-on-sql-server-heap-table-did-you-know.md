@@ -16,7 +16,7 @@ The message that you will see on the SQL Server Error log is:
 
 I didn't know the database structure or what is saved there, so I picked up a script from my toolbelt that shreds all indexes from all table. Just some information like number of rows and space that it is occupying. I have sorted by occupying space in descending order, look what I found...
 
-<a href="https://claudioessilva.github.io/img//2017/09/zero_rows_with_occupying_space.png"><img src="https://claudioessilva.github.io/img//2017/09/zero_rows_with_occupying_space.png" alt="" width="392" height="39" class="aligncenter size-full wp-image-812" /></a>
+<a href="https://claudioessilva.github.io/img/2017/09/zero_rows_with_occupying_space.png"><img src="https://claudioessilva.github.io/img/2017/09/zero_rows_with_occupying_space.png" alt="" width="392" height="39" class="aligncenter size-full wp-image-812" /></a>
 
 So...my script has a bug? :-) No, it hasn't!
 
@@ -34,9 +34,9 @@ Until now, everything seems normal, it is just a table with unordered data.
 
 Not because of table name (was created on propose for this demo), let me show to you the whole row of the script:
 
-<a href="https://claudioessilva.github.io/img//2017/09/heap_empty_occupyingspace_1.png"><img src="https://claudioessilva.github.io/img//2017/09/heap_empty_occupyingspace_1.png?w=656" alt="" width="656" height="33" class="aligncenter size-large wp-image-815" /></a>
+<a href="https://claudioessilva.github.io/img/2017/09/heap_empty_occupyingspace_1.png"><img src="https://claudioessilva.github.io/img/2017/09/heap_empty_occupyingspace_1.png?w=656" alt="" width="656" height="33" class="aligncenter size-large wp-image-815" /></a>
 
-<a href="https://claudioessilva.github.io/img//2017/09/heap_empty_occupyingspace_2.png"><img src="https://claudioessilva.github.io/img//2017/09/heap_empty_occupyingspace_2.png?w=656" alt="" width="656" height="32" class="aligncenter size-large wp-image-816" /></a>
+<a href="https://claudioessilva.github.io/img/2017/09/heap_empty_occupyingspace_2.png"><img src="https://claudioessilva.github.io/img/2017/09/heap_empty_occupyingspace_2.png?w=656" alt="" width="656" height="32" class="aligncenter size-large wp-image-816" /></a>
 
 Do you have a clue? Yup, `index_id = 0`. That means that our table does not have a clustered index defined and therefore it is an HEAP.
 
@@ -75,7 +75,7 @@ ALTER TABLE dbo.Heap REBUILD
 
 This way, the table will release the empty pages and you will recovery the space to use on other objects in the database.
 
-<a href="https://claudioessilva.github.io/img//2017/09/heap_after_rebuild.png"><img src="https://claudioessilva.github.io/img//2017/09/heap_after_rebuild.png" alt="" width="314" height="36" class="aligncenter size-full wp-image-818" /></a>
+<a href="https://claudioessilva.github.io/img/2017/09/heap_after_rebuild.png"><img src="https://claudioessilva.github.io/img/2017/09/heap_after_rebuild.png" alt="" width="314" height="36" class="aligncenter size-full wp-image-818" /></a>
 
 <h2>Wrap up</h2>
 

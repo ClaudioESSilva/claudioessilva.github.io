@@ -32,7 +32,7 @@ In  my case the votes goes to '1 or more T-SQL scripts'. At the time it wasn't t
 <h2>The life with dbatools - a better life</h2>
 
 In dbatools (v1.0.111) we have 20 Export-Dba* commands.
-<img src="https://claudioessilva.github.io/img//2020/05/dbatools-export-commands.png" alt="" width="791" height="371" class="aligncenter size-full wp-image-2049" />
+<img src="https://claudioessilva.github.io/img/2020/05/dbatools-export-commands.png" alt="" width="791" height="371" class="aligncenter size-full wp-image-2049" />
 
 Two of them are related with the login and user permissions.
 `Export-DbaLogin` and `Export-DbaUser` (Rob Sewell (<a href="https://twitter.com/sqldbawithbeard">T</a>) wrote about this last one on his blog post <a href="https://sqldbawithabeard.com/2017/04/10/export-sql-user-permissions-to-t-sql-script-using-powershell-and-dbatools/">Export SQL User Permissions to T-SQL script using PowerShell and dbatools</a> back in 2017.

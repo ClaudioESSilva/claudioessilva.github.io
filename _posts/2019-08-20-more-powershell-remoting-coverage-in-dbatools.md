@@ -15,9 +15,9 @@ Commands like `Get-DbaComputerCertificate`, `Get-DbaPrivilege`, `Get-DbaClientAl
 <h2>"Why have you changed it?"</h2>
 
 Let me give you a little bit of background...
-At my company, I found that some dbatools commands were not working. They were returning errors related with WinRM configurations, as seen here when attempting to create a new session using `New-PSSession`:<img class="aligncenter size-large wp-image-1824" src="https://claudioessilva.github.io/img//2019/08/new-pssession_error.png?w=800" alt="" width="800" height="153">
+At my company, I found that some dbatools commands were not working. They were returning errors related with WinRM configurations, as seen here when attempting to create a new session using `New-PSSession`:<img class="aligncenter size-large wp-image-1824" src="https://claudioessilva.github.io/img/2019/08/new-pssession_error.png?w=800" alt="" width="800" height="153">
 
-Or even trying to use the `Invoke-Command` directly<img class="aligncenter size-large wp-image-1823" src="https://claudioessilva.github.io/img//2019/08/invoke-command_error.png?w=800" alt="" width="800" height="107">
+Or even trying to use the `Invoke-Command` directly<img class="aligncenter size-large wp-image-1823" src="https://claudioessilva.github.io/img/2019/08/invoke-command_error.png?w=800" alt="" width="800" height="107">
 
 I wondered why and asked the Windows team if they could provide any insight. A colleague explained to me that I needed to change three things to make my remoting commands work on our network:
 
@@ -27,7 +27,7 @@ I wondered why and asked the Windows team if they could provide any insight. A c
 <li>Use `-IncludePortInSPN` parameter for the `New-PsSessionOption` command</li>
 </ol>
 
-And <em>voilà</em> with these settings in place it worked like a charm!<img class="aligncenter size-large wp-image-1767" src="https://claudioessilva.github.io/img//2019/08/psremoting_working.png?w=800" alt="" width="800" height="164">
+And <em>voilà</em> with these settings in place it worked like a charm!<img class="aligncenter size-large wp-image-1767" src="https://claudioessilva.github.io/img/2019/08/psremoting_working.png?w=800" alt="" width="800" height="164">
 
 NOTE: Currently, in my environment if I respect the points 1 and 2 it's ok. However, by reading the documentation about `-IncludePortInSPN` I understand why it may be needed.
 
@@ -51,7 +51,7 @@ If you are asking which values, I encourage you to use the `Get-DbaToolsConfig` 
 Back to our scenario...
 We have added two new configs, `PSRemoting.PsSessionOption.IncludePortInSPN` and `PSRemoting.PsSession.UseSSL` in the <a href="https://github.com/sqlcollaborative/dbatools/blob/development/internal/configurations/settings/remoting.ps1">remoting.ps1</a> file available in the configuration folder. This configurations are loaded when you import the module. If, you have any setting registered (using `Register-DbatoolsConfig`) nothing will be overwritten. In this case, your current registered values are preserved and will be used in your current session.
 
-Within `Invoke-Command2` we have changed the code to use this variable with the configured values.<img class="aligncenter size-large wp-image-1768" src="https://claudioessilva.github.io/img//2019/08/psremoting_addedcode.png?w=800" alt="" width="800" height="260">
+Within `Invoke-Command2` we have changed the code to use this variable with the configured values.<img class="aligncenter size-large wp-image-1768" src="https://claudioessilva.github.io/img/2019/08/psremoting_addedcode.png?w=800" alt="" width="800" height="260">
 
 Now we can import our module and test the changes. But first we need to set these new configurations to the desired values. In my scenario, set both values to `$true`
 ``` powershell
@@ -61,7 +61,7 @@ Set-DbaToolsConfig -Name 'psremoting.pssessionoption.includeportinspn' -Value $t
 Then we can use a dbatools command that previous was failing and check that now, it works!
 ``` powershell
 Get-DbaComputerCertificate -ComputerName "hostname.domain"
-```<img class="aligncenter size-large wp-image-1771" src="https://claudioessilva.github.io/img//2019/08/get-dbacomputercertificate_working.png?w=800" alt="" width="800" height="140">
+```<img class="aligncenter size-large wp-image-1771" src="https://claudioessilva.github.io/img/2019/08/get-dbacomputercertificate_working.png?w=800" alt="" width="800" height="140">
 
 This way I can set the configuration value to what value I want and next time I execute the command, it will make use of it!
 Note: remember these settings are on a user scope basis. Which means that if you have a service account running dbatools commands, you will want to add the `Set-DbatoolsConfig` code at the beginning of your scripts to make sure that it will use the settings with the values that you need.
@@ -78,7 +78,7 @@ As said before, in my case it works. (No picture here :-))</p></li>
 
 <blockquote>WARNING: [HH:mm:ss][Get-DbaComputerCertificate] Issue connecting to computer | Connecting to remote server "ComputerName" failed with the following error message : The client cannot connect to the destination specified in the request. Verify that the service on the destination is running and is accepting requests. Consult the logs and documentation for the WS-Management service running on the destination, most commonly IIS or WinRM. If the destination is the WinRM service, run the following command on the destination to analyze and configure the WinRM service: "winrm quickconfig". For more information, see the about_Remote_Troubleshooting Help topic.</blockquote>
 
-<p><img class="aligncenter size-large wp-image-1779" src="https://claudioessilva.github.io/img//2019/08/test_failing_nosettings.png?w=800" alt="" width="800" height="81">
+<p><img class="aligncenter size-large wp-image-1779" src="https://claudioessilva.github.io/img/2019/08/test_failing_nosettings.png?w=800" alt="" width="800" height="81">
 
 <ul>
 <li>Just setting `-IncludePortInSPN` to `$true` and with or without FQDN</li>
@@ -86,7 +86,7 @@ As said before, in my case it works. (No picture here :-))</p></li>
 
 <blockquote>WARNING: [HH:mm:ss][Get-DbaComputerCertificate] Issue connecting to computer | Connecting to remote server "ComputerName" failed with the following error message : WinRM cannot process the request. The following error occurred while using Kerberos authentication: Cannot find the computer "ComputerName". Verify that the computer exists on the network and that the name provided is spelled correctly. For more information, see the about_Remote_Troubleshooting Help topic.</blockquote>
 
-<img class="aligncenter size-large wp-image-1774" src="https://claudioessilva.github.io/img//2019/08/test_failing_includeportinspn.png?w=800" alt="" width="800" height="71">
+<img class="aligncenter size-large wp-image-1774" src="https://claudioessilva.github.io/img/2019/08/test_failing_includeportinspn.png?w=800" alt="" width="800" height="71">
 
 <ul>
 <li>Using both but with no FQDN</li>
@@ -95,7 +95,7 @@ As said before, in my case it works. (No picture here :-))</p></li>
 <blockquote>WARNING: [HH:mm:ss][Get-DbaComputerCertificate] Issue connecting to computer | Connecting to remote server "ComputerName" failed with the following error message : The server certificate on the destination computer ("ComputerName":5986) has the following errors:
 The SSL certificate contains a common name (CN) that does not match the hostname. For more information, see the about_Remote_Troubleshooting Help topic.</blockquote>
 
-<img class="aligncenter size-large wp-image-1773" src="https://claudioessilva.github.io/img//2019/08/test_failing_bothtrue_notfqdn.png?w=800" alt="" width="800" height="70">
+<img class="aligncenter size-large wp-image-1773" src="https://claudioessilva.github.io/img/2019/08/test_failing_bothtrue_notfqdn.png?w=800" alt="" width="800" height="70">
 
 After I set these two values using the `Set-DbatoolsConfig` and using the FQDN it worked perfectly!
 

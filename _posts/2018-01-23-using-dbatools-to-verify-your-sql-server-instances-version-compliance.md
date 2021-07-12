@@ -38,7 +38,7 @@ The most straight example is when you want to check if the instance is running t
 Test-DbaSqlBuild -SqlInstance &lt;instance&gt; -Latest
 ```
 
-<a href="https://claudioessilva.github.io/img//2018/01/latestexample.png"><img src="https://claudioessilva.github.io/img//2018/01/latestexample.png?w=656" alt="" width="656" height="231" class="aligncenter size-large wp-image-1185" /></a>
+<a href="https://claudioessilva.github.io/img/2018/01/latestexample.png"><img src="https://claudioessilva.github.io/img/2018/01/latestexample.png?w=656" alt="" width="656" height="231" class="aligncenter size-large wp-image-1185" /></a>
 
 In this example, I'm testing an instance that I have patched with SQL Server 2012 to SP4 but after that, the new security fix for Meltdown/Spectre was released, that is why the Compliant property shows `False`, it is not on the Latest existing build.
 Note: If you just want to check for the latest SP and CU (leaving out the security patches) you need to use `-MaxBehind "0CU"`
@@ -50,7 +50,7 @@ Test-DbaSqlBuild -SqlInstance &lt;instance&gt; -MaxBehind &quot;1CU&quot;
 ```
 
 The output:
-<a href="https://claudioessilva.github.io/img//2018/01/online_maxbehind_1cu.png"><img src="https://claudioessilva.github.io/img//2018/01/online_maxbehind_1cu.png?w=656" alt="" width="656" height="234" class="aligncenter size-large wp-image-1173" /></a>
+<a href="https://claudioessilva.github.io/img/2018/01/online_maxbehind_1cu.png"><img src="https://claudioessilva.github.io/img/2018/01/online_maxbehind_1cu.png?w=656" alt="" width="656" height="234" class="aligncenter size-large wp-image-1173" /></a>
 
 In this example, you can see that this instance is not compliant. Why? Because it is running the SQL Server 2016 SP1 CU5 but we asked for a max behind of 1 CU and that is the SP1 CU6 (because at the moment I'm writing this text, the most recent version is SP1 CU7).
 
@@ -86,12 +86,12 @@ $SQLServersBuilds | ForEach-Object {
 
 For this example, I will query my `dbo.Instances` table and get the `serverName` and `productVersion` columns.
 This is how it looks when running the select statement on SSMS:
-<a href="https://claudioessilva.github.io/img//2018/01/sqloutput_servername_productversion.png"><img src="https://claudioessilva.github.io/img//2018/01/sqloutput_servername_productversion.png" alt="" width="229" height="212" class="aligncenter size-full wp-image-1174" /></a>
+<a href="https://claudioessilva.github.io/img/2018/01/sqloutput_servername_productversion.png"><img src="https://claudioessilva.github.io/img/2018/01/sqloutput_servername_productversion.png" alt="" width="229" height="212" class="aligncenter size-full wp-image-1174" /></a>
 You can pick that data and pass it to the `Test-DbaSqlBuild` command to know if it is compliant or not.
 
 Then for each result, we will format the `productVersion` value to use just a 3 part value (it is how we catalog on dbatools build reference file) and pass it to the `Test-DbaSqlBuild` command.
 In this example, I'm piping the output to `Out-GridView` so I can filter my results and add a filter for `compliant equals false`
-<a href="https://claudioessilva.github.io/img//2018/01/centraldatabase_ogv.png"><img src="https://claudioessilva.github.io/img//2018/01/centraldatabase_ogv.png?w=656" alt="" width="656" height="159" class="aligncenter size-large wp-image-1172" /></a>.
+<a href="https://claudioessilva.github.io/img/2018/01/centraldatabase_ogv.png"><img src="https://claudioessilva.github.io/img/2018/01/centraldatabase_ogv.png?w=656" alt="" width="656" height="159" class="aligncenter size-large wp-image-1172" /></a>.
 <br>
 
 <h4>Doing ad-hoc testing</h4>
@@ -103,7 +103,7 @@ Imagine that you know that your SQL server instance is running build "13.0.4001"
 Test-DbaSqlBuild -Build &quot;13.0.4001&quot; -MaxBehind &quot;0CU&quot;
 ```
 
-<a href="https://claudioessilva.github.io/img//2018/01/test_buildmaxbehind0cu.png"><img src="https://claudioessilva.github.io/img//2018/01/test_buildmaxbehind0cu.png" alt="" width="616" height="234" class="aligncenter size-full wp-image-1175" /></a>
+<a href="https://claudioessilva.github.io/img/2018/01/test_buildmaxbehind0cu.png"><img src="https://claudioessilva.github.io/img/2018/01/test_buildmaxbehind0cu.png" alt="" width="616" height="234" class="aligncenter size-full wp-image-1175" /></a>
 
 From this output we know that the most recent version is SP1 CU7 and we asked for latest SP1 (without CU), this means we <strong>are not</strong> `Compliant`
 
