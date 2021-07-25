@@ -77,10 +77,10 @@ AS
                  WHERE Inserted.ID IS NULL
             )
               BEGIN
-                    INSERT INTO dbo.Customers (ID, &lt;other columns&gt;
+                    INSERT INTO dbo.Customers (ID, <other columns>
                     SELECT
                            NEXT VALUE FOR dbo.gen_Customers_id
-                         , &lt;other columns&gt;
+                         , <other columns>
                     FROM INSERTED;
              END
     END;
@@ -100,11 +100,11 @@ I wrote a piece of T-SQL (not pretty but it works) that creates, for each table,
 SELECT
       A.TABLE_NAME
     , '''(FOR )(\b' + A.TABLE_NAME
-      + '\b)((.|\r\n){1,})(\bACTIVE BEFORE INSERT POSITION 0\b)(\r\n)(AS)(\r\n)(BEGIN)(\r\n)((.|\n){1,})(gen_id\()(\w{1,})((.|\r\n)*?)(?=end;)(.*)'' = ";ON `$2`$3INSTEAD OF INSERT`$3`$7`$8`$9`$10`$11`$12 `$3INSERT INTO `$2 ( '
-      + A.ColumnList + ' ) `$3SELECT NEXT VALUE FOR dbo.`$14, ' + A.ColumnList + ' FROM INSERTED `$3 --`$13`$14`$15`$16`$17";'
+      + '\b)((.|\r\n){1,})(\bACTIVE BEFORE INSERT POSITION 0\b)(\r\n)(AS)(\r\n)(BEGIN)(\r\n)((.|\n){1,})(gen_id\()(\w{1,})((.|\r\n)*?)(?=end;)(.*)'' = "ON `$2`$3INSTEAD OF INSERT`$3`$7`$8`$9`$10`$11`$12 `$3INSERT INTO `$2 ( '
+      + A.ColumnList + ' ) `$3SELECT NEXT VALUE FOR dbo.`$14, ' + A.ColumnList + ' FROM INSERTED `$3 --`$13`$14`$15`$16`$17"'
     , '''(FOR )(\b' + A.TABLE_NAME
-      + '\b)((.|\r\n){1,})(\bACTIVE BEFORE UPDATE POSITION 0\b)(\r\n)(AS)(\r\n)(BEGIN)(\r\n)((.|\r\n){1,})((.|\r\n)*?)(?=end;)(.*)'' = ";ON `$2`$3INSTEAD OF UPDATE`$3`$7`$8`$9 `$3UPDATE `$2 `$3SET '
-      + A.ColumnListUpdate + ', `$10`$11 FROM INSERTED `$3 `$15";'
+      + '\b)((.|\r\n){1,})(\bACTIVE BEFORE UPDATE POSITION 0\b)(\r\n)(AS)(\r\n)(BEGIN)(\r\n)((.|\r\n){1,})((.|\r\n)*?)(?=end;)(.*)'' = "ON `$2`$3INSTEAD OF UPDATE`$3`$7`$8`$9 `$3UPDATE `$2 `$3SET '
+      + A.ColumnListUpdate + ', `$10`$11 FROM INSERTED `$3 `$15"'
   FROM
       (
           SELECT DISTINCT
@@ -147,7 +147,7 @@ Let's say I have a `Customers` table with 3 columns `ID, NAME, COMPANY_NAME` the
 
 Example of the full string for the INSTEAD OF INSERT trigger:
 ```
-'(FOR )(\bCustomers\b)((.|\r\n){1,})(\bACTIVE BEFORE INSERT POSITION 0\b)(\r\n)(AS)(\r\n)(BEGIN)(\r\n)((.|\n){1,})(gen_id\()(\w{1,})((.|\r\n)*?)(?=end;)(.*)' = ";ON `$2`$3INSTEAD OF INSERT`$3`$7`$8`$9`$10`$11`$12 `$3INSERT INTO `$2 (  ID, NAME, COMPANY_NAME ) `$3SELECT NEXT VALUE FOR dbo.`$14,  ID, NAME, COMPANY_NAME FROM INSERTED `$3 --`$13`$14`$15`$16`$17";`
+'(FOR )(\bCustomers\b)((.|\r\n){1,})(\bACTIVE BEFORE INSERT POSITION 0\b)(\r\n)(AS)(\r\n)(BEGIN)(\r\n)((.|\n){1,})(gen_id\()(\w{1,})((.|\r\n)*?)(?=end;)(.*)' = "ON `$2`$3INSTEAD OF INSERT`$3`$7`$8`$9`$10`$11`$12 `$3INSERT INTO `$2 (  ID, NAME, COMPANY_NAME ) `$3SELECT NEXT VALUE FOR dbo.`$14,  ID, NAME, COMPANY_NAME FROM INSERTED `$3 --`$13`$14`$15`$16`$17"`
 ```
 
 This way I can just copy/paste the result to my hashtable and run the PowerShell function on my triggers' files.
@@ -164,7 +164,7 @@ I applied the same recipe on scripts with user-defined data types (UDDT). I pick
 
 ``` sql
 SELECT
-       '''\b' + T2.name + '\b'' = ";' + T1.name + CASE
+       '''\b' + T2.name + '\b'' = "' + T1.name + CASE
                                                      WHEN T2.system_type_id IN (231, 239) THEN '(' + CASE
                                                                                                          WHEN T2.max_length = -1 THEN 'MAX'
                                                                                                          ELSE CAST(T2.max_length / 2 AS VARCHAR(10))
@@ -174,11 +174,11 @@ SELECT
                                                                                                          ELSE CAST(T2.max_length AS VARCHAR(10))
                                                                                                      END + ')'
                                                      ELSE ''
-                                                 END + '";'
+                                                 END + '"'
   FROM sys.types AS T1
        INNER JOIN sys.types AS T2
           ON T1.user_type_id = T2.system_type_id
- WHERE T2.user_type_id &gt; 256;
+ WHERE T2.user_type_id > 256;
 ```
 
 <h5>Practical example:</h5>

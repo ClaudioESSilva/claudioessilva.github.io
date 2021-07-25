@@ -121,11 +121,11 @@ This means that with a little bit more code we will be able to accomplish our re
 Note: This is an modified version (to meet my needs) of the original script that I have borrowed from Andy Levy's (<a href="https://flxsql.com">b</a> \| <a href="https://twitter.com/ALevyInROC">t</a>) blog post <a href="https://flxsql.com/copying-individual-tables-with-dbatools/">Copying Individual Tables with dbatools</a>. Andy is also a dbatools contributor.
 
 ``` powershell
-$SourceServer = ";SQL1";;
-$DestinationServer = ";SQL2";
-$SourceDB = ";srcDB";;
-$DestinationDB = ";dstDB";;
-$tables = ";Table1";, 'Table2', ";Table3";;
+$SourceServer = "SQL1";
+$DestinationServer = "SQL2"
+$SourceDB = "srcDB";
+$DestinationDB = "dstDB";
+$tables = "Table1", 'Table2', "Table3";
 
 $options = New-DbaScriptingOption
 
@@ -147,14 +147,14 @@ $tables | ForEach-Object {
         Invoke-DbaQuery -Query $tableScript -SqlInstance $DestinationServer -Database $DestinationDB;
         }
         else {
-            Write-Warning ";Table $_ already exists in detination database. Will continue and copy the data.";
+            Write-Warning "Table $_ already exists in detination database. Will continue and copy the data."
         }
 
         # Copy the data
         Copy-DbaDbTableData -SqlInstance $SourceServer -Database $SourceDB -Destination $DestinationServer -DestinationDatabase $DestinationDB -KeepIdentity -Truncate -Table $_ -DestinationTable $_;
     }
     else {
-        Write-Warning ";Table $_ does not exists in source database.";
+        Write-Warning "Table $_ does not exists in source database."
     }
 }
 ```

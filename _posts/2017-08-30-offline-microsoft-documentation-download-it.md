@@ -38,7 +38,7 @@ I did not know until my colleague called my attention to it few days ago.
 <p style="text-align:justify;">With this script, you can download all files for a specific topic. You can find and download the script <a href="https://github.com/ClaudioESSilva/SQLServer-PowerShell/blob/master/Download%20MS%20Documentation/Get-MSDocs.ps1" target="_blank" rel="noopener">Get-MSDocs</a> from my GitHub repository, just change the variables and run it.</p>
 
 <h3>Let's see an example</h3>
-<p style="text-align:justify;">You search for 'sys.dm_exec_sessions' DMV and you find the corresponding page from Microsoft documentation -&gt; <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql" target="_blank" rel="noopener">sys.dm_exec_sessions</a></p>
+<p style="text-align:justify;">You search for 'sys.dm_exec_sessions' DMV and you find the corresponding page from Microsoft documentation -> <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql" target="_blank" rel="noopener">sys.dm_exec_sessions</a></p>
 <p style="text-align:justify;">The image below shows where you find the topic (highlighted in yellow) that you need to setup on the `$topic` variable on the script.</p>
 ![maintopic](/img/2017/08/maintopic.png)
 <p style="text-align:justify;">By setting the variable `$topic = "relational-databases"` this script will download all PDF files for that main topic. I have accomplished that by understanding the <a href="https://github.com/MicrosoftDocs/sql-docs/tree/live/docs/relational-databases" target="_blank" rel="noopener">sql-docs GitHub repository</a> nomenclature.</p>

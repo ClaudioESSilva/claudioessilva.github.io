@@ -36,11 +36,11 @@ Invoke-Command -ScriptBlock { Get-Service *sql* } -ComputerName $DestinationComp
 <p style="text-align:justify;">First, I add the destination computer to my TrustedHosts. We can do this in two ways:</p>
 <p style="text-align:justify;">Using Set-Item PowerShell cmdlet</p>
 ``` powershell
-Set-Item WSMan:\localhost\Client\TrustedHosts ";10.10.10.1";
+Set-Item WSMan:\localhost\Client\TrustedHosts "10.10.10.1"
 ```
 <p style="text-align:justify;">Or using `winrm` executable:</p>
 ``` powershell
-winrm s winrm/config/client '@{TrustedHosts=";10.10.10.1";}'
+winrm s winrm/config/client '@{TrustedHosts="10.10.10.1"}'
 ```
 <p style="text-align:justify;">Note: You can use "*" (asterisk) to say all remote hosts are trusted. Or just a segment of IPs like "10.10.10.*".</p>
 <p style="text-align:justify;">But, there is another requirement like the error message says "...and explicit credentials are provided.". This means that we need to add, and in this case I really want to use, a different credential so I have modified the script to:</p>

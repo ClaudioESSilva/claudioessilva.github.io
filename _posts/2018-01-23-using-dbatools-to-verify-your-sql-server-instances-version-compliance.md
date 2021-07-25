@@ -35,7 +35,7 @@ To run the command, we need at least two parameters. The `-SqlInstance` or `-Bui
 
 The most straight example is when you want to check if the instance is running the latest build (it can be a security update even if not labelled as CU). To do that you just need to run:
 ``` powershell
-Test-DbaSqlBuild -SqlInstance &lt;instance&gt; -Latest
+Test-DbaSqlBuild -SqlInstance <instance> -Latest
 ```
 
 <a href="https://claudioessilva.github.io/img/2018/01/latestexample.png"><img src="https://claudioessilva.github.io/img/2018/01/latestexample.png?w=656" alt="" width="656" height="231" class="aligncenter size-large wp-image-1185" /></a>
@@ -46,7 +46,7 @@ Note: If you just want to check for the latest SP and CU (leaving out the securi
 Now, let's say that you want to confirm that a specific instance is no more than 1 CU behind.
 It's easy as:
 ``` powershell
-Test-DbaSqlBuild -SqlInstance &lt;instance&gt; -MaxBehind ";1CU";
+Test-DbaSqlBuild -SqlInstance <instance> -MaxBehind "1CU"
 ```
 
 The output:
@@ -59,8 +59,8 @@ Keep in mind that for `-MaxBehind` you can also specify the number of service pa
 Now, you can use multiple instances and verify them all like:
 
 ``` powershell
-$SQLInstances = ";SQL1";, ";SQL2";, ";SQL3";
-Test-DbaSqlBuild -SqlInstance $SQLInstances -MaxBehind ";1SP";
+$SQLInstances = "SQL1", "SQL2", "SQL3"
+Test-DbaSqlBuild -SqlInstance $SQLInstances -MaxBehind "1SP"
 ```
 
 <h2>Other (real and useful) scenarios</h2>
@@ -73,14 +73,14 @@ Let's say you have a central database where you keep some of the information abo
 
 One code example:
 ``` powershell
-$Instance = ";&lt;instance&gt;";
-$Database = ";&lt;centralDatabase&gt;";
-$InstancesTable = ";dbo.Instances";
-$SQLServersBuilds = Invoke-DbaSqlcmd -ServerInstance $Instance -Database $Database -Query ";SELECT serverName, productVersion FROM $InstancesTable";
+$Instance = "<instance>"
+$Database = "<centralDatabase>"
+$InstancesTable = "dbo.Instances"
+$SQLServersBuilds = Invoke-DbaSqlcmd -ServerInstance $Instance -Database $Database -Query "SELECT serverName, productVersion FROM $InstancesTable"
 $SQLServersBuilds | ForEach-Object {
     $build = $_.ProductVersion.SubString(0, $_.ProductVersion.LastIndexOf('.'))
     $serverName = $_.ServerName
-    Test-DbaSqlBuild -Build $build -MaxBehind ";1CU"; | Select-Object @{Name=";ServerName";;Expression={$serverName}}, *
+    Test-DbaSqlBuild -Build $build -MaxBehind "1CU" | Select-Object @{Name="ServerName";Expression={$serverName}}, *
 } | Out-GridView
 ```
 
@@ -100,7 +100,7 @@ The other example I would like to share is using the `-Build` parameter.
 Imagine that you know that your SQL server instance is running build "13.0.4001" corresponding to SQL Server 2016 SP1, and you want to know if it is too far behind compared with the last available CU update. If we run the following command we will know it:
 
 ``` powershell
-Test-DbaSqlBuild -Build ";13.0.4001"; -MaxBehind ";0CU";
+Test-DbaSqlBuild -Build "13.0.4001" -MaxBehind "0CU"
 ```
 
 <a href="https://claudioessilva.github.io/img/2018/01/test_buildmaxbehind0cu.png"><img src="https://claudioessilva.github.io/img/2018/01/test_buildmaxbehind0cu.png" alt="" width="616" height="234" class="aligncenter size-full wp-image-1175" /></a>

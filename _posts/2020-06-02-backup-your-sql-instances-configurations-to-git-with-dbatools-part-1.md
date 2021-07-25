@@ -34,9 +34,9 @@ I'm using a central database with a table that contains my list of servers.
 I'm using the dbatools' command `Invoke-DbaQuery` to get that list.
 ``` powershell
 # Where we will get the list of servers
-$centralServer = ";centralServer";
-$centralDatabase = ";centralDatabase";
-$query = ";SELECT ConnString FROM &lt;table/view&gt;";
+$centralServer = "centralServer"
+$centralDatabase = "centralDatabase"
+$query = "SELECT ConnString FROM <table/view>"
 
 # Get the list of servers
 $ServerList = Invoke-DbaQuery -SqlInstance $centralServer -Database $centralDatabase -Query $query | Select-Object -ExpandProperty ConnString
@@ -51,7 +51,7 @@ A quick walk-through in case you have never used this command before.
 
 If you have never used this command, you can test for a single instance by running the following:
 ``` powershell
-Export-DbaInstance -SqlInstance ";devInstance"; -Path ";D:\temp";
+Export-DbaInstance -SqlInstance "devInstance" -Path "D:\temp"
 ```
 
 This will create all scripts in the `D:\temp` folder. A folder named "devInstance-{date}" will be created.
@@ -76,7 +76,7 @@ Introducing the `-ExcludePassword` parameter, as mentioned on the documentation 
 
 Just add `-ExcludePassword` like this:
 ``` powershell
-Export-DbaInstance -SqlInstance ";devInstance"; -Path ";D:\temp"; -ExcludePassword
+Export-DbaInstance -SqlInstance "devInstance" -Path "D:\temp" -ExcludePassword
 ```
 
 If you run with this switch and if open the scripts, you will see that for:
@@ -86,10 +86,10 @@ If you run with this switch and if open the scripts, you will see that for:
 <h2>GIT commands I'm using</h2>
 
 Here are the 4 git commands that I'm using:
- - `git pull` -&gt; To make sure I have the most recent version of the repository on my local folder
- - `git add .` -&gt; Will stage all changes for the next commit
- - `git commit -m"some message"` -&gt; Will do the commit of the changes with a specific message
- - `git push` -&gt; Will push the changes to the central repository
+ - `git pull` -> To make sure I have the most recent version of the repository on my local folder
+ - `git add .` -> Will stage all changes for the next commit
+ - `git commit -m"some message"` -> Will do the commit of the changes with a specific message
+ - `git push` -> Will push the changes to the central repository
 
 The first one is run before triggering the `Export-DbaInstance` and the rest only after all the other steps finish.
 
@@ -104,8 +104,8 @@ GIT is great to keep track of the changes that happened on a file. However, for 
 
 After the export command finish and before committing the changes to our GIT repository I run the following command:
 ``` powershell
-# Find .sql files where name starts with an number and rename files to exclude numeric part ";#-&lt;NAME&gt;.sql"; (remove the ";#-";)
-Get-ChildItem -Path $tempPath -Recurse -Filter ";*.sql"; | Where {$_.Name -match '^[0-9]+.*'} | Foreach-Object {Rename-Item -Path $_.FullName -NewName $($_ -split '-')[1] -Force}
+# Find .sql files where name starts with an number and rename files to exclude numeric part "#-<NAME>.sql" (remove the "#-")
+Get-ChildItem -Path $tempPath -Recurse -Filter "*.sql" | Where {$_.Name -match '^[0-9]+.*'} | Foreach-Object {Rename-Item -Path $_.FullName -NewName $($_ -split '-')[1] -Force}
 ```
 
 The `$tempPath` represents my main folder where all the exported folders will be created and within these folders, we will have our scripts (hence the `-Recurse` parameter).
@@ -117,7 +117,7 @@ The `$tempPath` represents my main folder where all the exported folders will be
 
 Using the same logic, we remove the suffix "-date" from the folder's name.
 ``` powershell
-# Remove the suffix ";-datetime";
+# Remove the suffix "-datetime"
 Get-ChildItem -Path $tempPath | Foreach-Object {Rename-Item -Path $_.FullName -NewName $_.Name.Substring(0, $_.Name.LastIndexOf('-')) -Force}
 ```
 In this case, I have decided to use the `Substring` method along with the `LastIndexOf('-')` because the '-' char is a valid character to use as an instance name.
@@ -125,7 +125,7 @@ In this case, I have decided to use the `Substring` method along with the `LastI
 NOTE: We can use the `-split` method anyway but we will need then to join all the occurrences excluding the last one. This way you see two different ways to accomplish the same result.
 ``` powershell
 #Example with '-split' and '-join'
-$folderName = ";SQL-SERVER-01-20200602";
+$folderName = "SQL-SERVER-01-20200602"
 $split = $folderName -split '-'
 $split[0..($split.Count-2)] -join '-'
 ```
@@ -135,7 +135,7 @@ $split[0..($split.Count-2)] -join '-'
 The final PowerShell steps before we commit the changes are, after renaming the folder and its files, move them and overwrite on the repository folder and clean-up our `temp` folder
 ``` powershell
 # Copy the folders/files from the temp directory to one level up (overwrite)
-Copy-Item -Path ";$tempPath\*"; -Destination $instancesPath -Recurse -Force
+Copy-Item -Path "$tempPath\*" -Destination $instancesPath -Recurse -Force
 
 # Clean-up temp folder
 Get-ChildItem $tempPath | Remove-Item -Force -Recurse -Confirm:$false
@@ -154,15 +154,15 @@ Line 31: Use `Get-Help Export-DbaInstance -Parameter Exclude` and decide what yo
 
 ``` powershell
 # Where we will get the list of servers
-$centralServer = ";centralServer";
-$centralDatabase = ";centralDatabase";
-$query = ";SELECT ConnString FROM &lt;table&gt;";
+$centralServer = "centralServer"
+$centralDatabase = "centralDatabase"
+$query = "SELECT ConnString FROM <table>"
 
 # Get the list of servers
 $ServerList = Invoke-DbaQuery -SqlInstance $centralServer -Database $centralDatabase -Query $query | Select-Object -ExpandProperty ConnString
 
-$instancesPath = ";$PSScriptRoot\Instances";
-$tempPath = ";$instancesPath\temp";
+$instancesPath = "$PSScriptRoot\Instances"
+$tempPath = "$instancesPath\temp"
 
 # Change location to be able to run GIT commands on the local repository
 Set-Location -Path $PSScriptRoot
@@ -178,12 +178,12 @@ if (Test-Path -Path $tempPath) {
     $null = New-Item -Path $tempPath -ItemType Directory
 }
 
-&lt;#
-    Databases -&gt; Exclude databases will not script the RESTORE statements for last backup. We don't need this because we use a 3rd party tool and this was slowing down the execution
-    PolicyManagement and ReplicationSettings -&gt; We don't use
-    Credentials and LinkedServers -&gt; We script as a second step to hide passwords (because -ExcludePassword will also hide hashed ones from logins, and this we want to keep)
-#&gt;
-$excludeObjects = ";Databases";, ";PolicyManagement";, ";ReplicationSettings";, ";Credentials";, ";LinkedServers";
+<#
+    Databases -> Exclude databases will not script the RESTORE statements for last backup. We don't need this because we use a 3rd party tool and this was slowing down the execution
+    PolicyManagement and ReplicationSettings -> We don't use
+    Credentials and LinkedServers -> We script as a second step to hide passwords (because -ExcludePassword will also hide hashed ones from logins, and this we want to keep)
+#>
+$excludeObjects = "Databases", "PolicyManagement", "ReplicationSettings", "Credentials", "LinkedServers"
 
 foreach($server in $ServerList) {
     # Run the export and get a collection of files generated
@@ -193,26 +193,26 @@ foreach($server in $ServerList) {
     $instanceOutDir = $outputDirectory.Directory | Select-Object -ExpandProperty FullName -Unique
 
     # Export credentials and LinkedServers but excluding the password. Output to same folder
-    Export-DbaCredential -SqlInstance $server -FilePath ";$instanceOutDir\Credentials.sql"; -ExcludePassword
-    Export-DbaLinkedServer -SqlInstance $server -FilePath ";$instanceOutDir\LinkedServers.sql"; -ExcludePassword
+    Export-DbaCredential -SqlInstance $server -FilePath "$instanceOutDir\Credentials.sql" -ExcludePassword
+    Export-DbaLinkedServer -SqlInstance $server -FilePath "$instanceOutDir\LinkedServers.sql" -ExcludePassword
 }
 
 
-# Find .sql files where the name starts with a number and rename files to exclude numeric part ";#-&lt;NAME&gt;.sql"; (remove the ";#-";)
-Get-ChildItem -Path $tempPath -Recurse -Filter ";*.sql"; | Where {$_.Name -match '^[0-9]+.*'} | Foreach-Object {Rename-Item -Path $_.FullName -NewName $($_ -split '-')[1] -Force}
+# Find .sql files where the name starts with a number and rename files to exclude numeric part "#-<NAME>.sql" (remove the "#-")
+Get-ChildItem -Path $tempPath -Recurse -Filter "*.sql" | Where {$_.Name -match '^[0-9]+.*'} | Foreach-Object {Rename-Item -Path $_.FullName -NewName $($_ -split '-')[1] -Force}
 
-# Remove the suffix ";-datetime";
+# Remove the suffix "-datetime"
 Get-ChildItem -Path $tempPath | Foreach-Object {Rename-Item -Path $_.FullName -NewName $_.Name.Substring(0, $_.Name.LastIndexOf('-')) -Force}
 
 # Copy the folders/files from the temp directory to one level up (overwrite)
-Copy-Item -Path ";$tempPath\*"; -Destination $instancesPath -Recurse -Force
+Copy-Item -Path "$tempPath\*" -Destination $instancesPath -Recurse -Force
 
 # Clean-up temp folder
 Get-ChildItem $tempPath | Remove-Item -Force -Recurse -Confirm:$false
 
 # Add/commit/push the changes
 git add .
-git commit -m ";Export-DbaInstance @ $((Get-Date).ToString(";yyyyMMdd-HHmmss";))";
+git commit -m "Export-DbaInstance @ $((Get-Date).ToString("yyyyMMdd-HHmmss"))"
 git push
 ```
 

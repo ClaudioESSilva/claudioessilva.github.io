@@ -85,7 +85,7 @@ AS
 		IF EXISTS (SELECT [name]
 				     FROM msdb.dbo.sysjobs
 					WHERE job_id = @job_id
-					 AND [name] LIKE '&lt;customer prefix&gt;%'
+					 AND [name] LIKE '<customer prefix>%'
 			)
 			BEGIN
 				EXEC msdb.dbo.sp_update_job
@@ -109,7 +109,7 @@ AS
 			END
 		ELSE
 			BEGIN
-				RAISERROR ('The job_id used does not belong to an &lt;customer prefix&gt; job.', 16, 1);
+				RAISERROR ('The job_id used does not belong to an <customer prefix> job.', 16, 1);
 			END
 	END
 GO

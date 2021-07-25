@@ -102,7 +102,7 @@ See this example (click to open on new window):
 
 This dashboard gives to you a glance at how good/bad your environments are. This is done, at first, by the 2 circles with percentages and green/red waves.
 
-On the right side you can find a matrix where you can drill-down from Environment -&gt; Test -&gt; Context. This drill-down can be hierarchical or absolute. To navigate on the levels, select the matrix and use the 3 buttons in the top-left corner of the visual (as shown on the last animation)
+On the right side you can find a matrix where you can drill-down from Environment -> Test -> Context. This drill-down can be hierarchical or absolute. To navigate on the levels, select the matrix and use the 3 buttons in the top-left corner of the visual (as shown on the last animation)
 
 On the bottom, you can find a grid that shows all the failed (and only failed) tests with a descriptive message.
 

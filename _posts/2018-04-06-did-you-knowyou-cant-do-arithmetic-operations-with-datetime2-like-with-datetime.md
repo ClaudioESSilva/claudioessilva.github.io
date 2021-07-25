@@ -22,7 +22,7 @@ In the early days of my T-SQL coding, I used to do this a lot. Also, I still see
 ``` sql
 SELECT OrderId, ClientId, Quantity, OrderDate
 FROM dbo.Orders
-WHERE OrderDate &lt; GETDATE() -1
+WHERE OrderDate < GETDATE() -1
 ```
 
 For this example let’s say that the OrderDate column is a DATETIME2. This works just fine because the GETDATE() function returns a DATETIME value and thus we can subtract one day from it.
@@ -33,7 +33,7 @@ If we define a variable of `DATETIME2` datatype and assign it a `GETDATE()` valu
 DECLARE @vOrderDate DATETIME2 = GETDATE()
 SELECT OrderId, ClientId, Quantity, OrderDate
 FROM dbo.Orders
-WHERE OrderDate &lt; @vOrderDate - 1
+WHERE OrderDate < @vOrderDate - 1
 ```
 
 <blockquote>Msg 206, Level 16, State 2, Line 20
@@ -64,7 +64,7 @@ Whole code looks like:
 DECLARE @vOrderDate DATETIME2 = GETDATE()
 SELECT OrderId, ClientId, Quantity, OrderDate
 FROM dbo.Orders
-WHERE OrderDate &lt; DATEADD(dd, -1, @vOrderDate)
+WHERE OrderDate < DATEADD(dd, -1, @vOrderDate)
 ```
 
 this way, it will work with DATETIME, DATETIME2, DATE, SMALLDATETIME and DATETIMEOFFSET datatypes.

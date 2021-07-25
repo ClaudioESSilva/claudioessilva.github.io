@@ -46,11 +46,11 @@ Back to our specific request of replicating permissions, let's see a couple of o
 This will run through all databases. If you just need to run from a couple of them, add the `-Database` parameter on the `Export-DbaUser`.
 
 ``` powershell
-$sqlInstance = ";&lt;yourInstance&gt;";
-$existingUser = ";&lt;srcUser&gt;";
-$newUser = ";&lt;newUser&gt;";
-$permissionsFile = ";D:\temp\ExistingUserPermissions.sql";
-$permissionsFileNewUser = ";D:\temp\NewUserPermissions.sql";
+$sqlInstance = "<yourInstance>"
+$existingUser = "<srcUser>"
+$newUser = "<newUser>"
+$permissionsFile = "D:\temp\ExistingUserPermissions.sql"
+$permissionsFileNewUser = "D:\temp\NewUserPermissions.sql"
 
 # Because -replace takes a regular expression, we need to escape the '\' when dealing with windows logins
 $existingUserToSearch = $existingUser -replace '\\', '\\'
@@ -67,12 +67,12 @@ And now you can open the new user script, check and execute it on the instance.
 With a couple of small changes we can get it done.
 NOTE: Here I'm assuming the login and user have the same name.
 ``` powershell
-$sqlInstance = ";&lt;yourInstance&gt;";
-$existingLoginUser = ";&lt;srcLoginUser&gt;";
-$newLoginUser = ";&lt;newLoginUser&gt;";
-$permissionsFileLogin = ";D:\temp\ExistingLoginPermissions.sql";
-$permissionsFileUser = ";D:\temp\ExistingUserPermissions.sql";
-$permissionsFileNewLoginUser = ";D:\temp\NewLoginUser.sql";
+$sqlInstance = "<yourInstance>"
+$existingLoginUser = "<srcLoginUser>"
+$newLoginUser = "<newLoginUser>"
+$permissionsFileLogin = "D:\temp\ExistingLoginPermissions.sql"
+$permissionsFileUser = "D:\temp\ExistingUserPermissions.sql"
+$permissionsFileNewLoginUser = "D:\temp\NewLoginUser.sql"
 
 # Because -replace takes a regular expression, we need to escape the '\' when dealing with windows logins
 $existingLoginUserToSearch = $existingLoginUser -replace '\\', '\\'
@@ -98,9 +98,9 @@ The question is "What if you don't want/need to save/keep the SQL file on the fi
 
 Using again the example with database level permissions
 ``` powershell
-$sqlInstance = ";&lt;yourInstance&gt;";
-$existingUser = ";&lt;srcUser&gt;";
-$newUser = ";&lt;newUser&gt;";
+$sqlInstance = "<yourInstance>"
+$existingUser = "<srcUser>"
+$newUser = "<newUser>"
 
 $ExportedUser = Export-DbaUser -SqlInstance $sqlInstance -User $existingUser -PassThru
 
@@ -143,7 +143,7 @@ $script = Get-Content $permissionsFileNewLoginUser -Raw
 # Or if it's from the variable that's in memory
 #$script = $NewUserPermissions
 
-$sqlInst.Databases[";master";].ExecuteNonQuery($script)
+$sqlInst.Databases["master"].ExecuteNonQuery($script)
 ```
 
 <h2>Final note:</h2>

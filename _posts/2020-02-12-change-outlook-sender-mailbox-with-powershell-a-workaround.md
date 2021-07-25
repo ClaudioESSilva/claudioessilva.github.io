@@ -30,7 +30,7 @@ $Outlook = New-Object -ComObject Outlook.Application
 We need to get the MAPI namespace and logon on the default profile (or existing session)
 ``` powershell
 #Get the MAPI namespace.
-$namespace = $Outlook.GetNameSpace(";MAPI";)
+$namespace = $Outlook.GetNameSpace("MAPI")
 
 # Log on by using the default profile or existing session (no dialog box).
 $namespace.Logon($null, $null, $false, $true);
@@ -63,7 +63,7 @@ $Mail.Subject = $EmailSubject
 To sign and/or encrypt the email we need to set like this:
 ``` powershell
 #Sign and Encrypt email
-$Mail.PropertyAccessor.SetProperty(";http://schemas.microsoft.com/mapi/proptag/0x6E010003";, 0x03)
+$Mail.PropertyAccessor.SetProperty("http://schemas.microsoft.com/mapi/proptag/0x6E010003", 0x03)
 ```
 The possible values are:
 
@@ -130,14 +130,14 @@ function Invoke-SetProperty {
         [String] $Property,
         $Value
     )
-    [Void] $Object.GetType().InvokeMember($Property,";SetProperty";,$NULL,$Object,$Value)
+    [Void] $Object.GetType().InvokeMember($Property,"SetProperty",$NULL,$Object,$Value)
 }
 ```
 
 I have put this code as an internal function. So, inside our code we can call it like this:
 ``` powershell
 #Change Sender mailbox
-Invoke-SetProperty -Object $mail -Property ";SendUsingAccount"; -Value $account
+Invoke-SetProperty -Object $mail -Property "SendUsingAccount" -Value $account
 ```
 
 And finally, it worked!

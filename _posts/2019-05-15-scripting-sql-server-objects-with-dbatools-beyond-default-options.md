@@ -116,16 +116,16 @@ Do you need to export it to run on a lower SQL Server version? Change the `Targe
 
 ``` powershell
 #Will script the code like SQL Server 2014
-$options.TargetServerVersion = ";Version120";
+$options.TargetServerVersion = "Version120"
 ```
 
 You want to include the "IF NOT EXISTS" statement? Change the "IncludeIfNotExists" option.
 
 Here is an example to script out a list of tables (add more to the `$TableName` variable):
 ``` powershell
-$SourceServer = ";SQL1";;
-$SourceDB = ";DB1";;
-$TableName = ";MyTable";, 'YourTable';
+$SourceServer = "SQL1";
+$SourceDB = "DB1";
+$TableName = "MyTable", 'YourTable';
 
 $options = New-DbaScriptingOption
 

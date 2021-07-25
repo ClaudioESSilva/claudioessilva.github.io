@@ -26,7 +26,7 @@ Using the <a href="https://dbatools.io" target="_blank" rel="noopener">dbatools<
 By running the following two lines of code, I updated my `sp_WhoIsActive` to the latest version (we always download the newest one) on my 123 instances in less than one minute (to be precise, in 51,717 seconds).
 
 ``` powershell
-$SQLServers = Invoke-DbaQuery -SqlInstance ";CentralServerName"; -Query ";SELECT InstanceConnection FROM CentralDB.dbo.Instances"; | Select-Object -ExpandProperty InstanceConnection
+$SQLServers = Invoke-DbaQuery -SqlInstance "CentralServerName" -Query "SELECT InstanceConnection FROM CentralDB.dbo.Instances" | Select-Object -ExpandProperty InstanceConnection
 Install-DbaWhoIsActive -SqlInstance $SQLServers -Database master
 ```
 

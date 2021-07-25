@@ -20,8 +20,8 @@ For the propose of this blog, we will check:
 <ul>
  	<li>if our databases (from all instances) have the following configurations:
 <ul>
- 	<li>PageVerify -&gt; Checksum</li>
- 	<li>AutoShrink -&gt; False</li>
+ 	<li>PageVerify -> Checksum</li>
+ 	<li>AutoShrink -> False</li>
 </ul>
 </li>
  	<li>if each SQL Server instance:
@@ -185,16 +185,16 @@ $SQLServers = @('sql2012', 'sql2014', 'sql2016')
 with all the instances I want to test and two "Describe" blocks, one for "Testing database options" - PageVerify and AutoShrink
 
 ``` powershell
-Describe ";Testing Database Options for $Server"; {
+Describe "Testing Database Options for $Server" {
    foreach($Server in $SQLServers){
       #Just selecting some columns so it don't take too much time returning all the thing that we don't want
       $databases = Get-DbaDatabase -SqlServer $server | Select-Object Name, SqlInstance, CompatibilityLevel, PageVerify, AutoShrink, AutoClose
       foreach($database in $databases) {
-         Context ";$($Database.Name) Validation"; {
-            It ";PageVerfiy set to Checksum"; {
-               $database.PageVerify| Should Be ";Checksum";
+         Context "$($Database.Name) Validation" {
+            It "PageVerfiy set to Checksum" {
+               $database.PageVerify| Should Be "Checksum"
             }
-            It ";AutoShrink set to False"; {
+            It "AutoShrink set to False" {
                $database.AutoShrink| Should Be $false
             }
          }
@@ -206,11 +206,11 @@ Describe ";Testing Database Options for $Server"; {
 And another one for "Testing instance MaxMemory":
 
 ``` powershell
-Describe ";Testing Instance MaxMemory";{
+Describe "Testing Instance MaxMemory"{
    foreach($Server in $SQLServers){
       $instanceMemory = Get-DbaMaxMemory -SqlInstance $Server
-      Context ";Checking MaxMemory value"; {
-         It ";$($Server) instance MaxMemory value $($instanceMemory.SqlMaxMb) is less than host total memory $($instanceMemory.TotalMB)"; {
+      Context "Checking MaxMemory value" {
+         It "$($Server) instance MaxMemory value $($instanceMemory.SqlMaxMb) is less than host total memory $($instanceMemory.TotalMB)" {
             $instanceMemory.SqlMaxMb | Should BeLessThan $instanceMemory.TotalMB
          }
       }
