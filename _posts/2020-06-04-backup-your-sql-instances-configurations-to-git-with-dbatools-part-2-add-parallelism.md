@@ -203,9 +203,9 @@ The main block change appears between line 36 and 54.
 
 ``` powershell
 # Where we will get the list of servers
-$centralServer = &quot;centralServer&quot;
-$centralDatabase = &quot;centralDatabase&quot;
-$query = &quot;SELECT ConnString FROM &lt;table&gt;&quot;
+$centralServer = ";centralServer";
+$centralDatabase = ";centralDatabase";
+$query = ";SELECT ConnString FROM &lt;table&gt;";
 
 # number of parallel executions using PoshRsJob module
 $throttle = 5
@@ -213,8 +213,8 @@ $throttle = 5
 # Get the list of servers
 $ServerList = Invoke-DbaQuery -SqlInstance $centralServer -Database $centralDatabase -Query $query | Select-Object -ExpandProperty ConnString
 
-$instancesPath = &quot;$PSScriptRoot\Instances&quot;
-$tempPath = &quot;$instancesPath\temp&quot;
+$instancesPath = ";$PSScriptRoot\Instances";
+$tempPath = ";$instancesPath\temp";
 
 # Change location to be able to run GIT commands on the local repository
 Set-Location -Path $PSScriptRoot
@@ -235,7 +235,7 @@ if (Test-Path -Path $tempPath) {
     PolicyManagement and ReplicationSettings -&gt; We don't use
     Credentials and LinkedServers -&gt; We script as a second step to hide passwords (because -ExcludePassword will also hide hashed ones from logins, and this we want to keep)
 #&gt;
-$excludeObjects = &quot;Databases&quot;, &quot;PolicyManagement&quot;, &quot;ReplicationSettings&quot;, &quot;Credentials&quot;, &quot;LinkedServers&quot;
+$excludeObjects = ";Databases";, ";PolicyManagement";, ";ReplicationSettings";, ";Credentials";, ";LinkedServers";
 
 $sb = {
     param (
@@ -249,29 +249,29 @@ $sb = {
     $instanceOutDir = $outputDirectory.Directory | Select-Object -ExpandProperty FullName -Unique
 
     # Export credentials and LinkedServers but excluding the password. Output to same folder
-    Export-DbaCredential -SqlInstance $_ -FilePath &quot;$instanceOutDir\Credentials.sql&quot; -ExcludePassword
-    Export-DbaLinkedServer -SqlInstance $_ -FilePath &quot;$instanceOutDir\LinkedServers.sql&quot; -ExcludePassword
+    Export-DbaCredential -SqlInstance $_ -FilePath ";$instanceOutDir\Credentials.sql"; -ExcludePassword
+    Export-DbaLinkedServer -SqlInstance $_ -FilePath ";$instanceOutDir\LinkedServers.sql"; -ExcludePassword
 }
 $ServerList | Start-RSJob -ScriptBlock $sb -Throttle $throttle -ArgumentList $tempPath, $excludeObjects
 
 # Wait for the parallel job finish and remove them
 Get-RSJob | Wait-RSJob | Remove-RSJob
 
-# Find .sql files where the name starts with a number and rename files to exclude numeric part &quot;#-&lt;NAME&gt;.sql&quot; (remove the &quot;#-&quot;)
-Get-ChildItem -Path $tempPath -Recurse -Filter &quot;*.sql&quot; | Where {$_.Name -match '^[0-9]+.*'} | Foreach-Object {Rename-Item -Path $_.FullName -NewName $($_ -split '-')[1] -Force}
+# Find .sql files where the name starts with a number and rename files to exclude numeric part ";#-&lt;NAME&gt;.sql"; (remove the ";#-";)
+Get-ChildItem -Path $tempPath -Recurse -Filter ";*.sql"; | Where {$_.Name -match '^[0-9]+.*'} | Foreach-Object {Rename-Item -Path $_.FullName -NewName $($_ -split '-')[1] -Force}
 
-# Remove the suffix &quot;-datetime&quot;
+# Remove the suffix ";-datetime";
 Get-ChildItem -Path $tempPath | Foreach-Object {Rename-Item -Path $_.FullName -NewName $_.Name.Substring(0, $_.Name.LastIndexOf('-')) -Force}
 
 # Copy the folders/files from the temp directory to one level up (overwrite)
-Copy-Item -Path &quot;$tempPath\*&quot; -Destination $instancesPath -Recurse -Force
+Copy-Item -Path ";$tempPath\*"; -Destination $instancesPath -Recurse -Force
 
 # Clean-up temp folder
 Get-ChildItem $tempPath | Remove-Item -Force -Recurse -Confirm:$false
 
 # Add/commit/push the changes
 git add .
-git commit -m &quot;Export-DbaInstance @ $((Get-Date).ToString(&quot;yyyyMMdd-HHmmss&quot;))&quot;
+git commit -m ";Export-DbaInstance @ $((Get-Date).ToString(";yyyyMMdd-HHmmss";))";
 git push
 ```
 

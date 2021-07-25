@@ -61,22 +61,22 @@ For 1st point:
 ``` powershell
 #PROD environment
 Set-DbcConfig -Name policy.recoverymodel.type -Value Full -Temporary
-Export-DbcConfig -Path &quot;D:\dbachecks\Prod_Configs.json&quot;
+Export-DbcConfig -Path ";D:\dbachecks\Prod_Configs.json";
 ```
 &nbsp;
 ``` powershell
 #DEV environment
 Set-DbcConfig -Name policy.recoverymodel.type -Value Simple -Temporary
-Export-DbcConfig -Path &quot;D:\dbachecks\Dev_Configs.json&quot;
+Export-DbcConfig -Path ";D:\dbachecks\Dev_Configs.json";
 ```
 
 2nd, 3rd and 4th point together:
 ``` powershell
 #PROD instances
-$sqlInstances = &quot;prod1&quot;, &quot;prod2&quot;, &quot;prod3&quot;
+$sqlInstances = ";prod1";, ";prod2";, ";prod3";
 
 #Import Prod_Configs.json with -Temporary
-Import-DbcConfig -Path &quot;D:\dbachecks\Prod_Configs.json&quot; -Temporary
+Import-DbcConfig -Path ";D:\dbachecks\Prod_Configs.json"; -Temporary
 
 #Run the checks - Don't forget to add all the parameters you usually use
 Invoke-DbcCheck -SqlInstance $sqlInstances
@@ -84,10 +84,10 @@ Invoke-DbcCheck -SqlInstance $sqlInstances
 &nbsp;
 ``` powershell
 #DEV instances
-$sqlInstances = &quot;dev1&quot;, &quot;dev2&quot;, &quot;dev3&quot;
+$sqlInstances = ";dev1";, ";dev2";, ";dev3";
 
 #Import Dev_Configs.json with -Temporary
-Import-DbcConfig -Path &quot;D:\dbachecks\Dev_Configs.json&quot; -Temporary
+Import-DbcConfig -Path ";D:\dbachecks\Dev_Configs.json"; -Temporary
 
 #Run the checks - Don't forget to add all the parameters you usually use
 Invoke-DbcCheck -SqlInstance $sqlInstances

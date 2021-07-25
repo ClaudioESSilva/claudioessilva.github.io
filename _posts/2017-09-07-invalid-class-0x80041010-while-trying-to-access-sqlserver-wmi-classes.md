@@ -46,18 +46,18 @@ The code is:
 $sessionoption = New-CimSessionOption -Protocol DCOM
 $CIMsession = New-CimSession -ComputerName $Computer -SessionOption $sessionoption -ErrorAction SilentlyContinue -Credential $Credential
 #I have skipped an if ( $CIMSession ) that is here because we know that works.
-$namespace = Get-CimInstance -CimSession $CIMsession -NameSpace root\Microsoft\SQLServer -ClassName &quot;__NAMESPACE&quot; -Filter &quot;Name Like 'ComputerManagement%'&quot; -ErrorAction SilentlyContinue |Where-Object {(Get-CimInstance -CimSession $CIMsession -Namespace $(&quot;root\Microsoft\SQLServer\&quot; + $_.Name) -Query &quot;SELECT * FROM SqlService&quot; -ErrorAction SilentlyContinue).count -gt 0}
+$namespace = Get-CimInstance -CimSession $CIMsession -NameSpace root\Microsoft\SQLServer -ClassName ";__NAMESPACE"; -Filter ";Name Like 'ComputerManagement%'"; -ErrorAction SilentlyContinue |Where-Object {(Get-CimInstance -CimSession $CIMsession -Namespace $(";root\Microsoft\SQLServer\"; + $_.Name) -Query ";SELECT * FROM SqlService"; -ErrorAction SilentlyContinue).count -gt 0}
 ```
 
 I splitted the last command to remove the pipeline since I would like to analyze each part of the code. I ended with the following code:
 
 ``` powershell
 $sessionoption = New-CimSessionOption -Protocol DCOM
-$CIMsession = New-CimSession -ComputerName &quot;HOST001&quot; -SessionOption $sessionoption -ErrorAction Continue -Credential $Credentials -Verbose
+$CIMsession = New-CimSession -ComputerName ";HOST001"; -SessionOption $sessionoption -ErrorAction Continue -Credential $Credentials -Verbose
 
-Get-CimInstance -CimSession $CIMsession -NameSpace root\Microsoft\SQLServer -Query &quot;Select * FROM __NAMESPACE WHERE Name Like 'ComputerManagement%'&quot;
+Get-CimInstance -CimSession $CIMsession -NameSpace root\Microsoft\SQLServer -Query ";Select * FROM __NAMESPACE WHERE Name Like 'ComputerManagement%'";
 #This one is comment for now
-#Get-CimInstance -CimSession $CIMsession -Namespace $(&quot;root\Microsoft\SQLServer\ComputerManagement10&quot;) -Query &quot;SELECT * FROM SqlService&quot;
+#Get-CimInstance -CimSession $CIMsession -Namespace $(";root\Microsoft\SQLServer\ComputerManagement10";) -Query ";SELECT * FROM SqlService";
 ```
 
 <a href="https://claudioessilva.github.io/img/2017/09/output_select__namespace_computermanagement1.png"><img class="aligncenter wp-image-545 size-large" src="https://claudioessilva.github.io/img/2017/09/output_select__namespace_computermanagement1.png?w=656" alt="" width="656" height="44" /></a>

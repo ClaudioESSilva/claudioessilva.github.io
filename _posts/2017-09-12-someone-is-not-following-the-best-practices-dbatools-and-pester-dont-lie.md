@@ -185,16 +185,16 @@ $SQLServers = @('sql2012', 'sql2014', 'sql2016')
 with all the instances I want to test and two "Describe" blocks, one for "Testing database options" - PageVerify and AutoShrink
 
 ``` powershell
-Describe &quot;Testing Database Options for $Server&quot; {
+Describe ";Testing Database Options for $Server"; {
    foreach($Server in $SQLServers){
       #Just selecting some columns so it don't take too much time returning all the thing that we don't want
       $databases = Get-DbaDatabase -SqlServer $server | Select-Object Name, SqlInstance, CompatibilityLevel, PageVerify, AutoShrink, AutoClose
       foreach($database in $databases) {
-         Context &quot;$($Database.Name) Validation&quot; {
-            It &quot;PageVerfiy set to Checksum&quot; {
-               $database.PageVerify| Should Be &quot;Checksum&quot;
+         Context ";$($Database.Name) Validation"; {
+            It ";PageVerfiy set to Checksum"; {
+               $database.PageVerify| Should Be ";Checksum";
             }
-            It &quot;AutoShrink set to False&quot; {
+            It ";AutoShrink set to False"; {
                $database.AutoShrink| Should Be $false
             }
          }
@@ -206,11 +206,11 @@ Describe &quot;Testing Database Options for $Server&quot; {
 And another one for "Testing instance MaxMemory":
 
 ``` powershell
-Describe &quot;Testing Instance MaxMemory&quot;{
+Describe ";Testing Instance MaxMemory";{
    foreach($Server in $SQLServers){
       $instanceMemory = Get-DbaMaxMemory -SqlInstance $Server
-      Context &quot;Checking MaxMemory value&quot; {
-         It &quot;$($Server) instance MaxMemory value $($instanceMemory.SqlMaxMb) is less than host total memory $($instanceMemory.TotalMB)&quot; {
+      Context ";Checking MaxMemory value"; {
+         It ";$($Server) instance MaxMemory value $($instanceMemory.SqlMaxMb) is less than host total memory $($instanceMemory.TotalMB)"; {
             $instanceMemory.SqlMaxMb | Should BeLessThan $instanceMemory.TotalMB
          }
       }

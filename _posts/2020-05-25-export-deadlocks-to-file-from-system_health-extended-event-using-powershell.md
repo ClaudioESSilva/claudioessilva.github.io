@@ -39,7 +39,7 @@ SET @LogPath = SUBSTRING(@LogPath, 1, charindex('\ERRORLOG', @LogPath) - 1)
 
 SELECT
 	CONVERT(xml, event_data).query('/event/data/value/child::*') as deadlock,
-	CONVERT(xml, event_data).value('(event[@name=&quot;xml_deadlock_report&quot;]/@timestamp)[1]','datetime') AS Execution_Time
+	CONVERT(xml, event_data).value('(event[@name=";xml_deadlock_report";]/@timestamp)[1]','datetime') AS Execution_Time
 FROM sys.fn_xe_file_target_read_file(@LogPath + '\system_health*.xel', null, null, null)
 WHERE object_name like 'xml_deadlock_report'
 ```
@@ -58,18 +58,18 @@ NOTE: The script is making use of `SqlServer` PowerShell module (line 15). Howev
 NOTE2: The time that will take to execute the script is directly related with the number of `system_health` files and their sizes.
 
 ``` powershell
-$instance = &quot;myInstance&quot;
-$outputDirectory = &quot;D:\Deadlocks&quot;
-$query = @&quot;
+$instance = ";myInstance";
+$outputDirectory = ";D:\Deadlocks";
+$query = @";
 DECLARE @LogPath NVARCHAR(255) = (SELECT CAST(SERVERPROPERTY('ErrorLogFileName') AS NVARCHAR(255)))
 SET @LogPath = SUBSTRING(@LogPath, 1, charindex('\ERRORLOG', @LogPath) - 1)
 
 SELECT
 	CONVERT(xml, event_data).query('/event/data/value/child::*') as deadlock,
-	CONVERT(xml, event_data).value('(event[@name=&quot;xml_deadlock_report&quot;]/@timestamp)[1]','datetime') AS Execution_Time
+	CONVERT(xml, event_data).value('(event[@name=";xml_deadlock_report";]/@timestamp)[1]','datetime') AS Execution_Time
 FROM sys.fn_xe_file_target_read_file(@LogPath + '\system_health*.xel', null, null, null)
 WHERE object_name like 'xml_deadlock_report'
-&quot;@
+";@
 
 # With sqlserver module
 $results = Invoke-Sqlcmd -ServerInstance $instance -Query $query
@@ -82,7 +82,7 @@ New-Item -Path $outputDirectory -Type Directory -Force
 
 # Save each XML as xdl file on the filesystem
 $results.foreach {
-    $_.deadlock | Out-File -FilePath &quot;$outputDirectory\deadlock$($_.Execution_Time.TofileTime()).xdl&quot;
+    $_.deadlock | Out-File -FilePath ";$outputDirectory\deadlock$($_.Execution_Time.TofileTime()).xdl";
 }
 ```
 

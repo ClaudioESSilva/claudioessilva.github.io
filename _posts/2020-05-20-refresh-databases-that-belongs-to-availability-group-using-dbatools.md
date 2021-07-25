@@ -69,14 +69,14 @@ Date: 2020/05/19
         13 - Test failback
 #&gt;
 
-$listenerName = &quot;listener&quot;
-$availabilityGroupName = &quot;AGName&quot;
-$databases = &quot;db1&quot;, &quot;db2&quot; # Add more if you need. Also if using the 2nd method of restore, add there too.
-$dboLogin = &quot;dbOwnerLogin&quot;
-$exportUserPath = &quot;&lt;Path&gt;\Exported_Users_$availabilityGroupName.sql&quot;
-$DestinationDataDirectory = &quot;&lt;pathToYourDataDirectory&quot;
-$DestinationLogDirectory = &quot;&lt;pathToYourLogDirectory&quot;
-$backupDirectory = &quot;&lt;pathToYourBackups&gt;&quot;
+$listenerName = ";listener";
+$availabilityGroupName = ";AGName";
+$databases = ";db1";, ";db2"; # Add more if you need. Also if using the 2nd method of restore, add there too.
+$dboLogin = ";dbOwnerLogin";
+$exportUserPath = ";&lt;Path&gt;\Exported_Users_$availabilityGroupName.sql";
+$DestinationDataDirectory = ";&lt;pathToYourDataDirectory";
+$DestinationLogDirectory = ";&lt;pathToYourLogDirectory";
+$backupDirectory = ";&lt;pathToYourBackups&gt;";
 
 # Get AG replicas
 $agReplicas = Get-DbaAgReplica -SqlInstance $listenerName -AvailabilityGroup $availabilityGroupName
@@ -96,12 +96,12 @@ Remove-DbaAgDatabase -SqlInstance $primaryNode -AvailabilityGroup $availabilityG
 # Restore databases with overwrite
 # 1 - You can get all backups from a folder pipe to Restore-DbaDatabase and it will do the magic.
 # NOTE: This will be useful when the destination database has the same name as the source.
-# Get-ChildItem -Path $backupDirectory -Recurse -Filter &quot;*.bak&quot; | Restore-DbaDatabase -SqlInstance $sqlinstance -WithReplace -DestinationDataDirectory $DestinationDataDirectory -DestinationLogDirectory $DestinationLogDirectory
+# Get-ChildItem -Path $backupDirectory -Recurse -Filter ";*.bak"; | Restore-DbaDatabase -SqlInstance $sqlinstance -WithReplace -DestinationDataDirectory $DestinationDataDirectory -DestinationLogDirectory $DestinationLogDirectory
 
 # 2 - If you need to restore the database with a different name, you may prefer to specify each -Database name from the specific backup
 # NOTE: This will keep the database name.
-Restore-DbaDatabase -SqlInstance $primaryNode -DatabaseName 'db1' -Path &quot;$backupDirectory\db1.bak&quot; -WithReplace -DestinationDataDirectory $DestinationDataDirectory -DestinationLogDirectory $DestinationLogDirectory
-Restore-DbaDatabase -SqlInstance $primaryNode -DatabaseName 'db2' -Path &quot;$backupDirectory\db2.bak&quot; -WithReplace -DestinationDataDirectory $DestinationDataDirectory -DestinationLogDirectory $DestinationLogDirectory
+Restore-DbaDatabase -SqlInstance $primaryNode -DatabaseName 'db1' -Path ";$backupDirectory\db1.bak"; -WithReplace -DestinationDataDirectory $DestinationDataDirectory -DestinationLogDirectory $DestinationLogDirectory
+Restore-DbaDatabase -SqlInstance $primaryNode -DatabaseName 'db2' -Path ";$backupDirectory\db2.bak"; -WithReplace -DestinationDataDirectory $DestinationDataDirectory -DestinationLogDirectory $DestinationLogDirectory
 
 # Put the permissions back
 # Note: We need to replace the 'GO' batch separator as Invoke-DbaQuery will do this split and send execution one-by-one. This means that a database context change works but then next command will probably be run on master

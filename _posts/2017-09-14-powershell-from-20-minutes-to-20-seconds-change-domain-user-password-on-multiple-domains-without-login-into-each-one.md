@@ -23,19 +23,19 @@ Despite this, his code gave me some clues about the way it could work. I did som
 When you run the script you will be prompted for your current/old credentials and the new password.
 
 ``` powershell
-$oldCredential = Get-Credential -Message &quot;Enter domain, user name and old password&quot;
+$oldCredential = Get-Credential -Message ";Enter domain, user name and old password";
 $NewPassword = Read-Host -AsSecureString -Prompt 'Enter new password'
 
 #Here, we get the domain part from credential - in my case I had to use the IP
 $DC = $($oldCredential.UserName.split('\')[0])
 $userName = $($oldCredential.UserName.split('\')[1])
  
-$DomainEntry = New-Object -TypeName System.DirectoryServices.DirectoryEntry &quot;LDAP://$DC&quot; ,$oldCredential.UserName,$($oldCredential.GetNetworkCredential().password)
+$DomainEntry = New-Object -TypeName System.DirectoryServices.DirectoryEntry ";LDAP://$DC"; ,$oldCredential.UserName,$($oldCredential.GetNetworkCredential().password)
 $DomainName = $DomainEntry.name
 
 # Example search against remote domain
 $Searcher = New-Object -TypeName System.DirectoryServices.DirectorySearcher
-$Searcher.Filter = &quot;(samaccountname=$userName)&quot;
+$Searcher.Filter = ";(samaccountname=$userName)";
 $Searcher.SearchRoot = $DomainEntry
  
 $user = [adsi]$Searcher.FindOne().Path

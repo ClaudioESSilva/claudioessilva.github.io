@@ -54,14 +54,14 @@ Here is a short script that shows how you can leverage these new commands.
 Don't forget to use `Get-Help` or visit our <a href="https://docs.dbatools.io">docs page</a> to know more about the commands.
 
 ``` powershell
-$instance = &quot;sql2016&quot;
-$login = &quot;domain\user&quot;
-$newServerRole = &quot;securityMaster&quot;
-$defaultExistingServerRole = &quot;sysadmin&quot;
+$instance = ";sql2016";
+$login = ";domain\user";
+$newServerRole = ";securityMaster";
+$defaultExistingServerRole = ";sysadmin";
 
-$database = &quot;db1&quot;
+$database = ";db1";
 $username = $login
-$newDatabaseRole = &quot;SPExecutor&quot;
+$newDatabaseRole = ";SPExecutor";
 
 ### Create
 
