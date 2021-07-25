@@ -32,7 +32,7 @@ Until now, everything seems normal, it is just a table with unordered data.
 
 <h2>Why am I talking about heaps?</h2>
 
-Not because of table name (was created on propose for this demo), let me show to you the whole row of the script:
+Not because of table name (was created on purpose for this demo), let me show to you the whole row of the script:
 
 <a href="https://claudioessilva.github.io/img/2017/09/heap_empty_occupyingspace_1.png"><img src="https://claudioessilva.github.io/img/2017/09/heap_empty_occupyingspace_1.png?w=656" alt="" width="656" height="33" class="aligncenter size-large wp-image-815" /></a>
 
