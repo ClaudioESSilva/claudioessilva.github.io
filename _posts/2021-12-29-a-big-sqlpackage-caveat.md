@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Recover database encrypted modules code with dbatools
-date: 2020-09-22 10:30
+title: A (big) SQLPackage caveat
+date: 2021-12-29 13:30
 author: claudiosilva
 comments: true
-tags: [Automation, dbatools, Decrypt, PowerShell, Scripting, Security, SQLServer, syndicated, WITH ENCRYPTION]
+tags: [SQLServer, syndicated, DACPAC, IndexedViews, FullTextSearch, FTS, SQLPackage]
 ---
 
 ## Context
