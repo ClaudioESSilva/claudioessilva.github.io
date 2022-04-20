@@ -2,9 +2,9 @@
 layout: post
 title: When one of your DBA colleagues leaves the company, what is your checklist?
 date: 2020-09-03 07:23
-author: claudiosilva
+author: claudiosobralsilva
 comments: true
-tags: [BestPractices, dbatools, Monitoring, Permissions, PowerShell, Security, SQLServer, syndicated]
+categories: [BestPractices, dbatools, Monitoring, Permissions, PowerShell, Security, SQLServer, syndicated]
 ---
 Whether it’s in our personal lives or the professional one, we do have checklists for certain tasks.
 
@@ -14,9 +14,10 @@ On the professional level, it can be purely technical like SQL Server installati
 
 What is your checklist for this situation?
 At first, and the most obvious is to "rollback" the things done when that person joined the company. For instance:
-1 - Disable AD user
-2 - Remove from AD groups
-3 - Delete access to the company's tools
+
+1. Disable AD user
+2. Remove from AD groups
+3. Delete access to the company's tools
 
 The first step should be enough to make sure that person can't access the systems anymore, however, to do a proper cleanup steps 2 and 3 should also be made.
 
@@ -28,7 +29,7 @@ It's pretty easy to create a new database for a client without explicitly specif
 But the list doesn't stop here, just to enumerate a couple more:
 - User login can be used in Credential
 - User login can be the only used in a Proxy (SQL Agent Steps using a Proxy)
-
+<br>
 <h4>What do they have in common?</h4>
 
 Sooner or later you will discover that things (might) stop working.
@@ -44,7 +45,7 @@ We found a job that stopped running on the 'View History' of the job we could se
 
 <blockquote>'EXECUTE AS LOGIN' failed for the requested login 'domain\username'.  The step failed.</blockquote>
 
-<img src="https://claudioessilva.github.io/img/2020/09/sqlserveragent_job_errormessage-1.png" alt="" width="501" height="485" class="aligncenter size-full wp-image-2411" />
+<img src="https://claudioessilvaeu.files.wordpress.com/2020/09/sqlserveragent_job_errormessage-1.png" alt="" width="501" height="485" class="aligncenter size-full wp-image-2411" />
 
 Note: What else can we learn from this? Whenever possible use a non-user dedicated account (service account is OK) for these processes. This will make it much easier to keep everything working. However, you need to be sure that the ownership of that account is transferred to a new person, otherwise, this request can be deleted and everything fails anyways.
 
@@ -64,6 +65,7 @@ This is even better because we can use a list of instances and check all of them
 From the command description we can find the following:
 
 <blockquote>Looks at the below list of objects to see if they are either owned by a user or a specific user (using the parameter -Pattern)
+
 - Database Owner
 - Agent Job Owner
 - Used in Credential
@@ -74,27 +76,29 @@ From the command description we can find the following:
 - Database Schemas
 - Database Roles
 - Database Assembles
-- Database Synonyms</blockquote>
+- Database Synonyms
+</blockquote>
 
 <h3>Using the command</h3>
 
 To use the command we just need to provide one or more instances where we want to do the search and a login name, which we can even use regex.
 
-``` powershell
+[code language="PowerShell"]
 Find-DbaUserObject -SqlInstance 'myInstance' -Pattern 'u_ssc'
-```
+[/code]
 This will find all objects where the login contains 'u_ssc' word. This means if you have a Windows Login and a SQL Server Login with 'u_ssc' on the name, it will get results for both.
 
-<img src="https://claudioessilva.github.io/img/2020/09/find-dbauserobject-1.png" alt="" width="656" height="278" class="aligncenter size-large wp-image-2415" />
+<img src="https://claudioessilvaeu.files.wordpress.com/2020/09/find-dbauserobject-1.png?w=656" alt="" width="656" height="278" class="aligncenter size-large wp-image-2415" />
+
 In this example you can see that this login owns not only our job that has been falling but also a database.
 
 <h4>Multiple instances</h4>
 
 If you suspect that you can find the specific person as the owner on more than one instance, you can just specify the list of instances where you want to search.
 
-``` powershell
+[code language="PowerShell"]
 Find-DbaUserObject -SqlInstance 'myInstance', 'myOtherInstance' -Pattern 'u_ssc'
-```
+[/code]
 
 <h3>How to fix it?</h3>
 
@@ -104,29 +108,29 @@ Fortunately, dbatools has commands to do this kind of changes in bulk.
 
 <h4>Change database owner</h4>
 
-For a database, we can run the <a href="https://docs.dbatools.io/#Set-DbaDbOwner">Set-DbaDatabaseOwner</a> command.
+For a database, we can run the <a href="https://docs.dbatools.io/#Set-DbaDbOwner">Set-DbaDbOwner</a> command.
 
-If you don't specify the `-TargetLogin` parameter the database owner will change to the `sa` account
-``` powershell
+If you don't specify the <code>-TargetLogin</code> parameter the database owner will change to the <code>sa</code> account
+[code language="PowerShell"]
 Set-DbaDbOwner -SqlInstance localhost -Database 'db1'
-```
+[/code]
 
-However, you can specify the `-TargetLogin` parameter to set the database owner to a different account
-``` powershell
+However, you can specify the <code>-TargetLogin</code> parameter to set the database owner to a different account
+[code language="PowerShell"]
 Set-DbaDbOwner -SqlInstance localhost -Database 'db1' -TargetLogin 'GEN_Account'
-```
+[/code]
 
 <h4>Change job owner</h4>
 
 If we talk about the jobs, we can use the <a href="https://docs.dbatools.io/#Set-DbaAgentJobOwner">Set-DbaAgentJobOwner</a> command
-``` powershell
+[code language="PowerShell"]
 Set-DbaAgentJobOwner -SqlInstance localhost -TargetLogin 'DOMAIN\account' -Job 'job1', 'job2'
-```
+[/code]
 
-The following example lets you get only the jobs where the current owner is `DOMAIN\colleagueLeaving` and pipe the results to the `Set-` command that will change that by the `DOMAIN\account` that you have selected.
-``` powershell
+The following example lets you get only the jobs where the current owner is <code>DOMAIN\colleagueLeaving</code> and pipe the results to the <code>Set-</code> command that will change that by the <code>DOMAIN\account</code> that you have selected.
+[code language="PowerShell"]
 Get-DbaAgentJob -SqlInstance localhost | Where-Object OwnerLoginName -eq 'DOMAIN\colleagueLeaving' | Set-DbaAgentJobOwner -TargetLogin 'DOMAIN\account'
-```
+[/code]
 
 <h2>Wrap up</h2>
 
