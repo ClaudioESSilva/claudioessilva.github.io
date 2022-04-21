@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [PowerShell] From 20 minutes to 20 seconds - Change domain user password on multiple domains without login into each one
+title: "[PowerShell] From 20 minutes to 20 seconds - Change domain user password on multiple domains without login into each one"
 date: 2017-09-14 11:18
 author: claudiosilva
 comments: true
