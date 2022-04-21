@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Learn, Evolve and Giving Back - TSQL Tuesday #102
+title: "Learn, Evolve and Giving Back - TSQL Tuesday #102"
 date: 2018-05-08 13:05
 author: claudiosilva
 comments: true

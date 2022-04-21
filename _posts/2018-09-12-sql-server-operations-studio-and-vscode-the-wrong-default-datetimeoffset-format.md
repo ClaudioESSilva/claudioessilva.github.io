@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SQL Server Operations Studio and VSCode: The wrong default datetimeoffset format
+title: "SQL Server Operations Studio and VSCode: The wrong default datetimeoffset format"
 date: 2018-09-12 14:00
 author: claudiosilva
 comments: true

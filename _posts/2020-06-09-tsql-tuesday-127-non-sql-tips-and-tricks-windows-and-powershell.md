@@ -1,6 +1,6 @@
 ---
 layout: post
-title: TSQL Tuesday #127 - Non SQL Tips and Tricks - Windows
+title: "TSQL Tuesday #127 - Non SQL Tips and Tricks - Windows"
 date: 2020-06-09 15:00
 author: claudiosilva
 comments: true

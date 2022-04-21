@@ -1,6 +1,6 @@
 ---
 layout: post
-title: TSQL Tuesday #96: Folks Who Have Made a Difference
+title: "TSQL Tuesday #96: Folks Who Have Made a Difference"
 date: 2017-11-14 14:05
 author: claudiosilva
 comments: true

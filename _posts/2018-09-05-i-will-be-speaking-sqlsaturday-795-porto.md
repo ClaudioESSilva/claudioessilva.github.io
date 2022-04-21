@@ -1,6 +1,6 @@
 ---
 layout: post
-title: I will be speaking @ SQLSaturday #795 Porto
+title: "I will be speaking @ SQLSaturday #795 Porto"
 date: 2018-09-05 14:00
 author: claudiosilva
 comments: true

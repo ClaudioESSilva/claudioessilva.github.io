@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SQL Saturday #731 Athens 2018
+title: "SQL Saturday #731 Athens 2018"
 date: 2018-06-04 16:37
 author: claudiosilva
 comments: true
