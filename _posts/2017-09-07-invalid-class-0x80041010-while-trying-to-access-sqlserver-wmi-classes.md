@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Invalid class [0x80041010]" error when trying to access SQLServer's WMI classes
+title: "'Invalid class [0x80041010]' error when trying to access SQLServer's WMI classes"
 date: 2017-09-07 13:00
 author: claudiosilva
 comments: true
