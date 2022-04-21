@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Ups...I have deleted some data. Can you put it back?" - dbatools for the rescue
+title: "'Ups...I have deleted some data. Can you put it back?' - dbatools for the rescue"
 date: 2019-05-17 09:15
 author: claudiosilva
 comments: true

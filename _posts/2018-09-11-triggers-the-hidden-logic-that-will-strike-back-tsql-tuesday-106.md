@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Triggers: The hidden logic that will strike back - TSQL Tuesday #106
+title: "Triggers: The hidden logic that will strike back - TSQL Tuesday #106"
 date: 2018-09-11 13:00
 author: claudiosilva
 comments: true
