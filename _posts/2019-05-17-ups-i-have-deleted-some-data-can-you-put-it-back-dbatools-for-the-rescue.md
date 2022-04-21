@@ -6,6 +6,7 @@ author: claudiosilva
 comments: true
 tags: [Copy Data, dbatools, PowerShell, Scripting, SMO, SQLServer, syndicated, T-SQL]
 ---
+
 Few days ago I received a request to restore a dozen of tables because someone have deleted more data than it was supposed.
 I immediately thought about <a href="https://dbatools.io">dbatools</a> for the job!
 
