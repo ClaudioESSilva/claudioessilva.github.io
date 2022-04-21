@@ -100,7 +100,7 @@ title-separator: "-"
 timezone: "Portugal/Lisboa"
 markdown: kramdown
 highlighter: rouge
-permalink: /:title/
+permalink: /:year/:month/:day/:title/
 paginate: 5
 
 kramdown:
