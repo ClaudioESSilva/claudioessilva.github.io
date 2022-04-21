@@ -83,9 +83,9 @@ From the command description we can find the following:
 
 To use the command we just need to provide one or more instances where we want to do the search and a login name, which we can even use regex.
 
-[code language="PowerShell"]
+``` powershell
 Find-DbaUserObject -SqlInstance 'myInstance' -Pattern 'u_ssc'
-[/code]
+```
 This will find all objects where the login contains 'u_ssc' word. This means if you have a Windows Login and a SQL Server Login with 'u_ssc' on the name, it will get results for both.
 
 <img src="https://claudioessilvaeu.files.wordpress.com/2020/09/find-dbauserobject-1.png?w=656" alt="" width="656" height="278" class="aligncenter size-large wp-image-2415" />
@@ -96,9 +96,9 @@ In this example you can see that this login owns not only our job that has been 
 
 If you suspect that you can find the specific person as the owner on more than one instance, you can just specify the list of instances where you want to search.
 
-[code language="PowerShell"]
+``` powershell
 Find-DbaUserObject -SqlInstance 'myInstance', 'myOtherInstance' -Pattern 'u_ssc'
-[/code]
+```
 
 <h3>How to fix it?</h3>
 
@@ -111,26 +111,26 @@ Fortunately, dbatools has commands to do this kind of changes in bulk.
 For a database, we can run the <a href="https://docs.dbatools.io/#Set-DbaDbOwner">Set-DbaDbOwner</a> command.
 
 If you don't specify the <code>-TargetLogin</code> parameter the database owner will change to the <code>sa</code> account
-[code language="PowerShell"]
+``` powershell
 Set-DbaDbOwner -SqlInstance localhost -Database 'db1'
-[/code]
+```
 
 However, you can specify the <code>-TargetLogin</code> parameter to set the database owner to a different account
-[code language="PowerShell"]
+``` powershell
 Set-DbaDbOwner -SqlInstance localhost -Database 'db1' -TargetLogin 'GEN_Account'
-[/code]
+```
 
 <h4>Change job owner</h4>
 
 If we talk about the jobs, we can use the <a href="https://docs.dbatools.io/#Set-DbaAgentJobOwner">Set-DbaAgentJobOwner</a> command
-[code language="PowerShell"]
+``` powershell
 Set-DbaAgentJobOwner -SqlInstance localhost -TargetLogin 'DOMAIN\account' -Job 'job1', 'job2'
-[/code]
+```
 
 The following example lets you get only the jobs where the current owner is <code>DOMAIN\colleagueLeaving</code> and pipe the results to the <code>Set-</code> command that will change that by the <code>DOMAIN\account</code> that you have selected.
-[code language="PowerShell"]
+``` powershell
 Get-DbaAgentJob -SqlInstance localhost | Where-Object OwnerLoginName -eq 'DOMAIN\colleagueLeaving' | Set-DbaAgentJobOwner -TargetLogin 'DOMAIN\account'
-[/code]
+```
 
 <h2>Wrap up</h2>
 
