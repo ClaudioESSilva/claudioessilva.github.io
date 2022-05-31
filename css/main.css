@@ -799,9 +799,4 @@ pre {
   grid-template-columns: auto 300px;
   grid-template-rows: auto;
  }
-.col-1-2 {
-  flex: 1;
-}
-.cole-2-2 {
-  margin-top: 350px;
-}
+
