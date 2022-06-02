@@ -1,7 +1,7 @@
 ---
 layout: post
 title: dbatools - Rich Datatypes
-date: 2022-06-06 15:00
+date: 2022-06-02 15:00
 author: claudiosilva
 comments: true
 tags: [dbatools, PowerShell, SQLServer, syndicate]
