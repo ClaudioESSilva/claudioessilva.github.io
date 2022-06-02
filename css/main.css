@@ -795,7 +795,7 @@ pre {
 
 
 .grid {
-  display: grid;
+  display: flex;
   grid-template-columns: auto 300px;
   grid-template-rows: auto;
  }
