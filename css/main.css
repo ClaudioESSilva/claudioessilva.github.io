@@ -798,6 +798,6 @@ pre {
   display: grid;
   grid-template-columns: auto 300px;
   grid-template-rows: auto;
-  width: 100%;
  }
+
 
