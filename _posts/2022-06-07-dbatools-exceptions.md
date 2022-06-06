@@ -42,11 +42,11 @@ NOTE: You can change the default behavior of the preference variable [$ErrorView
 
 ## How do we do it?
 dbatools was born before PowerShell Core.  
-We were looking forward to have some better error handling along side with a better logging system and we were affortunate to have [Friedrich Weinmann](https://github.com/FriedrichWeinmann) on the team helping with his enormous PS/C# knowledge.
+We were looking forward to have some better error handling along side with a better logging system and we were fortunate to have [Friedrich Weinmann](https://github.com/FriedrichWeinmann) on the team helping with his enormous PS/C# knowledge.
 
 Fred created an internal CmdLet for dbatools called [`Write-Message`](https://github.com/dataplat/dbatools/blob/development/bin/projects/dbatools/dbatools/Commands/WriteMessageCommand.cs) to handle messages and logging.
 
-If you explore dbatools' functions you will find lot's of `Write-Message` entries but also [`Stop-Function`](https://github.com/dataplat/dbatools/blob/development/internal/functions/flowcontrol/Stop-Function.ps1) which is the responsible to interrupt a function.
+If you explore dbatools' functions you will find lot's of `Write-Message` entries but also [`Stop-Function`](https://github.com/dataplat/dbatools/blob/development/internal/functions/flowcontrol/Stop-Function.ps1) which is the responsible for interrupt a function.
 
 As stated on the description:
 > This function is a utility function used by other functions to reduce error catching overhead.
@@ -61,6 +61,6 @@ As mentioned before you can use the `-EnableException` parameter to get more det
 
 If you feel this is not yet enough or you need to dig a bit more on the stack trace, we have a command called `Get-DbatoolsError` that allows you to navigate through the errors that happened in the context of dbatools. This will give you more details.
 
-Hope you find it useful and that this helps understanding a little bit more how we handle the exception on dbatools PowerShell module.
+Hope you find it useful and that this helps understanding a little bit more how we handle exceptions in the dbatools PowerShell module.
 
 Thanks for reading!
