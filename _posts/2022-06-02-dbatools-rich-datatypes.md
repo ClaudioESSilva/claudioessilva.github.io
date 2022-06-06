@@ -113,7 +113,8 @@ Note: Make sure you read our [configuration](https://dbatools.io/configuration) 
 
 
 ## Configuration example
-Let's say you want to see your DateTime formated in a british way (AM/PM) instead of 24h and without miliseconds part. We can make it by changing the `formatting.datetime` configuration
+Let’s say you want to see your DateTime using the 12 hour format (with AM and PM) instead of 24h and without the milliseconds.  
+We can make it by changing the `formatting.datetime` configuration
 
 ``` PowerShell
 Set-DbatoolsConfig -FullName formatting.datetime -Value 'yyyy-MM-dd hh:mm:ss tt'
