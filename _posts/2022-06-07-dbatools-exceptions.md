@@ -1,7 +1,7 @@
 ---
 layout: post
 title: dbatools - Exceptions
-date: 2022-06-07 14:00
+date: 2022-06-07 13:00
 author: claudiosilva
 comments: true
 tags: [dbatools, Exceptions, Logging, PowerShell, SQLServer, syndicate]
