@@ -11,7 +11,7 @@ Who doesn't like a good red and verbose exception?
 
 ![Exceptions_see_of_read_WinPS](/img/2022/06/Exceptions_see_of_read_WinPS.png)
 
-At PowerShell community we often call it a "sea of red" which we found as something that can be intimidatting. The bigger the error message the more problematic it is? :-)
+At PowerShell community we often call it a "sea of red" which we found as something that can be intimidating. The bigger the error message the more problematic it is? :-)
 
 We don't think so! That's why we, within dbatools project, try to keep the output of the exceptions more user friendly and try to give the direct error message to you. No line numbers or stack traces to confuse you.
 
