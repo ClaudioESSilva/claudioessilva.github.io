@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>TSQL on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/TSQL/</link><description>Recent content in TSQL on Cláudio Silva's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 30 Nov 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/TSQL/index.xml" rel="self" type="application/rss+xml"/><item><title>Using Common Table Expression (CTE) - Did you know...</title><link>https://claudioessilva.eu/2017/11/30/Using-Common-Table-Expression-CTE-Did-you-know.../</link><pubDate>Thu, 30 Nov 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/11/30/Using-Common-Table-Expression-CTE-Did-you-know.../</guid><description>Today I will write just a short blog post to do a quick reminder!
+I still hear a lot of people suggesting CTEs because they think it works like a temporary table (you populate the table and then it can be/is reutilized).
+It doesn&amp;rsquo;t!
+From de documentation:
+Maybe they are focusing on the &amp;ldquo;temporary&amp;rdquo; word.
+Using the CTE two times will perform two different executions! Don&amp;rsquo;t believe me? See the next example!</description></item></channel></rss>
