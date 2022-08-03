@@ -9,7 +9,7 @@ tags:
 - Speaking
 - SQLServer
 - syndicated
-title: 'I will be speaking @ SQLSaturday #795 Porto'
+title: "I will be speaking @ SQLSaturday 795 Porto"
 ---
 On 29th September we will have <a href="http://www.sqlsaturday.com/795/eventhome.aspx">SQL Saturday Porto</a> and I’m proud to announce that I will be speaking!
 

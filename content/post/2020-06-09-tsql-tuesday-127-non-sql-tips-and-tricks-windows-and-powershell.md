@@ -9,7 +9,7 @@ tags:
 - syndicated
 - tips &amp; tricks
 - TSQL2sDay
-title: 'TSQL Tuesday #127 - Non SQL Tips and Tricks - Windows'
+title: "TSQL Tuesday 127 - Non SQL Tips and Tricks - Windows"
 ---
 This month’s (#127) T-SQL Tuesday is brought by <a href="https://sqlstudies.com/2020/06/02/tsql-tuesday-127-invite-non-sql-tips-and-tricks/">Kenneth Fisher</a> (<a href="https://sqlstudies.com/">B</a> \| <a href="https://twitter.com/sqlstudent144">T</a>) and he asked about Non SQL Tips and tricks.
 <img src="https://claudioessilva.github.io/img/2017/09/tsql2sday.jpg" alt="https://sqlstudies.com/2020/06/02/tsql-tuesday-127-invite-non-sql-tips-and-tricks/" width="244" height="244" class="aligncenter size-full wp-image-599" />

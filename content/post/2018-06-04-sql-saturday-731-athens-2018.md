@@ -9,7 +9,7 @@ tags:
 - Speaking
 - SQLServer
 - syndicated
-title: 'SQL Saturday #731 Athens 2018'
+title: "SQL Saturday 731 Athens 2018"
 ---
 <img src="https://claudioessilva.github.io/img/2018/06/sqlsat731_bigger.png" alt="" width="600" height="150" class="aligncenter" />
 In less than two weeks (on 16th June) it's time for <a href="http://www.sqlsaturday.com/731/EventHome.aspx">SQL Saturday Athens</a> and I'm proud to announce that I will be speaking!
