@@ -1,0 +1,131 @@
+baseURL: https://claudioessilva.eu
+disablePathToLower: true
+languageCode: en-us
+defaultContentLanguage: "en-us"
+
+title: Cláudio Silva's Blog
+
+theme: "hugo-tranquilpeak-theme"
+
+paginate: 5
+
+permalinks:
+  post: /:year/:month/:day/:title/
+
+
+googleAnalytics: UA-27703765-1
+
+params:
+  GitHubComments: true
+
+markup:
+  tableOfContents:
+    endLevel: 3
+    ordered: false
+    startLevel: 2
+
+author:
+  name: Cláudio Silva
+  bio: >-
+    Data Platform Architect and PowerShell lover. 
+  job: Data Platform Architect
+  location: Portugal
+  picture: "/img/avatar.jpg"
+  twitter: "claudioessilva"
+
+
+menu:
+  main:
+    - weight: 1
+      identifier: home
+      name: Home
+      pre: <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
+      url: /
+    # - weight: 2
+    #   identifier: categories
+    #   name: Categories
+    #   pre: >-
+    #     <i class="sidebar-button-icon fas fa-lg fa-bookmark"
+    #     aria-hidden="true"></i>
+    #   url: /categories
+    - weight: 3
+      identifier: tags
+      name: Tags
+      pre: <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+      url: /tags
+    # - weight: 4
+    #   identifier: archives
+    #   name: Archives
+    #   pre: >-
+    #     <i class="sidebar-button-icon fas fa-lg fa-archive"
+    #     aria-hidden="true"></i>
+    #   url: /archives
+    - weight: 5
+      identifier: about
+      name: About
+      pre: >-
+        <i class="sidebar-button-icon fas fa-lg fa-question"
+        aria-hidden="true"></i>
+      url: /#about
+  links:
+    - weight: 1
+      identifier: github
+      name: GitHub
+      pre: >-
+        <i class="sidebar-button-icon fab fa-lg fa-github"
+        aria-hidden="true"></i>
+      url: 'https://github.com/claudioessilva'
+    - weight: 2
+      identifier: twitter
+      name: Twitter
+      pre: >-
+        <i class="sidebar-button-icon fab fa-lg fa-twitter"
+        aria-hidden="true"></i>
+      url: 'https://twitter.com/claudioessilva'
+    - weight: 3
+      identifier: linkedin
+      name: LinkedIn
+      pre: >-
+        <i class="sidebar-button-icon fab fa-lg fa-linkedin"
+        aria-hidden="true"></i>
+      url: 'https://www.linkedin.com/in/claudioessilva'
+  misc:
+    - weight: 1
+      identifier: rss
+      name: RSS
+      pre: <i class="sidebar-button-icon fas fa-lg fa-rss" aria-hidden="true"></i>
+      url: /index.xml
+
+params:
+  description: Cláudios' Blog
+  syntaxHighlighter: highlight.js
+
+  clearReading: true
+
+  hierarchicalCategories: true
+
+  sidebarBehavior: 1
+
+  coverImage: images/cover_bridge.jpg
+
+  favicon: img/favicon.jpg
+  imageGallery: true
+  thumbnailImage: true
+  thumbnailImagePosition: top
+  autoThumbnailImage: true
+
+  sharingOptions:
+    - name: Facebook
+      icon: fab fa-facebook-square
+      url: 'https://www.facebook.com/sharer/sharer.php?u=%s'
+    - name: Twitter
+      icon: fab fa-twitter
+      url: 'https://twitter.com/intent/tweet?text=%s'
+    - name: Linkedin
+      icon: fab fa-linkedin
+      url: 'https://www.linkedin.com/sharing/share-offsite/?url=%s'
+  header:
+    rightLink:
+      class: ''
+      icon: ''
+      url: /#about
