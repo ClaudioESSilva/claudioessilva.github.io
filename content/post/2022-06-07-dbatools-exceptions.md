@@ -10,7 +10,6 @@ tags:
 - SQLServer
 - syndicate
 title: dbatools - Exceptions
-GHissueID: 1
 autoThumbnailImage: false
 thumbnailImagePosition: "top"
 thumbnailImage: /img/2022/06/Exceptions_see_of_read_WinPS_small.png

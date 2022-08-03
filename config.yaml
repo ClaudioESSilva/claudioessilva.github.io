@@ -15,9 +15,6 @@ permalinks:
 
 googleAnalytics: UA-27703765-1
 
-params:
-  GitHubComments: true
-
 markup:
   tableOfContents:
     endLevel: 3
@@ -97,6 +94,14 @@ menu:
       url: /index.xml
 
 params:
+  #GitHubComments: true
+
+  # Enable or disable Utterances (https://github.com/utterance/utterances) Github Issue-Based Commenting
+  utterances: true  #Run the utterances script in the single.html layout to load https://utteranc.es comments
+  utterancesRepo: "ClaudioESSilva/blog-comments" # Utterances is enabled when this param is set
+  utterancesTheme: "github-light" # Default: github-dark
+  utterancesIssueTerm: "og:title" # Default: pathname
+
   description: Cláudios' Blog
   syntaxHighlighter: highlight.js
 
