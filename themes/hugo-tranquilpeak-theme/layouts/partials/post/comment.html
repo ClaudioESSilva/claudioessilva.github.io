@@ -1,0 +1,7 @@
+<div id="comments">
+  {{ with .Params.GHissueID }}
+      {{ partial "post/githubcomments.html" $ }}
+  {{ else }}
+      <!-- {{ template "_internal/disqus.html" . }} -->
+  {{ end }}
+</div>
