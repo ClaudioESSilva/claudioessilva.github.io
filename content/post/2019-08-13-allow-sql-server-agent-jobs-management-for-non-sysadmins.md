@@ -19,7 +19,7 @@ I don't know about your experience when it comes to SQL Server Agent jobs but of
 
 It depends 😄
 If you're not familiarized with the difficulty this can bring, let me share with you a different way to accomplish the task without adding the login to the sysadmin instance role. I'm sure that you don't want to do that on a production instance.
-The next possible way is to make the login as the owner of the job and it needs to belong to one of the <a href="https://docs.microsoft.com/en-us/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-2017">msdb fixed database roles</a>! You can take a look at this documentation and see the matrix there for each role.
+The next possible way is to make the login as the owner of the job and it needs to belong to one of the [msdb fixed database roles](https://docs.microsoft.com/en-us/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-2017)! You can take a look at this documentation and see the matrix there for each role.
 
 This means that if we are talking about a single login, you won't have any problem at all.
 
@@ -44,7 +44,7 @@ I suggest that you create a wrapper for each system stored procedures that clien
 
 <h3>Security context</h3>
 
-Use the <a href="https://docs.microsoft.com/en-us/sql/t-sql/statements/execute-as-clause-transact-sql?view=sql-server-2017#arguments">EXECUTE AS OWNER</a> so they can impersonate the sysadmins permissions and call the system procedure.
+Use the [EXECUTE AS OWNER](https://docs.microsoft.com/en-us/sql/t-sql/statements/execute-as-clause-transact-sql?view=sql-server-2017#arguments) so they can impersonate the sysadmins permissions and call the system procedure.
 
 <h3>Be more granular (HIGHLY RECOMMENDED!!)</h3>
 
@@ -125,7 +125,7 @@ GO
 
 <h3>More examples on my GitHub</h3>
 
-If you want to leverage on the stored procedures that I have already created you can download them from <a href="https://github.com/ClaudioESSilva/SQLServer-PowerShell/tree/master/ManageAgentJobsNonsysAdmin">ManageAgentJobsNonsysAdmin folder on my GitHub repository</a>
+If you want to leverage on the stored procedures that I have already created you can download them from [ManageAgentJobsNonsysAdmin folder on my GitHub repository](https://github.com/ClaudioESSilva/SQLServer-PowerShell/tree/master/ManageAgentJobsNonsysAdmin)
 
 <h3>Giving permissions to the wrapper objects</h3>
 

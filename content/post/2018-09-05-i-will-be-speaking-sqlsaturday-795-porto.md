@@ -11,11 +11,11 @@ tags:
 - syndicated
 title: "I will be speaking @ SQLSaturday 795 Porto"
 ---
-On 29th September we will have <a href="http://www.sqlsaturday.com/795/eventhome.aspx">SQL Saturday Porto</a> and I’m proud to announce that I will be speaking!
+On 29th September we will have [SQL Saturday Porto](http://www.sqlsaturday.com/795/eventhome.aspx) and I’m proud to announce that I will be speaking!
 
-I will be speaking about [dbachecks](http://dbacheck.io) PowerShell module - <a href="http://www.sqlsaturday.com/795/Sessions/Details.aspx?sid=82842">dbachecks - Checking SQL Server environments with PowerShell</a>.
+I will be speaking about [dbachecks](http://dbacheck.io) PowerShell module - [dbachecks - Checking SQL Server environments with PowerShell](http://www.sqlsaturday.com/795/Sessions/Details.aspx?sid=82842).
 
-The event will be held at ISEP, Rua Dr. António Bernardino de Almeida, 431, 4249-015 Porto, Portugal and you can see the <a href="http://www.sqlsaturday.com/795/Sessions/Schedule.aspx">full schedule here</a>.
+The event will be held at ISEP, Rua Dr. António Bernardino de Almeida, 431, 4249-015 Porto, Portugal and you can see the [full schedule here](http://www.sqlsaturday.com/795/Sessions/Schedule.aspx).
 
 [Register](https://www.sqlsaturday.com/795/registernow.aspx), it's free!
 

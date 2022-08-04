@@ -91,7 +91,7 @@ Install-Module -Name dbatools, ImportExcel -Scope CurrentUser
 
 ## dbatools' commands to use
 
-You can use <a href="https://docs.dbatools.io">docs.dbatools.io</a> to search for a command. Or, if you are in an offline environment, you can use the `Find-DbaCommand`.
+You can use [docs.dbatools.io](https://docs.dbatools.io) to search for a command. Or, if you are in an offline environment, you can use the `Find-DbaCommand`.
 
 For instance, because we are talking about logins, I would run the following command to search for dbatools commands that have the `-Tag Login`
 

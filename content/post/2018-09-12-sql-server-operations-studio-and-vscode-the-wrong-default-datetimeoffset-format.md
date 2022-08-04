@@ -12,9 +12,9 @@ tags:
 title: 'SQL Server Operations Studio and VSCode: The wrong default datetimeoffset
   format'
 ---
-This post is to answer the question: "You are used to seeing in the format of `yyyy-MM-dd` right?" that I have raised on my blog post <a href="https://claudioessilva.eu/2018/09/04/dont-cutoff-yourself-when-dealing-with-dates-in-t-sql-did-you-know/">Don’t cutoff yourself with dates in T-SQL – Did you know…</a>.
+This post is to answer the question: "You are used to seeing in the format of `yyyy-MM-dd` right?" that I have raised on my blog post [Don’t cutoff yourself with dates in T-SQL – Did you know…](https://claudioessilva.eu/2018/09/04/dont-cutoff-yourself-when-dealing-with-dates-in-t-sql-did-you-know/).
 
-As you could see from that blog post, my screen shots were from [VSCode](https://code.visualstudio.com/) and in this case using [mssql](https://github.com/Microsoft/vscode-mssql) extension, but this happens also on <a href="https://docs.microsoft.com/en-us/sql/sql-operations-studio/download?view=sql-server-2017">SQL Server Operations Studio</a>.
+As you could see from that blog post, my screen shots were from [VSCode](https://code.visualstudio.com/) and in this case using [mssql](https://github.com/Microsoft/vscode-mssql) extension, but this happens also on [SQL Server Operations Studio](https://docs.microsoft.com/en-us/sql/sql-operations-studio/download?view=sql-server-2017).
 
 <h3>"But why are my datetimeoffset values on VSCode being showed in that format?" (dd-MMM-yyyy)</h3>
 
@@ -29,8 +29,8 @@ Once again, remember, I'm talking about default output not if you use a `CAST`, 
 
 <h3>How can we fix this?</h3>
 
-When I was looking for this behaviour I did some research and found that a similar problem was raised but regarding `DATETIME2`. You can see it <a href="https://github.com/Microsoft/vscode-mssql/issues/570">here - issue #570</a>.
-With this in mind, I decided to open an new <a href="https://github.com/Microsoft/vscode-mssql/issues/1139">issue (#1139) on the vscode-mssql extension repository on GitHub</a> and point to the other one already solved.
+When I was looking for this behaviour I did some research and found that a similar problem was raised but regarding `DATETIME2`. You can see it [here - issue #570](https://github.com/Microsoft/vscode-mssql/issues/570).
+With this in mind, I decided to open an new [issue (#1139) on the vscode-mssql extension repository on GitHub](https://github.com/Microsoft/vscode-mssql/issues/1139) and point to the other one already solved.
 
 If you identify yourself with it, please add your <span class="dashicons dashicons-thumbs-up"></span> to the issue.
 

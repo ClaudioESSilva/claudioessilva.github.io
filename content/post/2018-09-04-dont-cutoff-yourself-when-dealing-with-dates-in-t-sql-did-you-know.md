@@ -70,7 +70,7 @@ Get-DbaSpConfigure -SqlInstance sql2016 -ConfigName 'TwoDigitYearCutoff'
 Output:
 <img src="https://claudioessilva.github.io/img/2018/09/dbatools_twodigityearcutoff1.png" alt="" width="655" height="243" class="aligncenter size-full wp-image-1565" />
 
-That's right! <a href="https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-two-digit-year-cutoff-server-configuration-option?view=sql-server-2017">This option</a> is the one that makes the last column value being translated to 2000 and not 1900.
+That's right! [This option](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-two-digit-year-cutoff-server-configuration-option?view=sql-server-2017) is the one that makes the last column value being translated to 2000 and not 1900.
 
 If we change the configuration to 1999 instead of 2049 (default value) the result of the `DATEPART` will be 1900 but having it as 2049 will convert the year as 2000 (from the date that is a string).
 

@@ -26,7 +26,7 @@ At this post, I'm assuming that we already have restored what will be our source
 
 I knew we have a `Copy` command for table data.
 
-To search for commands within [dbatools](https://dbatools.io) we can use the <a href="https://docs.dbatools.io/#Find-DbaCommand">Find-DbaCommand</a>.
+To search for commands within [dbatools](https://dbatools.io) we can use the [Find-DbaCommand](https://docs.dbatools.io/#Find-DbaCommand).
 
 ``` powershell
 Find-DbaCommand -Pattern Copy*Table*Data
@@ -108,7 +108,7 @@ Primary key was missing and some constraints and indexes as well.
 
 <h2>Beyond default scripting options</h2>
 
-As I have demonstrated on my last post <a href="https://claudioessilva.eu/2019/05/15/scripting-sql-server-objects-with-dbatools-beyond-default-options/">Scripting SQL Server objects with dbatools – Beyond default options</a>, we can generate an object of `ScriptingOptions` and use the `-ScriptingOptionsObject` parameter available on the `Export-DbaScript` command to specify more than the defaults.
+As I have demonstrated on my last post [Scripting SQL Server objects with dbatools – Beyond default options](https://claudioessilva.eu/2019/05/15/scripting-sql-server-objects-with-dbatools-beyond-default-options/), we can generate an object of `ScriptingOptions` and use the `-ScriptingOptionsObject` parameter available on the `Export-DbaScript` command to specify more than the defaults.
 
 <h3>Exploring other options</h3>
 
@@ -127,7 +127,7 @@ This means that with a little bit more code we will be able to accomplish our re
 
 <h3>The code</h3>
 
-Note: This is an modified version (to meet my needs) of the original script that I have borrowed from Andy Levy's ([b](https://flxsql.com) \| [t](https://twitter.com/ALevyInROC)) blog post <a href="https://flxsql.com/copying-individual-tables-with-dbatools/">Copying Individual Tables with dbatools</a>. Andy is also a dbatools contributor.
+Note: This is an modified version (to meet my needs) of the original script that I have borrowed from Andy Levy's ([b](https://flxsql.com) \| [t](https://twitter.com/ALevyInROC)) blog post [Copying Individual Tables with dbatools](https://flxsql.com/copying-individual-tables-with-dbatools/). Andy is also a dbatools contributor.
 
 ``` powershell
 $SourceServer = "SQL1";

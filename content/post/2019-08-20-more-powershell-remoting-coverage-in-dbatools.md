@@ -50,10 +50,10 @@ The improvements that we have added to dbatools covers the points 2 and 3. (poin
 If you are not aware of it, dbatools has some wide configurations itself. From sqlconnection, through logging and caching, remoting and others.
 Thanks to Fred Weinmann ([b](http://allthingspowershell.blogspot.com/) \| [t](https://twitter.com/FredWeinmann)) (our infrastructure code wizard) and his [PSFramework](http://psframework.org/) module is used to manage configurations, logging and others, we can use the `Set-DbatoolsConfig` to change these values.
 
-If you are asking which values, I encourage you to use the `Get-DbaToolsConfig` to have an overview of them. You will find some neat stuff! To know more about these configurations, read my post on dbatools blog named <a href="https://dbatools.io/configuration">dbatools advanced configuration</a>.
+If you are asking which values, I encourage you to use the `Get-DbaToolsConfig` to have an overview of them. You will find some neat stuff! To know more about these configurations, read my post on dbatools blog named [dbatools advanced configuration](https://dbatools.io/configuration).
 
 Back to our scenario...
-We have added two new configs, `PSRemoting.PsSessionOption.IncludePortInSPN` and `PSRemoting.PsSession.UseSSL` in the <a href="https://github.com/sqlcollaborative/dbatools/blob/development/internal/configurations/settings/remoting.ps1">remoting.ps1</a> file available in the configuration folder. This configurations are loaded when you import the module. If, you have any setting registered (using `Register-DbatoolsConfig`) nothing will be overwritten. In this case, your current registered values are preserved and will be used in your current session.
+We have added two new configs, `PSRemoting.PsSessionOption.IncludePortInSPN` and `PSRemoting.PsSession.UseSSL` in the [remoting.ps1](https://github.com/sqlcollaborative/dbatools/blob/development/internal/configurations/settings/remoting.ps1) file available in the configuration folder. This configurations are loaded when you import the module. If, you have any setting registered (using `Register-DbatoolsConfig`) nothing will be overwritten. In this case, your current registered values are preserved and will be used in your current session.
 
 Within `Invoke-Command2` we have changed the code to use this variable with the configured values.<img class="aligncenter size-large wp-image-1768" src="https://claudioessilva.github.io/img/2019/08/psremoting_addedcode.png?w=800" alt="" width="800" height="260">
 

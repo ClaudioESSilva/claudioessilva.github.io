@@ -40,7 +40,7 @@ On the other hand, the following types also appear in `sys.sql_modules`, but the
 * R - Rule
 * D - Default
 
-You can run the following T-SQL statement to check on <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sql-modules-transact-sql">sys.sql_modules</a> which objects you have and if they are encrypted or not (the `definition` column has the `NULL` value).
+You can run the following T-SQL statement to check on [sys.sql_modules](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sql-modules-transact-sql) which objects you have and if they are encrypted or not (the `definition` column has the `NULL` value).
 ``` sql
 SELECT sm.object_id, o.name, o.type, sm.definition
   FROM sys.sql_modules sm
@@ -54,11 +54,11 @@ SELECT sm.object_id, o.name, o.type, sm.definition
 
 <h3>What happens to the module text when we specify WITH ENCRYPTION?</h3>
 
-From the <a href="https://docs.microsoft.com/en-us/sql/t-sql/statements/create-procedure-transact-sql">CREATE PROCEDURE</a> documentation, `WITH ENCRYPTION`:
+From the [CREATE PROCEDURE](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-procedure-transact-sql) documentation, `WITH ENCRYPTION`:
 
 <blockquote>...SQL Server converts the original text of the CREATE [enter object type here] statement to an obfuscated format. The output of the obfuscation is not directly visible in any of the catalog views in SQL Server. Users who have no access to system tables or database files cannot retrieve the obfuscated text. However, the text is available to privileged users who can either access system tables over the DAC port or directly access database files. Also, users who can attach a debugger to the server process can retrieve the decrypted procedure from memory at runtime. For more information about accessing system metadata, see Metadata Visibility Configuration.</blockquote>
 
-If you want to understand the <a href="https://sqlperformance.com/2016/05/sql-performance/the-internals-of-with-encryption">Internals of With Encryption</a> make sure you read Paul White’s ([b](https://www.sql.kiwi/) \| [t](https://twitter.com/sql_kiwi)) blog post.
+If you want to understand the [Internals of With Encryption](https://sqlperformance.com/2016/05/sql-performance/the-internals-of-with-encryption) make sure you read Paul White’s ([b](https://www.sql.kiwi/) \| [t](https://twitter.com/sql_kiwi)) blog post.
 
 <h2>A Story</h2>
 
@@ -73,15 +73,15 @@ My tool of choice for recovering the code was dbatools.
 There are multiple ways to retrieve the decrypted version of an encrypted module. We can use a T-SQL script or other third-party tools. Here are a few that you can use:
 
 <ul>
-<li><a href="https://gist.github.com/jstangroome/4020443">T-SQL</a></li>
+<li>[T-SQL](https://gist.github.com/jstangroome/4020443)</li>
 <li>[SQLDecryptor](https://www.systoolsgroup.com/sql-decryptor.html)</li>
-<li><a href="https://www.devart.com/dbforge/sql/sqldecryptor/">dbForge SQL Decryptor</a></li>
-<li><a href="https://docs.dbatools.io/#Invoke-DbaDbDecryptObject">Invoke-DbaDbDecryptObject command from dbatools PowerShell module</a> </li>
+<li>[dbForge SQL Decryptor](https://www.devart.com/dbforge/sql/sqldecryptor/)</li>
+<li>[Invoke-DbaDbDecryptObject command from dbatools PowerShell module](https://docs.dbatools.io/#Invoke-DbaDbDecryptObject) </li>
 </ul>
 
 The last one will be our focus in this article. Here I will be focusing on how we can do it at scale and with a couple of different use cases.
 
-If you want to understand how dbatools does it, Sander Stad ([b](https://www.sqlstad.nl/) \| [t](https://www.sqlstad.nl/)) was the person that wrote this dbatools' function and he explains it on his blog post <a href="https://www.sqlstad.nl/powershell/decrypting-sql-server-objects-with-dbatools/">Decrypting SQL Server Objects With dbatools</a>.
+If you want to understand how dbatools does it, Sander Stad ([b](https://www.sqlstad.nl/) \| [t](https://www.sqlstad.nl/)) was the person that wrote this dbatools' function and he explains it on his blog post [Decrypting SQL Server Objects With dbatools](https://www.sqlstad.nl/powershell/decrypting-sql-server-objects-with-dbatools/).
 
 Here I will be focusing on how we can do it at scale and with a couple of different use cases.
 
@@ -98,11 +98,11 @@ Install-Module -Name dbatools
 
 <h3>DAC</h3>
 
-Stands for <a href="https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators">Dedicated Admin Connection</a>.
+Stands for [Dedicated Admin Connection](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators).
 
 <blockquote>The DAC lets an administrator access a running server to execute diagnostic functions or Transact-SQL statements, or to troubleshoot problems on the server, even when the server is locked or running in an abnormal state and not responding to a SQL Server Database Engine connection.</blockquote>
 
-If you want to connect using DAC from a remote server, you need to configure the <a href="https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/remote-admin-connections-server-configuration-option">remote admin connection</a> option as the default is 0 (off).
+If you want to connect using DAC from a remote server, you need to configure the [remote admin connection](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/remote-admin-connections-server-configuration-option) option as the default is 0 (off).
 
 <h4>Using dbatools to check/set the 'remote admin connection' configuration</h4>
 

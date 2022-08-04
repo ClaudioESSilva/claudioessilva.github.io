@@ -58,10 +58,10 @@ Note: What else can we learn from this? Whenever possible use a non-user dedicat
 
 <h3>How can we make this less painful?</h3>
 
-If you have a set of checks in place running regularly using for example <a href="https://dbachecks.io/">dbachecks.io</a>, you will see some red flag after you readjust (remove the login) from the list of "Valid Database Owner" and "Valid Job Owner" check.
+If you have a set of checks in place running regularly using for example [dbachecks.io](https://dbachecks.io/), you will see some red flag after you readjust (remove the login) from the list of "Valid Database Owner" and "Valid Job Owner" check.
 
 However here I will be focusing on how we can use [dbatools](https://dbatools.io) PowerShell module as in this case we are talking about one ad-hoc check.
-dbatools has a command called <a href="https://docs.dbatools.io/#Find-DbaUserObject">Find-DbaUserObject</a> which:
+dbatools has a command called [Find-DbaUserObject](https://docs.dbatools.io/#Find-DbaUserObject) which:
 
 <blockquote>Searches SQL Server to find user-owned objects (i.e. not dbo or sa) or for any object owned by a specific user specified by the Pattern parameter.</blockquote>
 
@@ -115,7 +115,7 @@ Fortunately, dbatools has commands to do this kind of changes in bulk.
 
 <h4>Change database owner</h4>
 
-For a database, we can run the <a href="https://docs.dbatools.io/#Set-DbaDbOwner">Set-DbaDbOwner</a> command.
+For a database, we can run the [Set-DbaDbOwner](https://docs.dbatools.io/#Set-DbaDbOwner) command.
 
 If you don't specify the <code>-TargetLogin</code> parameter the database owner will change to the <code>sa</code> account
 ``` powershell
@@ -129,7 +129,7 @@ Set-DbaDbOwner -SqlInstance localhost -Database 'db1' -TargetLogin 'GEN_Account'
 
 <h4>Change job owner</h4>
 
-If we talk about the jobs, we can use the <a href="https://docs.dbatools.io/#Set-DbaAgentJobOwner">Set-DbaAgentJobOwner</a> command
+If we talk about the jobs, we can use the [Set-DbaAgentJobOwner](https://docs.dbatools.io/#Set-DbaAgentJobOwner) command
 ``` powershell
 Set-DbaAgentJobOwner -SqlInstance localhost -TargetLogin 'DOMAIN\account' -Job 'job1', 'job2'
 ```

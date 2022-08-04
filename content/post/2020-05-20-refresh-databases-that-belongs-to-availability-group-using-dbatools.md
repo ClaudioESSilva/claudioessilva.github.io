@@ -14,7 +14,7 @@ tags:
 - syndicated
 title: Refresh databases that belongs to Availability Group using dbatools
 ---
-Few days ago I was surfing on Twitter when <a href="https://twitter.com/psdbatools">dbatools</a> asked about how it's PowerShell module changed the way people work.
+Few days ago I was surfing on Twitter when [dbatools](https://twitter.com/psdbatools) asked about how it's PowerShell module changed the way people work.
 
 https://twitter.com/psdbatools/status/1261563168113012736
 
@@ -24,7 +24,7 @@ Open and check the answers given by the community as there is really good stuff 
 
 I have shared one of my recipes related to database refreshes. You know, when the client says, "please restore this backup or the most recent backup on our instance.". But what if the databases belong to an availability group? It's not as simple as a standalone installation.
 
-Seconds later, John McCormack (<a href="https://twitter.com/actualjohn">T</a> \| <a href="https://johnmccormack.it/">B</a>) asked if I have blogged about this
+Seconds later, John McCormack ([T</a> \| <a href="https://johnmccormack.it/">B](https://twitter.com/actualjohn)) asked if I have blogged about this
 https://twitter.com/actualjohn/status/1261605078013747200
 The truth is that this blog post was already on the queue, so without further ado, I will share the script I normally use.
 
@@ -41,7 +41,7 @@ The truth is that this blog post was already on the queue, so without further ad
 
 <ul>
 <li>With some changes you can put it to work with Availability Groups with more than 2 nodes. The failover and the set dbowner part is the one that is being done just having 2 nodes in mind. </li>
-<li>If you have huge databases and automatic seeding is not an option for you, you may want to leverage on the backup/restore process. Take a look on the <a href="https://docs.dbatools.io/#Add-DbaAgDatabase">Add-DbaAgDatabase</a> command docs (look to `-SharedPath` parameter along with `-SeedingMode Manual`)</li>
+<li>If you have huge databases and automatic seeding is not an option for you, you may want to leverage on the backup/restore process. Take a look on the [Add-DbaAgDatabase](https://docs.dbatools.io/#Add-DbaAgDatabase) command docs (look to `-SharedPath` parameter along with `-SeedingMode Manual`)</li>
 </ul>
 
 <h2>The script</h2>

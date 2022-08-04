@@ -18,24 +18,24 @@ For the last couple of months, members of the <a href="http://dbatools.io/" targ
 <h3>dbachecks launch - the blog posts series</h3>
 
 Here you can find a list of the blog posts made available today:
-<a href="https://sqldbawithabeard.com/2018/02/22/announcing-dbachecks-configurable-powershell-validation-for-your-sql-instances/">Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell</a>
-<a href="https://dbachecks.io/introducing">introducing dbachecks - a new module from the dbatools team! by Chrissy LeMaire</a>
-<a href="https://dbachecks.io/install">install dbachecks by Chrissy LeMaire</a>
-<a href="https://dbachecks.io/commands">dbachecks commands by Chrissy LeMaire</a>
-<a href="http://claudioessilva.eu/2018/02/22/dbachecks-using-power-bi-dashboards-to-analyse-results/">dbachecks – Using Power BI dashboards to analyse results by Cláudio Silva</a>
-<a href="https://v-roddba.blogspot.com/2018/02/wrapper-for-dbachecks.html">My wrapper for dbachecks by Tony Wilhelm</a>
-<a href="http://jesspomfret.com/checking-backups-with-dbachecks/">Checking backups with dbachecks by Jess Promfret</a>
-<a href="http://blog.garrybargsley.com/dbachecks-please">dbachecks please! by Garry Bargsley</a>
-<a href="https://sqldbawithabeard.com/2018/02/22/dbachecks-configuration-deep-dive/">dbachecks – Configuration Deep Dive by Rob Sewell</a>
-<a href="https://www.sqlstad.nl/powershell/test-log-shipping-with-dbachecks/">Test Log Shipping with dbachecks</a>
-<a href="https://corrick.io/blog/checking-your-backup-strategy-with-dbachecks">Checking your backup strategy with dbachecks by Joshua Corrick</a>
-<a href="http://www.sqlnotnull.com/2018/02/20/enterprise-level-reporting-with-dbachecks-from-the-makers-of-dbatools">Enterprise-level reporting with dbachecks by Jason Squires</a>
-<a href="http://nocolumnname.blog/2018/02/22/adding-your-own-checks-to-dbachecks">Adding your own checks to dbachecks by Shane O'Neill</a>
-<a href="https://claudioessilva.eu/2018/02/22/dbachecks-a-different-approach-for-an-in-progress-and-incremental-validation/">dbachecks - A different approach for an in-progress and incremental validation by Cláudio Silva</a>
+[Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell](https://sqldbawithabeard.com/2018/02/22/announcing-dbachecks-configurable-powershell-validation-for-your-sql-instances/)
+[introducing dbachecks - a new module from the dbatools team! by Chrissy LeMaire](https://dbachecks.io/introducing)
+[install dbachecks by Chrissy LeMaire](https://dbachecks.io/install)
+[dbachecks commands by Chrissy LeMaire](https://dbachecks.io/commands)
+[dbachecks – Using Power BI dashboards to analyse results by Cláudio Silva](http://claudioessilva.eu/2018/02/22/dbachecks-using-power-bi-dashboards-to-analyse-results/)
+[My wrapper for dbachecks by Tony Wilhelm](https://v-roddba.blogspot.com/2018/02/wrapper-for-dbachecks.html)
+[Checking backups with dbachecks by Jess Promfret](http://jesspomfret.com/checking-backups-with-dbachecks/)
+[dbachecks please! by Garry Bargsley](http://blog.garrybargsley.com/dbachecks-please)
+[dbachecks – Configuration Deep Dive by Rob Sewell](https://sqldbawithabeard.com/2018/02/22/dbachecks-configuration-deep-dive/)
+[Test Log Shipping with dbachecks](https://www.sqlstad.nl/powershell/test-log-shipping-with-dbachecks/)
+[Checking your backup strategy with dbachecks by Joshua Corrick](https://corrick.io/blog/checking-your-backup-strategy-with-dbachecks)
+[Enterprise-level reporting with dbachecks by Jason Squires](http://www.sqlnotnull.com/2018/02/20/enterprise-level-reporting-with-dbachecks-from-the-makers-of-dbatools)
+[Adding your own checks to dbachecks by Shane O'Neill](http://nocolumnname.blog/2018/02/22/adding-your-own-checks-to-dbachecks)
+[dbachecks - A different approach for an in-progress and incremental validation by Cláudio Silva](https://claudioessilva.eu/2018/02/22/dbachecks-a-different-approach-for-an-in-progress-and-incremental-validation/)
 
 Other documentation:
-<a href="https://github.com/sqlcollaborative/dbachecks">dbachecks readme</a>
-<a href="https://github.com/sqlcollaborative/dbachecks/wiki">dbachecks wiki (for developers)</a>
+[dbachecks readme](https://github.com/sqlcollaborative/dbachecks)
+[dbachecks wiki (for developers)](https://github.com/sqlcollaborative/dbachecks/wiki)
 
 <h3>Let's begin</h3>
 

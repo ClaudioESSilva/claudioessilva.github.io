@@ -27,7 +27,7 @@ Client wants to analyze most recent deadlocks that happened on a specific instan
 Depending on the version of SQL Server that you are running, there are different ways to do it.
 In this post I will share how you can do it from all files that belongs to the `system_health` extended event session. (Not only the current file).
 This works on SQL Server 2012 or higher version.
-For a better overview I recommend you to read the <a href="https://www.sqlshack.com/what-are-sql-server-deadlocks-and-how-to-monitor-them/">What are SQL Server deadlocks and how to monitor them</a> article from SQLShack.
+For a better overview I recommend you to read the [What are SQL Server deadlocks and how to monitor them](https://www.sqlshack.com/what-are-sql-server-deadlocks-and-how-to-monitor-them/) article from SQLShack.
 
 <h2>T-SQL query to get the deadlocks entries</h2>
 

@@ -18,7 +18,7 @@ No schema, just the modules. There are more than 1000 objects between stored pro
 
 <h2>First - the pain...</h2>
 
-While checking the <a href="https://firebirdsql.org/en/reference-manuals/">Firebird reference manuals</a> I saw a lot of different concepts (Selectable Stored Procedures - Yes you can do SELECT FROM StoredProcedure) and different functions names with different syntax compared to T-SQL.
+While checking the [Firebird reference manuals](https://firebirdsql.org/en/reference-manuals/) I saw a lot of different concepts (Selectable Stored Procedures - Yes you can do SELECT FROM StoredProcedure) and different functions names with different syntax compared to T-SQL.
 
 With this in mind, can you imagine doing a code migration between two different SQL flavours that contains more than 60000 lines of code by hand? 😨
 
@@ -30,7 +30,7 @@ Because the `-replace` method allows the use of regular expressions this become 
 
 <h4>Don't reinvent the wheel</h4>
 
-I did a search and found a <a href="https://gist.github.com/MatthewSteeples/1961d4bf4892f09d32029">gist from Matthew Steeples</a> that has a function to do a find/replace of a single string on a file using regular expressions.
+I did a search and found a [gist from Matthew Steeples](https://gist.github.com/MatthewSteeples/1961d4bf4892f09d32029) that has a function to do a find/replace of a single string on a file using regular expressions.
 
 I picked this script and I have adapted to my reality. This means, I have changed the code in order to:
 
@@ -39,7 +39,7 @@ I picked this script and I have adapted to my reality. This means, I have change
 <li>Open the file and do all the changes before save it again.</li>
 </ul>
 
-You can find on my GitHub repository the <a href="https://github.com/ClaudioESSilva/SQLServer-PowerShell/tree/master/PowerShell/Set-Expression">Set-Expression PowerShell function</a> I ended with.
+You can find on my GitHub repository the [Set-Expression PowerShell function](https://github.com/ClaudioESSilva/SQLServer-PowerShell/tree/master/PowerShell/Set-Expression) I ended with.
 
 <h4>Filling the hastable</h4>
 
@@ -163,7 +163,7 @@ This way I can just copy/paste the result to my hashtable and run the PowerShell
 
 This made possible to automate, I would say, 95% of the work I have to do on each trigger object.
 
-The 5% left are purposeful and intended to format the code using <a href="https://www.red-gate.com/products/sql-development/sql-prompt/index">Redgate SQL Prompt</a> (formatted the code using the great `CTRL + K, Y` shortcut) once I open the script on SQL Server Management Studio and test the object compilation.
+The 5% left are purposeful and intended to format the code using [Redgate SQL Prompt](https://www.red-gate.com/products/sql-development/sql-prompt/index) (formatted the code using the great `CTRL + K, Y` shortcut) once I open the script on SQL Server Management Studio and test the object compilation.
 
 <h4>Other examples?</h4>
 
@@ -193,7 +193,7 @@ SELECT
 UDDT named `INT_VALUE`, that represents an INT, used in the following way `CAST(column AS INT_VALUE)` needs to be replaced as
 `CAST(column as INT)`.
 
-Why we need to do this replace? I have written about it on my blog post <a href="https://claudioessilva.eu/2018/05/02/using-cast-function-with-user-defined-data-types-did-you-know/">Using CAST() function with User-Defined Data Types…Did you know…</a> take a look.
+Why we need to do this replace? I have written about it on my blog post [Using CAST() function with User-Defined Data Types…Did you know…](https://claudioessilva.eu/2018/05/02/using-cast-function-with-user-defined-data-types-did-you-know/) take a look.
 
 <h2>Wrap up - Life saver and time saved</h2>
 

@@ -18,7 +18,7 @@ tags:
 title: Backup your SQL instances configurations to GIT with dbatools - Part 2 - Add
   parallelism
 ---
-We have seen how we can export and save the results to a folder and commit them to a GIT repository on my last blog post <a href="https://claudioessilva.eu/2020/06/02/backup-your-sql-instances-configurations-to-git-with-dbatools-part-1/">Backup your SQL instances configurations to GIT with dbatools – Part 1</a>.
+We have seen how we can export and save the results to a folder and commit them to a GIT repository on my last blog post [Backup your SQL instances configurations to GIT with dbatools – Part 1](https://claudioessilva.eu/2020/06/02/backup-your-sql-instances-configurations-to-git-with-dbatools-part-1/).
 At the end of that post, I have mentioned that I would write about how we can lower down the execution times of our script by leveraging on parallelism.
 
 <h2>Going parallel</h2>
@@ -41,7 +41,7 @@ Bottom line is that your mileage may vary, but if you have thousands, hundreds o
 
 There are a couple of options, like the native PowerShell cmdlets `Start-Job`/`Stop-Job` a.k.a background jobs, Runspaces jobs and Thread jobs but I will just mention two of them. One is a nice addition to the most recent version of PowerShell (v7) and the other using a PowerShell module.
 
-In case you don't know, with PowerShell v7 it's possible to use a new option `-Parallel` with `ForEach-Object`. Check PowerShell's team blog post <a href="https://devblogs.microsoft.com/powershell/powershell-foreach-object-parallel-feature/">PowerShell ForEach-Object Parallel Feature</a>.
+In case you don't know, with PowerShell v7 it's possible to use a new option `-Parallel` with `ForEach-Object`. Check PowerShell's team blog post [PowerShell ForEach-Object Parallel Feature](https://devblogs.microsoft.com/powershell/powershell-foreach-object-parallel-feature/).
 
 However, because I don't have (yet :-)) PS7, I will keep leveraging on [PoshRSJob](https://github.com/proxb/PoshRSJob) module, which uses runspaces, created by Boe Prox ([T](https://twitter.com/proxb) \| [B](https://learn-powershell.net/)).
 If this module is unknown to you, as a quick summary, it:
@@ -111,7 +111,7 @@ But, It also depends on the type of script that you are running.
 If you have a script that will try to find one file on one disk recursively, we may think that parallelism can be helpful to make it faster, however, the disk is the same and therefore we can hit an I/O bottleneck.
 On the other hand, if we are trying to find the file on different disks we can parallelize and have one runspace running on each disk avoiding the I/O bottleneck and getting better results.
 
-Another example is the one mentioned on the "When should it be avoided?" section of the earlier mentioned <a href="https://devblogs.microsoft.com/powershell/powershell-foreach-object-parallel-feature/">PowerShell v7 - Parallel blog post</a>, if your script is trivial adding the parallelism can actually make it much slower!
+Another example is the one mentioned on the "When should it be avoided?" section of the earlier mentioned [PowerShell v7 - Parallel blog post](https://devblogs.microsoft.com/powershell/powershell-foreach-object-parallel-feature/), if your script is trivial adding the parallelism can actually make it much slower!
 
 <h3>Test and adjust</h3>
 
@@ -322,6 +322,6 @@ Test with different commands and leverage on the beauty of the parallelism!
 
 If you are curious about a comparison between both approaches, you can read the blog post [T](https://twitter.com/WindosNZ) \| [B](https://toastit.dev/)) does a comparison between this new feature and the PoshRSJob module.
 
-Also, Nasir Zubair ([T](https://twitter.com/nsr81) \| [B](https://randombrainworks.com/)) back in 2018 wrote about all of them (excluding -Parallel which was not a thing at the time) on the <a href="https://randombrainworks.com/2018/01/29/powershell-background-jobs-runspace-jobs-thread-jobs">PowerShell - Background jobs, runspace jobs, thread jobs</a> blog post.
+Also, Nasir Zubair ([T](https://twitter.com/nsr81) \| [B](https://randombrainworks.com/)) back in 2018 wrote about all of them (excluding -Parallel which was not a thing at the time) on the [PowerShell - Background jobs, runspace jobs, thread jobs](https://randombrainworks.com/2018/01/29/powershell-background-jobs-runspace-jobs-thread-jobs) blog post.
 
 Thanks for reading!

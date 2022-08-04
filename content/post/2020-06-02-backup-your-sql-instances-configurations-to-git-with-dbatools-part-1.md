@@ -17,7 +17,7 @@ title: Backup your SQL instances configurations to GIT with dbatools - Part 1
 ---
 Today I want to share how I'm keeping a copy of instances' configurations using [dbatools](https://dbatools.io).
 
-Chrissy LeMaire ([B](https://blog.netnerds.net/) \| [T](https://twitter.com/cl)) wrote about it before on the <a href="https://dbatools.io/dr/">Simplifying disaster recovery with dbatools</a> blog post.
+Chrissy LeMaire ([B](https://blog.netnerds.net/) \| [T](https://twitter.com/cl)) wrote about it before on the [Simplifying disaster recovery with dbatools](https://dbatools.io/dr/) blog post.
 In this post, I will add one step and save the output on a GIT repository.
 
 <h2>Pre-requirements</h2>
@@ -238,7 +238,7 @@ On top of that, I have shown how you can format the results so you can add it to
 I hope this gives you, at least, a good starting point to implement backups over the time of your instances configurations.
 Adjust for your needs, test, and keep it running.
 
-In the second and final part of this process (<a href="https://claudioessilva.eu/2020/06/04/backup-your-sql-instances-configurations-to-git-with-dbatools-part-2-add-parallelism/">Backup your SQL instances configurations to GIT with dbatools – Part 2 – Add parallelism</a>), we will implement parallelism to lower down our execution times.
+In the second and final part of this process ([Backup your SQL instances configurations to GIT with dbatools – Part 2 – Add parallelism](https://claudioessilva.eu/2020/06/04/backup-your-sql-instances-configurations-to-git-with-dbatools-part-2-add-parallelism/)), we will implement parallelism to lower down our execution times.
 Stay tuned.
 
 Thanks for reading!

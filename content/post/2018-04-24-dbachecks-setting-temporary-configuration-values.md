@@ -12,7 +12,7 @@ tags:
 - temporary configuration
 title: dbachecks - Setting temporary configuration values
 ---
-[dbachecks](https://dbachecks.io) has seen the light about two months ago. As I'm writing this blog post, the module counts with more than 2600 downloads just from the <a href="https://www.powershellgallery.com/packages/dbachecks">PowerShell gallery</a>.
+[dbachecks](https://dbachecks.io) has seen the light about two months ago. As I'm writing this blog post, the module counts with more than 2600 downloads just from the [PowerShell gallery](https://www.powershellgallery.com/packages/dbachecks).
 The module has about 110 configurable checks that make our live easier!
 
 Today I will write about an option that I think users still do not realize that exists.
@@ -26,7 +26,7 @@ dbachecks works with the values previously saved (for that we use `Set-DbcConfig
 Today I want to share a different option!
 
 Let's assume that you have your dbachecks configs set up for the Production environment. What do you need to do if you want to change just one check to test it in the Test environment?
-One option is use the export/import method that Rob ([b](https://sqldbawithabeard.com/) \| [t](https://twitter.com/sqldbawithbeard)) wrote about on his <a href="https://sqldbawithabeard.com/2018/02/22/dbachecks-configuration-deep-dive/">dbachecks – Configuration Deep Dive</a> blog post.
+One option is use the export/import method that Rob ([b](https://sqldbawithabeard.com/) \| [t](https://twitter.com/sqldbawithbeard)) wrote about on his [dbachecks – Configuration Deep Dive](https://sqldbawithabeard.com/2018/02/22/dbachecks-configuration-deep-dive/) blog post.
 
 <h2>What if, we could change this property just for the current session without messing with possible new sessions?</h2>
 

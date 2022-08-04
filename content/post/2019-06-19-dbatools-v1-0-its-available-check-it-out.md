@@ -24,7 +24,7 @@ After more than 200 commits, the work of more than 20 contributors and 20 days s
 
 <h2>Fun fact</h2>
 
-I'm sure this was one of the longest periods without releasing new versions since <a href="https://dbatools.io/devops/">we started doing it more often</a>.
+I'm sure this was one of the longest periods without releasing new versions since [we started doing it more often](https://dbatools.io/devops/).
 Bare minimum has been 1 release per week :-)
 
 But, there are good reasons for it! v1.0 brings
@@ -34,20 +34,20 @@ But, there are good reasons for it! v1.0 brings
 - Azure connections supported
 - And of course, fixes and new (13) commands.
 
-You can read the <a href="https://github.com/sqlcollaborative/dbatools/blob/prerelease/changelog.md">v1.0 change log</a> for more details.
+You can read the [v1.0 change log](https://github.com/sqlcollaborative/dbatools/blob/prerelease/changelog.md) for more details.
 
 <h2>New commands</h2>
 
 From the 13 new commands, I decided to share the ones that make it possible to interact with Server/Database roles.
 
 Here is the list of the newest commands:
-- <a href="https://dbatools.io/Add-DbaDbRoleMember">Add-DbaDbRoleMember</a>
-- <a href="https://dbatools.io/Get-DbaDbRole">Get-DbaDbRole</a>
-- <a href="https://dbatools.io/New-DbaDbRole">New-DbaDbRole</a>
-- <a href="https://dbatools.io/New-DbaInstanceRole">New-DbaInstanceRole</a>
-- <a href="https://dbatools.io/Remove-DbaDbRole">Remove-DbaDbRole</a>
-- <a href="https://dbatools.io/Remove-DbaDbRoleMember">Remove-DbaDbRoleMember</a>
-- <a href="https://dbatools.io/Remove-DbaInstanceRole">Remove-DbaInstanceRole</a>
+- [Add-DbaDbRoleMember](https://dbatools.io/Add-DbaDbRoleMember)
+- [Get-DbaDbRole](https://dbatools.io/Get-DbaDbRole)
+- [New-DbaDbRole](https://dbatools.io/New-DbaDbRole)
+- [New-DbaInstanceRole](https://dbatools.io/New-DbaInstanceRole)
+- [Remove-DbaDbRole](https://dbatools.io/Remove-DbaDbRole)
+- [Remove-DbaDbRoleMember](https://dbatools.io/Remove-DbaDbRoleMember)
+- [Remove-DbaInstanceRole](https://dbatools.io/Remove-DbaInstanceRole)
 
 Note: Database Application Roles are not covered yet.
 Note2: A new command to add logins to one (or more) server role is being cooked.
@@ -56,7 +56,7 @@ This is why we release often, improvements and new features are always on our pi
 <h2>Code examples</h2>
 
 Here is a short script that shows how you can leverage these new commands.
-Don't forget to use `Get-Help` or visit our <a href="https://docs.dbatools.io">docs page</a> to know more about the commands.
+Don't forget to use `Get-Help` or visit our [docs page](https://docs.dbatools.io) to know more about the commands.
 
 ``` powershell
 $instance = "sql2016"
@@ -125,9 +125,9 @@ Even though this is a milestone for us, we will keep working on the module bring
 
 We want to hear from you!
 If you have questions, suggestions, requests or you just want to give a shout out to the team you can:
-- <a href="http://dbatools.io/issues">Request a feature or report a bug</a>
-- <a href="https://dbatools.io/slack/">Join #dbatools channel on Slack SQL Community</a>
-- Find us on <a href="https://twitter.com/psdbatools">Twitter - @psdbatools</a>
+- [Request a feature or report a bug](http://dbatools.io/issues)
+- [Join #dbatools channel on Slack SQL Community](https://dbatools.io/slack/)
+- Find us on [Twitter - @psdbatools](https://twitter.com/psdbatools)
 
 Other useful links:
 - [Website](https://dbatools.io) and [blog](https://dbatools.io/blog/)
@@ -135,13 +135,13 @@ Other useful links:
 
 <h3>To celebrate the launch of v1.0 we have a lot of blog posts related to it!</h3>
 
-<a href="https://dbatools.io/dbatools10">dbatools 1.0 has arrived by Chrissy</a>
-<a href="https://nocolumnname.blog/?p=9452">dbatools 1.0 - the tools to break down the barriers - Shane O'Neill</a>
-<a href="https://dbaduck.com/2019/06/18/dbatools-1-0-is-here-and-why-you-should-care/">dbatools 1.0 is here and why you should care - Ben Miller</a>
-<a href="https://corrick.io/blog/dbatools-to-v1-0-and-beyond">dbatools 1.0 and beyond - Joshua Corrick</a>
-<a href="https://nakedpowershell.blogspot.com/2019/06/dbatools-10.html">dbatools 1.0 - Dusty R</a>
-<a href="https://wp.me/p8gE30-br">Your DBA Toolbox Just Got a Refresh - dbatools v1.0 is Officially Available!!! - Garry Bargsley</a>
-<a href="https://ifexists.blog/updating-sql-server-instances-using-powershell/">updating sql server instances using dbatools 1.0 - Gareth N</a>
+[dbatools 1.0 has arrived by Chrissy](https://dbatools.io/dbatools10)
+[dbatools 1.0 - the tools to break down the barriers - Shane O'Neill](https://nocolumnname.blog/?p=9452)
+[dbatools 1.0 is here and why you should care - Ben Miller](https://dbaduck.com/2019/06/18/dbatools-1-0-is-here-and-why-you-should-care/)
+[dbatools 1.0 and beyond - Joshua Corrick](https://corrick.io/blog/dbatools-to-v1-0-and-beyond)
+[dbatools 1.0 - Dusty R](https://nakedpowershell.blogspot.com/2019/06/dbatools-10.html)
+[Your DBA Toolbox Just Got a Refresh - dbatools v1.0 is Officially Available!!! - Garry Bargsley](https://wp.me/p8gE30-br)
+[updating sql server instances using dbatools 1.0 - Gareth N](https://ifexists.blog/updating-sql-server-instances-using-powershell/)
 
 Enjoy dbatools v1.0!
 
