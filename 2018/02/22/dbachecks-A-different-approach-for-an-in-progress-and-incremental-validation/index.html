@@ -10,22 +10,22 @@ If you don&rsquo;t know dbachecks, we have released a good amount of blog posts 
 <span class=sidebar-button-desc>Twitter</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://www.linkedin.com/in/claudioessilva target=_blank rel=noopener title=LinkedIn><i class="sidebar-button-icon fab fa-lg fa-linkedin" aria-hidden=true></i>
 <span class=sidebar-button-desc>LinkedIn</span></a></li></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=/index.xml title=RSS><i class="sidebar-button-icon fas fa-lg fa-rss" aria-hidden=true></i>
 <span class=sidebar-button-desc>RSS</span></a></li></ul></div><div class=sidebar-container><div style=color:#ebebeb;font-size:25px;text-align:center>dbatools book</div><div style=color:#ebebeb;font-size:15px>Now available! Buy it at manning.com - 50% off with code bldbatools50</div><a href="https://www.manning.com/books/learn-dbatools-in-a-month-of-lunches?utm_source=claudioessilva&utm_medium=affiliate&utm_campaign=affiliate&a_aid=claudioessilva" target=_blank><center><img src=https://images.manning.com/264/352/resize/book/0/998b76f-982a-4661-a020-5d94909f7ea5/LeMaire-HI.png height=300></center></a></div></nav><div id=main data-behavior=4 class=hasCoverMetaIn><article class=post id=top><div class="post-header main-content-wrap text-left"><h1 class=post-title>dbachecks - A different approach for an in-progress and incremental validation</h1><div class="postShorten-meta post-meta"><time datetime=2018-02-22T00:00:00Z>February 22, 2018</time></div></div><div class="post-content markdown"><div class=main-content-wrap><p>dbachecks is a new PowerShell module from the SQL Server Community! For more information, read introducing dbachecks.</p><p>If you don&rsquo;t know dbachecks, we have released a good amount of blog posts that will help you:
-Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell
-introducing dbachecks - a new module from the dbatools team! by Chrissy LeMaire
-install dbachecks by Chrissy LeMaire
-dbachecks commands by Chrissy LeMaire
-dbachecks – Using Power BI dashboards to analyse results by Cláudio Silva
-My wrapper for dbachecks by Tony Wilhelm
-Checking backups with dbachecks by Jess Promfret
-dbachecks please! by Garry Bargsley
-dbachecks – Configuration Deep Dive by Rob Sewell
-Test Log Shipping with dbachecks
-Checking your backup strategy with dbachecks by Joshua Corrick
-Enterprise-level reporting with dbachecks by Jason Squires
-Adding your own checks to dbachecks by Shane O&rsquo;Neill
-dbachecks - A different approach for an in-progress and incremental validation by Cláudio Silva</p><p>Other documentation:
-dbachecks readme
-dbachecks wiki (for developers)</p><p>I will share one of the ways I like to use dbachecks when I&rsquo;m knocking down the problems in order to increase the green percentage and lower the red one!</p><p>How do you save the results?
+<a href=https://sqldbawithabeard.com/2018/02/22/announcing-dbachecks-configurable-powershell-validation-for-your-sql-instances/>Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell</a>
+<a href=https://dbachecks.io/introducing>introducing dbachecks - a new module from the dbatools team! by Chrissy LeMaire</a>
+<a href=https://dbachecks.io/install>install dbachecks by Chrissy LeMaire</a>
+<a href=https://dbachecks.io/commands>dbachecks commands by Chrissy LeMaire</a>
+<a href=http://claudioessilva.eu/2018/02/22/dbachecks-using-power-bi-dashboards-to-analyse-results/>dbachecks – Using Power BI dashboards to analyse results by Cláudio Silva</a>
+<a href=https://v-roddba.blogspot.com/2018/02/wrapper-for-dbachecks.html>My wrapper for dbachecks by Tony Wilhelm</a>
+<a href=http://jesspomfret.com/checking-backups-with-dbachecks/>Checking backups with dbachecks by Jess Promfret</a>
+<a href=http://blog.garrybargsley.com/dbachecks-please>dbachecks please! by Garry Bargsley</a>
+<a href=https://sqldbawithabeard.com/2018/02/22/dbachecks-configuration-deep-dive/>dbachecks – Configuration Deep Dive by Rob Sewell</a>
+<a href=https://www.sqlstad.nl/powershell/test-log-shipping-with-dbachecks/>Test Log Shipping with dbachecks</a>
+<a href=https://corrick.io/blog/checking-your-backup-strategy-with-dbachecks>Checking your backup strategy with dbachecks by Joshua Corrick</a>
+<a href=http://www.sqlnotnull.com/2018/02/20/enterprise-level-reporting-with-dbachecks-from-the-makers-of-dbatools>Enterprise-level reporting with dbachecks by Jason Squires</a>
+<a href=http://nocolumnname.blog/2018/02/22/adding-your-own-checks-to-dbachecks>Adding your own checks to dbachecks by Shane O&rsquo;Neill</a>
+<a href=https://claudioessilva.eu/2018/02/22/dbachecks-a-different-approach-for-an-in-progress-and-incremental-validation/>dbachecks - A different approach for an in-progress and incremental validation by Cláudio Silva</a></p><p>Other documentation:
+<a href=https://github.com/sqlcollaborative/dbachecks>dbachecks readme</a>
+<a href=https://github.com/sqlcollaborative/dbachecks/wiki>dbachecks wiki (for developers)</a></p><p>I will share one of the ways I like to use dbachecks when I&rsquo;m knocking down the problems in order to increase the green percentage and lower the red one!</p><p>How do you save the results?
 Do you save one file per instance (all tests included)?
 Using <code>-Append</code>?
 Alternatively, one per check/environment?</p><p>There is not a single way of doing this. Neither a &ldquo;correct way&rdquo;.
@@ -39,7 +39,7 @@ Keeping the same line, I will get a filename <code>dbachecks_1_SuspectPage_PRD.j
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div><p>This will output:</p><p></p><p>&ldquo;This will create a lot of files&mldr;&rdquo;</p><p>Let&rsquo;s imagine for a moment that we have to manage 3 different environments (DEV, QA, PRD):
-Currently, we have 80 checks if your approach is 1 file per environment you will end up with 3 files. The way I like to do it, I will end up with 240 files.</p><p>WOW! Big difference right?</p><p>Yes, it is a big difference but that is no problem at all! The Power BI file will deal with this increase flawlessly as I have mentioned before on dbachecks – Using Power BI dashboards to analyse results blog post.</p><p>The biggest advantage, for me, is the possibility I have to re-run a single test for a single environment and with it, only touch just one of the files. It&rsquo;s an update of that file.
+Currently, we have 80 checks if your approach is 1 file per environment you will end up with 3 files. The way I like to do it, I will end up with 240 files.</p><p>WOW! Big difference right?</p><p>Yes, it is a big difference but that is no problem at all! The Power BI file will deal with this increase flawlessly as I have mentioned before on <a href=http://claudioessilva.eu/2018/02/22/dbachecks-using-power-bi-dashboards-to-analyse-results/>dbachecks – Using Power BI dashboards to analyse results</a> blog post.</p><p>The biggest advantage, for me, is the possibility I have to re-run a single test for a single environment and with it, only touch just one of the files. It&rsquo;s an update of that file.
 By doing it, for the same destination folder, I will overwrite the existing file then I literally just need to go and hit &ldquo;Refresh&rdquo; button on PowerBI dashboards.
 This way it took just the time of that test and not all of them. Quick and easily, I&rsquo;m able to confirm that the fix I have run actually worked and my red values are lower! :D</p><p>The point 6 is where you will save huge amounts of time because if you have just one file for all tests for one environment, you would need to rerun ALL the tests in order to refresh your environment.</p><p>Hope this helps!</p><p>Thanks for reading!</p></div></div><div id=post-footer class="post-footer main-content-wrap"><div class=post-footer-tags><span class="text-color-light text-small">TAGGED IN</span><br><a class="tag tag--primary tag--small" href=/tags/dbachecks/>dbachecks</a>
 <a class="tag tag--primary tag--small" href=/tags/dbatools/>dbatools</a>
