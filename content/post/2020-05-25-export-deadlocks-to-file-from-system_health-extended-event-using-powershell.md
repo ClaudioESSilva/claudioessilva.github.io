@@ -54,7 +54,6 @@ FROM sys.fn_xe_file_target_read_file(@LogPath + '\system_health*.xel', null, nul
 WHERE object_name like 'xml_deadlock_report'
 ```
 
-
 ### Using PowerShell to save the files to the filesystem
 
 Now that we have the T-SQL to get the data, we just need to save it on some folder.

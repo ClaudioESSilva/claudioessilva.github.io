@@ -36,7 +36,7 @@ It's pretty easy to create a new database for a client without explicitly specif
 But the list doesn't stop here, just to enumerate a couple more:
 - User login can be used in Credential
 - User login can be the only used in a Proxy (SQL Agent Steps using a Proxy)
-<br>
+
 #### What do they have in common?
 
 Sooner or later you will discover that things (might) stop working.

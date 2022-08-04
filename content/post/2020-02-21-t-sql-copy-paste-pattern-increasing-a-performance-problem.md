@@ -62,11 +62,11 @@ SELECT column1
 ```
 
 However this default call does not bring the execution plan, for that you need to run using the `@get_plans` parameter:
-<br>
+
 ``` powershell
 EXEC sp_WhoIsActive @get_plans = 1
 ```
-<br>
+
 I have copied the XML that contains the sqlplan to <a href="http://sentryone.com/plan-explorer" rel="noopener" target="_blank">SentryOne Plan Explorer</a> and this was what I saw
 
 <img src="https://claudioessilva.github.io/img/2020/02/executionplanpattern-1.jpg" alt="" width="460" height="513" class="aligncenter size-full wp-image-1938" />
@@ -74,18 +74,18 @@ I have copied the XML that contains the sqlplan to <a href="http://sentryone.com
 Within the red circle we can see a concatenation operator (first one on top left) which will get the result of each EXISTS sub query (8 in total).
 
 If we want to know which outer batch or stored procedure call was issued by the application or user we can use the `@get_outer_command` parameter
-<br>
+
 ``` powershell
 EXEC sp_WhoIsActive @get_plans = 1, @get_outer_command = 1
 ```
-<br>
+
 However, if we have nested calls, this will not show the current batch or stored procedure where the code of the current query belongs.
 
 To get that we need to use the `@get_full_inner_text` parameter:
 ``` powershell
 EXEC sp_WhoIsActive @get_plans = 1, @get_outer_command = 1, @get_full_inner_text = 1
 ```
-<br>
+
 This way, the `sql_text` column will contain the whole batch or stored procedure where the query belongs.
 
 ### Back to the query - The pattern

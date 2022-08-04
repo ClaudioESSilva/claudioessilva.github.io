@@ -97,7 +97,6 @@ You can pick that data and pass it to the `Test-DbaSqlBuild` command to know if 
 Then for each result, we will format the `productVersion` value to use just a 3 part value (it is how we catalog on dbatools build reference file) and pass it to the `Test-DbaSqlBuild` command.
 In this example, I'm piping the output to `Out-GridView` so I can filter my results and add a filter for `compliant equals false`
 <a href="https://claudioessilva.github.io/img/2018/01/centraldatabase_ogv.png"><img src="https://claudioessilva.github.io/img/2018/01/centraldatabase_ogv.png?w=656" alt="" width="656" height="159" class="aligncenter size-large wp-image-1172" /></a>.
-<br>
 
 #### Doing ad-hoc testing
 

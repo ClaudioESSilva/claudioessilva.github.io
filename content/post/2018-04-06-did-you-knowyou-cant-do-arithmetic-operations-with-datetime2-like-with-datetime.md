@@ -48,7 +48,7 @@ Operand type clash: datetime2 is incompatible with int</blockquote>
 ## But it was working!?
 
 Yes it was on the source engine (Firebird) and it will still work on the destination (SQLServer) if the datatype is still the same - DATETIME.
-<br>
+
 What happened here was the column datatype was changed during the schema migration from DATETIME to DATETIME2.
 
 NOTE: The most recent date/time datatypes appeared with SQL Server 2008. They are [DATE](https://docs.microsoft.com/en-us/sql/t-sql/data-types/date-transact-sql), [TIME](https://docs.microsoft.com/en-us/sql/t-sql/data-types/time-transact-sql), [DATETIME2](https://docs.microsoft.com/en-us/sql/t-sql/data-types/datetime2-transact-sql), [DATETIMEOFFSET](https://docs.microsoft.com/en-us/sql/t-sql/data-types/datetimeoffset-transact-sql).

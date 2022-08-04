@@ -33,7 +33,6 @@ I did not know until my colleague called my attention to it few days ago.
 <p style="text-align:justify;">This download will not download just the current page. By using the "Download PDF" link you will get all the content that is present on the tree-view under the "filter" box on the left of the page.</p>
 ![treeview](/img/2017/08/treeview.png)
 
-
 <h2 style="text-align:justify;">Script to download all existing PDF files
 <p style="text-align:justify;">From my search exists at least <strong><span style="text-decoration:underline;">98</span></strong> pdf documents (~66mb) exist just for the <a href="https://docs.microsoft.com/en-gb/sql/relational-databases/database-features" target="_blank" rel="noopener">Relational Databases</a> topic. Download them all is not the kind of work I would like to do manually.</p>
 

@@ -50,8 +50,6 @@ SELECT sm.object_id, o.name, o.type, sm.definition
 
 ![syssqlmodules](/img/2020/09/sys-sql_modules.png)
 
-<br>
-
 ### What happens to the module text when we specify WITH ENCRYPTION?
 
 From the [CREATE PROCEDURE](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-procedure-transact-sql) documentation, `WITH ENCRYPTION`:
@@ -149,7 +147,6 @@ Invoke-DbaDbDecryptObject -SqlInstance "instance1" -Database "WithEncryption" -O
 ```
 
 ![decrypttwoobjects](/img/2020/09/decrypttwoobjects.png)
-
 
 NOTE: If you want to decrypt all encrypted objects that belong to a specific database you just need to omit the `-ObjectName` parameter.
 ``` powershell

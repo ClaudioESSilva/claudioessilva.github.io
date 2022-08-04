@@ -85,16 +85,13 @@ New-DbaDbRole -SqlInstance $instance -Database $database -Role $newDatabaseRole
 # Add new user to the newly created database role
 Add-DbaDbRoleMember -SqlInstance $instance -Database $database -User $username -Role $newDatabaseRole
 
-
 ### Now using Get-Dba*Role*
 
 # Get all members of an role (or list of roles)
 Get-DbaInstanceRoleMember -SqlInstance $instance -ServerRole $defaultExistingServerRole | Format-Table -AutoSize
 
-
 # Get newly create server role 'securityMaster' and defaul existing role 'sysadmin'
 Get-DbaInstanceRole -SqlInstance $instance -ServerRole $newServerRole, $defaultExistingServerRole
-
 
 ### Database level
 
@@ -103,7 +100,6 @@ Get-DbaDbRole -SqlInstance $instance -Database $database -Role $newDatabaseRole
 
 # Get all users member of an role (or list of roles)
 Get-DbaDbRoleMember -SqlInstance $instance -Database $database -Role $newDatabaseRole
-
 
 ### Clean up
 

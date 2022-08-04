@@ -36,7 +36,6 @@ The only command where this doesn't work like that by default is for `Connect-Db
 ### "Why?" You may ask.
 This was, in the earlier days, an internal command that others wanted us to surface and we expected they’d want it to throw by default in their own scripts.
 
-
 ## Making it better - PowerShell Core - Improvement
 If you have played with both [Windows PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/starting-windows-powershell?view=powershell-5.1) and [PowerShell Core](https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.2), you may recognize the big difference on the default output for the error messages.
 With PowerShell Core the errors are shown, by default, in a more consice and nicer view.
@@ -49,7 +48,6 @@ Take a look on the same error but when using PowerShell Core
 ![Exceptions_PSCore_DefaultError_view](/img/2022/06/Exceptions_PSCore_DefaultError_view.png)
 
 NOTE: You can change the default behavior of the preference variable [$ErrorView](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7.2#errorview) and play along with [Get-Error](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-error?view=powershell-7.2) CmdLet.
-
 
 ## How do we do it?
 dbatools was born before PowerShell Core.  
@@ -65,7 +63,6 @@ It is designed to allow gracefully terminating a function with a warning by defa
 
 ### That means no Write-Verbose/Warning/Error in the commands?
 Correct! The function `Write-Message` process the message (by type) and send it to the corresponding dbatools log and outputs it to the PowerShell [output streams](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_output_streams?view=powershell-7.2).
-
 
 ## What if I'm curious about the details of the error message?
 As mentioned before you can use the `-EnableException` parameter to get more details.

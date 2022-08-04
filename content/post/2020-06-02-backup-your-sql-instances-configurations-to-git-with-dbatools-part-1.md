@@ -51,7 +51,6 @@ $query = "SELECT ConnString FROM <table/view>"
 $ServerList = Invoke-DbaQuery -SqlInstance $centralServer -Database $centralDatabase -Query $query | Select-Object -ExpandProperty ConnString
 ```
 
-
 ## Running dbatools' Export-DbaInstance command
 
 A quick walk-through in case you have never used this command before.
@@ -206,7 +205,6 @@ foreach($server in $ServerList) {
     Export-DbaLinkedServer -SqlInstance $server -FilePath "$instanceOutDir\LinkedServers.sql" -ExcludePassword
 }
 
-
 # Find .sql files where the name starts with a number and rename files to exclude numeric part "#-<NAME>.sql" (remove the "#-")
 Get-ChildItem -Path $tempPath -Recurse -Filter "*.sql" | Where {$_.Name -match '^[0-9]+.*'} | Foreach-Object {Rename-Item -Path $_.FullName -NewName $($_ -split '-')[1] -Force}
 
@@ -224,7 +222,6 @@ git add .
 git commit -m "Export-DbaInstance @ $((Get-Date).ToString("yyyyMMdd-HHmmss"))"
 git push
 ```
-
 
 ### Example of the output for one of the instances
 
