@@ -19,7 +19,7 @@ This is the 106nd edition of [TSQL2sDay](http://tsqltuesday.com/) - an Adam Mach
 &nbsp;
 [Triggers](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-trigger-transact-sql) are those kind of database objects that sometimes are the best bet but most of the times they will strike back.
 
-<h3>"Why?" - You may ask.</h3>
+### "Why?" - You may ask.
 
 From my experience triggers are objects that we "tend" to forget are there, and only when we hit a problem and, sometimes, after digging into the problem we end by saying something like
 
@@ -28,17 +28,17 @@ From my experience triggers are objects that we "tend" to forget are there, and 
 Yes, it has already been uttered by me before. For me, triggers are a hole of possible business logic written and forgotten...forever.
 Let me just clarify the meaning of "forever" here - until you hit a problem or you need to rewrite some logic and the result is not what you expect. Again, because the code is 'hidden'.
 
-<h3>Recent pain - A project to migrate Firebird SQL to T-SQL</h3>
+### Recent pain - A project to migrate Firebird SQL to T-SQL
 
 When Steve mention the "I think I’ve ended up using triggers in 0.01% of my tables or less." I remember this project and after the math I can say they used ~78,84% and ~63,32% (were two databases) of triggers on their tables.
 
 When looking at their code it became obvious the type of use they are making, mainly to fill 1-2 columns with current datetime and/or to generate a new ID (because they didn't use identity columns - supported on v3.0 or higher)
 
-<h3>"You never used triggers, it's what you are saying?"</h3>
+### "You never used triggers, it's what you are saying?"
 
 No, it's not. I have used them before and not only 0,01% but maybe less than 5%.
 
-<h4>Let me share an story</h4>
+#### Let me share an story
 
 Back in the earlier times when I was a full-time T-SQL developer (I think was on 2008/2009), I worked with an application that use triggers to insert data on some tombstone tables that help to go back and get the data at that time.
 Nowadays, we can achieve this with much less code using [temporal tables](https://docs.microsoft.com/en-us/sql/relational-databases/tables/temporal-tables).
@@ -47,13 +47,13 @@ One day I hit an issue where the record on the main table wasn't being inserted,
 
 Then, after reading the message carefully I saw that the problem was on the insert on my tombstone table and not on my "visible" logic. Spent about `one hour` to get it...
 
-<h4>Waste of time</h4>
+#### Waste of time
 
 Or not, from that day on, one of my first questions when I hear people have some problems like this is to ask "are there any triggers on the tables involved?"
 
 With that I already saved some hours of work.
 
-<h2>Wrap up</h2>
+## Wrap up
 
 As you may understand I decided to not use triggers whenever possible, but, sometimes we pick the train already in movement and we may need them.
 If you fit on this last scenario, please, please document it very well!

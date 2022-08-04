@@ -29,11 +29,11 @@ Both run on Windows Server 2016 OS and, the database server runs SQL Server 2016
 This seems normal... but actually SQL Server 2016 SP2 is the first version that provides <strong>full support for distributed transactions in availability groups</strong>.
 For more info take a look on [Transactions - availability groups and database mirroring](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/transactions-always-on-availability-and-database-mirroring) help page.
 
-<h2>Configuration</h2>
+## Configuration
 
 To configure the MSDTC correctly, you can/should follow all the check lists on the [How to cluster the DTC service for an Always On availability group](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/cluster-dtc-for-sql-server-2016-availability-groups).
 
-<h2>"Ok, but you mentioned 'Access is denied' error on the title" - Here is the story behind it</h2>
+## "Ok, but you mentioned 'Access is denied' error on the title" - Here is the story behind it
 
 To test and/or troubleshoot if the configuration of MSDTC is correct you can rely on two main utilities:<br />
  - [DTCTester](https://www.microsoft.com/en-ca/download/details.aspx?id=30746) - Tests the transactions between two computers if SQL Server is installed on one computer, using ODBC to verify transaction support against an SQL Server database.
@@ -44,7 +44,7 @@ I read, once again, the troubleshooting post but the explanation/resolution for 
 I tryied my [google-fu](https://www.urbandictionary.com/define.php?term=google-fu) to find more answers but...nothing. Every single response where people solved their issues fits on the troubleshooting post.
 I talked with my colleague from the firewall team just to double-check that the traffic was not being blocked at all. It was OK. Everything going on...so it should be something different.
 
-<h2>When nothing else fits, you need to try anything</h2>
+## When nothing else fits, you need to try anything
 
 The documentation ([Troubleshooting MSDTC issues with the DTCPing tool](https://blogs.msdn.microsoft.com/puneetgupta/2008/11/12/troubleshooting-msdtc-issues-with-the-dtcping-tool/)) mention "Windows XP" and "Windows VISTA" but this article is from 2008. Translating for today this should apply to Windows 7/8/10, even so, I decided go give it a try and change on the Windows Server 2016 machines the registry key mentioned.
 Guess what?! It worked!!!
@@ -53,7 +53,7 @@ In this case, I had to ignore the statement: "This error will only occur if the 
 
 This blog post is to document this so other people that face the same problem can know they should try.
 
-<h2>Final thoughts</h2>
+## Final thoughts
 
 When nothing else seems to work and you have some notes saying that it only applies to specific versions/scenarios, sometimes it worth trying on your scenario. Assumptions can change over time.
 

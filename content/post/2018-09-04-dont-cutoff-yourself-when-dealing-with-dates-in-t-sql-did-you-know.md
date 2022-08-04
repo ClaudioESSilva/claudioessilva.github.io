@@ -15,12 +15,12 @@ Who's ever heard something like "Normal user don't even use 5% of Excel capabili
 
 Other options, we know they exist but because the default value it’s ok (so far) we tend to forget it. It is just sitting there, waiting for the day we want/need to change it.
 
-<h2>The oddity</h2>
+## The oddity
 
 Few days ago I was talking with a friend that show me some "odd behavior" when working with dates on SQL Server.
 <img src="https://claudioessilva.github.io/img/2018/09/oddity_ouput.png" alt="" width="656" height="186" class="aligncenter size-full wp-image-1544" />
 
-<h3>Are you mad?! Is this SQL Server bugged?</h3>
+### Are you mad?! Is this SQL Server bugged?
 
 In case you ask, this is my table definition:
 ``` sql
@@ -41,14 +41,14 @@ Let's take a closer look at the `SELECT`.
 
 But why don't the 2nd and 3rd columns return the exact same value?!
 
-<h4>What is your interpretation?</h4>
+#### What is your interpretation?
 
 What do you read when you see some date in a format like "01-Jan-00 00:00:00.000"? Keep in mind that I'm talking about the output directly from the table and without any formatting.
 1st of January seems to leave no doubt (just because there is no default date format starting with two digits for the year), but...what about the year part '00'?
 It stands for 1900 and the 3rd column is wrong?
 Or it stands for 2000 and the `DATEPART` function is returning the wrong value?
 
-<h3>Both are returning the correct value! Say hello to "Two Digit Year Cutoff" configuration</h3>
+### Both are returning the correct value! Say hello to "Two Digit Year Cutoff" configuration
 
 You can find it on the advanced tab in the Server Proprieties:
 <img src="https://claudioessilva.github.io/img/2018/09/ssms_twodigityearcutoff.png" alt="" width="656" height="594" class="aligncenter size-full wp-image-1547" />
@@ -112,12 +112,12 @@ Set-DbaSpConfigure -SqlInstance sql2016 -ConfigName 'TwoDigitYearCutoff' -Value 
 Output:
 <img src="https://claudioessilva.github.io/img/2018/09/dbatools_set_twodigityearcutoff1.png" alt="" width="656" height="132" class="aligncenter size-full wp-image-1566" />
 
-<h3>What about the returning value?</h3>
+### What about the returning value?
 
 Yeah, I know, why is the value of the first column returned on that format? You are used to seeing in the format of `yyyy-MM-dd` right?
 I'll explain this in a next post! Stay tuned.
 
-<h3>Summary</h3>
+### Summary
 
 Next time you have to work with dates in formats like `dd-MMM-yy` remember that "Two Digit Year Cutoff" configuration exists and may mislead you.
 

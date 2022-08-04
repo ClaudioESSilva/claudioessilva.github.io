@@ -21,14 +21,14 @@ From my experience, this can happen mainly because one of two reasons, they have
 The client approached me and asked "Hey, we have an account that is the owner of our jobs, but we would like to use a different account to change the schedule of the job, mainly the start time: is that possible?
 As I was not sure about it, I jumped to the documentation.
 
-<h2>First things first</h2>
+## First things first
 
 I double checked that the login they were mentioning had any permissions on the [msdb database](https://docs.microsoft.com/en-us/sql/relational-databases/databases/msdb-database). In this case, the login was already part of one of the [SQL Server Agent Fixed Database Roles](https://docs.microsoft.com/en-us/sql/ssms/agent/sql-server-agent-fixed-database-roles), namely the [SQLAgentOperatorRole, which have the following permissions described here](https://docs.microsoft.com/en-us/sql/ssms/agent/sql-server-agent-fixed-database-roles#sqlagentoperatorrole-permissions).
 
 If we take a look at the 1st row of the grid we can see that a login can change a Job Schedule if they own it.
 <img src="https://claudioessilva.github.io/img/2019/03/sqlagentoperatorrole_permissions-1.png" alt="" width="800" height="395" class="aligncenter size-full wp-image-1637" />
 
-<h2>Fair enough, let's try it</h2>
+## Fair enough, let's try it
 
 With this information, I was confident that it would work.
 To test it, I have created a login, added it to SQLAgentOperatorRole fixed role on the msdb database and had to change the schedule owner.
@@ -52,7 +52,7 @@ EXEC msdb.dbo.sp_update_schedule
 
 Now that the login we want to use to change the schedule is the owner of it, the client can connect to the instance using SSMS and this login and edit the schedule, right? Unfortunately no.
 
-<h2>Bug on GUI, or missing detail on documentation?</h2>
+## Bug on GUI, or missing detail on documentation?
 
 I tested on SSMS and the GUI is disabled
 <img src="https://claudioessilva.github.io/img/2019/03/editscheduleonsssm_disabled.png" alt="" width="800" height="475" class="aligncenter size-full wp-image-1634" />

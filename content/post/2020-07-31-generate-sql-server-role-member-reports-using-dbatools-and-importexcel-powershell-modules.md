@@ -75,7 +75,7 @@ The other module is [ImportExcel](https://github.com/dfinke/ImportExcel), create
 
 "<em>...without installing Microsoft Excel...</em>" - How cool is that?!
 
-<h3>How to install the modules</h3>
+### How to install the modules
 
 You can run the following command and both modules will be downloaded to your machine.
 
@@ -111,7 +111,7 @@ Taking a closer look, we can see some `Get-` commands and from those, we will us
 <li>`Get-DbaServerRoleMember` - To get all server roles and its members</li>
 </ul>
 
-<h3>Get-DbaLogin</h3>
+### Get-DbaLogin
 
 Getting the list of all logins on the instance is as easy as:
 
@@ -121,7 +121,7 @@ Get-DbaLogin -SqlInstance "instance1"
 
 Since we may want to share this list with the client, I suggest to filter out some logins that will not be useful, or perhaps worse, these logins will confuse the client. I'm talking about your 'renamedSA' account, all the Windows users starting with ‘NT *', or other logins that belong to you or your team and the client does not need to be aware of them.
 
-<h3>Filtering</h3>
+### Filtering
 
 With the Get-DbaLogin command, we have two types of filters. One way is to filter by an exact login name (for example "renamedSA"). For that, we need to use the `-ExcludeLogin` parameter. The other way is using the `-ExcludeFilter`. This one is very handy, as it accepts wildcards patterns. This means that we can filter out all the logins that start with “NT ” by passing the value "NT *". You can add multiple patterns by splitting the list with a comma. `-ExcludeFilter "NT *", "##*"`
 
@@ -131,7 +131,7 @@ Using these parameters, I can run this command:
 Get-DbaLogin -SqlInstance "instance1" -ExcludeLogin "renamedSA" -ExcludeFilter "NT *", "##*"
 ```
 
-<h3>Get-DbaServerRoleMember</h3>
+### Get-DbaServerRoleMember
 
 This cmdlet will get the list of all members for all server roles:
 
@@ -161,7 +161,7 @@ $logins = Get-DbaLogin -SqlInstance "instance1" -ExcludeLogin "renamedSA" -Exclu
 Get-DbaServerRoleMember -SqlInstance "instance1" -ExcludeDatabase "myDB" -Login $logins.Name
 ```
 
-<h3>Get-DbaDbRoleMember</h3>
+### Get-DbaDbRoleMember
 
 This will get us a list of all members for all databases and all their roles:
 
@@ -234,7 +234,7 @@ As I know that I will be using this heavily, I decided to create some variables 
 
 You can find all the parameters I use between lines 1 and 10.
 
-<h3>Putting all together - The full script</h3>
+### Putting all together - The full script
 
 ``` powershell
 $SQLInstance = "instance1"
@@ -301,11 +301,11 @@ $dbRoleMembers | Export-Excel @exceldbRoleMembersOutput
 
 ## FAQ
 
-<h3>What if I want to get different properties?</h3>
+### What if I want to get different properties?
 
 In the script, you can change the output list by changing the properties used on the `Select-Object` cmdlet (line 37).
 
-<h3>How can I make the Excel file open automatically after exporting all data?</h3>
+### How can I make the Excel file open automatically after exporting all data?
 
 As shown on the "ImportExcel command" section, you can add the `-Show` parameter on the last `Export-Excel` command (line 62).
 

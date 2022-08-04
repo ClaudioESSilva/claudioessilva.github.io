@@ -12,11 +12,11 @@ title: More PowerShell Remoting coverage in dbatools
 ---
 Starting on dbatools version 1.0.31 we introduced better coverage for commands that make use of PowerShell Remoting.
 
-<h2>Which commands?</h2>
+## Which commands?
 
 Commands like `Get-DbaComputerCertificate`, `Get-DbaPrivilege`, `Get-DbaClientAlias`, just to mention a few of them, make use of the internal function `Invoke-Command2` which uses `New-PSSession` when we run it against a remote computer.
 
-<h2>"Why have you changed it?"</h2>
+## "Why have you changed it?"
 
 Let me give you a little bit of background...
 At my company, I found that some dbatools commands were not working. They were returning errors related with WinRM configurations, as seen here when attempting to create a new session using `New-PSSession`:<img class="aligncenter size-large wp-image-1824" src="https://claudioessilva.github.io/img/2019/08/new-pssession_error.png?w=800" alt="" width="800" height="153">
@@ -38,11 +38,11 @@ NOTE: Currently, in my environment if I respect the points 1 and 2 it's ok. Howe
 <blockquote>...
 The option is designed for enterprises where multiple services that support Kerberos authentication are running under different user accounts. For example, an IIS application that allows for Kerberos authentication can require the default SPN to be registered to a user account that differs from the computer account. In such cases, PowerShell remoting cannot use Kerberos to authenticate because it requires an SPN that is registered to the computer account. To resolve this problem, administrators can create different SPNs, such as by using Setspn.exe, that are registered to different user accounts and can distinguish between them by including the port number in the SPN.</blockquote>
 
-<h2>Time to make this available to everyone!</h2>
+## Time to make this available to everyone!
 
 Let's add this as a configurable settings on dbatools module itself!
 
-<h3>"Nice! Can you share what you have changed in the module?"</h3>
+### "Nice! Can you share what you have changed in the module?"
 
 Sure I can!
 The improvements that we have added to dbatools covers the points 2 and 3. (point 1 just depends on the way you use the name, so this one is already covered by default as it is today)
@@ -70,7 +70,7 @@ Get-DbaComputerCertificate -ComputerName "hostname.domain"
 This way I can set the configuration value to what value I want and next time I execute the command, it will make use of it!
 Note: remember these settings are on a user scope basis. Which means that if you have a service account running dbatools commands, you will want to add the `Set-DbatoolsConfig` code at the beginning of your scripts to make sure that it will use the settings with the values that you need.
 
-<h2>The before and the after</h2>
+## The before and the after
 
 Before the change, I got these errors:
 

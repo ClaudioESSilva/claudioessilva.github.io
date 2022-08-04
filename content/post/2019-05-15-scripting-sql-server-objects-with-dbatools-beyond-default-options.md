@@ -18,7 +18,7 @@ Probably you had the need to script out some objects from a SQL Server instance/
 But have you realized that this option doesn't bring all the stuff?
 Let's say you are scripting a table and you have a Non-Clustered index or a trigger...using this option some of the objects under the table will not be scripted out. I understand this as each one of this is a different object, which means if you go to each one you can right click and script just that one.
 
-<h2>SSMS - "Generate Scripts..." option</h2>
+## SSMS - "Generate Scripts..." option
 
 This is a tedious work and you can easily miss some objects. What can we do on SSMS to make this task easier?
 
@@ -33,7 +33,7 @@ This is much easier right? All-in-one in a single scripting operation.
 
 What about automating this task? You want to script out multiple objects from different instances/databases.
 
-<h2>Enter dbatools' "Export-" commands</h2>
+## Enter dbatools' "Export-" commands
 
 To search for commands within [dbatools](https://dbatools.io) we can use the [Find-DbaCommand](https://docs.dbatools.io/#Find-DbaCommand).
 
@@ -54,7 +54,7 @@ Get-Help Export-DbaScript -Detailed
 
 <strong>Tip:</strong> Try other switches like `-Examples` or even `-ShowWindow` (won't work on PSCore but dbatools does!) switches.
 
-<h3>Example using our "MyTable" object</h3>
+### Example using our "MyTable" object
 
 Here is how `MyTable` looks like:
 <img src="https://claudioessilva.github.io/img/2019/05/mytable_treedefinition.png" alt="" width="291" height="236" class="aligncenter size-full wp-image-1695" />
@@ -75,7 +75,7 @@ Note: I'm using `-PassThru` parameter to output the script to the console, by de
 
 The output of this execution is even more incomplete when comparing with SSMS. Here, we dont even get the default constraint scripted.
 
-<h2>Using "New-DbaScriptingOption" command</h2>
+## Using "New-DbaScriptingOption" command
 
 dbatools has a command that makes it possible to create an object of type `ScriptingOptions`.
 Then we can change the properties like we have done before on the "Generate Scripts..." option on SSMS.
@@ -116,7 +116,7 @@ Get-DbaDbTable -SqlInstance SQL1 -Database DB1 -Table MyTable | Export-DbaScript
 
 Nice! Now we can see all the stuff.
 
-<h3>Try it yourself</h3>
+### Try it yourself
 
 See the other options available, change the values, rerun and analyse the output.
 Do you need to export it to run on a lower SQL Server version? Change the `TargetServerVersion` option
@@ -149,7 +149,7 @@ $TableName | Foreach-Object {
 }
 ```
 
-<h2>Availability Groups example using dbatools</h2>
+## Availability Groups example using dbatools
 
 Try it yourself:
 
@@ -157,7 +157,7 @@ Try it yourself:
 Get-DbaAvailabilityGroup -SqlInstance SQL1 -AvailabilityGroup SQL1_AG1 | Export-DbaScript -Passthru
 ```
 
-<h2>Summary</h2>
+## Summary
 
 We have seen how we can leverage on some dbatools commands to generate T-SQL scripts from objects. This way we can versioning or just run them on other instace/database. We have seen what default options it (doesn't) brings and how to add more options to it.
 We also saw that, for some objects, the script option is not available. As example Availability Groups, but dbatools can help you here too.

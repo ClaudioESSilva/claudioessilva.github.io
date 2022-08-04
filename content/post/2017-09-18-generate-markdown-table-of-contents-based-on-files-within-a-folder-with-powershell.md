@@ -14,11 +14,11 @@ Last week I was talking with Constantine Kokkinos (<a href="https://constantinek
 
 He wrote a cool blog post - <a href="https://constantinekokkinos.com/articles/210/generating-tables-of-contents-for-github-projects-with-powershell" target="_blank" rel="noopener">Generating Tables of Contents for Github Projects with PowerShell</a> - about it and I will write this one with a different problem/solution.
 
-<h2>Context</h2>
+## Context
 
 I’m working on a new project (news coming soon) that uses a GitHub repository and I expect to have a big number of files within a specific folder.
 
-<h2>Requirement</h2>
+## Requirement
 
 After some pull requests and merges, I want to update my readme.md file and update the INDEX with this TOC.
 For this:
@@ -32,13 +32,13 @@ For this:
 Then, I can copy &amp; paste and update the readme.me .
 NOTE: For now, I just want a semi-automatic way to do it. Maybe later I will setup Appveyor and make this fully automated :-) ).
 
-<h2>Approach</h2>
+## Approach
 
 Get all files with .md extension, order by name and, for each one, generate a line with a link to the GitHub repository .md file.
 
 To do the list I will use the "*" (asterisk) character after a "TAB" to generate a sub list. (This is <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank" rel="noopener">Markdown's syntax</a>)
 
-<h2>The code</h2>
+## The code
 
 I have three parameters:
 
@@ -60,7 +60,7 @@ I will get this output (This have fake links but just to show the output format)
 
 <hr />
 
-<h2>Index</h2>
+## Index
 
 <ul>
 <li>Modules</li>
@@ -83,7 +83,7 @@ Nice! This has the following code behind:
 
 Now, I can copy this markdown code and update my readme.md file.
 
-<h2>Final thoughts</h2>
+## Final thoughts
 
 This isn't rocket science :-) but it is an idea and a piece of code that will help me and maybe can help you too :-)
 

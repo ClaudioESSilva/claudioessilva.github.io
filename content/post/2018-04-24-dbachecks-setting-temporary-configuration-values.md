@@ -17,22 +17,22 @@ The module has about 110 configurable checks that make our live easier!
 
 Today I will write about an option that I think users still do not realize that exists.
 
-<h3>The default</h3>
+### The default
 
 dbachecks works with the values previously saved (for that we use `Set-DbcConfig`). This means that when we start a new session and the last session has changed any configuration, that configuration is now, by default, the one that will be used in the new session.
 
-<h3>What about if we want to run a check with a different value just once?!</h3>
+### What about if we want to run a check with a different value just once?!
 
 Today I want to share a different option!
 
 Let's assume that you have your dbachecks configs set up for the Production environment. What do you need to do if you want to change just one check to test it in the Test environment?
 One option is use the export/import method that Rob ([b](https://sqldbawithabeard.com/) \| [t](https://twitter.com/sqldbawithbeard)) wrote about on his [dbachecks – Configuration Deep Dive](https://sqldbawithabeard.com/2018/02/22/dbachecks-configuration-deep-dive/) blog post.
 
-<h2>What if, we could change this property just for the current session without messing with possible new sessions?</h2>
+## What if, we could change this property just for the current session without messing with possible new sessions?
 
 When we start a new session and we import dbachecks (in matter of fact when the PSFramework is imported - required module for dbachecks to work) we get the values from the registry. This means that we will read whatever is there at that moment.
 
-<h3>Let me introduce to you the `-Temporary` parameter</h3>
+### Let me introduce to you the `-Temporary` parameter
 
 This parameter is available on `Set-DbcConfig` command. As said before, this command allows us to set a configuration which is, by default, persisted. But, if we use the `-Temporary` parameter we are saying that the configured value is <strong>only available for the current session</strong> the value will not be persisted for future executions, hence, will not mess with other new sessions.
 
@@ -49,7 +49,7 @@ This video shows that when we don't use the `-Temporary` parameter and we start 
 
 This way we don't need to export/import the configurations. Perhaps this will save you time when doing some ad-hoc tests and not stay in doubt if you forgot to replace the older values after a different environment test with different configurations.
 
-<h3>I know what you are thinking...</h3>
+### I know what you are thinking...
 
 "But I already have and use the export/import method! Changing this can be more work...".
 We got that covered! 💪
@@ -64,7 +64,7 @@ you can see the `-Temporary` is also available in this command.
 Hope this bring some new ideas like making your single, ad-hoc, one-time tests easier to configure!"
 I have an idea that I will share on my next post about dbachecks!
 
-<h2>Wrap</h2>
+## Wrap
 
 `-Temporary` parameter exists on both `Set-DbcConfig` and `Import-DbcConfig` commands.
 By using it, you are just changing the values on the current session and won't overwrite the persisted values. This can become in handy in some cases.

@@ -25,7 +25,7 @@ To accomplish this, I'm using the <a href="https://dbatools.io/functions/get-dba
 
 This command is very handy, as it will try different ways to connect to the host and we don't need to do anything extra. Also, it has a `-Credential` parameter so we can use it to connect to hosts in different domains (I have 10 different credentials, one per domain).
 
-<h2>Everything was running fine, for the first couple of hosts, until...</h2>
+## Everything was running fine, for the first couple of hosts, until...
 
 I got the following message when running on a specific host:
 
@@ -45,7 +45,7 @@ VERBOSE: [Get-DbaCmObject][12:23:48] [HOST001]<b> Accessing computer using Cim o
 
 Ok, this means that for this specific host I can't connect via WinRM (using WSMan) but I can when using the DCOM protocol. However,  the WMI query used to get the list of SQL services fails.
 
-<h3>Going further</h3>
+### Going further
 
 I open the <a href="https://github.com/sqlcollaborative/dbatools/blob/master/functions/Get-DbaSqlService.ps1" target="_blank" rel="noopener">Get-DbaSqlService.ps1</a> script and spotted where the warning message comes from. Then, I have copied the code to a new window in order to isolate it and do another execution tests.
 
@@ -102,7 +102,7 @@ Again, that 2005 callout, but...did you recognize the last sentence? It's the sa
 
 Definitely something is broken.
 
-<h2>Let's fix it!</h2>
+## Let's fix it!
 
 To fix this problem we need to reinstall the SQL Server WMI provider. To do this we need to run 2 commands. (I found this in <a href="http://www.chongchonggou.com/g_852406064.html" target="_blank" rel="noopener">this post</a>)
 

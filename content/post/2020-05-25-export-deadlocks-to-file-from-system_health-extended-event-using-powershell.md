@@ -18,18 +18,18 @@ title: Export Deadlocks to file from system_health Extended Event using PowerShe
 ---
 Just a quick post as may help any of you searching for this.
 
-<h2>Scenario</h2>
+## Scenario
 
 Client wants to analyze most recent deadlocks that happened on a specific instance. They asked us to send the xdl files.
 
-<h2>How do we get the deadlocks?</h2>
+## How do we get the deadlocks?
 
 Depending on the version of SQL Server that you are running, there are different ways to do it.
 In this post I will share how you can do it from all files that belongs to the `system_health` extended event session. (Not only the current file).
 This works on SQL Server 2012 or higher version.
 For a better overview I recommend you to read the [What are SQL Server deadlocks and how to monitor them](https://www.sqlshack.com/what-are-sql-server-deadlocks-and-how-to-monitor-them/) article from SQLShack.
 
-<h2>T-SQL query to get the deadlocks entries</h2>
+## T-SQL query to get the deadlocks entries
 
 This query will show you when the deadlock happened (datetime) and the XML of the deadlock.
 
@@ -55,7 +55,7 @@ WHERE object_name like 'xml_deadlock_report'
 ```
 
 
-<h3>Using PowerShell to save the files to the filesystem</h3>
+### Using PowerShell to save the files to the filesystem
 
 Now that we have the T-SQL to get the data, we just need to save it on some folder.
 Each outputted file name have a name like `deadlock_{Execution_Time}.xdl`.
@@ -99,7 +99,7 @@ $results.foreach {
 The output on the folder will be something like:
 <img src="https://claudioessilva.github.io/img/2020/05/featureimage_2.png" alt="" width="186" height="240" class="aligncenter size-full wp-image-2020" />
 
-<h2>Bonus step - if you want</h2>
+## Bonus step - if you want
 
 Probably you will share this on a shared folder or even by email. It can be good idea to compress the folder into a zip file.
 You can easily do that by running the `Compress-Archive` cmdlet (PowerShell v5+).

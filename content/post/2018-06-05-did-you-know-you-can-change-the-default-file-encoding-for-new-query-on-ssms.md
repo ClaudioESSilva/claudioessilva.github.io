@@ -29,19 +29,19 @@ This is how the file look like after the find and replace:
 <li><p>Unicode characters are broken :-(</p></li>
 </ol>
 
-<h3>So...what is happening?</h3>
+### So...what is happening?
 
 <p>The file that is used to create a new query window has ANSI encoding but when I save the file on the PowerShell script I save it as UTF-8 because the client have comments on the code with unicode characters.
 
 On this process, the unicode characters are replaced by some symbols.
 
-<h3>How to solve?</h3>
+### How to solve?
 
 We can change the default file encoding in order to be the one we want in the first place. What I have done was change from ANSI encoding to UTF-8.
 
 This way, when use the keyboard shortcut `CTRL + N` to open a new window and hit Save, I'm saving as UTF-8 which means that the PowerShell script will do the find and replace, save the file and <strong>preserve</strong> the unicode characters. :-)
 
-<h3>Where is that default file?</h3>
+### Where is that default file?
 
 My path to the file is `C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\ManagementStudio\SqlWorkbenchProjectItems\Sql` where the 140 stands for the SSMS v17 (in my case, right know I'm using the v17.5).
 Inside this folder we can find the file `SQLFile.sql`.

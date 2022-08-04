@@ -21,7 +21,7 @@ title: Backup your SQL instances configurations to GIT with dbatools - Part 2 - 
 We have seen how we can export and save the results to a folder and commit them to a GIT repository on my last blog post [Backup your SQL instances configurations to GIT with dbatools – Part 1](https://claudioessilva.eu/2020/06/02/backup-your-sql-instances-configurations-to-git-with-dbatools-part-1/).
 At the end of that post, I have mentioned that I would write about how we can lower down the execution times of our script by leveraging on parallelism.
 
-<h2>Going parallel</h2>
+## Going parallel
 
 When we need to manage dozens of servers/instances, even with automated scripts sometimes we would like that our script finishes faster.
 There are multiple reasons that a sequential (one-by-one) run takes longer.
@@ -37,7 +37,7 @@ Let me pick on this last example. `Export-DbaInstance` runs multiple `Export-Dba
 
 Bottom line is that your mileage may vary, but if you have thousands, hundreds or even just dozens of instances to connect, going parallel may help you by decreasing the total time needed to accomplish the task.
 
-<h3>Options</h3>
+### Options
 
 There are a couple of options, like the native PowerShell cmdlets `Start-Job`/`Stop-Job` a.k.a background jobs, Runspaces jobs and Thread jobs but I will just mention two of them. One is a nice addition to the most recent version of PowerShell (v7) and the other using a PowerShell module.
 
@@ -56,7 +56,7 @@ Install-Module -Name PoshRSJob
 ```
 or download from the Github repository.
 
-<h3>What does it look like?</h3>
+### What does it look like?
 
 To give a small and easy but effective example let's use PowerShell cmdlet `Test-Connection`.
 
@@ -86,11 +86,11 @@ Just to explain the code:
 <li>Finally, we request the results using the `Receive-RSJob` command.</li>
 </ul>
 
-<h3>What kind of sorcery is that?</h3>
+### What kind of sorcery is that?
 
 There is an explanation
 
-<h4>Enter -Throttle parameter</h4>
+#### Enter -Throttle parameter
 
 On the small description that I have shared about the PoshRsJob it says:
 
@@ -98,7 +98,7 @@ On the small description that I have shared about the PoshRsJob it says:
 
 Although we haven't specified this parameter, the parallelism kicked anyway. That happened because a value of 5 is being used by default.
 
-<h2>Fine-tuning the -Throttle parameter</h2>
+## Fine-tuning the -Throttle parameter
 
 There are multiple factors to keep in mind when selecting a value for `-Throttle`.
 
@@ -106,14 +106,14 @@ It will depend on your available CPU (number of cores)/memory on the server wher
 
 But, It also depends on the type of script that you are running.
 
-<h3>Confused?</h3>
+### Confused?
 
 If you have a script that will try to find one file on one disk recursively, we may think that parallelism can be helpful to make it faster, however, the disk is the same and therefore we can hit an I/O bottleneck.
 On the other hand, if we are trying to find the file on different disks we can parallelize and have one runspace running on each disk avoiding the I/O bottleneck and getting better results.
 
 Another example is the one mentioned on the "When should it be avoided?" section of the earlier mentioned [PowerShell v7 - Parallel blog post](https://devblogs.microsoft.com/powershell/powershell-foreach-object-parallel-feature/), if your script is trivial adding the parallelism can actually make it much slower!
 
-<h3>Test and adjust</h3>
+### Test and adjust
 
 That said, I have scripts where I use 10 but others where I use 15.
 
@@ -132,11 +132,11 @@ Took about ~3 seconds.
 
 Cool stuff!
 
-<h2>Adding dbatools to the party</h2>
+## Adding dbatools to the party
 
 Now that you have an idea on how it works we can start using our dbatools' commands.
 
-<h3>Be aware that...</h3>
+### Be aware that...
 
 The PoshRsJob uses [runspaces](https://docs.microsoft.com/en-us/dotnet/api/system.management.automation.runspaces). Trying to simplify the explanation, think about each runspace as a PowerShell session on its own.
 
@@ -144,7 +144,7 @@ This means when we run a command using the `Start-RSjob` we have 5 (by default) 
 
 Note: There is a `-ModulesToImport` parameter however, in my previous tests this hasn't made any big difference.
 
-<h3>Let's add one dbatools' command, Test-DbaConnection.</h3>
+### Let's add one dbatools' command, Test-DbaConnection.
 
 Sequential execution:
 ``` powershell
@@ -189,7 +189,7 @@ I have also run for 10 and 20 instances. Here are the results:
 Note: I have used cold cache (started a new session).
 Note2: On my test server the module load takes ~23 seconds
 
-<h2>Back to Export-DbaInstance</h2>
+## Back to Export-DbaInstance
 
 In the final script you will see that I have created a variable `$sb` which stands for 'script block' this way, the code is more readable.
 Also, I'm passing to parameters using `-ArgumentList` parameter which accepts an array of values. This means that inside the script block the:
@@ -200,7 +200,7 @@ Also, I'm passing to parameters using `-ArgumentList` parameter which accepts an
 <li>Each server on the `$serverList` variable will be the `$_`</li>
 </ul>
 
-<h3>Final script with parallelism</h3>
+### Final script with parallelism
 
 Copy and save the script within your repository folder and change the following variables:
 
@@ -287,7 +287,7 @@ git commit -m "Export-DbaInstance @ $((Get-Date).ToString("yyyyMMdd-HHmmss"))"
 git push
 ```
 
-<h3>Results</h3>
+### Results
 
 Just to give an idea of the differences, for the exact same 5 instances running the script from part 1 or running this one leads to this execution times
 <table>
@@ -311,14 +311,14 @@ Just to give an idea of the differences, for the exact same 5 instances running 
 
 Pretty cool right? :-)
 
-<h2>Summary</h2>
+## Summary
 
 I have shared the PoshRsJob module which makes it possible to run code in parallel. On my tests, we can see almost 50% cut-off on the execution times, and this was just for 5 instances.
 
 Again, I hope this gives you, at least, a good starting point to decrease the total execution times for your processes.
 Test with different commands and leverage on the beauty of the parallelism!
 
-<h2>Curious about PS7 -Parallel and PoshRsJob performance differences?</h2>
+## Curious about PS7 -Parallel and PoshRsJob performance differences?
 
 If you are curious about a comparison between both approaches, you can read the blog post [T](https://twitter.com/WindosNZ) \| [B](https://toastit.dev/)) does a comparison between this new feature and the PoshRSJob module.
 

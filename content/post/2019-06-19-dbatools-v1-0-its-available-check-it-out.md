@@ -22,7 +22,7 @@ After more than 200 commits, the work of more than 20 contributors and 20 days s
 
 <strong>To all of you that have contributed direct or indirectly to the module a big thank you!</strong>
 
-<h2>Fun fact</h2>
+## Fun fact
 
 I'm sure this was one of the longest periods without releasing new versions since [we started doing it more often](https://dbatools.io/devops/).
 Bare minimum has been 1 release per week :-)
@@ -36,7 +36,7 @@ But, there are good reasons for it! v1.0 brings
 
 You can read the [v1.0 change log](https://github.com/sqlcollaborative/dbatools/blob/prerelease/changelog.md) for more details.
 
-<h2>New commands</h2>
+## New commands
 
 From the 13 new commands, I decided to share the ones that make it possible to interact with Server/Database roles.
 
@@ -53,7 +53,7 @@ Note: Database Application Roles are not covered yet.
 Note2: A new command to add logins to one (or more) server role is being cooked.
 This is why we release often, improvements and new features are always on our pipeline.
 
-<h2>Code examples</h2>
+## Code examples
 
 Here is a short script that shows how you can leverage these new commands.
 Don't forget to use `Get-Help` or visit our [docs page](https://docs.dbatools.io) to know more about the commands.
@@ -119,7 +119,7 @@ Remove-DbaInstanceRole -SqlInstance $instance -ServerRole $newServerRole
 
 Hope you found them as useful as we did!
 
-<h2>Wrap up</h2>
+## Wrap up
 
 Even though this is a milestone for us, we will keep working on the module bringing more awesomeness to it!
 
@@ -133,7 +133,7 @@ Other useful links:
 - [Website](https://dbatools.io) and [blog](https://dbatools.io/blog/)
 - [documentation](https://docs.dbatools.io)
 
-<h3>To celebrate the launch of v1.0 we have a lot of blog posts related to it!</h3>
+### To celebrate the launch of v1.0 we have a lot of blog posts related to it!
 
 [dbatools 1.0 has arrived by Chrissy](https://dbatools.io/dbatools10)
 [dbatools 1.0 - the tools to break down the barriers - Shane O'Neill](https://nocolumnname.blog/?p=9452)

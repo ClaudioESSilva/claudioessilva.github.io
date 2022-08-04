@@ -16,18 +16,18 @@ Disclaimer: The title is my assumption because I saw it in the past happening th
 
 This blog post aims to make you remember something: something that is obvious to you, might not be obvious to others.
 
-<h2>Scenario:</h2>
+## Scenario:
 
 A client has a process which consists of a stored procedure that wraps a bunch of other stored procedures.
 The process runs for about 10 hours.
 
-<h2>Taking a look...what is running right now?</h2>
+## Taking a look...what is running right now?
 
 I was curious about the process, I've seen this running before but never explored the code. After a couple of days of seeing it running for so long, I decided to see what would be the random query I would get executing.
 
 I had some luck and saw one with a pattern that I knew clearly that could be rewritten it and make it faster.
 
-<h2>sp_WhoIsActive to the rescue</h2>
+## sp_WhoIsActive to the rescue
 
 If you don't know what `sp_WhoIsActive` (<a href="http://dataeducation.com/about/" rel="noopener" target="_blank">Adam Machanic</a>'s creation) stored procedure is, let me copy the short definition from the <a href="http://whoisactive.com/" rel="noopener" target="_blank">whoisactive.com</a> website:
 
@@ -35,13 +35,13 @@ If you don't know what `sp_WhoIsActive` (<a href="http://dataeducation.com/about
 
 You can download it from the <a href="http://whoisactive.com/downloads" rel="noopener" target="_blank">download</a> page or if you use <a href="https://dbatools.io" rel="noopener" target="_blank">dbatools</a> you can use the command that will download it for you and install it. You can read more about it in my previous blog post <a href="https://claudioessilva.eu/2017/12/05/new-version-of-sp_whoisactive-v11-20-is-available-deployed-on-123-instances-in-less-than-1-minute/" rel="noopener" target="_blank">New Version Of sp_WhoIsActive (V11.20) Is Available – Deployed On 123 Instances In Less Than 1 Minute</a>
 
-<h3>Using `sp_WhoIsActive` to get the current running query</h3>
+### Using `sp_WhoIsActive` to get the current running query
 
 ``` powershell
 EXEC sp_WhoIsActive
 ```
 
-<h4>The query</h4>
+#### The query
 
 The query that was being run has the following structure
 
@@ -88,11 +88,11 @@ EXEC sp_WhoIsActive @get_plans = 1, @get_outer_command = 1, @get_full_inner_text
 <br>
 This way, the `sql_text` column will contain the whole batch or stored procedure where the query belongs.
 
-<h3>Back to the query - The pattern</h3>
+### Back to the query - The pattern
 
 Can you see the pattern? A lot of `OR EXISTS()` conditions. That is odd indeed, it wouldn't be so odd if each `OR EXISTS()` was accessing different tables...oh, wait...they are not :-) and that is where the problem is.
 
-<h3>Easy to improve</h3>
+### Easy to improve
 
 We can easily re-write the query without changing the logic or affecting the output data.
 
@@ -131,7 +131,7 @@ In fact, when we use the `IN` operator the optimizer will expand it to various `
 
 <img src="https://claudioessilva.github.io/img/2020/02/predicateexpandstoors.png" alt="" width="497" height="635" class="aligncenter size-full wp-image-1934" />
 
-<h3>Result</h3>
+### Result
 
 With this change, I have improved the query by 99%.
 Query went down from ~4340 seconds to less than 30 seconds.
@@ -158,7 +158,7 @@ SQL Server Execution Times:
 
 This means that on the whole process we have saved 1h!
 
-<h3>How'd this happen?</h3>
+### How'd this happen?
 
 As said in my title and initial disclaimer, this smells like a copy &amp; paste pattern. Maybe something similar to:
 
@@ -167,7 +167,7 @@ Dev: "Sure, it's pretty easy to do so"
 Also Dev: <em>copy &amp; paste existing OR EXISTS () change parameter, commit to source control and push it into QA test (with few data) and it's good to go into PROD.</em>
 Client: "Thanks it's working just a little bit slower but today things are slower in general"</blockquote>
 
-<h2>Wrap</h2>
+## Wrap
 
 When you find these kind of patterns, invest a couple of minutes to test it with better logic.
 You may end saving a "couple" of CPU cycles and saving a lot of time.

@@ -19,21 +19,21 @@ There are some actions that we know that will have to be repeated from time to t
 
 This is a short post to document a slight change that I had to do to achieve the same final result as the first time.
 
-<h2>Long story short</h2>
+## Long story short
 
 A client needed to run a setup to install an application. This setup uses a utility called `minisql.exe` to test database connection. The problem is that this utility only works with TLS 1.0/1.1 and, on our systems, we only have TLS 1.2 enabled.
 
-<h2>Temporary workaround</h2>
+## Temporary workaround
 
 We got into an impasse where we would not enable TLS 1.0 on the database server (which shares multiple databases) hence, as a workaround, we have suggested installing a SQL Server express edition instance on the application server just to surpass this step of the application setup. The funny (or not) part is that after installation, the application works just fine with any other driver that supports de TLS 1.2.
 
 NOTE: It is strange why the vendor decided on this approach. I mean, having <strong>two different ways</strong> to test the access to the database. Even more when one of them is very limited. Maybe legacy... ¯&#092;_(ツ)_/¯
 
-<h2>Easy! Just repeat the steps that have worked before</h2>
+## Easy! Just repeat the steps that have worked before
 
 With all the approvals to get these settings turned on as an exception for a short period of time, I just have to run the reg file that will turn on the TLS 1.0 and 1.1.
 
-<h3>Registry keys to</h3>
+### Registry keys to
 
 <strong>Enable TLS 1.0</strong>
 `[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server] "Enabled"=dword:00000001
@@ -61,16 +61,16 @@ This continued to yield the following the error message:
 
 <blockquote>Connection Problem: [DBNETLIB][ConnectionOpen (SECDoClientHandshake()).]SSL Security error</blockquote>
 
-<h2>Analyse</h2>
+## Analyse
 
 Because it didn't work, I first scratched my head trying to understand what could be different... I haven't touched the reg file since the first time, when it worked.
 
-<h3>Digging on the interwebs...again</h3>
+### Digging on the interwebs...again
 
 Using my <em>google-fu</em> skills lead me to all of the 99% of the posts about this error message where they just talk about the 4 registry keys (for each version) that need to be changed. I gave up when I was already on the third/fourth page of results. Yes, I was starting to think I was crazy :-)
 I decided to request some help from a colleague of the Windows team. I needed a different pair of eyes to be sure that I wasn't missing something.
 
-<h3>I was not seeing the obvious</h3>
+### I was not seeing the obvious
 
 After some time, I decided to compare the two servers to be sure that, on these registry keys everything was equal. Surprise..surprise...was not!
 On the most recent server, there was a `Hashes` folder (on HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Hashes) with another two folders (MD5/SHA) which contains entries named `Enabled` with configured value `0`.
@@ -83,11 +83,11 @@ On the most recent server, there was a `Hashes` folder (on HKEY_LOCAL_MACHINE\SY
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Hashes\SHA]
 "Enabled"=dword:00000000`
 
-<h3>Fixing it</h3>
+### Fixing it
 
 I decided to backup the registry keys and then, I have deleted the `Hashes` folder. After the restart...yes you guess it right, it worker!
 
-<h2>Bottom line</h2>
+## Bottom line
 
 The keys exported on the registry didn't have the `Hashes` entries and when imported they also didn't remove the existing one.
 

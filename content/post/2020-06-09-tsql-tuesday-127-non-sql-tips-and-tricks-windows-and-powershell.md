@@ -17,7 +17,7 @@ This month’s (#127) T-SQL Tuesday is brought by [B](https://sqlstudies.com/) \
 As a Windows user I know there are lots of shortcuts and small hacks, that I love, which make my life much easier!
 Here is my small contribution:
 
-<h2>Windows tips &amp; tricks and shortcuts</h2>
+## Windows tips &amp; tricks and shortcuts
 
 <ul>
 <li>`WIN + X` -> to access a lot of management stuff in a quick way</li>
@@ -27,12 +27,12 @@ Here is my small contribution:
 <li>Open PowerShell (or cmd) console from a windows explorer window. How many times have you wanted to jump to the PowerShell console already on a specific folder that you have already open on the windows explorer? Just type on the address bar "PowerShell" and a new PowerShell session will open right on that location.</li>
 </ul>
 
-<h3>Open "Add or Remove programs"</h3>
+### Open "Add or Remove programs"
 
 A way to open the "Add or Remove programs" menu quicker, you can `SHIFT + DEL` on the shortcut (example: Docker Desktop) on desktop and the prompt popup will have there a link to this option.
 <img src="https://claudioessilva.github.io/img/2020/06/addremoveprogramshortcut.png" alt="" width="490" height="312" class="aligncenter size-full wp-image-2166" />
 
-<h4>The ones I use without thinking</h4>
+#### The ones I use without thinking
 
 <ul>
 <li>`WIN + R` -> to open the run window</li>
@@ -46,7 +46,7 @@ A way to open the "Add or Remove programs" menu quicker, you can `SHIFT + DEL` o
 <li>`ALT + SHIFT` -> Change keyboard language. I can't say how many times this bite me before! Typing passwords and not working..why? Keyboard language/layout has changed how? Probably you pressed ALT + SHIFT. </li>
 </ul>
 
-<h2>Bonus - Search for PowerShell commands used before</h2>
+## Bonus - Search for PowerShell commands used before
 
 Sometimes we want to search for a command that we have used before to run it again. With CTRL + R you can search on executed command's history. Start typing for searching by commands you have run before.
 Not the correct entry? Want to search the next/previous entry?

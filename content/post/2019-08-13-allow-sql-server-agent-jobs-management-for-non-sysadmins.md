@@ -15,7 +15,7 @@ title: Allow SQL Server Agent jobs management for non sysadmins
 ---
 I don't know about your experience when it comes to SQL Server Agent jobs but often I receive requests to grant permission so that clients can handle their jobs in an autonomous way.
 
-<h2>Any problem with that?</h2>
+## Any problem with that?
 
 It depends 😄
 If you're not familiarized with the difficulty this can bring, let me share with you a different way to accomplish the task without adding the login to the sysadmin instance role. I'm sure that you don't want to do that on a production instance.
@@ -23,30 +23,30 @@ The next possible way is to make the login as the owner of the job and it needs 
 
 This means that if we are talking about a single login, you won't have any problem at all.
 
-<h3>Using service accounts instead</h3>
+### Using service accounts instead
 
 It is common having services accounts that are job owners so they can run within the proper context.
 In my humble opinion, this starts to be a little strange when it comes to modifying the agent job. It means that the service account needs permissions on agent roles and someone will need to connect to SQL Server using the service account (run as) so they can manage the agent job. It works, but not practical.
 
-<h3>AD Groups</h3>
+### AD Groups
 
 Many of the scenarios I get from clients is that they have an AD Group that contains all of all maintainers or support people.
 Being able to put groups as job owner would be awesome, but unfortunately, it's not possible.
 I can hear the sad trombone!
 
-<h2>My suggestion/recommendation/approach to this:</h2>
+## My suggestion/recommendation/approach to this:
 
 This may seem to be too much work, but at the end of the day, I feel it's the best balance between security and the ability for the client to manage their agent jobs as they wish within their context.
 
-<h3>Wrappers</h3>
+### Wrappers
 
 I suggest that you create a wrapper for each system stored procedures that client need within msdb. It can be just the sp_update_job_step. You may also get a request to be able to change the schedules of the job and you need to create another wrapper also for the sp_update_job_schedule system stored procedure.
 
-<h3>Security context</h3>
+### Security context
 
 Use the [EXECUTE AS OWNER](https://docs.microsoft.com/en-us/sql/t-sql/statements/execute-as-clause-transact-sql?view=sql-server-2017#arguments) so they can impersonate the sysadmins permissions and call the system procedure.
 
-<h3>Be more granular (HIGHLY RECOMMENDED!!)</h3>
+### Be more granular (HIGHLY RECOMMENDED!!)
 
 Say that you have your administration jobs and the jobs from the client. To narrow down the scope for the client you may want to add an extra validation using the job name prefix.
 
@@ -123,11 +123,11 @@ GO
 ```
 &nbsp;
 
-<h3>More examples on my GitHub</h3>
+### More examples on my GitHub
 
 If you want to leverage on the stored procedures that I have already created you can download them from [ManageAgentJobsNonsysAdmin folder on my GitHub repository](https://github.com/ClaudioESSilva/SQLServer-PowerShell/tree/master/ManageAgentJobsNonsysAdmin)
 
-<h3>Giving permissions to the wrapper objects</h3>
+### Giving permissions to the wrapper objects
 
 Create a role (will be easy to manage) on the msdb database and add the logins (nominal or groups) to it.
 Grant EXECUTE permissions for all of your compiled *_for_non_admins stored procedures.
@@ -143,12 +143,12 @@ GO
 ```
 &nbsp;
 
-<h3>You can be more creative but be aware of the maintenance costs</h3>
+### You can be more creative but be aware of the maintenance costs
 
 Another option that comes into my mind is to include the agent jobs names (totally or partially) on a control table.
 However, this can bring more work when talking about maintaining this process. If the client has somehow a fixed number of jobs maybe it is not too much work otherwise it can be a nightmare.
 
-<h2>Wrap up</h2>
+## Wrap up
 
 We have seen how we can provide more control to clients so they can manage their jobs without compromising security.
 I have used this method several times with success. By success I mean, I was able to explain to the client the limitation on SQL Server side and, on the other hand I present to them a possible solution.

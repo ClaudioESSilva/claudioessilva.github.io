@@ -20,7 +20,7 @@ https://twitter.com/jpomfret/status/954018103507251201
 
 So, I thought that this information should be shared with other people too.
 
-<h2>Let me introduce to you - Test-DbaSqlBuild</h2>
+## Let me introduce to you - Test-DbaSqlBuild
 
 This new command is available since v0.9.150.
 
@@ -30,11 +30,11 @@ Update-Module dbatools -Force
 ```
 Otherwise, you can use the `Save-Module` command and then copy the files to your destination host.
 
-<h2>How does the command works?</h2>
+## How does the command works?
 
 This command uses the `dbatools-buildref-index.json` file that contains all the information about SQL Server builds. This is the same file that feeds the <a href="https://sqlcollaborative.github.io/builds" rel="noopener" target="_blank">dbatools builds table</a> already shown on the <a href="https://dbatools.io/buildref/" rel="noopener" target="_blank">introducing the community-driven build reference</a> blog post.
 
-<h3>The combinations</h3>
+### The combinations
 
 To run the command, we need at least two parameters. The `-SqlInstance` or `-Build` and one of the following 3: `-MinimumBuild`, `-MaxBehind` or `-Latest`.
 
@@ -68,11 +68,11 @@ $SQLInstances = "SQL1", "SQL2", "SQL3"
 Test-DbaSqlBuild -SqlInstance $SQLInstances -MaxBehind "1SP"
 ```
 
-<h2>Other (real and useful) scenarios</h2>
+## Other (real and useful) scenarios
 
 We saw the "online" example where we will query each instance at the moment. Now, I want to share with you two more examples.
 
-<h4>Using central database as data source</h4>
+#### Using central database as data source
 
 Let's say you have a central database where you keep some of the information about your estate and one of those pieces of information is the SQL Server build version.
 
@@ -99,7 +99,7 @@ In this example, I'm piping the output to `Out-GridView` so I can filter my resu
 <a href="https://claudioessilva.github.io/img/2018/01/centraldatabase_ogv.png"><img src="https://claudioessilva.github.io/img/2018/01/centraldatabase_ogv.png?w=656" alt="" width="656" height="159" class="aligncenter size-large wp-image-1172" /></a>.
 <br>
 
-<h4>Doing ad-hoc testing</h4>
+#### Doing ad-hoc testing
 
 The other example I would like to share is using the `-Build` parameter.
 Imagine that you know that your SQL server instance is running build "13.0.4001" corresponding to SQL Server 2016 SP1, and you want to know if it is too far behind compared with the last available CU update. If we run the following command we will know it:

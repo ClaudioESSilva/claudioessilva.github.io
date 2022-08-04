@@ -20,11 +20,11 @@ This month’s T-SQL Tuesday is brought to us by Riley Major‏ ([b](https://scr
 
 This is the 102nd edition of [TSQL2sDay](http://tsqltuesday.com/) - an Adam Machanic’s ([b](http://dataeducation.com/blog/) \| [t](https://twitter.com/AdamMachanic)) brainchild.
 
-<h2>Let's go back for a moment:</h2>
+## Let's go back for a moment:
 
 I have heard about SQL Server the first time back in 2003 when I was on the high school and I had a database class. Was a slow start and, at that moment I haven't imagined that would follow that path professionally.
 
-<h3>Learn</h3>
+### Learn
 
 At that time I didn't even know that a community exists, but when I went to professional course (level IV - it's a degree before bachelors) on 2006 that was based on Microsoft technologies, .NET (Web and Windows forms) and I had a database class using SQL Server 2000!
 That was when I started using more and more the internet for study, found some blogs posts and the [SQLServerCentral](http://www.sqlservercentral.com/). So I can say that I started consuming the knowledge from the community back on 2006.
@@ -35,13 +35,13 @@ You can found the maganize archives in PDF format [here](http://www.itprotoday.c
 
 That was when I start knewing who people like [Itzik Ben-Gan</a> and <a href="https://twitter.com/sqlqueen">Kalen Delaney](https://twitter.com/ItzikBenGan) were!
 
-<h3>Evolve</h3>
+### Evolve
 
 During about five years I was a compulsive consumer of blog posts related with SQL Server development but most of the time was when I had a problem and wanted some guidance on the solution. During that time I haven't shared too much knowledge on the internet.
 
 Then, 2012, I went to my first SQL Port user group meetings and my first ever SQL Saturday, [115 Portugal](http://www.sqlsaturday.com/115/eventhome.aspx). Those were my first real contact with SQL Server community and where I met some speakers and started to join the montly meetings regulary.
 
-<h3>Giving back</h3>
+### Giving back
 
 At 2015 I joined [Twitter](https://twitter.com/ClaudioESSilva) and decided that I wanted to share my knowledge even more. So after being approached several times I took courage and did my first public presentation for [SQL Port](http://sqlport.com) user group in Lisbon and right after I submitted a session for [SQL Saturday Oporto 2015](http://www.sqlsaturday.com/429/eventhome.aspx) and I was accepted.
 You know, start small and grow...so I started talking in Portuguese for the user group and then went to SQL Saturday where I did the first public speech in English.
@@ -60,7 +60,7 @@ Some contribution points:
 <li>Active on social media like [Twitter](https://twitter.com/ClaudioESSilva) and [LinkedIn](https://www.linkedin.com/in/claudioessilva)</li>
 </ul>
 
-<h2>What you will do?</h2>
+## What you will do?
 
 As you can see I didn't born inside the comunity, I have grown because of it and decided to start giving back less then 3 years ago.
 It hurst? Nothing!

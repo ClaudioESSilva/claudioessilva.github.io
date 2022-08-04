@@ -16,19 +16,19 @@ title: Leveraging on SQL Server metadata
 I'm working on a project where I need to convert Firebird SQL code into T-SQL code.
 No schema, just the modules. There are more than 1000 objects between stored procedures, views, triggers, user-defined data types, etc.
 
-<h2>First - the pain...</h2>
+## First - the pain...
 
 While checking the [Firebird reference manuals](https://firebirdsql.org/en/reference-manuals/) I saw a lot of different concepts (Selectable Stored Procedures - Yes you can do SELECT FROM StoredProcedure) and different functions names with different syntax compared to T-SQL.
 
 With this in mind, can you imagine doing a code migration between two different SQL flavours that contains more than 60000 lines of code by hand? 😨
 
-<h3>and...the false alarm - My approach</h3>
+### and...the false alarm - My approach
 
 When I started to think about the possible approaches to this huge amount of work I will have, one of the ideas (and actually the one I ended up doing) was write a find/replace function in PowerShell that can receive an hashtable with "pattern to search" and the "pattern to replace".
 
 Because the `-replace` method allows the use of regular expressions this become very powerful.
 
-<h4>Don't reinvent the wheel</h4>
+#### Don't reinvent the wheel
 
 I did a search and found a [gist from Matthew Steeples](https://gist.github.com/MatthewSteeples/1961d4bf4892f09d32029) that has a function to do a find/replace of a single string on a file using regular expressions.
 
@@ -41,7 +41,7 @@ I picked this script and I have adapted to my reality. This means, I have change
 
 You can find on my GitHub repository the [Set-Expression PowerShell function](https://github.com/ClaudioESSilva/SQLServer-PowerShell/tree/master/PowerShell/Set-Expression) I ended with.
 
-<h4>Filling the hastable</h4>
+#### Filling the hastable
 
 To fill the hashtable I had to make a match between the two SQL flavours.
 
@@ -52,7 +52,7 @@ Other example is the `SUBSTRING` function which has the following structure `SUB
 
 <blockquote>Everything was going well, work was progressing at a good pace until...</blockquote>
 
-<h3>The pain strikes back</h3>
+### The pain strikes back
 
 These databases make a heavy use of triggers. The main use of it is to generate a new ID to a column based on a Firebird DOMAIN object (SEQUENCES in T-SQL) on `BEFORE INSERT` (INSTEAD OF in T-SQL) triggers.
 
@@ -93,7 +93,7 @@ AS
     END;
 ```
 
-<h3>"so you need to replace 1 line with an `INSERT` statement with all columns from the table..."</h3>
+### "so you need to replace 1 line with an `INSERT` statement with all columns from the table..."
 
 Yes that much work..on almost 300 triggers! Feeling the pain, right?
 
@@ -159,13 +159,13 @@ Example of the full string for the INSTEAD OF INSERT trigger:
 
 This way I can just copy/paste the result to my hashtable and run the PowerShell function on my triggers' files.
 
-<h3>All's well that ends well</h3>
+### All's well that ends well
 
 This made possible to automate, I would say, 95% of the work I have to do on each trigger object.
 
 The 5% left are purposeful and intended to format the code using [Redgate SQL Prompt](https://www.red-gate.com/products/sql-development/sql-prompt/index) (formatted the code using the great `CTRL + K, Y` shortcut) once I open the script on SQL Server Management Studio and test the object compilation.
 
-<h4>Other examples?</h4>
+#### Other examples?
 
 I applied the same recipe on scripts with user-defined data types (UDDT). I picked the system data type and created entries to the hashtable with the proper replace.
 
@@ -188,14 +188,14 @@ SELECT
  WHERE T2.user_type_id > 256;
 ```
 
-<h5>Practical example:</h5>
+##### Practical example:
 
 UDDT named `INT_VALUE`, that represents an INT, used in the following way `CAST(column AS INT_VALUE)` needs to be replaced as
 `CAST(column as INT)`.
 
 Why we need to do this replace? I have written about it on my blog post [Using CAST() function with User-Defined Data Types…Did you know…](https://claudioessilva.eu/2018/05/02/using-cast-function-with-user-defined-data-types-did-you-know/) take a look.
 
-<h2>Wrap up - Life saver and time saved</h2>
+## Wrap up - Life saver and time saved
 
 Leverage on SQL Server metadata to generate quick code and use it inside SQL Server or outside like I did it here!
 

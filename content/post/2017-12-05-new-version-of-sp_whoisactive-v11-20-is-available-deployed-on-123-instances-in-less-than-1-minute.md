@@ -27,7 +27,7 @@ You can read the release notes on the <a href="http://whoisactive.com/downloads/
 
 Thank you, Adam Machanic!
 
-<h3>The show off part</h3>
+### The show off part
 
 Using the <a href="https://dbatools.io" target="_blank" rel="noopener">dbatools</a> open source PowerShell module I can deploy the new latest version of the stored procedure.
 

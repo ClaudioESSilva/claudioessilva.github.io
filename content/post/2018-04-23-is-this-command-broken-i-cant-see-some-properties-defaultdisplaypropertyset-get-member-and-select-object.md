@@ -24,13 +24,13 @@ which produces the following output:
 
 As you can see, the "Startup Type" property that we can find on the user interface does not appear here!
 
-<h4>"Wait wait wait...what? Is the command broken?"</h4>
+#### "Wait wait wait...what? Is the command broken?"
 
-<h3>Fear nothing!</h3>
+### Fear nothing!
 
 In this case, this property does not belong to the <strong>default display properties set</strong> but the properties are still there!
 
-<h4>So how can we get the list of available properties?</h4>
+#### So how can we get the list of available properties?
 
 First, let me say that this person knows that `Select-Object` can be used to select the properties we want, so he tried to guess the property name using a trial/error approach.
 
@@ -87,7 +87,7 @@ Get-Service WinRM | Select-Object StartType, Status, Name, DisplayName
 
 Boom! We now have the property we are looking for!
 
-<h3>Select-Object *</h3>
+### Select-Object *
 
 I mentioned the `Select-Object *` on the title of this post, that is because we can use it to get ALL existing properties that our object owns and their values.
 
@@ -98,13 +98,13 @@ Get-Service WinRM | Select-Object *
 <a href="https://claudioessilva.github.io/img/2018/04/08_getservice_winrm_selectstar.png"><img src="https://claudioessilva.github.io/img/2018/04/08_getservice_winrm_selectstar.png?w=656" alt="" width="656" height="352" class="aligncenter size-large wp-image-1338" /></a>
 As you can see we can find the `StartType` there.
 
-<h3>Why hide some properties by default?</h3>
+### Why hide some properties by default?
 
 This way it will become cleaner and faster.
 <strong>Faster:</strong> We can have 20 properties but if only 5 are the most useful, by setting this five the default the command will be faster than if we retrieve the whole 20 properties.
 <strong>Cleaner:</strong> We don't fill the screen with information that 90% of the time is not useful for us.
 
-<h3>Can we know beforehand what are the default properties of a command?</h3>
+### Can we know beforehand what are the default properties of a command?
 
 Yes, we can! And it is very easy actually.
 
@@ -123,14 +123,14 @@ Getting the full list of properties:
 ```
 <a href="https://claudioessilva.github.io/img/2018/04/10_getservice_winrm_defaulpropertieslist.png"><img src="https://claudioessilva.github.io/img/2018/04/10_getservice_winrm_defaulpropertieslist.png?w=656" alt="" width="656" height="41" class="aligncenter size-large wp-image-1340" /></a>
 
-<h3>Bonus</h3>
+### Bonus
 
 If you use some properties a lot and they are not part of the defaults, or you just would like to change the default properties that are retrieved, you can use the `<a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/update-typedata?view=powershell-6" rel="noopener" target="_blank">Update-TypeData</a>` or `<a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/update-formatdata?view=powershell-6" rel="noopener" target="_blank">Update-FormatData</a> `cmdlets to make it work that way.
 
 Quick note: For commands that have format XML you will need to use the Update-FormatData.
 Thanks to Friedrich Weinmann (<a href="https://allthingspowershell.blogspot.co.uk/" rel="noopener" target="_blank">b</a> \| <a href="https://twitter.com/FredWeinmann" rel="noopener" target="_blank">t</a>), (dbatools architect) that helped me to realize this!
 
-<h3>Wrap</h3>
+### Wrap
 
 This post was intended to show / remember how you can know what are the default properties that will be shown when you run a command. Also, I showed two ways to get the full list of properties Get-Member (just the property name) and "Select-Object *" which also retrieve the values.
 

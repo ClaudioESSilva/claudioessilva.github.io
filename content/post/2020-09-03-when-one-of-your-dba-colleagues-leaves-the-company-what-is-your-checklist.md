@@ -17,7 +17,7 @@ Whether it’s in our personal lives or the professional one, we do have checkli
 
 On the professional level, it can be purely technical like SQL Server installation, configuration or even uninstall, but they can also be not so technical like when a colleague join the team and someone needs to request permissions to access the company's tools (such as ticketing/incidents/VPN/etc).
 
-<h2>What about when a colleague leaves the company?</h2>
+## What about when a colleague leaves the company?
 
 What is your checklist for this situation?
 At first, and the most obvious is to "rollback" the things done when that person joined the company. For instance:
@@ -28,7 +28,7 @@ At first, and the most obvious is to "rollback" the things done when that person
 
 The first step should be enough to make sure that person can't access the systems anymore, however, to do a proper cleanup steps 2 and 3 should also be made.
 
-<h3>Some elements might not be so obvious</h3>
+### Some elements might not be so obvious
 
 For example, think about the SQL Server instance and/or database objects ownership.
 It's pretty easy to create a new database for a client without explicitly specifying the owner and then you will become the database owner. The same can happen with SQL Server Agent jobs.
@@ -37,11 +37,11 @@ But the list doesn't stop here, just to enumerate a couple more:
 - User login can be used in Credential
 - User login can be the only used in a Proxy (SQL Agent Steps using a Proxy)
 <br>
-<h4>What do they have in common?</h4>
+#### What do they have in common?
 
 Sooner or later you will discover that things (might) stop working.
 
-<h2>Let me share a story with you</h2>
+## Let me share a story with you
 
 I had a colleague that worked for a dozen years in the company and was responsible for a lot of the automated processes that we had in place.
 Some weeks after that person leaves the company we start to find some "odd" behaviours.
@@ -56,7 +56,7 @@ We found a job that stopped running on the 'View History' of the job we could se
 
 Note: What else can we learn from this? Whenever possible use a non-user dedicated account (service account is OK) for these processes. This will make it much easier to keep everything working. However, you need to be sure that the ownership of that account is transferred to a new person, otherwise, this request can be deleted and everything fails anyways.
 
-<h3>How can we make this less painful?</h3>
+### How can we make this less painful?
 
 If you have a set of checks in place running regularly using for example [dbachecks.io](https://dbachecks.io/), you will see some red flag after you readjust (remove the login) from the list of "Valid Database Owner" and "Valid Job Owner" check.
 
@@ -67,7 +67,7 @@ dbatools has a command called [Find-DbaUserObject](https://docs.dbatools.io/#Fin
 
 This is even better because we can use a list of instances and check all of them with just one command.
 
-<h3>What will it search?</h3>
+### What will it search?
 
 From the command description we can find the following:
 
@@ -86,7 +86,7 @@ From the command description we can find the following:
 - Database Synonyms
 </blockquote>
 
-<h3>Using the command</h3>
+### Using the command
 
 To use the command we just need to provide one or more instances where we want to do the search and a login name, which we can even use regex.
 
@@ -99,7 +99,7 @@ This will find all objects where the login contains 'u_ssc' word. This means if 
 
 In this example you can see that this login owns not only our job that has been falling but also a database.
 
-<h4>Multiple instances</h4>
+#### Multiple instances
 
 If you suspect that you can find the specific person as the owner on more than one instance, you can just specify the list of instances where you want to search.
 
@@ -107,13 +107,13 @@ If you suspect that you can find the specific person as the owner on more than o
 Find-DbaUserObject -SqlInstance 'myInstance', 'myOtherInstance' -Pattern 'u_ssc'
 ```
 
-<h3>How to fix it?</h3>
+### How to fix it?
 
 Having this list is nice, but what if it returns dozens of jobs and/or databases where that person is the current owner?
 
 Fortunately, dbatools has commands to do this kind of changes in bulk.
 
-<h4>Change database owner</h4>
+#### Change database owner
 
 For a database, we can run the [Set-DbaDbOwner](https://docs.dbatools.io/#Set-DbaDbOwner) command.
 
@@ -127,7 +127,7 @@ However, you can specify the <code>-TargetLogin</code> parameter to set the data
 Set-DbaDbOwner -SqlInstance localhost -Database 'db1' -TargetLogin 'GEN_Account'
 ```
 
-<h4>Change job owner</h4>
+#### Change job owner
 
 If we talk about the jobs, we can use the [Set-DbaAgentJobOwner](https://docs.dbatools.io/#Set-DbaAgentJobOwner) command
 ``` powershell
@@ -139,7 +139,7 @@ The following example lets you get only the jobs where the current owner is <cod
 Get-DbaAgentJob -SqlInstance localhost | Where-Object OwnerLoginName -eq 'DOMAIN\colleagueLeaving' | Set-DbaAgentJobOwner -TargetLogin 'DOMAIN\account'
 ```
 
-<h2>Wrap up</h2>
+## Wrap up
 
 If you don't have this "what I need to do when a colleague of my DBA team leaves the company?" yet, I hope you will add it to your checklist to check or double-check if any of its logins have the ownership of any SQL Server objects.
 

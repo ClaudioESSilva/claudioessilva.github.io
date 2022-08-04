@@ -20,7 +20,7 @@ Today I want to share how I'm keeping a copy of instances' configurations using 
 Chrissy LeMaire ([B](https://blog.netnerds.net/) \| [T](https://twitter.com/cl)) wrote about it before on the [Simplifying disaster recovery with dbatools](https://dbatools.io/dr/) blog post.
 In this post, I will add one step and save the output on a GIT repository.
 
-<h2>Pre-requirements</h2>
+## Pre-requirements
 
 <ul>
 <li>You need a GIT repository</li>
@@ -29,15 +29,15 @@ In this post, I will add one step and save the output on a GIT repository.
 <li>A list or a place to get all instances that you want to run the export </li>
 </ul>
 
-<h2>Preparation</h2>
+## Preparation
 
-<h3>Git repository</h3>
+### Git repository
 
 Clone your repository to a location where dbatools can write to.
 
 NOTE: To fully automate this process, I recommend making use of an access token ([github](https://help.github.com/pt/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) \| [gitlab](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html) documentation as examples) instead of user/password as we don't want to be asked for the password when committing the changes.
 
-<h3>The list of instances from where we will export the configurations</h3>
+### The list of instances from where we will export the configurations
 
 I'm using a central database with a table that contains my list of servers.
 I'm using the dbatools' command `Invoke-DbaQuery` to get that list.
@@ -52,11 +52,11 @@ $ServerList = Invoke-DbaQuery -SqlInstance $centralServer -Database $centralData
 ```
 
 
-<h2>Running dbatools' Export-DbaInstance command</h2>
+## Running dbatools' Export-DbaInstance command
 
 A quick walk-through in case you have never used this command before.
 
-<h3>Execution</h3>
+### Execution
 
 If you have never used this command, you can test for a single instance by running the following:
 ``` powershell
@@ -66,18 +66,18 @@ Export-DbaInstance -SqlInstance "devInstance" -Path "D:\temp"
 This will create all scripts in the `D:\temp` folder. A folder named "devInstance-{date}" will be created.
 In this folder, you will find 1 file per 'object type'. The file names are in the form of "#-.sql" where the # is a number that represents the iterator on the order that the internal calls of the underlying functions happen.
 
-<h4>Heads up</h4>
+#### Heads up
 
 This means that if we call it with no exclusions but then we call it again but with `-Exclude SpConfigure` the scripts names will be different.
 For the first case, we will have a `1-sp_configure.sql` but for the second the number 1 will appear as `1-customerrors.sql`. This isn't a problem when exporting on demand and/or occasionally, but if we want to leverage on GIT to track the differences this can be confusing.
 Let's keep this in mind and I will explain later how to avoid this.
 
-<h3>"This also exports credentials, linked servers and Logins, right? What about the passwords?"</h3>
+### "This also exports credentials, linked servers and Logins, right? What about the passwords?"
 
 Good point! We can export objects that deal with passwords. Do you want to save them in clear text?
 Maybe, maybe not. It's up to you. Here I will share a version where clear-text passwords are excluded from the exported scripts regarding credentials and linked servers, but I will keep the hashed password for the logins.
 
-<h4>How does that works?</h4>
+#### How does that works?
 
 Introducing the `-ExcludePassword` parameter, as mentioned on the documentation (don't forget to use and abuse `Get-Help`):
 
@@ -92,7 +92,7 @@ If you run with this switch and if open the scripts, you will see that for:
 - Logins: No hashed password is present
 - Credentials &amp; LinkedServers will have their clear text passwords replaced by 'EnterStrongPasswordHere' and '#####' respectively.
 
-<h2>GIT commands I'm using</h2>
+## GIT commands I'm using
 
 Here are the 4 git commands that I'm using:
  - `git pull` -> To make sure I have the most recent version of the repository on my local folder
@@ -102,14 +102,14 @@ Here are the 4 git commands that I'm using:
 
 The first one is run before triggering the `Export-DbaInstance` and the rest only after all the other steps finish.
 
-<h2>A couple of notes before showing the full script</h2>
+## A couple of notes before showing the full script
 
 1 - When running the command, I use a `temp` folder for the `-Path` parameter (you will understand why in a second). I have added this folder to my `.gitignore` the file inside `Instances` folder so it won't be synchronized.
 
 2 - Do you remember the "Heads up" I have done earlier in the post about the outputted files' names? Let's nail that one.
 GIT is great to keep track of the changes that happened on a file. However, for that to happen, we need to make sure that the file name is the same. Because of the example I have mentioned before, my workaround goes by some renaming convention.
 
-<h3>Files' names</h3>
+### Files' names
 
 After the export command finish and before committing the changes to our GIT repository I run the following command:
 ``` powershell
@@ -122,7 +122,7 @@ The `$tempPath` represents my main folder where all the exported folders will be
 2 - We filter the results to only get files whose names start with one or more digits (`$_.Name -match '^[0-9]+.*'`)
 3 - `Foreach-Object` file we have found we rename it by splitting the file name by the '-' char and using the second part of the result of the split `[1]` (`[0]` will contain the number)
 
-<h3>Folders' names</h3>
+### Folders' names
 
 Using the same logic, we remove the suffix "-date" from the folder's name.
 ``` powershell
@@ -139,7 +139,7 @@ $split = $folderName -split '-'
 $split[0..($split.Count-2)] -join '-'
 ```
 
-<h3>Move folder with the files from the temp folder to the final folder</h3>
+### Move folder with the files from the temp folder to the final folder
 
 The final PowerShell steps before we commit the changes are, after renaming the folder and its files, move them and overwrite on the repository folder and clean-up our `temp` folder
 ``` powershell
@@ -152,7 +152,7 @@ Get-ChildItem $tempPath | Remove-Item -Force -Recurse -Confirm:$false
 
 Because my temp folder exists as a sub-folder of my repository my `-Destination` parameter is getting the parent folder to replace the existing files.
 
-<h2>The full script</h2>
+## The full script
 
 Here is the full script.
 
@@ -226,11 +226,11 @@ git push
 ```
 
 
-<h3>Example of the output for one of the instances</h3>
+### Example of the output for one of the instances
 
 <img src="https://claudioessilva.github.io/img/2020/05/exportdbainstance_togit_folderout.png" alt="" width="447" height="360" class="aligncenter size-full wp-image-2092" />
 
-<h2>Summary</h2>
+## Summary
 
 We have seen how to leverage `Export-DbaInstance` dbatools' command to export instance's configuration as backup and/or for disaster recovery purposes.
 On top of that, I have shown how you can format the results so you can add it to GIT and track the changes.

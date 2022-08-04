@@ -16,18 +16,18 @@ This post is to answer the question: "You are used to seeing in the format of `y
 
 As you could see from that blog post, my screen shots were from [VSCode](https://code.visualstudio.com/) and in this case using [mssql](https://github.com/Microsoft/vscode-mssql) extension, but this happens also on [SQL Server Operations Studio](https://docs.microsoft.com/en-us/sql/sql-operations-studio/download?view=sql-server-2017).
 
-<h3>"But why are my datetimeoffset values on VSCode being showed in that format?" (dd-MMM-yyyy)</h3>
+### "But why are my datetimeoffset values on VSCode being showed in that format?" (dd-MMM-yyyy)
 
 The short answer is because it relies on your regional settings.
 
 This means that whatever settings you have set for your date when you open the VSCode or SQL Operations Studio this will be used to show the output from your `datetimeoffset` columns.
 
-<h3>I'm being specific when I mean `datetimeoffset`</h3>
+### I'm being specific when I mean `datetimeoffset`
 
 The `DATETIME` and `DATETIME2` types already display always in `yyyy-MM-dd` format like SQL Server Management Studio.
 Once again, remember, I'm talking about default output not if you use a `CAST`, `CONVERT` or `FORMAT` function to manipulate the results.
 
-<h3>How can we fix this?</h3>
+### How can we fix this?
 
 When I was looking for this behaviour I did some research and found that a similar problem was raised but regarding `DATETIME2`. You can see it [here - issue #570](https://github.com/Microsoft/vscode-mssql/issues/570).
 With this in mind, I decided to open an new [issue (#1139) on the vscode-mssql extension repository on GitHub](https://github.com/Microsoft/vscode-mssql/issues/1139) and point to the other one already solved.
@@ -36,7 +36,7 @@ If you identify yourself with it, please add your <span class="dashicons dashico
 
 Now, we need to wait to see the evolution and, hopefully, a fix will be included on a upcoming release.
 
-<h2>Summary</h2>
+## Summary
 
 Always try to use an unambiguous date format like "yyyy-MM-dd".
 

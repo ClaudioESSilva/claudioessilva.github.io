@@ -23,11 +23,11 @@ It's often used to protect business rules since it allows you to protect some in
 
 In this article, we will look at how to recover the code from encrypted modules.
 
-<h2>What is a module in SQL Server?</h2>
+## What is a module in SQL Server?
 
 In the SQL Server world, a module consists of a block(s) of T-SQL statements that make up a stored procedure, a function, a trigger or a view definition.
 
-<h3>Which modules can be encrypted?</h3>
+### Which modules can be encrypted?
 
 These are the objects' types that can be encrypted:
 * P - Stored procedures
@@ -52,7 +52,7 @@ SELECT sm.object_id, o.name, o.type, sm.definition
 
 <br>
 
-<h3>What happens to the module text when we specify WITH ENCRYPTION?</h3>
+### What happens to the module text when we specify WITH ENCRYPTION?
 
 From the [CREATE PROCEDURE](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-procedure-transact-sql) documentation, `WITH ENCRYPTION`:
 
@@ -60,7 +60,7 @@ From the [CREATE PROCEDURE](https://docs.microsoft.com/en-us/sql/t-sql/statement
 
 If you want to understand the [Internals of With Encryption](https://sqlperformance.com/2016/05/sql-performance/the-internals-of-with-encryption) make sure you read Paul White’s ([b](https://www.sql.kiwi/) \| [t](https://twitter.com/sql_kiwi)) blog post.
 
-<h2>A Story</h2>
+## A Story
 
 I would like to share a story about encrypted modules.
 
@@ -68,7 +68,7 @@ I inherited a database with encrypted modules but without native scripts. This i
 
 My tool of choice for recovering the code was dbatools.
 
-<h3>Choosing a Tool</h3>
+### Choosing a Tool
 
 There are multiple ways to retrieve the decrypted version of an encrypted module. We can use a T-SQL script or other third-party tools. Here are a few that you can use:
 
@@ -85,18 +85,18 @@ If you want to understand how dbatools does it, Sander Stad ([b](https://www.sql
 
 Here I will be focusing on how we can do it at scale and with a couple of different use cases.
 
-<h2>Prerequisites</h2>
+## Prerequisites
 
 There are a few items you need to follow along with this article.
 
-<h3>dbatools</h3>
+### dbatools
 
 You can install the latest version of the module from the PowerShell Gallery by running the following command:
 ``` powershell
 Install-Module -Name dbatools
 ```
 
-<h3>DAC</h3>
+### DAC
 
 Stands for [Dedicated Admin Connection](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators).
 
@@ -104,7 +104,7 @@ Stands for [Dedicated Admin Connection](https://docs.microsoft.com/en-us/sql/dat
 
 If you want to connect using DAC from a remote server, you need to configure the [remote admin connection](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/remote-admin-connections-server-configuration-option) option as the default is 0 (off).
 
-<h4>Using dbatools to check/set the 'remote admin connection' configuration</h4>
+#### Using dbatools to check/set the 'remote admin connection' configuration
 
 ``` powershell
 Get-DbaSpConfigure -SqlInstance "instance1" -ConfigName RemoteDacConnectionsEnabled
@@ -119,7 +119,7 @@ Set-DbaSpConfigure -SqlInstance "instance1" -ConfigName RemoteDacConnectionsEnab
 
 NOTE: In some cases, you may need to restart the instance.
 
-<h2>Examples</h2>
+## Examples
 
 If you're curious about the steps that are simplified by dbatools, you can visit Paul White's [post](https://sqlperformance.com/2016/05/sql-performance/the-internals-of-with-encryption) (referenced before) to see how it's done in T-SQL.
 
@@ -127,11 +127,11 @@ I want to say that this is OK if we are talking about a couple of modules. Howev
 
 Let's see how to use dbatools to eliminate hard and repetitive work.
 
-<h3>A couple of tests</h3>
+### A couple of tests
 
 Before I go through all objects, I decided to start by doing a test by decrypting a single object to check the outcome
 
-<h4>Decrypt a single object on a single database</h4>
+#### Decrypt a single object on a single database
 
 The following code will decrypt just a single object and output the result to the console
 ``` powershell
@@ -140,7 +140,7 @@ Invoke-DbaDbDecryptObject -SqlInstance "instance1" -Database "WithEncryption" -O
 
 ![decryptsingleobject](/img/2020/09/decryptsingleobject.png)
 
-<h4>We can also decrypt more than one object in the same execution</h4>
+#### We can also decrypt more than one object in the same execution
 
 Now that I understand what my outcome is, let's try to decrypt two objects from the same database
 
@@ -156,7 +156,7 @@ NOTE: If you want to decrypt all encrypted objects that belong to a specific dat
 Invoke-DbaDbDecryptObject -SqlInstance "instance1" -Database "WithEncryption"
 ```
 
-<h2>What if I want to save the results to file?!</h2>
+## What if I want to save the results to file?!
 
 Back to my story, I knew that I would like to save a decrypted version of each object. This way we can edit the code and update the module or just to keep a readable copy of it (don't forget to keep it on your versioning tool).
 
@@ -164,7 +164,7 @@ Ultimately, I have decided to do the following:
 1. Save a decrypted version of each object as a T-SQL script.
 2. Compile SQL scripts but without encryption on a different/same database
 
-<h3>Saving results to a local folder</h3>
+### Saving results to a local folder
 
 To do so, with dbatools, we just need to define the `-ExportDestination` parameter and indicate to which folder we want to output our decrypted T-SQL code. This command will create a folder for each type of objects, and within and you will find one SQL script per object that was decrypted.
 ``` powershell
@@ -173,7 +173,7 @@ Invoke-DbaDbDecryptObject -SqlInstance "instance1" -Database "WithEncryption" -E
 
 ![outout](/img/2020/09/outout.png)
 
-<h3>Compile SQL scripts but without encryption on a different/same database</h3>
+### Compile SQL scripts but without encryption on a different/same database
 
 If you open any of these decrypted files, you will see that the `WITH ENCRYPTION` keywords are there, which means that it will encrypt the code if you run it.
 
@@ -210,7 +210,7 @@ Here we can see that the Stored Procedure is no longer encrypted
 
 ![outoutnoencrypted](/img/2020/09/outout_noencrypted.png)
 
-<h2>Wrapping up</h2>
+## Wrapping up
 
 We have seen how we can leverage dbatools PowerShell module to do the hard work for us when it comes to decrypting modules.
 This can be useful to recover lost code, make backups even for versioning it.

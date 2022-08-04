@@ -15,7 +15,7 @@ title: dbachecks - Using Power BI dashboards to analyse results
 ---
 For the last couple of months, members of the <a href="http://dbatools.io/" target="_blank" rel="noopener">dbatools</a> team have been working on a new PowerShell module called dbachecks. This open source PowerShell module will enable you to validate your SQL Instances. Today it is released for you all to start to use 🙂
 
-<h3>dbachecks launch - the blog posts series</h3>
+### dbachecks launch - the blog posts series
 
 Here you can find a list of the blog posts made available today:
 [Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell](https://sqldbawithabeard.com/2018/02/22/announcing-dbachecks-configurable-powershell-validation-for-your-sql-instances/)
@@ -37,28 +37,28 @@ Other documentation:
 [dbachecks readme](https://github.com/sqlcollaborative/dbachecks)
 [dbachecks wiki (for developers)](https://github.com/sqlcollaborative/dbachecks/wiki)
 
-<h3>Let's begin</h3>
+### Let's begin
 
 In this blog post, I will write about the Power BI dashboards that we have created to analyse the output of the tests.
 
-<h4>Disclaimer</h4>
+#### Disclaimer
 
 <i>Here, at dbachecks team, we don't have BI gurus. This means, that what you are about to see come from our non-BI minds plus some research on the web to achieve the output we wanted.</i>
 <i>The main objective is to have something functional, that helps to make decisions and help to know where we should look next.</i>
 <i>That being said if you master Power BI, M query language, DAX or other stuff that we have used or can be used on this project and you found some archaic or a too much year 2000 way to do some stuff, let us know! We would love to follow best practices and improve the dashboards.</i>
 
-<h3>Why Power BI? The background...</h3>
+### Why Power BI? The background...
 
 I started to work with Power BI after seeing a couple of sessions where it was and was not the main attraction. One of those sessions was from Rob Sewell (<a href="https://sqldbawithabeard.com" target="_blank" rel="noopener">b</a> \| <a href="https://twitter.com/sqldbawithbeard" target="_blank" rel="noopener">t</a>) where he was showing Pester and, to show the output, he has used Power BI desktop. This means that he is the principal "culprit" for this choice 🙂. If, in addition to that, we join the ease of import the JSON (and other) files, the usefulness and the eye-candy dashboards all together made the decision easier.
 With this in mind, I picked the initial Power BI from Rob and started digging on it and make some changes.
 
 Note: If your tool of choice is not Power BI or you just feel more comfortable using another tool to work with JSON files, please share your dashboards with us. Write about it and share with the community.
 
-<h3>Tests output format</h3>
+### Tests output format
 
 dbachecks output consists of one or more JSON files. When you write your dbachecks scripts you can choose between just one or more files as result of your validation. For instance, you can generate one output file per context or just one that includes all contexts. You can even use the -Append to append results to an existing file as Rob described on <a href="https://sqldbawithabeard.com/?p=9020" target="_blank" rel="noopener">dbachecks – Configuration Deep Dive</a> blog post.
 
-<h3>Before opening the file that contains the dashboards...</h3>
+### Before opening the file that contains the dashboards...
 
 For a more pleasant and smooth experience, we recommend that you update your Power BI desktop to the latest version.
 
@@ -71,7 +71,7 @@ Note: If you try to open a Power BI file saved on a more recent version than the
 
 This was the result of an attempt to open a file on the December 2017 version that was saved on a more recent (the February 2018) version.
 
-<h3>Which file should I open? pbix or pbit?</h3>
+### Which file should I open? pbix or pbit?
 
 dbachecks contains two different files:
 
@@ -87,7 +87,7 @@ Where this is different from the other file? On the other file ("pbix" extension
 
 Note: When using pbit, if no objects appear, please make sure you have entered the correct path. Wrong paths will lead to empty dashboards.
 
-<h4>You have opened the pbix file but you are not seeing (your) data?</h4>
+#### You have opened the pbix file but you are not seeing (your) data?
 
 The pbix file will keep the last data you saw on the dashboard. If you have rerun all or some tests, don't forget to click the "Refresh" button!
 
@@ -95,7 +95,7 @@ The pbix file will keep the last data you saw on the dashboard. If you have reru
 
 Only after refreshing the data source you will get all the data (re) loaded and thus get the most recent version of it.
 
-<h3>The dashboards</h3>
+### The dashboards
 
 On this liftoff of dbachecks, our Power BI file includes two dashboards.
 
@@ -105,7 +105,7 @@ See this example (click to open on new window):
 
 <a href="https://claudioessilva.github.io/img/2018/02/68f25aec-d9a5-44be-8959-447506aecc8c1.gif" target="_blank" rel="noopener"><img class="aligncenter size-large wp-image-1228" src="https://claudioessilva.github.io/img/2018/02/68f25aec-d9a5-44be-8959-447506aecc8c1.gif?w=400" alt="" width="400" height="250"></a>
 
-<h4>By Environment</h4>
+#### By Environment
 
 This dashboard gives to you a glance at how good/bad your environments are. This is done, at first, by the 2 circles with percentages and green/red waves.
 
@@ -119,7 +119,7 @@ Example:
 
 <a href="https://claudioessilva.github.io/img/2018/02/filteronmatrixorgrid.gif" target="_blank" rel="noopener"><img class="aligncenter size-large wp-image-1231" src="https://claudioessilva.github.io/img/2018/02/filteronmatrixorgrid.gif?w=656" alt="" width="656" height="369"></a>
 
-<h4>By Time</h4>
+#### By Time
 
 The main objective of this dashboard is helping you to understand which tests take the most time to run.
 Bear in mind that the times you will see are just the time that one test or the sum of tests took. The time switching between tests are not accounted.
@@ -133,7 +133,7 @@ Take a look:
 
 <a href="https://claudioessilva.github.io/img/2018/02/bytime_withexclude.gif" target="_blank" rel="noopener"><img class="aligncenter size-large wp-image-1233" src="https://claudioessilva.github.io/img/2018/02/bytime_withexclude.gif?w=656" alt="" width="656" height="369"></a>
 
-<h3>Rules</h3>
+### Rules
 
 Yes, there are some rules :-)
 
@@ -146,27 +146,27 @@ On this example, you can see six instances, but the last two "Procedures" and "t
 
 Also, we have a <a href="https://github.com/potatoqualitee/dbachecks/blob/master/tests/Unit.Tests.ps1#L60" rel="noopener" target="_blank">unit test</a> to help you check for these "Context" rules!
 
-<h3>Dynamic</h3>
+### Dynamic
 
 The data source on the Power BI was built to be dynamic. Because we can output just 1 test result per file (a record) or multiple results in the same file (a list), we built it so they can live together!
 
-<h3>Load times</h3>
+### Load times
 
 You may be thinking how fast it is to load the data and apply all the transformations we have to the files. We had that in mind and we tried to reach a good performance on that task.
 I can load 270 files, totalling 397MB of data, in less than 30 seconds (the time will vary depending on the machine specifications).
 
 If you are curious, each file contains a single test for every instance in a specific environment. At that time I managed 7 environments with more than 100 instances.
 
-<h2>Next steps?</h2>
+## Next steps?
 
 Now you can run your tests, analyse the output, make the changes needed, rerun the tests and start seeing your green percentage going up and the number of errors going down!
 
-<h2>Our next objectives</h2>
+## Our next objectives
 
 We will bring some new dashboards and improve the existing ones whenever possible.
 If you have a case that you would like to see covered by a dashboard share with us. Do you already have it sort out? Share with us and we can replicate to our file.
 
-<h2>It’s Open Source – We Want Your Ideas, Issues, New CodeNew Code</h2>
+## It’s Open Source – We Want Your Ideas, Issues, New CodeNew Code
 
 dbachecks is open-source <a href="https://github.com/potatoqualitee/dbachecks" target="_blank" rel="noopener">available on GitHub for anyone to contribute</a>.
 
@@ -174,7 +174,7 @@ We would love you to contribute. Please open issues for new tests, enhancements,
 
 You can also come in the <a href="https://sqlps.io/slack" target="_blank" rel="noopener">SQL Server Community Slack</a> and join the dbachecks channel and get advice, make comments or just join in the conversation.
 
-<h2>Thank You</h2>
+## Thank You
 
 I want to say thank you to all of the people who have enabled dbachecks to get this far. These wonderful people have used their own time to ensure that you have a useful tool available to you for free
 

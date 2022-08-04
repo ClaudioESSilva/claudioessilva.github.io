@@ -19,7 +19,7 @@ title: Change Outlook sender mailbox with PowerShell - A workaround
 ---
 The idea of this blog post, like many others I write, is to document a workaround solution to my problem. Hopefully I can also help someone that may be looking for the solution for this problem and stumbles accidentally (or not) on my blog.
 
-<h2>Scenario</h2>
+## Scenario
 
 I was helping a colleague automating the creation of emails using Microsoft Outlook using PowerShell. The following are configurable options (these will be the parameters of the script):
 
@@ -85,7 +85,7 @@ The possible values are:
 0x03 - Message is signed and encrypted
 </ul>
 
-<h4>Keeping the signature</h4>
+#### Keeping the signature
 
 After opening the message we can get the current HTML of the body which will include the default signature (with images, links, etc)
 ``` powershell
@@ -98,20 +98,20 @@ Then we can just add our `$EmailHtmlBody` parameter and append the `$signature`
 $Mail.HtmlBody = $EmailHtmlBody + $signature
 ```
 
-<h3>The problem</h3>
+### The problem
 
 Finally, from our list of properties to be changed we have the sender mailbox.
 
 Using the `SendUsingAccount` property I tried to set the email address that I wanted. But...no luck!
 
-<h3>Using `Get-Member` to know more</h3>
+### Using `Get-Member` to know more
 
 I took a closer look and using the `Get-Member` I was able to be sure what data type this property accepts.
 <img src="https://claudioessilva.github.io/img/2020/02/sendingusingaccount_datatype.png" alt="" width="515" height="156" class="aligncenter size-full wp-image-1908" />
 
 As we can see it expects an object of type `Account`.
 
-<h3>Now will work, right?!</h3>
+### Now will work, right?!
 
 To get the account as an `account` type I have used the following code where the `$EmailFrom` variable contains the email address I want to use:
 ``` powershell
@@ -129,7 +129,7 @@ $Mail.SendUsingAccount = $account
 But...this also didn't work!
 All the others properties were pretty easy to change so I didn't expect that.
 
-<h2>Time for some google-fu</h2>
+## Time for some google-fu
 
 After googleing for a bit I found an generic (works for many objects) alternative way to set a property to an object
 
@@ -153,15 +153,15 @@ Invoke-SetProperty -Object $mail -Property "SendUsingAccount" -Value $account
 
 And finally, it worked!
 
-<h3>Conclusion</h3>
+### Conclusion
 
 In this case we are using <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/reflection" rel="noopener" target="_blank">reflection</a> (by calling InvokeMember()) .Normally we use this, for example, when we want to change private properties of an object. I’m not sure in this case why the “normal” way didn’t work but, at least, this can be used as a workaround for the future in case other similar cases appear.
 
-<h3>The whole function code</h3>
+### The whole function code
 
 You can get the whole function code from <a href="https://gist.github.com/ClaudioESSilva/dfaf1de2e5da88fca1e59f70edd7f4ae" rel="noopener" target="_blank">here</a>
 
-<h3>A final curiosity</h3>
+### A final curiosity
 
 Normally when talking about automation one of the things that we measure is how much time we can save when in comparison with all the manual steps. Just to kill the curiosity the best case scenario for a manual process (which includes Excel files) takes 1h, after the automation we went down to 30 seconds. However this is a story for a another day with another blog post. Stay tuned!
 

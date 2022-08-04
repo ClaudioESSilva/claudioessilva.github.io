@@ -20,7 +20,7 @@ https://twitter.com/psdbatools/status/1261563168113012736
 
 Open and check the answers given by the community as there is really good stuff there!
 
-<h2>My turn</h2>
+## My turn
 
 I have shared one of my recipes related to database refreshes. You know, when the client says, "please restore this backup or the most recent backup on our instance.". But what if the databases belong to an availability group? It's not as simple as a standalone installation.
 
@@ -28,7 +28,7 @@ Seconds later, John McCormack ([T</a> \| <a href="https://johnmccormack.it/">B](
 https://twitter.com/actualjohn/status/1261605078013747200
 The truth is that this blog post was already on the queue, so without further ado, I will share the script I normally use.
 
-<h2>Not so fast - A couple of notes:</h2>
+## Not so fast - A couple of notes:
 
 <ul>
 <li>Read carefully what each command does as you normally do for every single script you use from the internet. You do that, right? :-)</li>
@@ -37,14 +37,14 @@ The truth is that this blog post was already on the queue, so without further ad
 <li>You can, and you should, run the script command by command in your first try as this will be much easier to understand how it's working.</li>
 </ul>
 
-<h3>Variations that you may need</h3>
+### Variations that you may need
 
 <ul>
 <li>With some changes you can put it to work with Availability Groups with more than 2 nodes. The failover and the set dbowner part is the one that is being done just having 2 nodes in mind. </li>
 <li>If you have huge databases and automatic seeding is not an option for you, you may want to leverage on the backup/restore process. Take a look on the [Add-DbaAgDatabase](https://docs.dbatools.io/#Add-DbaAgDatabase) command docs (look to `-SharedPath` parameter along with `-SeedingMode Manual`)</li>
 </ul>
 
-<h2>The script</h2>
+## The script
 
 ``` powershell
 <#
@@ -140,16 +140,16 @@ Set-DbaDbOwner -SqlInstance $secondaryNode -Database $databases -TargetLogin $db
 Invoke-DbaAgFailover -SqlInstance $primaryNode -AvailabilityGroup $availabilityGroupName
 ```
 
-<h3>What do you need to change</h3>
+### What do you need to change
 
 1 - Fill the variable values from lines 27 to 34.
 2 - Select your method of restore / seeding. Lines 51 to 59.
 
-<h2>Same task but not for databases within Availability Groups</h2>
+## Same task but not for databases within Availability Groups
 
 With this script as a starting point you can adapt to do refreshes of databases that work on single instances.
 
-<h2>Wrap up</h2>
+## Wrap up
 
 I hope you find it useful.
 As a time metric I can tell you that (excluding restores/seeding) all the other actions took me about 15min to run manually with a lot of possible things to go wrong. Now it takes me 5min or less.
