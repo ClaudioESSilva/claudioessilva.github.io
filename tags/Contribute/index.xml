@@ -7,5 +7,4 @@ You can see the full schedule here. This edition will have sessions about: Cloud
 I will be speaking on 19th about the dbachecks PowerShell module for SQL Server professionals. You can find more information about the session here: dbachecks – Checking SQL Server Environments With PowerShell.</description></item><item><title>Contribute to Microsoft Documentation</title><link>https://claudioessilva.eu/2017/08/28/Contribute-to-Microsoft-Documentation/</link><pubDate>Mon, 28 Aug 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/08/28/Contribute-to-Microsoft-Documentation/</guid><description>Times have changed and Microsoft has changed the way we can contribute for documentation!
 We already have access to the source code from some programs. One example is PowerShell, that has an GitHub repository where anyone can contribute!
 Now anyone can contribute to the documentation too!
-When clicking on that pencil we will be redirected, in this case, to the MicrosoftDocs - sql-docs repository on GitHub.
-There, we need to fork the repository, make the changes and submit our suggestion by doing a pull request (PR).</description></item></channel></rss>
+How and where? If you haven&amp;rsquo;t seen before, now we have a pencil icon on the top right corner that makes possible to suggest a change.</description></item></channel></rss>
