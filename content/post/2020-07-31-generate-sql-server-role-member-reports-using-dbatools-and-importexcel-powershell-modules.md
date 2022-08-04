@@ -16,19 +16,19 @@ tags:
 title: Generate SQL Server Role Member Reports using dbatools and ImportExcel PowerShell
   modules
 ---
-<em>This was initial posted on <a href="https://www.sqlservercentral.com/articles/generate-role-member-reports-using-dbatools-and-the-importexcel-powershell-modules">SQL Server Central articles</a>.</em>
+> This was initial posted on [SQL Server Central articles](https://www.sqlservercentral.com/articles/generate-role-member-reports-using-dbatools-and-the-importexcel-powershell-modules).
 
 As one of dbatools' first members, I've been using it for years and it's really my goto tool. This task was no different!
 
 Today's tip and trick using <a href="https://dbatools.io">dbatools</a> is about generating an Excel workbook that contains lists of SQL Server roles and its members.
 
-<h2>The Usefulness of these Reports</h2>
+## The Usefulness of these Reports
 
 These reports are especially useful when performing tech-refreshes (migrating from an old version to a newer one) and you want to do some housekeeping. For example, finding logins that should be part of a role and they are not. Once you know there are problems, you decided to do a double-check on the whole list.
 
 Excel makes these reports even better because they can be used to sort/filter large amounts of data: instances, roles and logins. Excel also makes the any data manipulation it easier when editing, marking members to be deleted, or highlighting issues when working with other teams.
 
-<h2>Doing it manually?</h2>
+## Doing it manually?
 
 I would like you to think about how much time you would need to:
 
@@ -41,7 +41,7 @@ I would like you to think about how much time you would need to:
 
 I would say more time than you would like. Doing this manually needs way too many clicks and keystrokes for something that we can be using daily.
 
-<h2>Back on track, what will we get?</h2>
+## Back on track, what will we get?
 
 The output will be an Excel (xlsx) file that will have multiple spreadsheets. In my case those are:
 
@@ -51,7 +51,7 @@ The output will be an Excel (xlsx) file that will have multiple spreadsheets. In
 <li>`DatabaseLevel` roles &amp; members - Allow us to know for example who belongs to the `db_owner` role for a specific database</li>
 </ul>
 
-<h2>What does the output look like?</h2>
+## What does the output look like?
 
 Here is a sneak-peak of the result that you will see right after opening the file.
 
@@ -59,7 +59,7 @@ Here is a sneak-peak of the result that you will see right after opening the fil
 
 The formatted table with headers, filters and top freeze-row will be there too!
 
-<h2>Prerequisites</h2>
+## Prerequisites
 
 To accomplish this we will write a PowerShell script and for that, we will using commands from two PowerShell modules.
 
@@ -89,7 +89,7 @@ If you don't have admin privileges on the machine you can use `-Scope CurrentUse
 Install-Module -Name dbatools, ImportExcel -Scope CurrentUser
 ```
 
-<h2>dbatools' commands to use</h2>
+## dbatools' commands to use
 
 You can use <a href="https://docs.dbatools.io">docs.dbatools.io</a> to search for a command. Or, if you are in an offline environment, you can use the `Find-DbaCommand`.
 
@@ -191,7 +191,7 @@ Get-DbaDbRoleMember -SqlInstance "instance1" -ExcludeDatabase "myDB" | Where-Obj
 
 These are the three dbatools’ commands that we will be using to get our data. Let’s see what we need from the 'ImportExcel' module.
 
-<h2>ImportExcel command</h2>
+## ImportExcel command
 
 With the results, all there’s left to do is to output them to a nice Excel spreadsheet. For that, we just need to pipe our results to the `Export-Excel` command.
 
@@ -228,7 +228,7 @@ $excelDBRoleMembersOutput = @{
 $dbRoleMembers | Export-Excel @excelDBRoleMembersOutput -Show
 ```
 
-<h2>Parameterize the script</h2>
+## Parameterize the script
 
 As I know that I will be using this heavily, I decided to create some variables to be set at the top of the script and use them in the commands. This way, I have just to change the instance name and run the command. You can also pick this code and wrap around a function and include the `param()` block so you can call it from the command line.
 
@@ -299,7 +299,7 @@ $dbRoleMembers | Export-Excel @exceldbRoleMembersOutput
 #EndRegion
 ```
 
-<h2>FAQ</h2>
+## FAQ
 
 <h3>What if I want to get different properties?</h3>
 
@@ -309,12 +309,12 @@ In the script, you can change the output list by changing the properties used on
 
 As shown on the "ImportExcel command" section, you can add the `-Show` parameter on the last `Export-Excel` command (line 62).
 
-<h2>What's next?</h2>
+## What's next?
 
 Want a slight change? Use the same technique but with different commands?
 Hopefully, this article gave you some ideas. Now it's a question of changing the commands that get data for the ones you want and apply the same recipe to output to an Excel file.
 
-<h2>Wrap up</h2>
+## Wrap up
 
 In this article we could see how easy and fast an Excel file with multiple spreadsheets can be generate, each with a table with filters, colors, etc and..we don't even need to have Microsoft Excel installed on the machine where we are running commands!
 
