@@ -52,7 +52,7 @@ Or it stands for 2000 and the `DATEPART` function is returning the wrong value?
 
 You can find it on the advanced tab in the Server Proprieties:
 <img src="https://claudioessilva.github.io/img/2018/09/ssms_twodigityearcutoff.png" alt="" width="656" height="594" class="aligncenter size-full wp-image-1547" />
-Or by running the <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-configure-transact-sql">sp_configure</a> command:
+Or by running the [sp_configure](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-configure-transact-sql) command:
 ``` sql
 EXEC sp_configure 'show advanced options', 1;
 GO
@@ -63,7 +63,7 @@ GO
 ```
 <img src="https://claudioessilva.github.io/img/2018/09/sp_configure_twodigityearcutoff.png" alt="" width="656" height="252" class="aligncenter size-full wp-image-1546" />
 
-Or even using <a href="https://dbatools.io">dbatools</a> PowerShell module:
+Or even using [dbatools](https://dbatools.io) PowerShell module:
 ``` powershell
 Get-DbaSpConfigure -SqlInstance sql2016 -ConfigName 'TwoDigitYearCutoff'
 ```

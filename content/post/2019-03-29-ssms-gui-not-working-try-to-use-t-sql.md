@@ -42,7 +42,7 @@ SELECT name, SUSER_SNAME(owner_sid) AS ScheduleOwner
   FROM dbo.sysschedules
 ```
 
-Then, we need to change the owner to the login we want to use. For this, we should use the <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-update-schedule-transact-sql">sp_update_schedule</a> stored procedure on msdb database using the following code:
+Then, we need to change the owner to the login we want to use. For this, we should use the [sp_update_schedule](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-update-schedule-transact-sql) stored procedure on msdb database using the following code:
 
 ``` sql
 EXEC msdb.dbo.sp_update_schedule

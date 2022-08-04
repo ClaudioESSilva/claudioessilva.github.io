@@ -48,7 +48,7 @@ Sure I can!
 The improvements that we have added to dbatools covers the points 2 and 3. (point 1 just depends on the way you use the name, so this one is already covered by default as it is today)
 
 If you are not aware of it, dbatools has some wide configurations itself. From sqlconnection, through logging and caching, remoting and others.
-Thanks to Fred Weinmann (<a href="http://allthingspowershell.blogspot.com/">b</a> \| <a href="https://twitter.com/FredWeinmann">t</a>) (our infrastructure code wizard) and his <a href="http://psframework.org/">PSFramework</a> module is used to manage configurations, logging and others, we can use the `Set-DbatoolsConfig` to change these values.
+Thanks to Fred Weinmann ([b](http://allthingspowershell.blogspot.com/) \| [t](https://twitter.com/FredWeinmann)) (our infrastructure code wizard) and his [PSFramework](http://psframework.org/) module is used to manage configurations, logging and others, we can use the `Set-DbatoolsConfig` to change these values.
 
 If you are asking which values, I encourage you to use the `Get-DbaToolsConfig` to have an overview of them. You will find some neat stuff! To know more about these configurations, read my post on dbatools blog named <a href="https://dbatools.io/configuration">dbatools advanced configuration</a>.
 

@@ -130,8 +130,8 @@ If you have questions, suggestions, requests or you just want to give a shout ou
 - Find us on <a href="https://twitter.com/psdbatools">Twitter - @psdbatools</a>
 
 Other useful links:
-- <a href="https://dbatools.io">Website</a> and <a href="https://dbatools.io/blog/">blog</a>
-- <a href="https://dbatools.io/commands">Command list</a> and <a href="https://docs.dbatools.io">documentation</a>
+- [Website](https://dbatools.io) and [blog](https://dbatools.io/blog/)
+- [documentation](https://docs.dbatools.io)
 
 <h3>To celebrate the launch of v1.0 we have a lot of blog posts related to it!</h3>
 

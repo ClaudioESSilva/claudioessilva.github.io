@@ -18,6 +18,6 @@ This will be my first SQL Saturday ever both as speaker and attendee outside Por
 
 I will be presenting my <a href="http://www.sqlsaturday.com/731/Sessions/Details.aspx?sid=71728">Administrate SSRS/PBIRS with PowerShell</a> session and I can share in first hand that it will include new demos with some fixes and enhancements that will be available on the next version of the module later this week.
 
-The event will be held at <a href="https://sqlsaturdayfiles.blob.core.windows.net/731/731_map.png">Microsoft Hellas , 221 Kifisias Ave, Marousi, Attica, 151 24</a> and you can see the full schedule <a href="http://www.sqlsaturday.com/731/Sessions/Schedule.aspx">here</a>.
+The event will be held at [here](http://www.sqlsaturday.com/731/Sessions/Schedule.aspx).
 
 Hope to see you in Athens! If you see me, come and say hi!

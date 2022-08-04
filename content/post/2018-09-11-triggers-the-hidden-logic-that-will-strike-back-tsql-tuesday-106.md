@@ -12,12 +12,12 @@ title: 'Triggers: The hidden logic that will strike back - TSQL Tuesday #106'
 
 <a href="https://voiceofthedba.com/2018/09/03/t-sql-tuesday-106-trigger-headaches-or-happiness//"><img src="https://claudioessilva.github.io/img/2017/09/tsql2sday.jpg" alt="https://voiceofthedba.com/2018/09/03/t-sql-tuesday-106-trigger-headaches-or-happiness/" width="244" height="244" class="aligncenter size-full wp-image-599" /></a>
 
-This month’s T-SQL Tuesday is brought by Steve Jones (<a href="https://voiceofthedba.com">b</a> \| <a href="https://twitter.com/way0utwest">t</a>) and he wants to know if triggers causes headaches or happiness to us.
+This month’s T-SQL Tuesday is brought by Steve Jones ([b](https://voiceofthedba.com) \| [t](https://twitter.com/way0utwest)) and he wants to know if triggers causes headaches or happiness to us.
 
-This is the 106nd edition of <a href="http://tsqltuesday.com/">TSQL2sDay</a> - an Adam Machanic (<a href="http://dataeducation.com/blog/">b</a> \| <a href="https://twitter.com/AdamMachanic">t</a>) brainchild.
+This is the 106nd edition of [TSQL2sDay](http://tsqltuesday.com/) - an Adam Machanic ([b](http://dataeducation.com/blog/) \| [t](https://twitter.com/AdamMachanic)) brainchild.
 
 &nbsp;
-<a href="https://docs.microsoft.com/en-us/sql/t-sql/statements/create-trigger-transact-sql">Triggers</a> are those kind of database objects that sometimes are the best bet but most of the times they will strike back.
+[Triggers](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-trigger-transact-sql) are those kind of database objects that sometimes are the best bet but most of the times they will strike back.
 
 <h3>"Why?" - You may ask.</h3>
 

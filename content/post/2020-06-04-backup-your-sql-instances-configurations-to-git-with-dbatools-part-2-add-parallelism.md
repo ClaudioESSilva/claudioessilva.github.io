@@ -43,7 +43,7 @@ There are a couple of options, like the native PowerShell cmdlets `Start-Job`/`S
 
 In case you don't know, with PowerShell v7 it's possible to use a new option `-Parallel` with `ForEach-Object`. Check PowerShell's team blog post <a href="https://devblogs.microsoft.com/powershell/powershell-foreach-object-parallel-feature/">PowerShell ForEach-Object Parallel Feature</a>.
 
-However, because I don't have (yet :-)) PS7, I will keep leveraging on <a href="https://github.com/proxb/PoshRSJob">PoshRSJob</a> module, which uses runspaces, created by Boe Prox (<a href="https://twitter.com/proxb">T</a> \| <a href="https://learn-powershell.net/">B</a>).
+However, because I don't have (yet :-)) PS7, I will keep leveraging on [PoshRSJob](https://github.com/proxb/PoshRSJob) module, which uses runspaces, created by Boe Prox ([T](https://twitter.com/proxb) \| [B](https://learn-powershell.net/)).
 If this module is unknown to you, as a quick summary, it:
 
 <blockquote>Provides an alternative to PSjobs with greater performance and less overhead to run commands in the background, freeing up the console and allowing throttling on the jobs.</blockquote>
@@ -138,7 +138,7 @@ Now that you have an idea on how it works we can start using our dbatools' comma
 
 <h3>Be aware that...</h3>
 
-The PoshRsJob uses <a href="https://docs.microsoft.com/en-us/dotnet/api/system.management.automation.runspaces">runspaces</a>. Trying to simplify the explanation, think about each runspace as a PowerShell session on its own.
+The PoshRsJob uses [runspaces](https://docs.microsoft.com/en-us/dotnet/api/system.management.automation.runspaces). Trying to simplify the explanation, think about each runspace as a PowerShell session on its own.
 
 This means when we run a command using the `Start-RSjob` we have 5 (by default) sessions running, each one of these sessions will need to import dbatools module.
 
@@ -320,8 +320,8 @@ Test with different commands and leverage on the beauty of the parallelism!
 
 <h2>Curious about PS7 -Parallel and PoshRsJob performance differences?</h2>
 
-If you are curious about a comparison between both approaches, you can read the blog post <a href="https://toastit.dev/2019/09/10/powershell7-foreach-parallel/">PowerShell7 Foreach Parallel</a> from Josh King (<a href="https://twitter.com/WindosNZ">T</a> \| <a href="https://toastit.dev/">B</a>) does a comparison between this new feature and the PoshRSJob module.
+If you are curious about a comparison between both approaches, you can read the blog post [T](https://twitter.com/WindosNZ) \| [B](https://toastit.dev/)) does a comparison between this new feature and the PoshRSJob module.
 
-Also, Nasir Zubair (<a href="https://twitter.com/nsr81">T</a> \| <a href="https://randombrainworks.com/">B</a>) back in 2018 wrote about all of them (excluding -Parallel which was not a thing at the time) on the <a href="https://randombrainworks.com/2018/01/29/powershell-background-jobs-runspace-jobs-thread-jobs">PowerShell - Background jobs, runspace jobs, thread jobs</a> blog post.
+Also, Nasir Zubair ([T](https://twitter.com/nsr81) \| [B](https://randombrainworks.com/)) back in 2018 wrote about all of them (excluding -Parallel which was not a thing at the time) on the <a href="https://randombrainworks.com/2018/01/29/powershell-background-jobs-runspace-jobs-thread-jobs">PowerShell - Background jobs, runspace jobs, thread jobs</a> blog post.
 
 Thanks for reading!

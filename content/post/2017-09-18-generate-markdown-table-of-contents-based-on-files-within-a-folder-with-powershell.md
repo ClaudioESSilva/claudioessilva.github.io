@@ -49,7 +49,7 @@ I have three parameters:
 </ul>
 
 The code is:
-UPDATE: Thanks to Jaap Brasser (<a href="http://www.jaapbrasser.com">b</a> \| <a href="http://@Jaap_Brasser">t</a>) who has contributed to the this code by adding the help and some improvements like dealing with special characters on the URL (spaces). You can find the most recent version of this <a href="https://github.com/ClaudioESSilva/SQLServer-PowerShell/blob/master/Convert-FolderContentToMarkdownTableOfContents.ps1" target="_blank" rel="noopener">Convert-FolderContentToMarkdownTableOfContents.ps1 function here on my GitHub</a>
+UPDATE: Thanks to Jaap Brasser ([b](http://www.jaapbrasser.com) \| [t](http://@Jaap_Brasser)) who has contributed to the this code by adding the help and some improvements like dealing with special characters on the URL (spaces). You can find the most recent version of this <a href="https://github.com/ClaudioESSilva/SQLServer-PowerShell/blob/master/Convert-FolderContentToMarkdownTableOfContents.ps1" target="_blank" rel="noopener">Convert-FolderContentToMarkdownTableOfContents.ps1 function here on my GitHub</a>
 
 https://gist.github.com/ClaudioESSilva/12b1d90b64031cb0283bc36180439ede
 
@@ -64,9 +64,9 @@ I will get this output (This have fake links but just to show the output format)
 
 <ul>
 <li>Modules</li>
-<li><a href="https://github.com/user/repository/tree/master/Modules/File1.md">File1</a></li>
-<li><a href="https://github.com/user/repository/tree/master/Modules/OneNewFile.md">OneNewFile</a></li>
-<li><a href="https://github.com/user/repository/tree/master/Modules/OtherFile.md">OtherFile</a></li>
+<li>[File1](https://github.com/user/repository/tree/master/Modules/File1.md)</li>
+<li>[OneNewFile](https://github.com/user/repository/tree/master/Modules/OneNewFile.md)</li>
+<li>[OtherFile](https://github.com/user/repository/tree/master/Modules/OtherFile.md)</li>
 </ul>
 
 <hr />

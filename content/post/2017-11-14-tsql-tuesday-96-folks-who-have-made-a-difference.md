@@ -11,7 +11,7 @@ tags:
 - TSQL2sDay
 title: 'TSQL Tuesday #96: Folks Who Have Made a Difference'
 ---
-<a href="https://sqlonice.com/tsql-tuesday-96-three-people-who-made-a-difference/" target="_blank" rel="noopener"><img class=" size-full wp-image-599 aligncenter" src="https://claudioessilva.github.io/img/2017/09/tsql2sday.jpg" alt="tsql2sday" width="244" height="244" /></a>This month’s T-SQL Tuesday is brought to us by Ewald Cress‏ (<a href="https://sqlonice.com/">blog</a> | <a href="https://twitter.com/sqlonice">twitter</a>) and is all about "folks who have made a difference" in our careers.
+[blog](https://sqlonice.com/) | [twitter](https://twitter.com/sqlonice)) and is all about "folks who have made a difference" in our careers.
 
 Thank you, Ewald! This is a great topic!
 
@@ -31,7 +31,7 @@ I have worked closely with him for about 2 years and were one of the best times 
 
 Much of the bases I have with SQL Server I learned from him!
 
-<h3>André Batista (<a href="https://twitter.com/klunkySQL" target="_blank" rel="noopener">t</a>) / Niko Neugebauer (<a href="https://twitter.com/NikoNeugebauer">t</a> \| <a href="http://www.nikoport.com/" target="_blank" rel="noopener">b</a>)</h3>
+<h3>André Batista ([t](https://twitter.com/NikoNeugebauer) \| <a href="http://www.nikoport.com/" target="_blank" rel="noopener">b</a>)</h3>
 
 These two guys are the responsible for my very first talk on a user group (<a href="http://sqlport.com" target="_blank" rel="noopener">SQLPort</a>).
 

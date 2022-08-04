@@ -20,7 +20,7 @@ title: Generate SQL Server Role Member Reports using dbatools and ImportExcel Po
 
 As one of dbatools' first members, I've been using it for years and it's really my goto tool. This task was no different!
 
-Today's tip and trick using <a href="https://dbatools.io">dbatools</a> is about generating an Excel workbook that contains lists of SQL Server roles and its members.
+Today's tip and trick using [dbatools](https://dbatools.io) is about generating an Excel workbook that contains lists of SQL Server roles and its members.
 
 ## The Usefulness of these Reports
 
@@ -63,13 +63,13 @@ The formatted table with headers, filters and top freeze-row will be there too!
 
 To accomplish this we will write a PowerShell script and for that, we will using commands from two PowerShell modules.
 
-<a href="https://dbatools.io">dbatools</a>
+[dbatools](https://dbatools.io)
 
 <blockquote>dbatools is an open-source cross-platform PowerShell toolkit for SQL Server DBAs. With over 150 contributors from the SQL and PowerShell communities, dbatools is designed and written by the people who use it in their everyday work. dbatools includes solutions for everyday tasks like performing backups and restores, migrations, and setting up Availability Groups. dbatools is designed to enable SQL DBAs to reliably and repeatedly automate the usual daily tasks.</blockquote>
 
 And on top of this, you should know that it counts with more than 500 commands.
 
-The other module is <a href="https://github.com/dfinke/ImportExcel">ImportExcel</a>, created by Doug Finke (<a href="https://twitter.com/dfinke">T</a> \| <a href="https://dfinke.github.io/">B</a>)
+The other module is [ImportExcel](https://github.com/dfinke/ImportExcel), created by Doug Finke ([T](https://twitter.com/dfinke) \| [B](https://dfinke.github.io/))
 
 <blockquote>ImportExcel allows you to read and write Excel files without installing Microsoft Excel on your system.</blockquote>
 

@@ -20,7 +20,7 @@ The user's password needs to be updated each 40/45 days (it depends on the domai
 <h2>Can you see the pain?</h2>
 This means that every month and half I have to dedicate like 20 minutes to change my password on 10 different domains by logging in to a host that belongs to that domain to be able to change it.
 
-Because I would like a faster way to do this and I'm not proficient with AD, I asked help to Jaap Brasser (<a href="http://www.jaapbrasser.com">b</a> \| <a href="http://@Jaap_Brasser">t</a>). He pointed me to a blog post he has written sometime ago called <a href="http://www.jaapbrasser.com/active-directory-friday-change-user-password/" target="_blank" rel="noopener">Active Directory Friday: Change a user’s password</a>.
+Because I would like a faster way to do this and I'm not proficient with AD, I asked help to Jaap Brasser ([b](http://www.jaapbrasser.com) \| [t](http://@Jaap_Brasser)). He pointed me to a blog post he has written sometime ago called <a href="http://www.jaapbrasser.com/active-directory-friday-change-user-password/" target="_blank" rel="noopener">Active Directory Friday: Change a user’s password</a>.
 
 This code resets the password and not to change/update it. Because I don't have permission to do it, this method won't work for me. Also, I don't have the AD module with all `*-ad*` cmdlets installed on my machine.
 

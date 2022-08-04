@@ -16,7 +16,7 @@ title: '''Ups...I have deleted some data. Can you put it back?'' - dbatools for 
 ---
 
 Few days ago I received a request to restore a dozen of tables because someone have deleted more data than it was supposed.
-I immediately thought about <a href="https://dbatools.io">dbatools</a> for the job!
+I immediately thought about [dbatools](https://dbatools.io) for the job!
 
 NOTE: I also thought about SSMS "Import/Export Data". And this is ok when someone says "it's to run just once, just now". When you are in the IT for a while you know that is not only once :-). And what if I need to re-run? Or save it as example and share with my colleagues? Doing this using a PowerShell script makes it much more flexible.
 
@@ -26,7 +26,7 @@ At this post, I'm assuming that we already have restored what will be our source
 
 I knew we have a `Copy` command for table data.
 
-To search for commands within <a href="https://dbatools.io">dbatools</a> we can use the <a href="https://docs.dbatools.io/#Find-DbaCommand">Find-DbaCommand</a>.
+To search for commands within [dbatools](https://dbatools.io) we can use the <a href="https://docs.dbatools.io/#Find-DbaCommand">Find-DbaCommand</a>.
 
 ``` powershell
 Find-DbaCommand -Pattern Copy*Table*Data
@@ -127,7 +127,7 @@ This means that with a little bit more code we will be able to accomplish our re
 
 <h3>The code</h3>
 
-Note: This is an modified version (to meet my needs) of the original script that I have borrowed from Andy Levy's (<a href="https://flxsql.com">b</a> \| <a href="https://twitter.com/ALevyInROC">t</a>) blog post <a href="https://flxsql.com/copying-individual-tables-with-dbatools/">Copying Individual Tables with dbatools</a>. Andy is also a dbatools contributor.
+Note: This is an modified version (to meet my needs) of the original script that I have borrowed from Andy Levy's ([b](https://flxsql.com) \| [t](https://twitter.com/ALevyInROC)) blog post <a href="https://flxsql.com/copying-individual-tables-with-dbatools/">Copying Individual Tables with dbatools</a>. Andy is also a dbatools contributor.
 
 ``` powershell
 $SourceServer = "SQL1";

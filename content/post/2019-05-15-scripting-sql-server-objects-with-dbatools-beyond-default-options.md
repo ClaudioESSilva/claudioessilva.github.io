@@ -35,7 +35,7 @@ What about automating this task? You want to script out multiple objects from di
 
 <h2>Enter dbatools' "Export-" commands</h2>
 
-To search for commands within <a href="https://dbatools.io">dbatools</a> we can use the <a href="https://docs.dbatools.io/#Find-DbaCommand">Find-DbaCommand</a>.
+To search for commands within [dbatools](https://dbatools.io) we can use the <a href="https://docs.dbatools.io/#Find-DbaCommand">Find-DbaCommand</a>.
 
 ``` powershell
 Find-DbaCommand -Tag Export

@@ -14,7 +14,7 @@ tags:
 - Tests
 title: dbachecks - Going parallel - Cut off your execution times
 ---
-On one of the last clients I have worked, I have implemented <a href="http://dbachecks.io">dbachecks</a> in order to get the state of art and know how cool or bad the environments are before start knocking down the bad practices.
+On one of the last clients I have worked, I have implemented [dbachecks](http://dbachecks.io) in order to get the state of art and know how cool or bad the environments are before start knocking down the bad practices.
 
 This client has <u>seven</u> different environments with more than 100 instances and more than 2000 databases.
 
@@ -27,7 +27,7 @@ I set up it to run at 6 in the morning and when I arrive at the office I can ref
 Well, 2 hours seems not too much if we compare with some other dbachecks users
 https://twitter.com/HiramFleitas/status/983361997843632128
 
-What if we want to lower down that 2 hours execution? Or the Hiram Fleitas' (<a href="https://dba2o.wordpress.com/">b</a> \| <a href="https://twitter.com/HiramFleitas">t</a>) 4,6 hours?
+What if we want to lower down that 2 hours execution? Or the Hiram Fleitas' ([b](https://dba2o.wordpress.com/) \| [t](https://twitter.com/HiramFleitas)) 4,6 hours?
 
 <h3>Going parallel</h3>
 

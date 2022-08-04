@@ -14,7 +14,7 @@ tags:
 - syndicated
 title: Replicate permissions to new Login/User with dbatools
 ---
-Continuing to share tips and tricks using <a href="https://dbatools.io">dbatools</a> like the <a href="https://claudioessilva.eu/2020/05/20/refresh-databases-that-belongs-to-availability-group-using-dbatools/">Refresh databases that belongs to availability group using dbatools</a> posted a few days ago, today I will share a way to export the permissions of a login/user at instance/database level and apply them to a new login/user.
+Continuing to share tips and tricks using [dbatools](https://dbatools.io) like the <a href="https://claudioessilva.eu/2020/05/20/refresh-databases-that-belongs-to-availability-group-using-dbatools/">Refresh databases that belongs to availability group using dbatools</a> posted a few days ago, today I will share a way to export the permissions of a login/user at instance/database level and apply them to a new login/user.
 
 <h2>The typical request</h2>
 
@@ -43,7 +43,7 @@ In dbatools (v1.0.111) we have 20 Export-Dba* commands.
 <img src="https://claudioessilva.github.io/img/2020/05/dbatools-export-commands.png" alt="" width="791" height="371" class="aligncenter size-full wp-image-2049" />
 
 Two of them are related with the login and user permissions.
-`Export-DbaLogin` and `Export-DbaUser` (Rob Sewell (<a href="https://twitter.com/sqldbawithbeard">T</a>) wrote about this last one on his blog post <a href="https://sqldbawithabeard.com/2017/04/10/export-sql-user-permissions-to-t-sql-script-using-powershell-and-dbatools/">Export SQL User Permissions to T-SQL script using PowerShell and dbatools</a> back in 2017.
+`Export-DbaLogin` and `Export-DbaUser` (Rob Sewell ([T](https://twitter.com/sqldbawithbeard)) wrote about this last one on his blog post <a href="https://sqldbawithabeard.com/2017/04/10/export-sql-user-permissions-to-t-sql-script-using-powershell-and-dbatools/">Export SQL User Permissions to T-SQL script using PowerShell and dbatools</a> back in 2017.
 
 You may be familiar with these ones to export/backup user permissions and, for example, run it again after a database refresh.
 

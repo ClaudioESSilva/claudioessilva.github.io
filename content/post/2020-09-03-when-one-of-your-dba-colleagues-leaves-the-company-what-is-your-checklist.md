@@ -60,7 +60,7 @@ Note: What else can we learn from this? Whenever possible use a non-user dedicat
 
 If you have a set of checks in place running regularly using for example <a href="https://dbachecks.io/">dbachecks.io</a>, you will see some red flag after you readjust (remove the login) from the list of "Valid Database Owner" and "Valid Job Owner" check.
 
-However here I will be focusing on how we can use <a href="https://dbatools.io">dbatools</a> PowerShell module as in this case we are talking about one ad-hoc check.
+However here I will be focusing on how we can use [dbatools](https://dbatools.io) PowerShell module as in this case we are talking about one ad-hoc check.
 dbatools has a command called <a href="https://docs.dbatools.io/#Find-DbaUserObject">Find-DbaUserObject</a> which:
 
 <blockquote>Searches SQL Server to find user-owned objects (i.e. not dbo or sa) or for any object owned by a specific user specified by the Pattern parameter.</blockquote>

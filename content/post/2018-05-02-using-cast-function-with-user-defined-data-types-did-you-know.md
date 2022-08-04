@@ -16,7 +16,7 @@ title: Using CAST() function with User-Defined Data Types...Did you know...
 I'm converting some <a href="https://www.firebirdsql.org" rel="noopener" target="_blank">Firebird</a> database code to T-SQL and I'm seeing a lot of code that doesn't work in the same way that SQL Server.
 No surprise - I already expected that but for those that still say that "all engines/databases are equal"..."is SQL right?" here is another proof that is not true.
 
-On Firebird it is possible to use the CAST function using a <a href="https://firebirdsql.org/file/documentation/reference_manuals/fblangref25-en/html/fblangref25-ddl-domn.html">DOMAIN</a> (the equivalent in SQLServer is <a href="https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference/data-types/user-defined-data-type">UDDT - User-Defined Data Types</a>) as target data-type, well turns out that on SQL Server...<b>that is not possible</b>.
+On Firebird it is possible to use the CAST function using a [DOMAIN](https://firebirdsql.org/file/documentation/reference_manuals/fblangref25-en/html/fblangref25-ddl-domn.html) (the equivalent in SQLServer is <a href="https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference/data-types/user-defined-data-type">UDDT - User-Defined Data Types</a>) as target data-type, well turns out that on SQL Server...<b>that is not possible</b>.
 
 Which means that, even if I have created a UDDT as:
 ``` sql

@@ -14,7 +14,7 @@ title: 'SQL Server Operations Studio and VSCode: The wrong default datetimeoffse
 ---
 This post is to answer the question: "You are used to seeing in the format of `yyyy-MM-dd` right?" that I have raised on my blog post <a href="https://claudioessilva.eu/2018/09/04/dont-cutoff-yourself-when-dealing-with-dates-in-t-sql-did-you-know/">Don’t cutoff yourself with dates in T-SQL – Did you know…</a>.
 
-As you could see from that blog post, my screen shots were from <a href="https://code.visualstudio.com/">VSCode</a> and in this case using <a href="https://github.com/Microsoft/vscode-mssql">mssql</a> extension, but this happens also on <a href="https://docs.microsoft.com/en-us/sql/sql-operations-studio/download?view=sql-server-2017">SQL Server Operations Studio</a>.
+As you could see from that blog post, my screen shots were from [VSCode](https://code.visualstudio.com/) and in this case using [mssql](https://github.com/Microsoft/vscode-mssql) extension, but this happens also on <a href="https://docs.microsoft.com/en-us/sql/sql-operations-studio/download?view=sql-server-2017">SQL Server Operations Studio</a>.
 
 <h3>"But why are my datetimeoffset values on VSCode being showed in that format?" (dd-MMM-yyyy)</h3>
 

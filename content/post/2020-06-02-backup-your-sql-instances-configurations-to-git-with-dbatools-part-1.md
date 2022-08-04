@@ -15,9 +15,9 @@ tags:
 - syndicated
 title: Backup your SQL instances configurations to GIT with dbatools - Part 1
 ---
-Today I want to share how I'm keeping a copy of instances' configurations using <a href="https://dbatools.io">dbatools</a>.
+Today I want to share how I'm keeping a copy of instances' configurations using [dbatools](https://dbatools.io).
 
-Chrissy LeMaire (<a href="https://blog.netnerds.net/">B</a> \| <a href="https://twitter.com/cl">T</a>) wrote about it before on the <a href="https://dbatools.io/dr/">Simplifying disaster recovery with dbatools</a> blog post.
+Chrissy LeMaire ([B](https://blog.netnerds.net/) \| [T](https://twitter.com/cl)) wrote about it before on the <a href="https://dbatools.io/dr/">Simplifying disaster recovery with dbatools</a> blog post.
 In this post, I will add one step and save the output on a GIT repository.
 
 <h2>Pre-requirements</h2>
@@ -35,7 +35,7 @@ In this post, I will add one step and save the output on a GIT repository.
 
 Clone your repository to a location where dbatools can write to.
 
-NOTE: To fully automate this process, I recommend making use of an access token (<a href="https://help.github.com/pt/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line">github</a> \| <a href="https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html">gitlab</a> documentation as examples) instead of user/password as we don't want to be asked for the password when committing the changes.
+NOTE: To fully automate this process, I recommend making use of an access token ([github](https://help.github.com/pt/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) \| [gitlab](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html) documentation as examples) instead of user/password as we don't want to be asked for the password when committing the changes.
 
 <h3>The list of instances from where we will export the configurations</h3>
 

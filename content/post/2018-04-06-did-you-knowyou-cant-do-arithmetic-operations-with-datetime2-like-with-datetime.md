@@ -12,7 +12,7 @@ tags:
 - syndicated
 title: Did you know…you can’t do arithmetic operations with datetime2 like with datetime?
 ---
-I’m currently working on a SQL code migration from <a href="https://firebirdsql.org/">Firebird</a> to SQL Server and I hit an error that I haven’t seen for some time.
+I’m currently working on a SQL code migration from [Firebird](https://firebirdsql.org/) to SQL Server and I hit an error that I haven’t seen for some time.
 
 The error message is the following:
 
@@ -51,8 +51,8 @@ Yes it was on the source engine (Firebird) and it will still work on the destina
 <br>
 What happened here was the column datatype was changed during the schema migration from DATETIME to DATETIME2.
 
-NOTE: The most recent date/time datatypes appeared with SQL Server 2008. They are <a href="https://docs.microsoft.com/en-us/sql/t-sql/data-types/date-transact-sql">DATE</a>, <a href="https://docs.microsoft.com/en-us/sql/t-sql/data-types/time-transact-sql">TIME</a>, <a href="https://docs.microsoft.com/en-us/sql/t-sql/data-types/datetime2-transact-sql">DATETIME2</a>, <a href="https://docs.microsoft.com/en-us/sql/t-sql/data-types/datetimeoffset-transact-sql">DATETIMEOFFSET</a>.
-Also, bear in mind that actually the <a href="https://docs.microsoft.com/en-us/sql/t-sql/data-types/datetime-transact-sql">DATETIME</a> and <a href="https://docs.microsoft.com/en-us/sql/t-sql/data-types/smalldatetime-transact-sql">SMALLDATETIME</a> datatypes are the only from the date/time family that supports this arithmetic operations.
+NOTE: The most recent date/time datatypes appeared with SQL Server 2008. They are [DATE](https://docs.microsoft.com/en-us/sql/t-sql/data-types/date-transact-sql), [TIME](https://docs.microsoft.com/en-us/sql/t-sql/data-types/time-transact-sql), [DATETIME2](https://docs.microsoft.com/en-us/sql/t-sql/data-types/datetime2-transact-sql), [DATETIMEOFFSET](https://docs.microsoft.com/en-us/sql/t-sql/data-types/datetimeoffset-transact-sql).
+Also, bear in mind that actually the [DATETIME](https://docs.microsoft.com/en-us/sql/t-sql/data-types/datetime-transact-sql) and [SMALLDATETIME](https://docs.microsoft.com/en-us/sql/t-sql/data-types/smalldatetime-transact-sql) datatypes are the only from the date/time family that supports this arithmetic operations.
 
 <h2>How to fix this error?</h2>
 
@@ -75,7 +75,7 @@ WHERE OrderDate < DATEADD(dd, -1, @vOrderDate)
 
 this way, it will work with DATETIME, DATETIME2, DATE, SMALLDATETIME and DATETIMEOFFSET datatypes.
 
-NOTE: <a href="https://docs.microsoft.com/en-us/sql/t-sql/functions/dateadd-transact-sql">DATEADD</a> also support TIME datatype, I didn’t mention because on our example we are subtracting DAYS, and as (at least I) expected this will give an error.
+NOTE: [DATEADD](https://docs.microsoft.com/en-us/sql/t-sql/functions/dateadd-transact-sql) also support TIME datatype, I didn’t mention because on our example we are subtracting DAYS, and as (at least I) expected this will give an error.
 
 <h2>Wrap up</h2>
 

@@ -14,7 +14,7 @@ tags:
 - WITH ENCRYPTION
 title: Recover database encrypted modules code with dbatools
 ---
-This article was initially posted on <a href="https://www.sqlservercentral.com/articles/recover-database-encrypted-modules-code-with-dbatools">SQLServerCentral</a> @ 2020-08-18.
+This article was initially posted on [SQLServerCentral](https://www.sqlservercentral.com/articles/recover-database-encrypted-modules-code-with-dbatools) @ 2020-08-18.
 It was interesting some comments I read about it, mainly why people still use `WITH ENCRYPTION` when it's simple to overcome this when we have the right permissions.
 
 SQL Server offers an option to encrypt the code of your modules when using the `WITH ENCRYPTION` syntax.
@@ -74,7 +74,7 @@ There are multiple ways to retrieve the decrypted version of an encrypted module
 
 <ul>
 <li><a href="https://gist.github.com/jstangroome/4020443">T-SQL</a></li>
-<li><a href="https://www.systoolsgroup.com/sql-decryptor.html">SQLDecryptor</a></li>
+<li>[SQLDecryptor](https://www.systoolsgroup.com/sql-decryptor.html)</li>
 <li><a href="https://www.devart.com/dbforge/sql/sqldecryptor/">dbForge SQL Decryptor</a></li>
 <li><a href="https://docs.dbatools.io/#Invoke-DbaDbDecryptObject">Invoke-DbaDbDecryptObject command from dbatools PowerShell module</a> </li>
 </ul>
@@ -121,7 +121,7 @@ NOTE: In some cases, you may need to restart the instance.
 
 <h2>Examples</h2>
 
-If you're curious about the steps that are simplified by dbatools, you can visit Paul White's <a href="https://sqlperformance.com/2016/05/sql-performance/the-internals-of-with-encryption">post</a> (referenced before) to see how it's done in T-SQL.
+If you're curious about the steps that are simplified by dbatools, you can visit Paul White's [post](https://sqlperformance.com/2016/05/sql-performance/the-internals-of-with-encryption) (referenced before) to see how it's done in T-SQL.
 
 I want to say that this is OK if we are talking about a couple of modules. However, that's not the case of our scenario, where we want to decrypt all objects of a specific database and this may be translated into dozens of objects.
 
