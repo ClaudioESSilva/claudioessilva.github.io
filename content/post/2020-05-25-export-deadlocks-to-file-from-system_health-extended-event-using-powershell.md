@@ -36,6 +36,7 @@ This query will show you when the deadlock happened (datetime) and the XML of th
 The only thing you need to know is the path where the `system_health` extended event is saving the results. By default is the SQL Server log folder.
 Example: `\MSSQLXX.MSSQLSERVER2\MSSQL\Log`
 You can use, for example, the following query to get the `ErrorLog` file path:
+
 ``` sql
 SELECT SERVERPROPERTY('ErrorLogFileName')
 ```
@@ -43,6 +44,7 @@ SELECT SERVERPROPERTY('ErrorLogFileName')
 If you remove the final `\ERRORLOG` part, you have the folder.
 
 The T-SQL code can be like this:
+
 ``` sql
 DECLARE @LogPath NVARCHAR(255) = (SELECT CAST(SERVERPROPERTY('ErrorLogFileName') AS NVARCHAR(255)))
 SET @LogPath = SUBSTRING(@LogPath, 1, charindex('\ERRORLOG', @LogPath) - 1)
@@ -81,15 +83,21 @@ WHERE object_name like 'xml_deadlock_report'
 "@
 
 # With sqlserver module
+
 $results = Invoke-Sqlcmd -ServerInstance $instance -Query $query
 
 # With dbatools module
+
+# With dbatools module
+
 #$results = Invoke-DbaQuery -SqlInstance $instance -Query $query
 
 # Create a folder to save the files
+
 New-Item -Path $outputDirectory -Type Directory -Force
 
 # Save each XML as xdl file on the filesystem
+
 $results.foreach {
     $_.deadlock | Out-File -FilePath "$outputDirectory\deadlock$($_.Execution_Time.TofileTime()).xdl"
 }
@@ -102,6 +110,7 @@ The output on the folder will be something like:
 
 Probably you will share this on a shared folder or even by email. It can be good idea to compress the folder into a zip file.
 You can easily do that by running the `Compress-Archive` cmdlet (PowerShell v5+).
+
 ``` powershell
 Compress-Archive -Path D:\Deadlocks -DestinationPath D:\Deadlocks.zip
 ```

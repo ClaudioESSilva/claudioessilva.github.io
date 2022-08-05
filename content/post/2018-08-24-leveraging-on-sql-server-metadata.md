@@ -34,10 +34,8 @@ I did a search and found a [gist from Matthew Steeples](https://gist.github.com/
 
 I picked this script and I have adapted to my reality. This means, I have changed the code in order to:
 
-<ul>
-<li>Accept an ordered hashtable and this way do multiple changes.</li>
-<li>Open the file and do all the changes before save it again.</li>
-</ul>
+* Accept an ordered hashtable and this way do multiple changes.
+* Open the file and do all the changes before save it again.
 
 You can find on my GitHub repository the [Set-Expression PowerShell function](https://github.com/ClaudioESSilva/SQLServer-PowerShell/tree/master/PowerShell/Set-Expression) I ended with.
 
@@ -59,6 +57,7 @@ These databases make a heavy use of triggers. The main use of it is to generate 
 Note: "But they can use `IDENTITY` columns..." - Exactly what I have proposed, and for some tables they have implemented but for the majority it wasn't possible.
 
 Firebird make this somehow easy. This is a code example from an Firebird trigger:
+
 ``` sql
 CREATE OR ALTER TRIGGER Customers_BI FOR Customers
 ACTIVE BEFORE INSERT POSITION 0
@@ -70,6 +69,7 @@ end;
 ```
 
 in T-SQL syntax, we need to set the whole `INSERT` statement with all columns from the `INSERTED` table. The equivalent code can be something like this:
+
 ``` sql
 CREATE TRIGGER dbo.Customers_BI
 ON dbo.Customers
@@ -203,11 +203,9 @@ I did some math and I have estimated that I would need several months to finish 
 
 Everything could go wrong doing that way:
 
-<ul>
-<li>This is an heavely repetitive task</li>
-<li>highly prone to errors</li>
-<li>a witch hunt when problems arise</li>
-</ul>
+* This is an heavely repetitive task
+* highly prone to errors
+* a witch hunt when problems arise
 
 After all, with this approach I have made in **less than one month**! And, half of those days were to tweak the regular expressions/hashtable.
 

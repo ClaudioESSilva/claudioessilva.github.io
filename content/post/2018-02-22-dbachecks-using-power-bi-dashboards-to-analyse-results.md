@@ -77,10 +77,8 @@ This was the result of an attempt to open a file on the December 2017 version th
 
 dbachecks contains two different files:
 
-<ul>
-    <li>pbix - is a document created by Power BI Desktop. It contains queries, data models, visualizations, settings, and reports added by the user.</li>
-    <li>pbit - is similar to pbix but it is a template. You can configure variables that will be asked when you open the file. Those can act, for instance, as filters.</li>
-</ul>
+* pbix - is a document created by Power BI Desktop. It contains queries, data models, visualizations, settings, and reports added by the user.
+* pbit - is similar to pbix but it is a template. You can configure variables that will be asked when you open the file. Those can act, for instance, as filters.
 
 By default, dbachecks will output the results to the "c:\windows\temp\dbachecks" folder. This folder is also the default one configured in the pbix file. This path is the only variable that we use on the pbit file, which means if you don't need to change your path because you relied on the default one, you can just open the pbix file and click refresh.
 

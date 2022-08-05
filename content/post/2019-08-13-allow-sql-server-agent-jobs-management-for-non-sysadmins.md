@@ -57,6 +57,7 @@ Ask them to help you to help them! :-)
 The base principle here is simple if the name starts with the specified prefix the execution can proceed, otherwise, it will stop running and will return an error message saying they can't update that specific job.
 
 Here is a code example of a wrapper for the `sp_update_job` system stored procedure:
+
 ``` sql
 USE [msdb]
 GO
@@ -135,6 +136,7 @@ Grant EXECUTE permissions for all of your compiled *_for_non_admins stored proce
 Other options are to grant the EXECUTE permissions to the existing database fixed role where the client login/group is already member.
 
 T-SQL code example:
+
 ``` sql
 use [msdb]
 GO

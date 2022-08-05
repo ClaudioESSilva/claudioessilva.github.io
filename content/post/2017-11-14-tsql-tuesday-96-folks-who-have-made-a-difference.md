@@ -17,6 +17,7 @@ Thank you, Ewald! This is a great topic!
 
 ## Here is my short list:
 
+## Here is my short list:
 ### Paulo Silva ([in](https://www.linkedin.com/in/paulo-silva/))
 
 He was my first boss in the IT world! I was his apprentice when I started my internship. He was going to move to a manager position and I  had to continue his work. He was responsible for the beginning of my career with SQL Server 2000 and VB6.

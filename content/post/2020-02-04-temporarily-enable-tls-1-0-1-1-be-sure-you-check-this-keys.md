@@ -95,6 +95,7 @@ NOTE: Don't forget to revert the changes after you finish your tests/workaround.
 
 This time, using PowerShell :-)
 **Disable TLS 1.0**
+
 ``` powershell
 New-Item 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server' -Force | Out-Null
 
@@ -112,6 +113,7 @@ Write-Host 'TLS 1.0 has been disabled.'
 ```
 
 **Disable TLS 1.1**
+
 ``` powershell
 New-Item 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server' -Force | Out-Null
 
@@ -128,6 +130,7 @@ Write-Host 'TLS 1.1 has been disabled.'
 ```
 
 **Add Hashes folder back**
+
 ``` powershell
 New-Item 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Hashes' -Force | Out-Null
 

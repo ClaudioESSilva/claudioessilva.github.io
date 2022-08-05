@@ -27,11 +27,9 @@ When we need to manage dozens of servers/instances, even with automated scripts 
 There are multiple reasons that a sequential (one-by-one) run takes longer.
 Few examples I have hit in the past:
 
-<ul>
-<li>Instance not available - We need to wait for the timeout.</li>
-<li>A slower connection to one or multiple instances - Even if the average execution per instance is 10 seconds, if we pick slower/more data ones that take 30 seconds, it's OK for 1, but might end up in multiple minutes wasted.</li>
-<li>Specific sub-command takes longer (number of objects, different domain, network segment, etc). Even if this instance (or set of instances) are the final ones on the list the total execution time can go from minutes to hours.</li>
-</ul>
+* Instance not available - We need to wait for the timeout.
+* A slower connection to one or multiple instances - Even if the average execution per instance is 10 seconds, if we pick slower/more data ones that take 30 seconds, it's OK for 1, but might end up in multiple minutes wasted.
+* Specific sub-command takes longer (number of objects, different domain, network segment, etc). Even if this instance (or set of instances) are the final ones on the list the total execution time can go from minutes to hours.
 
 Let me pick on this last example. `Export-DbaInstance` runs multiple `Export-Dba*` commands under the hood. This means that different queries are being run and therefore it can be faster/slower depending on the number of objects. I have a real example on this one where one instance takes more than 1 hour to generate the `logins.sql` file, however, it's a 100kb file which means a lot of logins/databases/permissions.
 
@@ -51,6 +49,7 @@ If this module is unknown to you, as a quick summary, it:
 I have been using it for a long time and I'm very happy with the results.
 
 Just install from the PowerShell gallery with
+
 ``` powershell
 Install-Module -Name PoshRSJob
 ```
@@ -61,6 +60,7 @@ or download from the Github repository.
 To give a small and easy but effective example let's use PowerShell cmdlet `Test-Connection`.
 
 Sequential execution:
+
 ``` powershell
 $serverList = 'instance1', 'instance2', 'instance3', 'instance4', 'instance5', 'instance6', 'instance7', 'instance8', 'instance9', 'instance10'
 $serverList | ForEach-Object { Test-Connection -ComputerName $_}
@@ -69,10 +69,13 @@ $serverList | ForEach-Object { Test-Connection -ComputerName $_}
 Took about ~32 seconds.
 
 Using PoshRsJob to execute:
+
 ``` powershell
 $serverList = 'instance1', 'instance2', 'instance3', 'instance4', 'instance5', 'instance6', 'instance7', 'instance8', 'instance9', 'instance10'
 $serverList | Start-RSJob -ScriptBlock {Test-Connection -ComputerName $_} | Wait-RSJob | Receive-RSJob
+
 # To clean-up
+
 Get-RsJob | Remove-RsJob
 ```
 
@@ -80,11 +83,9 @@ This execution took about ~6 seconds. This translates in a 7 times faster execut
 
 Just to explain the code:
 
-<ul>
-<li>The script block of the `Start-RSJob` is picking the values from the pipeline and using them directly. </li>
-<li>Then, we pipe the results to the `Wait-RSJob` which will wait for all runspaces to be finished.</li>
-<li>Finally, we request the results using the `Receive-RSJob` command.</li>
-</ul>
+* The script block of the `Start-RSJob` is picking the values from the pipeline and using them directly. 
+* Then, we pipe the results to the `Wait-RSJob` which will wait for all runspaces to be finished.
+* Finally, we request the results using the `Receive-RSJob` command.
 
 ### What kind of sorcery is that?
 
@@ -121,10 +122,13 @@ You need to test. Start with the default of 5, then increase this number and doc
 
 Let's have an idea on how much time it takes when leveraging on `-Throttle 10`:
 Using PoshRsJob to execute:
+
 ``` powershell
 $serverList = 'instance1', 'instance2', 'instance3', 'instance4', 'instance5', 'instance6', 'instance7', 'instance8', 'instance9', 'instance10'
 $serverList | Start-RSJob -ScriptBlock {Test-Connection -ComputerName $_} -Throttle 10 | Wait-RSJob | Receive-RSJob
+
 # To clean-up
+
 Get-RsJob | Remove-RsJob
 ```
 
@@ -147,16 +151,20 @@ Note: There is a `-ModulesToImport` parameter however, in my previous tests this
 ### Let's add one dbatools' command, Test-DbaConnection.
 
 Sequential execution:
+
 ``` powershell
 $serverList = 'instance1', 'instance2', 'instance3', 'instance4', 'instance5'
 $serverList | Test-DbaConnection
 ```
 
 Execution with PoshRsJob:
+
 ``` powershell
 $serverList = 'instance1', 'instance2', 'instance3', 'instance4', 'instance5'
 $serverList | Start-RSJob -ScriptBlock {Test-DbaConnection $_} | Wait-RSJob | Receive-RSJob
+
 # To clean-up
+
 Get-RsJob | Remove-RSJob
 ```
 
@@ -194,47 +202,50 @@ Note2: On my test server the module load takes ~23 seconds
 In the final script you will see that I have created a variable `$sb` which stands for 'script block' this way, the code is more readable.
 Also, I'm passing to parameters using `-ArgumentList` parameter which accepts an array of values. This means that inside the script block the:
 
-<ul>
-<li>`$tempPath` will be `$ppath`</li>
-<li>`$excludedObjects` will be `$pexcludeObjects`</li>
-<li>Each server on the `$serverList` variable will be the `$_`</li>
-</ul>
+* `$tempPath` will be `$ppath`
+* `$excludedObjects` will be `$pexcludeObjects`
+* Each server on the `$serverList` variable will be the `$_`
 
 ### Final script with parallelism
 
 Copy and save the script within your repository folder and change the following variables:
 
-<ul>
-<li>Line 2, 3 and 4.</li>
-<li>Line 7: Number of simultaneous runspaces to be used by `Start-RsJob`</li>
-<li>Line 10: If your column is not named as ConnString (what are the odds?) you also need to change the end of this line.</li>
-<li>Line 31: Use Get-Help Export-DbaInstance -Parameter Exclude and decide what you want to exclude if any.</li>
-</ul>
+* Line 2, 3 and 4.
+* Line 7: Number of simultaneous runspaces to be used by `Start-RsJob`
+* Line 10: If your column is not named as ConnString (what are the odds?) you also need to change the end of this line.
+* Line 31: Use Get-Help Export-DbaInstance -Parameter Exclude and decide what you want to exclude if any.
 
 The main block change appears between line 36 and 54.
 
 ``` powershell
+
 # Where we will get the list of servers
+
 $centralServer = "centralServer"
 $centralDatabase = "centralDatabase"
 $query = "SELECT ConnString FROM <table>"
 
 # number of parallel executions using PoshRsJob module
+
 $throttle = 5
 
 # Get the list of servers
+
 $ServerList = Invoke-DbaQuery -SqlInstance $centralServer -Database $centralDatabase -Query $query | Select-Object -ExpandProperty ConnString
 
 $instancesPath = "$PSScriptRoot\Instances"
 $tempPath = "$instancesPath\temp"
 
 # Change location to be able to run GIT commands on the local repository
+
 Set-Location -Path $PSScriptRoot
 
 # get folder up-to-date
+
 git pull
 
 # Create/clear temp folder
+
 if (Test-Path -Path $tempPath) {
     # Clean the folder
     Get-ChildItem $tempPath | Remove-Item -Force -Recurse -Confirm:$false
@@ -246,7 +257,9 @@ if (Test-Path -Path $tempPath) {
     Databases -> Exclude databases will not script the RESTORE statements for last backup. We don't need this because we use a 3rd party tool and this was slowing down the execution
     PolicyManagement and ReplicationSettings -> We don't use
     Credentials and LinkedServers -> We script as a second step to hide passwords (because -ExcludePassword will also hide hashed ones from logins, and this we want to keep)
+
 #>
+
 $excludeObjects = "Databases", "PolicyManagement", "ReplicationSettings", "Credentials", "LinkedServers"
 
 $sb = {
@@ -267,21 +280,27 @@ $sb = {
 $ServerList | Start-RSJob -ScriptBlock $sb -Throttle $throttle -ArgumentList $tempPath, $excludeObjects
 
 # Wait for the parallel job finish and remove them
+
 Get-RSJob | Wait-RSJob | Remove-RSJob
 
 # Find .sql files where the name starts with a number and rename files to exclude numeric part "#-<NAME>.sql" (remove the "#-")
+
 Get-ChildItem -Path $tempPath -Recurse -Filter "*.sql" | Where {$_.Name -match '^[0-9]+.*'} | Foreach-Object {Rename-Item -Path $_.FullName -NewName $($_ -split '-')[1] -Force}
 
 # Remove the suffix "-datetime"
+
 Get-ChildItem -Path $tempPath | Foreach-Object {Rename-Item -Path $_.FullName -NewName $_.Name.Substring(0, $_.Name.LastIndexOf('-')) -Force}
 
 # Copy the folders/files from the temp directory to one level up (overwrite)
+
 Copy-Item -Path "$tempPath\*" -Destination $instancesPath -Recurse -Force
 
 # Clean-up temp folder
+
 Get-ChildItem $tempPath | Remove-Item -Force -Recurse -Confirm:$false
 
 # Add/commit/push the changes
+
 git add .
 git commit -m "Export-DbaInstance @ $((Get-Date).ToString("yyyyMMdd-HHmmss"))"
 git push

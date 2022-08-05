@@ -27,16 +27,19 @@ At PowerShell community we often call it a "sea of red" which we found as someth
 We don't think so! That's why we, within dbatools project, try to keep the output of the exceptions more user friendly and try to give the direct error message to you. No line numbers or stack traces to confuse you.
 
 ## The default behavior
+
 By default we hide those bigger, red and ugly error messages in favor of more useful, attractive and user-friendly ones with just the actual error text in a (yellow) warning format - identical to what you can get when using native `Write-Warning` CmdLet.
 
 Within dbatools, if you want to have the default PowerShell look and feel error output, you will need to use the `-EnableException` parameter when calling the commands.
 
 The only command where this doesn't work like that by default is for `Connect-DbaInstance`. This commands by default will shows the red message. But, if you don't want it you can use the `-DisableException` parameter.
 
-### "Why?" You may ask.
+### "Why?" You may ask
+
 This was, in the earlier days, an internal command that others wanted us to surface and we expected they’d want it to throw by default in their own scripts.
 
 ## Making it better - PowerShell Core - Improvement
+
 If you have played with both [Windows PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/starting-windows-powershell?view=powershell-5.1) and [PowerShell Core](https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.2), you may recognize the big difference on the default output for the error messages.
 With PowerShell Core the errors are shown, by default, in a more consice and nicer view.
 
@@ -50,6 +53,7 @@ Take a look on the same error but when using PowerShell Core
 NOTE: You can change the default behavior of the preference variable [$ErrorView](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7.2#errorview) and play along with [Get-Error](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-error?view=powershell-7.2) CmdLet.
 
 ## How do we do it?
+
 dbatools was born before PowerShell Core.  
 We were looking forward to have some better error handling along side with a better logging system and we were fortunate to have [Friedrich Weinmann](https://github.com/FriedrichWeinmann) on the team helping with his enormous PS/C# knowledge.
 
@@ -62,9 +66,11 @@ As stated on the description:
 It is designed to allow gracefully terminating a function with a warning by default and also allow opt-in into terminating errors.
 
 ### That means no Write-Verbose/Warning/Error in the commands?
+
 Correct! The function `Write-Message` process the message (by type) and send it to the corresponding dbatools log and outputs it to the PowerShell [output streams](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_output_streams?view=powershell-7.2).
 
 ## What if I'm curious about the details of the error message?
+
 As mentioned before you can use the `-EnableException` parameter to get more details.
 
 If you feel this is not yet enough or you need to dig a bit more on the stack trace, we have a command called `Get-DbatoolsError` that allows you to navigate through the errors that happened in the context of dbatools. This will give you more details.

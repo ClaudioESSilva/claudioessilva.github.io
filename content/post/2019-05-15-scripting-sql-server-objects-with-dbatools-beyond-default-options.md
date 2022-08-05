@@ -48,6 +48,7 @@ This command give to us a nice `Synopsis` text that help to find which command i
 To replicate our SSMS example using PowerShell we will use the `Export-DbaScript`.
 
 Don't forget to use `Get-Help` cmdlet to find the available parameters and get some examples on how you can use the command.
+
 ``` powershell
 Get-Help Export-DbaScript -Detailed
 ```
@@ -59,11 +60,9 @@ Get-Help Export-DbaScript -Detailed
 Here is how `MyTable` looks like:
 <img src="https://claudioessilva.github.io/img/2019/05/mytable_treedefinition.png" alt="" width="291" height="236" class="aligncenter size-full wp-image-1695" />
 
-<ul>
-<li>3 Columns</li>
-<li>1 Default constraint</li>
-<li>1 Non-Clustered Index</li>
-</ul>
+* 3 Columns
+* 1 Default constraint
+* 1 Non-Clustered Index
 
 ``` powershell
 Get-DbaDbTable -SqlInstance SQL1 -Database DB1 -Table MyTable | Export-DbaScript -Passthru
@@ -91,6 +90,7 @@ Use `Get-Member` so you can see what properties the object offers.
 Here we start seeing what we need.
 
 By default what are the values of properties like `NonClusteredIndexes` and `DriDefaults`
+
 ``` powershell
 $options = New-DbaScriptingOption
 $options.NonClusteredIndexes
@@ -122,13 +122,16 @@ See the other options available, change the values, rerun and analyse the output
 Do you need to export it to run on a lower SQL Server version? Change the `TargetServerVersion` option
 
 ``` powershell
+
 #Will script the code like SQL Server 2014
+
 $options.TargetServerVersion = "Version120"
 ```
 
 You want to include the "IF NOT EXISTS" statement? Change the "IncludeIfNotExists" option.
 
 Here is an example to script out a list of tables (add more to the `$TableName` variable):
+
 ``` powershell
 $SourceServer = "SQL1";
 $SourceDB = "DB1";

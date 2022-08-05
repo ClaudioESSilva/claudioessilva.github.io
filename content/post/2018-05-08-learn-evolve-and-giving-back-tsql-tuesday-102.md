@@ -52,13 +52,11 @@ Since then I have being more active on the community mainly with SQLServer and P
 
 Some contribution points:
 
-<ul>
-<li>Help organizing and also as volunteer on several user group meetings, SQL Saturday (Lisbon), [TugaIT](http://tugait.pt/) and also co-lead the [Global Virtual Group Portuguese](http://globalportuguese.pass.org/).</li>
-<li>Speaking on local user groups, Virtual Groups, national SQL Saturdays (Lisbon, Oporto) and international conferences like [SQLGrillen](https://sqlgrillen.de/), [SQLBits](https://sqlbits.com/)</li>
-<li>Contribution with multiple commands, improvements and fixes for some tools like [dbatools](https://dbatools.io), [dbachecks](https://dbachecks.io) and Microsoft's [ReportingServicesTools](https://github.com/Microsoft/ReportingServicesTools/)</li>
-<li>Started this blog on September 2017 to write down some notes and, again, share with others.</li>
-<li>Active on social media like [Twitter](https://twitter.com/ClaudioESSilva) and [LinkedIn](https://www.linkedin.com/in/claudioessilva)</li>
-</ul>
+* Help organizing and also as volunteer on several user group meetings, SQL Saturday (Lisbon), [TugaIT](http://tugait.pt/) and also co-lead the [Global Virtual Group Portuguese](http://globalportuguese.pass.org/).
+* Speaking on local user groups, Virtual Groups, national SQL Saturdays (Lisbon, Oporto) and international conferences like [SQLGrillen](https://sqlgrillen.de/), [SQLBits](https://sqlbits.com/)
+* Contribution with multiple commands, improvements and fixes for some tools like [dbatools](https://dbatools.io), [dbachecks](https://dbachecks.io) and Microsoft's [ReportingServicesTools](https://github.com/Microsoft/ReportingServicesTools/)
+* Started this blog on September 2017 to write down some notes and, again, share with others.
+* Active on social media like [Twitter](https://twitter.com/ClaudioESSilva) and [LinkedIn](https://www.linkedin.com/in/claudioessilva)
 
 ## What you will do?
 

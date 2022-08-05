@@ -41,6 +41,7 @@ From the results list, we know that we have at least three commands (as of v0.9.
 ### Get familiarized with the command
 
 Don't forget to use `Get-Help` cmdlet to find the available parameters and get some examples on how you can use the command.
+
 ``` powershell
 Get-Help Copy-DbaDbTableData -Detailed
 ```
@@ -78,6 +79,7 @@ But dbatools got you covered and the warning gives you one hint: use `-AutoCreat
 That is nice!
 
 I added the `-AutoCreateTable` parameter and rerun the command
+
 ``` powershell
 $params = @{
     SqlInstance         = 'sql1'
@@ -114,12 +116,10 @@ As I have demonstrated on my last post [Scripting SQL Server objects with dbatoo
 
 As stated on the previous post, we have some properties like:
 
-<ul>
-<li>Indexes</li>
-<li>DriPrimaryKey</li>
-<li>DriForeignKeys</li>
-<li>etc</li>
-</ul>
+* Indexes
+* DriPrimaryKey
+* DriForeignKeys
+* etc
 
 By default they are set to `$false` and that explains why our `-AutoCreateTable` parameter (which uses default options) didn't bring all of this details from our source tables.
 
@@ -170,17 +170,13 @@ $tables | ForEach-Object {
 
 This will do the following steps:
 
-<ul>
-<li>`New-DbaScriptingOption` creates a new object of Scripting Options type and then we set a bunch of properties as `$true`.</li>
-</ul>
+* `New-DbaScriptingOption` creates a new object of Scripting Options type and then we set a bunch of properties as `$true`.
 
 For each of the tables that we define on our `$tables` list variable:
 
-<ul>
-<li>`Export-DbaScript` will generate the T-SQL script from the source table using the properties that we have defined. In this case, Keys (Primary, Foreign, Unique), Defaults and Checks Constraints and also clustered and non-clustered indexes.</li>
-<li>`Invoke-DbaQuery` will run the generated script on the destination database. At this point we have the same table structure on both sides. This will only run if the table does not exists on the destination database.</li>
-<li>Finally we use our `Copy-DbaDbTableData` command to copy the records. Here I have choosen to truncate the table with `-Truncate` parameter and keep identity values by specifying the `-KeepIdentity`.</li>
-</ul>
+* `Export-DbaScript` will generate the T-SQL script from the source table using the properties that we have defined. In this case, Keys (Primary, Foreign, Unique), Defaults and Checks Constraints and also clustered and non-clustered indexes.
+* `Invoke-DbaQuery` will run the generated script on the destination database. At this point we have the same table structure on both sides. This will only run if the table does not exists on the destination database.
+* Finally we use our `Copy-DbaDbTableData` command to copy the records. Here I have choosen to truncate the table with `-Truncate` parameter and keep identity values by specifying the `-KeepIdentity`.
 
 ### Special callout:
 

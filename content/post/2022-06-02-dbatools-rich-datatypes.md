@@ -22,8 +22,9 @@ What should we show? Sizes should be always in bytes? It will be easier for you 
 
 That's why we have created some rich datatypes like, `DbaTime`, `DbaDate`, `DbaDatetime`, `DbaTimeSpan`, `PrettyTimeSpan` or `DbaSize` to make it easier to read and be more consistent acrross multiple commands.
 
-## How to identify the property datatype?
+$1
 
+$2
 When we run a command, just by looking into the output we can't infer the datatypes being used by each property.
 
 To check a  property datatype we can make use of `Get-Member` cmdlet.
@@ -69,15 +70,16 @@ $dbaDbSpace | Where-Object FileType -eq 'Rows' | Select-Object -ExpandProperty F
 
 ![FileSize_properties_values](/img/2022/06/FileSize_properties_values.png)
 
-### DbaDateTime
+$1
 
+$2
 On a different example let's use the `Get-DbaInstanceInstallDate` command to show that the `SqlInstallDate` has the `DbaDateTime` datatype.
 
 ![DbaDateTime](/img/2022/06/DbaDateTime.png)
 
 To show the differences between native `Datetime` and our `DbaDateTime` you can run the following code:
 
-``` PowerShell
+``` powershell
 $DateTime = [pscustomobject]@{
    nativeDT = [DateTime]::new(2022, 6, 2, 13, 10, 30)
    dbatoolsDT = [DbaDateTime]::new(2022, 6, 2, 13, 10, 30)
@@ -88,13 +90,14 @@ $DateTime
 
 ![Datetime_vs_DbaDateTime](/img/2022/06/Datetime_vs_DbaDateTime.png)
 
-### PrettyTimespan
+$1
 
+$2
 `PrettyTimespan` is another rich datatype that we use, as example, at `Test-DbaNetworkLatency` or `Import-DbaCsv` commands.
 
 Here is an out of the box example comparing native vs dbatools:
 
-``` PowerShell
+``` powershell
 $timespan = [pscustomobject]@{
    nativeTimespan = [Timespan]::FromMilliseconds(29.69)
    dbatoolsPrettyTimespan = [PrettyTimespan]::FromMilliseconds(29.69)
@@ -109,8 +112,9 @@ Which one is prettier? :-)
 
 If you are curious how we do it, here is an example. When the timespan is less than 1 second, [we format](https://github.com/dataplat/dbatools/blob/development/bin/projects/dbatools/dbatools/Utility/DbaTimeSpanPretty.cs#L112) the value as `XX ms`
 
-## Defaults and configurations
+$1
 
+$2
 Out of the shelf, dbatools uses some defaults.
 
 ![Get-DbatoolsConfig_formatting](/img/2022/06/Get-DbatoolsConfig_formatting.png)
@@ -119,12 +123,13 @@ You can find them using the `Get-DbatoolsConfig -Module formatting` command.
 
 Note: Make sure you read our [configuration](https://dbatools.io/configuration) post to learn more about them.
 
-## Configuration example
+$1
 
+$2
 Let’s say you want to see your DateTime using the 12 hour format (with AM and PM) instead of 24h and without the milliseconds.  
 We can make it by changing the `formatting.datetime` configuration
 
-``` PowerShell
+``` powershell
 Set-DbatoolsConfig -FullName formatting.datetime -Value 'yyyy-MM-dd hh:mm:ss tt'
 ```
 

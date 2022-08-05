@@ -82,6 +82,7 @@ EXEC sp_WhoIsActive @get_plans = 1, @get_outer_command = 1
 However, if we have nested calls, this will not show the current batch or stored procedure where the code of the current query belongs.
 
 To get that we need to use the `@get_full_inner_text` parameter:
+
 ``` powershell
 EXEC sp_WhoIsActive @get_plans = 1, @get_outer_command = 1, @get_full_inner_text = 1
 ```
@@ -97,6 +98,7 @@ Can you see the pattern? A lot of `OR EXISTS()` conditions. That is odd indeed, 
 We can easily re-write the query without changing the logic or affecting the output data.
 
 I have re-written the code in the following way:
+
 ``` sql
 SELECT column1
   FROM table1

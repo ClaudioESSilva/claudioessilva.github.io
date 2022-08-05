@@ -25,6 +25,7 @@ So, I thought that this information should be shared with other people too.
 This new command is available since v0.9.150.
 
 If you are running this version or higher you can already take advantage of it, otherwise, you need to upgrade your module version first. Assuming you have installed the module from the PowerShell Gallery and that you have internet access, you can update as easy as running the following command:
+
 ``` powershell
 Update-Module dbatools -Force
 ```
@@ -39,6 +40,7 @@ This command uses the `dbatools-buildref-index.json` file that contains all the 
 To run the command, we need at least two parameters. The `-SqlInstance` or `-Build` and one of the following 3: `-MinimumBuild`, `-MaxBehind` or `-Latest`.
 
 The most straight example is when you want to check if the instance is running the latest build (it can be a security update even if not labelled as CU). To do that you just need to run:
+
 ``` powershell
 Test-DbaSqlBuild -SqlInstance <instance> -Latest
 ```
@@ -50,6 +52,7 @@ Note: If you just want to check for the latest SP and CU (leaving out the securi
 
 Now, let's say that you want to confirm that a specific instance is no more than 1 CU behind.
 It's easy as:
+
 ``` powershell
 Test-DbaSqlBuild -SqlInstance <instance> -MaxBehind "1CU"
 ```
@@ -77,6 +80,7 @@ We saw the "online" example where we will query each instance at the moment. Now
 Let's say you have a central database where you keep some of the information about your estate and one of those pieces of information is the SQL Server build version.
 
 One code example:
+
 ``` powershell
 $Instance = "<instance>"
 $Database = "<centralDatabase>"
@@ -114,7 +118,9 @@ From this output we know that the most recent version is SP1 CU7 and we asked fo
 To give another example of this "ad-hoc" testing, we can use the following code provided by Simone Bizzotto to verify if our instances have the Meltdown/Spectre fix in place:
 
 ``` powershell
+
 #Meltdown/Spectre check:
+
 $mapping = @{
     '2008'   = '10.0.6556'
     '2008R2' = '10.50.6560'

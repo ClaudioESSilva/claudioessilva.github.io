@@ -19,11 +19,13 @@ No surprise - I already expected that but for those that still say that "all eng
 On Firebird it is possible to use the CAST function using a [DOMAIN](https://firebirdsql.org/file/documentation/reference_manuals/fblangref25-en/html/fblangref25-ddl-domn.html) (the equivalent in SQLServer is [UDDT - User-Defined Data Types](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference/data-types/user-defined-data-type)) as target data-type, well turns out that on SQL Server...<b>that is not possible</b>.
 
 Which means that, even if I have created a UDDT as:
+
 ``` sql
 CREATE TYPE dbo.VARCHAR_50 FROM VARCHAR(50);
 ```
 
 The following code will not work
+
 ``` sql
 SELECT CAST('value' AS VARCHAR_50)
 ```
@@ -34,6 +36,7 @@ and it yields the following error message:
 <i>Type VARCHAR_50 is not a defined system type.</i>
 
 this means that we need to change it to the defined system type like:
+
 ``` sql
 SELECT CAST('value' as VARCHAR(50))
 ```

@@ -54,50 +54,66 @@ Ok, now that you know you can use the `-Temporary` to run the tests without inte
 Disclaimer: First, let me say that this is just one option you can come up with a different one. Please drop a comment so I, and others, can become aware of different approaches.
 
 <ol>
-<li>If you don't have a configuration file for the environment yet, start by configuring all the settings and use `Export-DbcConfig` to save them.</li>
-<li>You need to do a split of your instances/hosts in one or more groups that can share the exact same configurations.</li>
-<li>Start a new powershell session, set (using `Set-DbcConfig`) or import (using `Import-DbcConfig`) your configurations (set up on number 1) but **don't forget to use the `-Temporary` parameter**.</li>
-<li>Run the `Invoke-DbcCheck`</li>
-<li>Repeat steps 1, 2 and 3 as many times as you want - I encourage you to start with just 2 sessions and monitoring your computer resources. Then if you still have room, add one more.</li>
-<li>Grab a coffee, a beer or any other drink of your choice and wait until it finishes.</li>
+* If you don't have a configuration file for the environment yet, start by configuring all the settings and use `Export-DbcConfig` to save them.
+* You need to do a split of your instances/hosts in one or more groups that can share the exact same configurations.
+* Start a new powershell session, set (using `Set-DbcConfig`) or import (using `Import-DbcConfig`) your configurations (set up on number 1) but **don't forget to use the `-Temporary` parameter**.
+* Run the `Invoke-DbcCheck`
+* Repeat steps 1, 2 and 3 as many times as you want - I encourage you to start with just 2 sessions and monitoring your computer resources. Then if you still have room, add one more.
+* Grab a coffee, a beer or any other drink of your choice and wait until it finishes.
 </ol>
 
 Again, take a look on your resources and then you can test with one more session. Do it until you find the sweet number of parallel sessions.
 
 Here is the code you can use:
 For 1st point:
+
 ``` powershell
+
 #PROD environment
+
 Set-DbcConfig -Name policy.recoverymodel.type -Value Full -Temporary
 Export-DbcConfig -Path "D:\dbachecks\Prod_Configs.json"
 ```
 &nbsp;
+
 ``` powershell
+
 #DEV environment
+
 Set-DbcConfig -Name policy.recoverymodel.type -Value Simple -Temporary
 Export-DbcConfig -Path "D:\dbachecks\Dev_Configs.json"
 ```
 
 2nd, 3rd and 4th point together:
+
 ``` powershell
+
 #PROD instances
+
 $sqlInstances = "prod1", "prod2", "prod3"
 
 #Import Prod_Configs.json with -Temporary
+
 Import-DbcConfig -Path "D:\dbachecks\Prod_Configs.json" -Temporary
 
 #Run the checks - Don't forget to add all the parameters you usually use
+
 Invoke-DbcCheck -SqlInstance $sqlInstances
 ```
 &nbsp;
+
 ``` powershell
+
 #DEV instances
+
 $sqlInstances = "dev1", "dev2", "dev3"
 
 #Import Dev_Configs.json with -Temporary
+
 Import-DbcConfig -Path "D:\dbachecks\Dev_Configs.json" -Temporary
 
 #Run the checks - Don't forget to add all the parameters you usually use
+
 Invoke-DbcCheck -SqlInstance $sqlInstances
 ```
 

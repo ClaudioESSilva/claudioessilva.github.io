@@ -18,6 +18,7 @@ I'm working on a environment where I have to deal with multiple domains.
 The user's password needs to be updated each 40/45 days (it depends on the domain).
 
 ## Can you see the pain?
+
 This means that every month and half I have to dedicate like 20 minutes to change my password on 10 different domains by logging in to a host that belongs to that domain to be able to change it.
 
 Because I would like a faster way to do this and I'm not proficient with AD, I asked help to Jaap Brasser ([b](http://www.jaapbrasser.com) \| [t](http://@Jaap_Brasser)). He pointed me to a blog post he has written sometime ago called [Active Directory Friday: Change a user’s password](http://www.jaapbrasser.com/active-directory-friday-change-user-password/).
@@ -35,6 +36,7 @@ $oldCredential = Get-Credential -Message "Enter domain, user name and old passwo
 $NewPassword = Read-Host -AsSecureString -Prompt 'Enter new password'
 
 #Here, we get the domain part from credential - in my case I had to use the IP
+
 $DC = $($oldCredential.UserName.split('\')[0])
 $userName = $($oldCredential.UserName.split('\')[1])
  
@@ -42,6 +44,7 @@ $DomainEntry = New-Object -TypeName System.DirectoryServices.DirectoryEntry "LDA
 $DomainName = $DomainEntry.name
 
 # Example search against remote domain
+
 $Searcher = New-Object -TypeName System.DirectoryServices.DirectorySearcher
 $Searcher.Filter = "(samaccountname=$userName)"
 $Searcher.SearchRoot = $DomainEntry

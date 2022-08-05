@@ -37,6 +37,7 @@ When we start a new session and we import dbachecks (in matter of fact when the 
 This parameter is available on `Set-DbcConfig` command. As said before, this command allows us to set a configuration which is, by default, persisted. But, if we use the `-Temporary` parameter we are saying that the configured value is **only available for the current session** the value will not be persisted for future executions, hence, will not mess with other new sessions.
 
 You can run the following code to get the parameter description:
+
 ``` powershell
 Get-Help Set-DbcConfig -Parameter temporary
 ```
@@ -55,6 +56,7 @@ This way we don't need to export/import the configurations. Perhaps this will sa
 We got that covered! 💪
 
 If you run
+
 ``` powershell
 Get-Help Import-DbcConfig -Detailed
 ```

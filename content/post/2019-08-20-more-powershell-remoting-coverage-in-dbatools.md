@@ -26,9 +26,9 @@ Or even trying to use the `Invoke-Command` directly<img class="aligncenter size-
 I wondered why and asked the Windows team if they could provide any insight. A colleague explained to me that I needed to change three things to make my remoting commands work on our network:
 
 <ol>
-<li>Use the FQDN on `-ComputerName` and/or `-SqlInstance` parameters</li>
-<li>Use `-UseSSL` parameter on the `New-PSSession` command</li>
-<li>Use `-IncludePortInSPN` parameter for the `New-PsSessionOption` command</li>
+* Use the FQDN on `-ComputerName` and/or `-SqlInstance` parameters
+* Use `-UseSSL` parameter on the `New-PSSession` command
+* Use `-IncludePortInSPN` parameter for the `New-PsSessionOption` command
 </ol>
 
 And *voilà* with these settings in place it worked like a charm!<img class="aligncenter size-large wp-image-1767" src="https://claudioessilva.github.io/img/2019/08/psremoting_working.png?w=800" alt="" width="800" height="164">
@@ -58,11 +58,13 @@ We have added two new configs, `PSRemoting.PsSessionOption.IncludePortInSPN` and
 Within `Invoke-Command2` we have changed the code to use this variable with the configured values.<img class="aligncenter size-large wp-image-1768" src="https://claudioessilva.github.io/img/2019/08/psremoting_addedcode.png?w=800" alt="" width="800" height="260">
 
 Now we can import our module and test the changes. But first we need to set these new configurations to the desired values. In my scenario, set both values to `$true`
+
 ``` powershell
 Set-DbaToolsConfig -Name 'psremoting.pssession.usessl' -Value $true
 Set-DbaToolsConfig -Name 'psremoting.pssessionoption.includeportinspn' -Value $true
 ```
 Then we can use a dbatools command that previous was failing and check that now, it works!
+
 ``` powershell
 Get-DbaComputerCertificate -ComputerName "hostname.domain"
 ```<img class="aligncenter size-large wp-image-1771" src="https://claudioessilva.github.io/img/2019/08/get-dbacomputercertificate_working.png?w=800" alt="" width="800" height="140">
@@ -74,27 +76,21 @@ Note: remember these settings are on a user scope basis. Which means that if you
 
 Before the change, I got these errors:
 
-<ul>
 <li>Just setting `-UseSSL` to `$true`
 As said before, in my case it works. (No picture here :-))</li>
-<li>When specifying `$false` for both options and with or without FQDN</li>
-</ul>
+* When specifying `$false` for both options and with or without FQDN
 
 <blockquote>WARNING: [HH:mm:ss][Get-DbaComputerCertificate] Issue connecting to computer | Connecting to remote server "ComputerName" failed with the following error message : The client cannot connect to the destination specified in the request. Verify that the service on the destination is running and is accepting requests. Consult the logs and documentation for the WS-Management service running on the destination, most commonly IIS or WinRM. If the destination is the WinRM service, run the following command on the destination to analyze and configure the WinRM service: "winrm quickconfig". For more information, see the about_Remote_Troubleshooting Help topic.
 
 <img class="aligncenter size-large wp-image-1779" src="https://claudioessilva.github.io/img/2019/08/test_failing_nosettings.png?w=800" alt="" width="800" height="81">
 
-<ul>
-<li>Just setting `-IncludePortInSPN` to `$true` and with or without FQDN</li>
-</ul>
+* Just setting `-IncludePortInSPN` to `$true` and with or without FQDN
 
 <blockquote>WARNING: [HH:mm:ss][Get-DbaComputerCertificate] Issue connecting to computer | Connecting to remote server "ComputerName" failed with the following error message : WinRM cannot process the request. The following error occurred while using Kerberos authentication: Cannot find the computer "ComputerName". Verify that the computer exists on the network and that the name provided is spelled correctly. For more information, see the about_Remote_Troubleshooting Help topic.
 
 <img class="aligncenter size-large wp-image-1774" src="https://claudioessilva.github.io/img/2019/08/test_failing_includeportinspn.png?w=800" alt="" width="800" height="71">
 
-<ul>
-<li>Using both but with no FQDN</li>
-</ul>
+* Using both but with no FQDN
 
 <blockquote>WARNING: [HH:mm:ss][Get-DbaComputerCertificate] Issue connecting to computer | Connecting to remote server "ComputerName" failed with the following error message : The server certificate on the destination computer ("ComputerName":5986) has the following errors:
 The SSL certificate contains a common name (CN) that does not match the hostname. For more information, see the about_Remote_Troubleshooting Help topic.

@@ -85,7 +85,6 @@ From the command description we can find the following:
 - Database Assembles
 - Database Synonyms
 
-
 ### Using the command
 
 To use the command we just need to provide one or more instances where we want to do the search and a login name, which we can even use regex.
@@ -118,11 +117,13 @@ Fortunately, dbatools has commands to do this kind of changes in bulk.
 For a database, we can run the [Set-DbaDbOwner](https://docs.dbatools.io/#Set-DbaDbOwner) command.
 
 If you don't specify the <code>-TargetLogin</code> parameter the database owner will change to the <code>sa</code> account
+
 ``` powershell
 Set-DbaDbOwner -SqlInstance localhost -Database 'db1'
 ```
 
 However, you can specify the <code>-TargetLogin</code> parameter to set the database owner to a different account
+
 ``` powershell
 Set-DbaDbOwner -SqlInstance localhost -Database 'db1' -TargetLogin 'GEN_Account'
 ```
@@ -130,11 +131,13 @@ Set-DbaDbOwner -SqlInstance localhost -Database 'db1' -TargetLogin 'GEN_Account'
 #### Change job owner
 
 If we talk about the jobs, we can use the [Set-DbaAgentJobOwner](https://docs.dbatools.io/#Set-DbaAgentJobOwner) command
+
 ``` powershell
 Set-DbaAgentJobOwner -SqlInstance localhost -TargetLogin 'DOMAIN\account' -Job 'job1', 'job2'
 ```
 
 The following example lets you get only the jobs where the current owner is <code>DOMAIN\colleagueLeaving</code> and pipe the results to the <code>Set-</code> command that will change that by the <code>DOMAIN\account</code> that you have selected.
+
 ``` powershell
 Get-DbaAgentJob -SqlInstance localhost | Where-Object OwnerLoginName -eq 'DOMAIN\colleagueLeaving' | Set-DbaAgentJobOwner -TargetLogin 'DOMAIN\account'
 ```

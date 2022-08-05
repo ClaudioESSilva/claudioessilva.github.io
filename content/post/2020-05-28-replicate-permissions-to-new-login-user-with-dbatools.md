@@ -61,9 +61,11 @@ $permissionsFile = "D:\temp\ExistingUserPermissions.sql"
 $permissionsFileNewUser = "D:\temp\NewUserPermissions.sql"
 
 # Because -replace takes a regular expression, we need to escape the '\' when dealing with windows logins
+
 $existingUserToSearch = $existingUser -replace '\\', '\\'
 
 # Export the user from every database and its permissions at database-roles and object level
+
 Export-DbaUser -SqlInstance $sqlInstance -User $ExistingUser -FilePath $permissionsFile
 
 ((Get-Content $permissionsFile -Raw) -replace ($existingUserToSearch, $newUser)) | Set-content $permissionsFileNewUser
@@ -74,6 +76,7 @@ And now you can open the new user script, check and execute it on the instance.
 
 With a couple of small changes we can get it done.
 NOTE: Here I'm assuming the login and user have the same name.
+
 ``` powershell
 $sqlInstance = "<yourInstance>"
 $existingLoginUser = "<srcLoginUser>"
@@ -83,17 +86,24 @@ $permissionsFileUser = "D:\temp\ExistingUserPermissions.sql"
 $permissionsFileNewLoginUser = "D:\temp\NewLoginUser.sql"
 
 # Because -replace takes a regular expression, we need to escape the '\' when dealing with windows logins
+
 $existingLoginUserToSearch = $existingLoginUser -replace '\\', '\\'
 
 # Export the login and its server-roles, server-level and database-level permissions
+
 Export-DbaLogin -SqlInstance $sqlInstance -Login $existingLoginUser -FilePath $permissionsFileLogin
 
 # Export the user from every database and its permissions at database-roles and object level
+
 Export-DbaUser -SqlInstance $sqlInstance -User $existingLoginUser -FilePath $permissionsFileUser
 
 # Replaces:
+
+# Replaces:
+
+# 1 - Replace the login/username by the new one# Replaces:
+
 # 1 - Replace the login/username by the new one
-# 2 - Replace SID (to prevent duplicate ones) by nothing/empty
 ((Get-Content $permissionsFileLogin, $permissionsFileUser -Raw) -replace ($existingLoginUserToSearch, $newloginuser)) -Replace '(, SID[^,]*)', ' ' | Set-content $permissionsFileNewLoginUser
 ```
 And then, you can open the new script `NewLoginUser.sql`, check and execute it on the instance.
@@ -105,6 +115,7 @@ The question is "What if you don't want/need to save/keep the SQL file on the fi
 `-PassThru` parameter for the rescue. This way we will do it all "in-memory".
 
 Using again the example with database level permissions
+
 ``` powershell
 $sqlInstance = "<yourInstance>"
 $existingUser = "<srcUser>"
@@ -115,6 +126,7 @@ $ExportedUser = Export-DbaUser -SqlInstance $sqlInstance -User $existingUser -Pa
 $NewUserPermissions = $ExportedUser -replace $($existingUser -replace '\\', '\\'), $newUser
 
 # Copy the permission to the clipboard. Paste on your query editor and paste there.
+
 $newUserPermissions | Set-Clipboard
 ```
 Did you notice the `-PassThru` at the end of line 5? This will put output on the $ExportedUser permissions.
@@ -129,24 +141,37 @@ The `Invoke-DbaQuery` is our command to run queries. Yet, it isn't dealing "corr
 #### Here is two different workarounds to run scripts with multiple statements divided by GO batch separator:
 
 Workaround #1 - Remove the 'GO's from script
+
 ``` powershell
+
 # This will replace the exact word GO by empty space
+
 $scriptWithoutGO = (Get-Content $permissionsFileNewLoginUser -Raw) -replace '\bGO\b', ' '
 
 # Or if it's from the variable that's in memory
+
+# Or if it's from the variable that's in memory
+
 #$scriptWithoutGO = $NewUserPermissions -replace '\bGO\b', ' '
 
 # Run the script using Invoke-DbaQuery
+
 Invoke-DbaQuery -SqlInstance $sqlInstance -Query $scriptWithoutGO
 ```
 
 Workaround #2 - With this approach you can keep the GO batch separator. It's the similar of what we do manually when running within SSMS/ADS
+
 ``` powershell
+
 # Workaround #2 - Run the changed script using the ExecuteNonQuery method
+
 $sqlInst = Connect-DbaInstance $sqlInstance
 
 # Get content from file
+
 $script = Get-Content $permissionsFileNewLoginUser -Raw
+
+# Or if it's from the variable that's in memory
 
 # Or if it's from the variable that's in memory
 #$script = $NewUserPermissions

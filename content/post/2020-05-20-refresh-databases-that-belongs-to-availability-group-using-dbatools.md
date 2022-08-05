@@ -30,19 +30,15 @@ The truth is that this blog post was already on the queue, so without further ad
 
 ## Not so fast - A couple of notes:
 
-<ul>
-<li>Read carefully what each command does as you normally do for every single script you use from the internet. You do that, right? :-)</li>
-<li>I have used multiple times but always only on Availability Groups with 2 nodes. </li>
-<li>It's written to use automatic seeding. </li>
-<li>You can, and you should, run the script command by command in your first try as this will be much easier to understand how it's working.</li>
-</ul>
+* Read carefully what each command does as you normally do for every single script you use from the internet. You do that, right? :-)
+* I have used multiple times but always only on Availability Groups with 2 nodes. 
+* It's written to use automatic seeding. 
+* You can, and you should, run the script command by command in your first try as this will be much easier to understand how it's working.
 
 ### Variations that you may need
 
-<ul>
-<li>With some changes you can put it to work with Availability Groups with more than 2 nodes. The failover and the set dbowner part is the one that is being done just having 2 nodes in mind. </li>
-<li>If you have huge databases and automatic seeding is not an option for you, you may want to leverage on the backup/restore process. Take a look on the [Add-DbaAgDatabase](https://docs.dbatools.io/#Add-DbaAgDatabase) command docs (look to `-SharedPath` parameter along with `-SeedingMode Manual`)</li>
-</ul>
+* With some changes you can put it to work with Availability Groups with more than 2 nodes. The failover and the set dbowner part is the one that is being done just having 2 nodes in mind. 
+* If you have huge databases and automatic seeding is not an option for you, you may want to leverage on the backup/restore process. Take a look on the [Add-DbaAgDatabase](https://docs.dbatools.io/#Add-DbaAgDatabase) command docs (look to `-SharedPath` parameter along with `-SeedingMode Manual`)
 
 ## The script
 
@@ -75,6 +71,7 @@ Date: 2020/05/19
         11 - Test failover
         12 - Set the dbowner of the databases on this node
         13 - Test failback
+
 #>
 
 $listenerName = "listener"
@@ -87,56 +84,79 @@ $DestinationLogDirectory = "<pathToYourLogDirectory"
 $backupDirectory = "<pathToYourBackups>"
 
 # Get AG replicas
+
 $agReplicas = Get-DbaAgReplica -SqlInstance $listenerName -AvailabilityGroup $availabilityGroupName
 
 # Get current primary node
+
 $primaryNode = ($agReplicas | Where-Object role -eq 'Primary').Name
 
 # Get secondary node
+
 $secondaryNode = ($agReplicas | Where-Object role -eq 'Secondary').Name
 
 # Export users permissions
+
 Export-DbaUser -SqlInstance $sqlinstance -Database $databases -Path $exportUserPath
 
 # Remove the databses from the AG
+
 Remove-DbaAgDatabase -SqlInstance $primaryNode -AvailabilityGroup $availabilityGroupName -Database $databases #-Confirm:$false
 
 # Restore databases with overwrite
+
+# Restore databases with overwrite
+
 # 1 - You can get all backups from a folder pipe to Restore-DbaDatabase and it will do the magic.
-# NOTE: This will be useful when the destination database has the same name as the source.
+
+# Restore databases with overwrite
+
+# 1 - You can get all backups from a folder pipe to Restore-DbaDatabase and it will do the magic.
+
 # Get-ChildItem -Path $backupDirectory -Recurse -Filter "*.bak" | Restore-DbaDatabase -SqlInstance $sqlinstance -WithReplace -DestinationDataDirectory $DestinationDataDirectory -DestinationLogDirectory $DestinationLogDirectory
 
 # 2 - If you need to restore the database with a different name, you may prefer to specify each -Database name from the specific backup
+
 # NOTE: This will keep the database name.
 Restore-DbaDatabase -SqlInstance $primaryNode -DatabaseName 'db1' -Path "$backupDirectory\db1.bak" -WithReplace -DestinationDataDirectory $DestinationDataDirectory -DestinationLogDirectory $DestinationLogDirectory
 Restore-DbaDatabase -SqlInstance $primaryNode -DatabaseName 'db2' -Path "$backupDirectory\db2.bak" -WithReplace -DestinationDataDirectory $DestinationDataDirectory -DestinationLogDirectory $DestinationLogDirectory
+
+# Put the permissions back
 
 # Put the permissions back
 # Note: We need to replace the 'GO' batch separator as Invoke-DbaQuery will do this split and send execution one-by-one. This means that a database context change works but then next command will probably be run on master
 Invoke-DbaQuery -SqlInstance $primaryNode -Query $((Get-Content $exportUserPath) -replace '\bGO\b', ' ')
 
 # Repair Orphan Users
+
 Repair-DbaDbOrphanUser -SqlInstance $primaryNode -Database $databases
 
 # Remove Orphan Users
+
 Remove-DbaDbOrphanUser -SqlInstance $primaryNode -Database $database
 
 # Remove databases from the secondary instance
+
 Remove-DbaDatabase -SqlInstance $secondaryNode -Database $databases #-Confirm:$false
 
 # Add databases to the AG using 'Automatic' option for -SeedingMode parameter
+
 Add-DbaAgDatabase -SqlInstance $primaryNode -AvailabilityGroup $availabilityGroupName -Database $databases -SeedingMode Automatic #-Confirm:$false
 
 # Change database owner on the primary
+
 Set-DbaDbOwner -SqlInstance $primaryNode -Database $databases -TargetLogin $dboLogin
 
 # Failover the AG so we can set database DB
+
 Invoke-DbaAgFailover -SqlInstance $secondaryNode -AvailabilityGroup $availabilityGroupName
 
 # Change database owner
+
 Set-DbaDbOwner -SqlInstance $secondaryNode -Database $databases -TargetLogin $dboLogin
 
 # Failover back if wanted/needed
+
 Invoke-DbaAgFailover -SqlInstance $primaryNode -AvailabilityGroup $availabilityGroupName
 ```
 

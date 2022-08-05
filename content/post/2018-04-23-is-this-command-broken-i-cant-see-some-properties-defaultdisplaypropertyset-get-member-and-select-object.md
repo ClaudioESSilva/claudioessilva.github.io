@@ -15,6 +15,7 @@ title: Is this command broken? I can't see some properties! - DefaultDisplayProp
 Every now and again I see some people complaining about not getting the properties they want when using a PowerShell command.
 
 For instance, someone was using the Get-Service command to query what was the "Startup Type" of <a href="https://blogs.technet.microsoft.com/jonjor/2009/01/09/winrm-windows-remote-management-troubleshooting/" rel="noopener" target="_blank">WinRM service</a>. For that the person used the following command:
+
 ``` powershell
 Get-Service WinRM
 ```
@@ -26,6 +27,7 @@ As you can see, the "Startup Type" property that we can find on the user interfa
 
 #### "Wait wait wait...what? Is the command broken?"
 
+#### "Wait wait wait...what? Is the command broken?"
 ### Fear nothing!
 
 In this case, this property does not belong to the **default display properties set** but the properties are still there!
@@ -35,12 +37,14 @@ In this case, this property does not belong to the **default display properties 
 First, let me say that this person knows that `Select-Object` can be used to select the properties we want, so he tried to guess the property name using a trial/error approach.
 
 The person tried:
+
 ``` powershell
 Get-Service WinRM | Select-Object Startup, Status, Name, DisplayName
 ```
 ![02_getservice_winrm_startupprop](/img/2018/04/02_getservice_winrm_startupprop.png?w=656)
 
 and also:
+
 ``` powershell
 Get-Service WinRM | Select-Object StartupType, Status, Name, DisplayName
 ```
@@ -60,6 +64,7 @@ On the other hand, <a href="https://docs.microsoft.com/en-us/powershell/module/m
 This means it can give you a variety of information on the objects you are working with, including, for our use case, the available properties.
 
 Let's see if we can find the property we want. We can do this by piping the command we are working with to Get-Member.
+
 ``` powershell
 Get-Service | Get-Member
 ```
@@ -67,12 +72,14 @@ Get-Service | Get-Member
 ![04_getservice_getmember](/img/2018/04/04_getservice_getmember.png?w=656)
 
 We can see all the member types, but since we know we want to search on properties we can filter it down using:
+
 ``` powershell
 Get-Service | Get-Member -MemberType Property
 ```
 ![05_getservice_getmember_properties](/img/2018/04/05_getservice_getmember_properties.png?w=656)
 
 If it retrieves a big list we can also add a filter by the name we think it has like "Start"
+
 ``` powershell
 Get-Service | Get-Member -MemberType Property -Name Start*
 ```
@@ -109,6 +116,7 @@ This way it will become cleaner and faster.
 Yes, we can! And it is very easy actually.
 
 Using our initial example:
+
 ``` powershell
 (Get-Service WinRM).PSStandardMembers.DefaultDisplayPropertySet
 ```
@@ -118,6 +126,7 @@ Using our initial example:
 There they are.
 
 Getting the full list of properties:
+
 ``` powershell
 (Get-Service WinRM).PSStandardMembers.DefaultDisplayPropertySet.ReferencedPropertyNames
 ```

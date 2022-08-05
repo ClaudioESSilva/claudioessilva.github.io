@@ -28,6 +28,7 @@ So...my script has a bug? :-) No, it hasn't!
 
 ## The joy of heaps
 
+## The joy of heaps
 ### First, the definition:
 
 <blockquote>A heap is a table without a clustered index. One or more nonclustered indexes can be created on tables stored as a heap. Data is stored in the heap without specifying an order. Usually data is initially stored in the order in which is the rows are inserted into the table, but the Database Engine can move data around in the heap to store the rows efficiently; so the data order cannot be predicted. To guarantee the order of rows returned from a heap, you must use the ORDER BY clause. To specify the order for storage of the rows, create a clustered index on the table, so that the table is not a heap.
@@ -61,12 +62,13 @@ That explains it!
 On the same documentation page we can read the following:
 
 <blockquote>To delete rows in a heap and deallocate pages, use one of the following methods.
-<ul><li>Specify the TABLOCK hint in the DELETE statement. Using the TABLOCK hint causes the delete operation to take an exclusive lock on the table instead of a row or page lock. This allows the pages to be deallocated. For more information about the TABLOCK hint, see Table Hints (Transact-SQL).</li>
-<li>Use TRUNCATE TABLE if all rows are to be deleted from the table.</li>
-<li>Create a clustered index on the heap before deleting the rows. You can drop the clustered index after the rows are deleted. This method is more time consuming than the previous methods and uses more temporary resources.</li></ul>
+* Specify the TABLOCK hint in the DELETE statement. Using the TABLOCK hint causes the delete operation to take an exclusive lock on the table instead of a row or page lock. This allows the pages to be deallocated. For more information about the TABLOCK hint, see Table Hints (Transact-SQL).
+* Use TRUNCATE TABLE if all rows are to be deleted from the table.
+* Create a clustered index on the heap before deleting the rows. You can drop the clustered index after the rows are deleted. This method is more time consuming than the previous methods and uses more temporary resources.
 
 Following the documentation, it suggest we can to use the TABLOCK hint in order to release the empty pages when deleting the data.
 Example:
+
 ``` sql
 DELETE
   FROM dbo.Heap WITH (TABLOCK)
@@ -75,6 +77,7 @@ DELETE
 ### What if I didn't that way or if anyone else run a DELETE without specify it?
 
 You can rebuild your table using this syntax (since SQL Server 2008):
+
 ``` sql
 ALTER TABLE dbo.Heap REBUILD
 ```

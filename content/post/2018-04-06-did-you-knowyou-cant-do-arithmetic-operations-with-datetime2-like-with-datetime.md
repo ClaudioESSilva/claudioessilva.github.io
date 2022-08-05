@@ -57,15 +57,18 @@ Also, bear in mind that actually the [DATETIME](https://docs.microsoft.com/en-us
 ## How to fix this error?
 
 To solve this, we need to convert the
+
 ``` sql
 @vOrderDate  -1
 ```
 to
+
 ``` sql
 DATEADD(dd, -1, @vOrderDate)
 ```
 
 Whole code looks like:
+
 ``` sql
 DECLARE @vOrderDate DATETIME2 = GETDATE()
 SELECT OrderId, ClientId, Quantity, OrderDate

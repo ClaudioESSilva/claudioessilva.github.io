@@ -54,7 +54,9 @@ The code is:
 ``` powershell
 $sessionoption = New-CimSessionOption -Protocol DCOM
 $CIMsession = New-CimSession -ComputerName $Computer -SessionOption $sessionoption -ErrorAction SilentlyContinue -Credential $Credential
+
 #I have skipped an if ( $CIMSession ) that is here because we know that works.
+
 $namespace = Get-CimInstance -CimSession $CIMsession -NameSpace root\Microsoft\SQLServer -ClassName "__NAMESPACE" -Filter "Name Like 'ComputerManagement%'" -ErrorAction SilentlyContinue |Where-Object {(Get-CimInstance -CimSession $CIMsession -Namespace $("root\Microsoft\SQLServer\" + $_.Name) -Query "SELECT * FROM SqlService" -ErrorAction SilentlyContinue).count -gt 0}
 ```
 
@@ -65,6 +67,7 @@ $sessionoption = New-CimSessionOption -Protocol DCOM
 $CIMsession = New-CimSession -ComputerName "HOST001" -SessionOption $sessionoption -ErrorAction Continue -Credential $Credentials -Verbose
 
 Get-CimInstance -CimSession $CIMsession -NameSpace root\Microsoft\SQLServer -Query "Select * FROM __NAMESPACE WHERE Name Like 'ComputerManagement%'"
+
 #This one is comment for now
 #Get-CimInstance -CimSession $CIMsession -Namespace $("root\Microsoft\SQLServer\ComputerManagement10") -Query "SELECT * FROM SqlService"
 ```
@@ -74,35 +77,35 @@ Get-CimInstance -CimSession $CIMsession -NameSpace root\Microsoft\SQLServer -Que
 This can return more than one line with different ComputerManagement (like ComputerManagement10). It depends on the versions you have installed on the host. The number "10" refers to the SQL Server 2008.
 Now I can uncomment the last command and run it. The result is:
 
-<blockquote>Get-CimInstance : **Invalid class**
-At line:1 char:1
-+ Get-CimInstance -CimSession $CIMsession -Namespace $("root\Microsoft\SQLServer\C ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-+ CategoryInfo : MetadataError: (:) [Get-CimInstance], CimException
-+ FullyQualifiedErrorId : HRESULT 0x80041010,Microsoft.Management.Infrastructure.CimCmdlets.GetCimInstanceCommand
-+ PSComputerName : HOST001
+>Get-CimInstance : **Invalid class**
+>At line:1 char:1
+>\+ Get-CimInstance -CimSession $CIMsession -Namespace $("root\Microsoft\SQLServer\C ...  
+>\+ \~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
+>\+ CategoryInfo : MetadataError: (:) [Get-CimInstance], CimException  
+>\+ FullyQualifiedErrorId : HRESULT 0x80041010,Microsoft.Management.Infrastructure.CimCmdlets.GetCimInstanceCommand  
+>\+ PSComputerName : HOST001
 
 Ok, a different error message. Let's dig in it. I logged in on the host and confirmed that I have a SQL Server 2008 R2 instance installed. This means that I'm not accessing a lower version than 2005 like the initial warning message was suggesting.
 
 I tried to execute locally the same query but this time using `Get-WmiObject` instead of `Get-CimInstance` (which, in this case wasn't available because the host only have PowerShell v2.0. It's a Windows server 2008 SP2. CIM cmdlets appears on v3.0) and it failed with the same error.
 
-<blockquote>Get-WmiObject : **Invalid class**
-At line:1 char:5
-+ gwmi <<<< -Namespace "root\Microsoft\SQLServer\ComputerManagement10" -Query "SELECT * FROM SqlService"
-+ CategoryInfo : InvalidOperation: (:) [Get-WmiObject], ManagementException
-+ FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiObjectCommand
+>Get-WmiObject : **Invalid class**
+>At line:1 char:5
+>\+ gwmi \<\<\<\< -Namespace "root\Microsoft\SQLServer\ComputerManagement10" -Query "SELECT * FROM SqlService"  
+>\+ CategoryInfo : InvalidOperation: (:) [Get-WmiObject], ManagementException  
+>\+ FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiObjectCommand
 
 I remembered, from past experiences, that SQL Server Configuration manager relies on WMI classes to show the information, so I tried to open it and I got the following error message:
-<img class="size-full wp-image-542 aligncenter" src="https://claudioessilva.github.io/img/2017/09/sqlserverconfigurationmanager_invalidclass_error.png" alt="" width="403" height="171" />
+[sqlserverconfigurationmanager_invalidclass_error](https://claudioessilva.github.io/img/2017/09/sqlserverconfigurationmanager_invalidclass_error.png)
 
-<blockquote>Cannot connect to WMI provider. You do not have permission or the server in unreachable. Note that you can only manage SQL Server 2005 and later servers with SQL Server Configuration Manager.
+>Cannot connect to WMI provider. You do not have permission or the server in unreachable. Note that you can only manage SQL Server 2005 and later servers with SQL Server Configuration Manager.
 **Invalid class [0x80041010]**
 
 Again, that 2005 callout, but...did you recognize the last sentence? It's the same error I was getting with Get-CIMInstance remotely and Get-WmiObject locally.
 
 Definitely something is broken.
 
-## Let's fix it!
+## "Let's fix it!"
 
 To fix this problem we need to reinstall the SQL Server WMI provider. To do this we need to run 2 commands. (I found this in [this post](http://www.chongchonggou.com/g_852406064.html))
 
@@ -117,7 +120,7 @@ The output:
     <li>Install localization info:
 Navigate to the Shared sub-folder that indicates the locale of your SQL Server installation. In my case is the 1033 (english-US).
 Inside that folder you will find a file with the *.mfl* extension. The file name is *sqlmgmprovider.mfl.*** **On the command line run the following command:
-**mofcomp sqlmgmprovider.mfl **
+**mofcomp sqlmgmprovider.mfl**
 The output:
 ![output_mofcomp_mfl](/img/2017/09/output_mofcomp_mfl.png)</li>
 </ol>

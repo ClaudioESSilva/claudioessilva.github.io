@@ -93,14 +93,14 @@ This way it took just the time of that test and not all of them. Quick and easil
 ## Real scenario
 
 <ol>
-<li>You run, overnight, all your tests.</li>
-<li>In the morning you open the Power BI dashboard and hit "Refresh"</li>
-<li>You look to your red values.</li>
-<li>You pick one (for this examples purpose let's say "Auto-Close")</li>
-<li>You run a query to fix all databases with the wrong value</li>
-<li>Re-run just this test just for one environment (run multiple times for various environment)</li>
-<li>Go to your Power BI and hit "Refresh" again.</li>
-<li>Repeat from point 3.</li>
+* You run, overnight, all your tests.
+* In the morning you open the Power BI dashboard and hit "Refresh"
+* You look to your red values.
+* You pick one (for this examples purpose let's say "Auto-Close")
+* You run a query to fix all databases with the wrong value
+* Re-run just this test just for one environment (run multiple times for various environment)
+* Go to your Power BI and hit "Refresh" again.
+* Repeat from point 3.
 </ol>
 
 The point 6 is where you will save huge amounts of time because if you have just one file for all tests for one environment, you would need to rerun ALL the tests in order to refresh your environment.

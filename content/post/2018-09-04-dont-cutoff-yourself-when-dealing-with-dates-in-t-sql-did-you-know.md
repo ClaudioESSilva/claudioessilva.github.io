@@ -23,6 +23,7 @@ Few days ago I was talking with a friend that show me some "odd behavior" when w
 ### Are you mad?! Is this SQL Server bugged?
 
 In case you ask, this is my table definition:
+
 ``` sql
 CREATE TABLE DatesFormat
 (
@@ -34,9 +35,9 @@ GO
 Let's take a closer look at the `SELECT`.
 
 <ol>
-<li>On the 1st column, we can see the complete value of the column</li>
-<li>The 2nd column picks the year from the date column</li>
-<li>The 3rd one also picks the year from a datetime but declared as string.</li>
+* On the 1st column, we can see the complete value of the column
+* The 2nd column picks the year from the date column
+* The 3rd one also picks the year from a datetime but declared as string.
 </ol>
 
 But why don't the 2nd and 3rd columns return the exact same value?!
@@ -53,6 +54,7 @@ Or it stands for 2000 and the `DATEPART` function is returning the wrong value?
 You can find it on the advanced tab in the Server Proprieties:
 <img src="https://claudioessilva.github.io/img/2018/09/ssms_twodigityearcutoff.png" alt="" width="656" height="594" class="aligncenter size-full wp-image-1547" />
 Or by running the [sp_configure](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-configure-transact-sql) command:
+
 ``` sql
 EXEC sp_configure 'show advanced options', 1;
 GO
@@ -64,6 +66,7 @@ GO
 <img src="https://claudioessilva.github.io/img/2018/09/sp_configure_twodigityearcutoff.png" alt="" width="656" height="252" class="aligncenter size-full wp-image-1546" />
 
 Or even using [dbatools](https://dbatools.io) PowerShell module:
+
 ``` powershell
 Get-DbaSpConfigure -SqlInstance sql2016 -ConfigName 'TwoDigitYearCutoff'
 ```
@@ -75,6 +78,7 @@ That's right! [This option](https://docs.microsoft.com/en-us/sql/database-engine
 If we change the configuration to 1999 instead of 2049 (default value) the result of the `DATEPART` will be 1900 but having it as 2049 will convert the year as 2000 (from the date that is a string).
 
 The test:
+
 ``` sql
 -- Check the running value
 EXEC sp_configure 'two digit year cutoff';
@@ -106,6 +110,7 @@ Output:
 Remember, this only happens when you use a literal string.
 
 To set a new value using dbatools:
+
 ``` powershell
 Set-DbaSpConfigure -SqlInstance sql2016 -ConfigName 'TwoDigitYearCutoff' -Value 1999
 ```

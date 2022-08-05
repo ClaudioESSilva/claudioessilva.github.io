@@ -32,12 +32,10 @@ Excel makes these reports even better because they can be used to sort/filter la
 
 I would like you to think about how much time you would need to:
 
-<ul>
-<li>Get a list of all roles at the server and database level</li>
-<li>Get a list of all members in these roles from all databases </li>
-<li>Copy results to an Excel file</li>
-<li>Format the data as a table, add filters, freeze rows, put some colors, etc.</li>
-</ul>
+* Get a list of all roles at the server and database level
+* Get a list of all members in these roles from all databases 
+* Copy results to an Excel file
+* Format the data as a table, add filters, freeze rows, put some colors, etc.
 
 I would say more time than you would like. Doing this manually needs way too many clicks and keystrokes for something that we can be using daily.
 
@@ -45,11 +43,9 @@ I would say more time than you would like. Doing this manually needs way too man
 
 The output will be an Excel (xlsx) file that will have multiple spreadsheets. In my case those are:
 
-<ul>
-<li>`Logins` - List of all logins and some useful properties like `CreateDate`, `LastLogin`, `HasAccess`, `IsLocked`, `IsDisabled`</li>
-<li>`InstanceLevel` roles &amp; members - Here we can find which logins have, for instance, `sysadmin` rights on the instance.</li>
-<li>`DatabaseLevel` roles &amp; members - Allow us to know for example who belongs to the `db_owner` role for a specific database</li>
-</ul>
+* `Logins` - List of all logins and some useful properties like `CreateDate`, `LastLogin`, `HasAccess`, `IsLocked`, `IsDisabled`
+* `InstanceLevel` roles &amp; members - Here we can find which logins have, for instance, `sysadmin` rights on the instance.
+* `DatabaseLevel` roles &amp; members - Allow us to know for example who belongs to the `db_owner` role for a specific database
 
 ## What does the output look like?
 
@@ -105,11 +101,9 @@ The dbatools' team has tagged all these (+20) commands as to be related with log
 
 Taking a closer look, we can see some `Get-` commands and from those, we will use:
 
-<ul>
-<li>`Get-DbaLogin` - To get all logins on the instance</li>
-<li>`Get-DbaDbRoleMember` - To get all database roles and its members</li>
-<li>`Get-DbaServerRoleMember` - To get all server roles and its members</li>
-</ul>
+* `Get-DbaLogin` - To get all logins on the instance
+* `Get-DbaDbRoleMember` - To get all database roles and its members
+* `Get-DbaServerRoleMember` - To get all server roles and its members
 
 ### Get-DbaLogin
 
@@ -144,20 +138,26 @@ We want to keep this consistent with the previous command. If we filtered out lo
 We can leverage from the previous `Get-DbaLogin` command output to get the login's names and pass them to the `-Login` parameter as `$logins.Name`
 
 ``` powershell
+
 # Get all logins to analyse
+
 $logins = Get-DbaLogin -SqlInstance "instance1" -ExcludeLogin "renamedSA" -ExcludeFilter "NT *", "##*"
 
 # Get just for the logins we want
+
 Get-DbaServerRoleMember -SqlInstance "instance1" -Login $logins.Name
 ```
 
 We can also use the `-ExcludeDatabase` parameter to filter out some databases we don't want to get the data from.
 
 ``` powershell
+
 # Get all logins to analyse
+
 $logins = Get-DbaLogin -SqlInstance "instance1" -ExcludeLogin "renamedSA" -ExcludeFilter "NT *", "##*"
 
 # Get just for the logins we want
+
 Get-DbaServerRoleMember -SqlInstance "instance1" -ExcludeDatabase "myDB" -Login $logins.Name
 ```
 
@@ -172,20 +172,26 @@ Get-DbaDbRoleMember -SqlInstance "instance1"
 Here we can, again, leverage from the previous `Get-DbaLogin` command output to get the login's names and use them to filter the ones we want. But in this case, we don't have any input parameter to pass this list. This means that, we will need to pass the values through the pipeline and filter using the `Where-Object` cmdlet.
 
 ``` powershell
+
 # Get all logins to analyse
+
 $logins = Get-DbaLogin -SqlInstance "instance1" -ExcludeLogin "renamedSA" -ExcludeFilter "NT *", "##*"
 
 # Get just for the logins we want
+
 Get-DbaDbRoleMember -SqlInstance "instance1" | Where-Object UserName -in $logins.Name
 ```
 
 This command also has the `-ExcludeDatabase` parameter available.
 
 ``` powershell
+
 # Get all logins to analyse
+
 $logins = Get-DbaLogin -SqlInstance "instance1" -ExcludeLogin "renamedSA" -ExcludeFilter "NT *", "##*"
 
 # Get just for the logins we want
+
 Get-DbaDbRoleMember -SqlInstance "instance1" -ExcludeDatabase "myDB" | Where-Object UserName -in $logins.Name
 ```
 
@@ -197,25 +203,27 @@ With the results, all there’s left to do is to output them to a nice Excel spr
 
 You should explore all the available parameter on this command, however, I will share the ones we will use on this script:
 
-<ul>
-<li>`Path` - Filepath with filename and .xlsx extension</li>
-<li>`WorkSheetname` - As we want to output the results of different dbatools' commands to different spreadsheets, we use this parameter to name them. Note: If there is no spreadsheet with a defined name, a new one will be created.</li>
-<li>`TableName` - This will convert the data in the worksheet into a table with a name</li>
-<li>`TableStyle` - Selects the style for the named table. Example: default will be using shades of blue in an interspersed way.</li>
-<li>`AutoSize` - Sizes the width of the Excel column to the maximum width needed to display all the containing data in that cell.</li>
-<li>`FreezeTopRow` - Freezes headers in the top row. Useful if your table has many rows, as you can keep track of which column you are looking at.</li>
-</ul>
+* `Path` - Filepath with filename and .xlsx extension
+* `WorkSheetname` - As we want to output the results of different dbatools' commands to different spreadsheets, we use this parameter to name them. Note: If there is no spreadsheet with a defined name, a new one will be created.
+* `TableName` - This will convert the data in the worksheet into a table with a name
+* `TableStyle` - Selects the style for the named table. Example: default will be using shades of blue in an interspersed way.
+* `AutoSize` - Sizes the width of the Excel column to the maximum width needed to display all the containing data in that cell.
+* `FreezeTopRow` - Freezes headers in the top row. Useful if your table has many rows, as you can keep track of which column you are looking at.
 
 This means that we can call the `Export-Excel` command in the following way:
 
 ``` powershell
+
 # Get all logins to analyse
+
 $logins = Get-DbaLogin -SqlInstance "instance1" -ExcludeLogin "renamedSA" -ExcludeFilter "NT *", "##*"
 
 # Get just for the logins we want
+
 $dbRoleMembers = Get-DbaDbRoleMember -SqlInstance "instance1" | Where-Object UserName -in $logins.Name
 
 # Splatting the parameters
+
 $excelDBRoleMembersOutput = @{
     Path = "D:\Export.xlsx"
     WorkSheetname = "DatabaseLevel"
@@ -224,7 +232,9 @@ $excelDBRoleMembersOutput = @{
     TableStyle = "Medium6"
     AutoSize      = $true
 }
+
 # I have added the `-Show` switch parameter which will open the file after its' generation
+
 $dbRoleMembers | Export-Excel @excelDBRoleMembersOutput -Show
 ```
 
@@ -243,28 +253,40 @@ $excludeLogin = "renamedSA"
 $excludeLoginFilter = "NT *", "##*"
 
 # To be used on Export-Excel command
+
 $excelFilepath = "D:\$SQLInstance_$((Get-Date).ToFileTime()).xlsx"
 $freezeTopRow = $true
 $tableStyle = "Medium6"
 $autoSize = $true
 
 #Region Get data
+
+#Region Get data
 # Get all instance logins
 $Logins = Get-DbaLogin -SqlInstance $SQLInstance -ExcludeLogin $excludeLogin -ExcludeFilter $excludeLoginFilter
 
 # Get all server roles and its members
+
 $instanceRoleMembers = Get-DbaServerRoleMember -SqlInstance $SQLInstance -Login $Logins.Name
 
 # Get all database roles and its members
+
 $dbRoleMembers = Get-DbaDbRoleMember -SqlInstance $SQLInstance -ExcludeDatabase $excludeDatabase | Where-Object UserName -in $logins.Name
+
 #EndRegion
 
+#EndRegion
 # Remove the report file if exists
+
 Remove-Item -Path $excelFilepath -Force -ErrorAction SilentlyContinue
 
 #Region Export Data to Excel
+
+#Region Export Data to Excel
+
+# Export data to Excel#Region Export Data to Excel
+
 # Export data to Excel
-## Export Logins
 $excelLoginSplatting = @{
     Path = $excelFilepath
     WorkSheetname = "Logins"
@@ -276,6 +298,7 @@ $excelLoginSplatting = @{
 $Logins | Select-Object "ComputerName", "InstanceName", "SqlInstance", "Name", "LoginType", "CreateDate", "LastLogin", "HasAccess", "IsLocked", "IsDisabled" | Export-Excel @excelLoginSplatting
 
 ## Export instance roles and its members
+
 $excelinstanceRoleMembersOutput = @{
     Path = $excelFilepath
     WorkSheetname = "InstanceLevel"
@@ -287,6 +310,7 @@ $excelinstanceRoleMembersOutput = @{
 $instanceRoleMembers | Export-Excel @excelinstanceRoleMembersOutput
 
 ## Export database roles and its members
+
 $exceldbRoleMembersOutput = @{
     Path = $excelFilepath
     WorkSheetname = "DatabaseLevel"
@@ -296,11 +320,14 @@ $exceldbRoleMembersOutput = @{
     AutoSize = $autoSize
 }
 $dbRoleMembers | Export-Excel @exceldbRoleMembersOutput
+
 #EndRegion
+
 ```
 
 ## FAQ
 
+## FAQ
 ### What if I want to get different properties?
 
 In the script, you can change the output list by changing the properties used on the `Select-Object` cmdlet (line 37).

@@ -40,12 +40,10 @@ Are you a module owner? Are you writing something new? Do you contribute to a mo
 
 Are you trying to find a module to work on a specific task? Use the search on the top of the repository page and try to find what you need.
 
-<ul>
-<li>Working with Windows? Type "Windows".</li>
-<li>Working with SQL Server? Type "SQL Server".</li>
-<li>Do you know the author's name? You can search that way too.</li>
-<li>Have you read a blog post before and just remember one word or the blogger's name? Type it and see what you find.</li>
-</ul>
+* Working with Windows? Type "Windows".
+* Working with SQL Server? Type "SQL Server".
+* Do you know the author's name? You can search that way too.
+* Have you read a blog post before and just remember one word or the blogger's name? Type it and see what you find.
 
 ## How to contribute?
 

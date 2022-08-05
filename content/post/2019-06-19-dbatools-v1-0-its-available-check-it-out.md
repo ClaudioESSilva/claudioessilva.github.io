@@ -12,6 +12,7 @@ tags:
 title: dbatools v1.0? It's available - Check it out!
 ---
 Dear reader, before continue please open a PowerShell console and run the following command:
+
 ``` powershell
 Install-Module -Name dbatools
 ```
@@ -70,46 +71,62 @@ $newDatabaseRole = "SPExecutor"
 
 ### Create
 
+### Create
 # Create new login and set default database
+
 New-DbaLogin -SqlInstance $instance -Login $login -DefaultDatabase $database
 
 # Create new server role
+
 New-DbaInstanceRole -SqlInstance $instance -ServerRole $newServerRole
 
 # Create new database user
+
 New-DbaDbUser -SqlInstance $instance -Database $database -Username $username -Login $login
 
 # Create new database role
+
 New-DbaDbRole -SqlInstance $instance -Database $database -Role $newDatabaseRole
 
 # Add new user to the newly created database role
+
 Add-DbaDbRoleMember -SqlInstance $instance -Database $database -User $username -Role $newDatabaseRole
 
 ### Now using Get-Dba*Role*
 
+### Now using Get-Dba*Role*
 # Get all members of an role (or list of roles)
+
 Get-DbaInstanceRoleMember -SqlInstance $instance -ServerRole $defaultExistingServerRole | Format-Table -AutoSize
 
 # Get newly create server role 'securityMaster' and defaul existing role 'sysadmin'
+
 Get-DbaInstanceRole -SqlInstance $instance -ServerRole $newServerRole, $defaultExistingServerRole
 
 ### Database level
 
+### Database level
 # Get newly creted 'SPExecuter' role
+
 Get-DbaDbRole -SqlInstance $instance -Database $database -Role $newDatabaseRole
 
 # Get all users member of an role (or list of roles)
+
 Get-DbaDbRoleMember -SqlInstance $instance -Database $database -Role $newDatabaseRole
 
 ### Clean up
 
+### Clean up
 # Remove user from database role
+
 Remove-DbaDbRoleMember -SqlInstance $instance -Database $database -Role $newDatabaseRole -User $username
 
 # Remove role from database
+
 Remove-DbaDbRole -SqlInstance $instance -Database $database -Role $newDatabaseRole
 
 # Remove server role from instance
+
 Remove-DbaInstanceRole -SqlInstance $instance -ServerRole $newServerRole
 ```
 
