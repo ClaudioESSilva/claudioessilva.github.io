@@ -19,7 +19,7 @@ My turn I have shared one of my recipes related to database refreshes. You know,
 <span class=sidebar-button-desc>LinkedIn</span></a></li></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=/index.xml title=RSS><i class="sidebar-button-icon fas fa-lg fa-rss" aria-hidden=true></i>
 <span class=sidebar-button-desc>RSS</span></a></li></ul></div><div class=sidebar-container><div style=color:#ebebeb;font-size:25px;text-align:center>dbatools book</div><div style=color:#ebebeb;font-size:15px>Now available! Buy it at manning.com - 50% off with code bldbatools50</div><a href="https://www.manning.com/books/learn-dbatools-in-a-month-of-lunches?utm_source=claudioessilva&utm_medium=affiliate&utm_campaign=affiliate&a_aid=claudioessilva" target=_blank><center><img src=https://images.manning.com/264/352/resize/book/0/998b76f-982a-4661-a020-5d94909f7ea5/LeMaire-HI.png height=300></center></a></div></nav><div id=main data-behavior=4 class=hasCoverMetaIn><article class=post id=top><div class="post-header main-content-wrap text-left"><h1 class=post-title>Refresh databases that belongs to Availability Group using dbatools</h1><div class="postShorten-meta post-meta"><time datetime=2020-05-20T00:00:00Z>May 20, 2020</time></div></div><div class="post-content markdown"><div class=main-content-wrap><p>Few days ago I was surfing on Twitter when <a href=https://twitter.com/psdbatools>dbatools</a> asked about how it&rsquo;s PowerShell module changed the way people work.</p><p><a href=https://twitter.com/psdbatools/status/1261563168113012736>https://twitter.com/psdbatools/status/1261563168113012736</a></p><p>Open and check the answers given by the community as there is really good stuff there!</p><h2 id=my-turn>My turn</h2><p>I have shared one of my recipes related to database refreshes. You know, when the client says, &ldquo;please restore this backup or the most recent backup on our instance.&rdquo;. But what if the databases belong to an availability group? It&rsquo;s not as simple as a standalone installation.</p><p>Seconds later, John McCormack (<a href=https://twitter.com/actualjohn>T | B</a>) asked if I have blogged about this
 <a href=https://twitter.com/actualjohn/status/1261605078013747200>https://twitter.com/actualjohn/status/1261605078013747200</a>
-The truth is that this blog post was already on the queue, so without further ado, I will share the script I normally use.</p><h2 id=not-so-fast---a-couple-of-notes>Not so fast - A couple of notes:</h2><h3 id=variations-that-you-may-need>Variations that you may need</h3><h2 id=the-script>The script</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span><span style=color:#75715e>&lt;#
+The truth is that this blog post was already on the queue, so without further ado, I will share the script I normally use.</p><h2 id=not-so-fast---a-couple-of-notes>Not so fast - A couple of notes:</h2><ul><li>Read carefully what each command does as you normally do for every single script you use from the internet. You do that, right? :-)</li><li>I have used multiple times but always only on Availability Groups with 2 nodes.</li><li>It&rsquo;s written to use automatic seeding.</li><li>You can, and you should, run the script command by command in your first try as this will be much easier to understand how it&rsquo;s working.</li></ul><h3 id=variations-that-you-may-need>Variations that you may need</h3><ul><li>With some changes you can put it to work with Availability Groups with more than 2 nodes. The failover and the set dbowner part is the one that is being done just having 2 nodes in mind.</li><li>If you have huge databases and automatic seeding is not an option for you, you may want to leverage on the backup/restore process. Take a look on the <a href=https://docs.dbatools.io/#Add-DbaAgDatabase>Add-DbaAgDatabase</a> command docs (look to <code>-SharedPath</code> parameter along with <code>-SeedingMode Manual</code>)</li></ul><h2 id=the-script>The script</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span><span style=color:#75715e>&lt;#
 </span></span></span><span style=display:flex><span><span style=color:#75715e>Author: Cláudio Silva
 </span></span></span><span style=display:flex><span><span style=color:#75715e>Blog: https://claudioessilva.eu
 </span></span></span><span style=display:flex><span><span style=color:#75715e>Twitter: https://twitter.com/claudioessilva
@@ -47,6 +47,7 @@ The truth is that this blog post was already on the queue, so without further ad
 </span></span></span><span style=display:flex><span><span style=color:#75715e>        11 - Test failover
 </span></span></span><span style=display:flex><span><span style=color:#75715e>        12 - Set the dbowner of the databases on this node
 </span></span></span><span style=display:flex><span><span style=color:#75715e>        13 - Test failback
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
 </span></span></span><span style=display:flex><span><span style=color:#75715e>#&gt;</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>$listenerName = <span style=color:#e6db74>&#34;listener&#34;</span>
@@ -59,56 +60,79 @@ The truth is that this blog post was already on the queue, so without further ad
 </span></span><span style=display:flex><span>$backupDirectory = <span style=color:#e6db74>&#34;&lt;pathToYourBackups&gt;&#34;</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Get AG replicas</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>$agReplicas = Get-DbaAgReplica -SqlInstance $listenerName -AvailabilityGroup $availabilityGroupName
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Get current primary node</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>$primaryNode = ($agReplicas | Where-Object role <span style=color:#f92672>-eq</span> <span style=color:#e6db74>&#39;Primary&#39;</span>).Name
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Get secondary node</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>$secondaryNode = ($agReplicas | Where-Object role <span style=color:#f92672>-eq</span> <span style=color:#e6db74>&#39;Secondary&#39;</span>).Name
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Export users permissions</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>Export-DbaUser -SqlInstance $sqlinstance -Database $databases -Path $exportUserPath
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Remove the databses from the AG</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>Remove-DbaAgDatabase -SqlInstance $primaryNode -AvailabilityGroup $availabilityGroupName -Database $databases <span style=color:#75715e>#-Confirm:$false</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Restore databases with overwrite</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Restore databases with overwrite</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># 1 - You can get all backups from a folder pipe to Restore-DbaDatabase and it will do the magic.</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># NOTE: This will be useful when the destination database has the same name as the source.</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Restore databases with overwrite</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 1 - You can get all backups from a folder pipe to Restore-DbaDatabase and it will do the magic.</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Get-ChildItem -Path $backupDirectory -Recurse -Filter &#34;*.bak&#34; | Restore-DbaDatabase -SqlInstance $sqlinstance -WithReplace -DestinationDataDirectory $DestinationDataDirectory -DestinationLogDirectory $DestinationLogDirectory</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># 2 - If you need to restore the database with a different name, you may prefer to specify each -Database name from the specific backup</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># NOTE: This will keep the database name.</span>
 </span></span><span style=display:flex><span>Restore-DbaDatabase -SqlInstance $primaryNode -DatabaseName <span style=color:#e6db74>&#39;db1&#39;</span> -Path <span style=color:#e6db74>&#34;$backupDirectory\db1.bak&#34;</span> -WithReplace -DestinationDataDirectory $DestinationDataDirectory -DestinationLogDirectory $DestinationLogDirectory
 </span></span><span style=display:flex><span>Restore-DbaDatabase -SqlInstance $primaryNode -DatabaseName <span style=color:#e6db74>&#39;db2&#39;</span> -Path <span style=color:#e6db74>&#34;$backupDirectory\db2.bak&#34;</span> -WithReplace -DestinationDataDirectory $DestinationDataDirectory -DestinationLogDirectory $DestinationLogDirectory
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Put the permissions back</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Put the permissions back</span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Note: We need to replace the &#39;GO&#39; batch separator as Invoke-DbaQuery will do this split and send execution one-by-one. This means that a database context change works but then next command will probably be run on master</span>
 </span></span><span style=display:flex><span>Invoke-DbaQuery -SqlInstance $primaryNode -Query $((Get-Content $exportUserPath) <span style=color:#f92672>-replace</span> <span style=color:#e6db74>&#39;\bGO\b&#39;</span>, <span style=color:#e6db74>&#39; &#39;</span>)
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Repair Orphan Users</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>Repair-DbaDbOrphanUser -SqlInstance $primaryNode -Database $databases
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Remove Orphan Users</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>Remove-DbaDbOrphanUser -SqlInstance $primaryNode -Database $database
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Remove databases from the secondary instance</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>Remove-DbaDatabase -SqlInstance $secondaryNode -Database $databases <span style=color:#75715e>#-Confirm:$false</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Add databases to the AG using &#39;Automatic&#39; option for -SeedingMode parameter</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>Add-DbaAgDatabase -SqlInstance $primaryNode -AvailabilityGroup $availabilityGroupName -Database $databases -SeedingMode Automatic <span style=color:#75715e>#-Confirm:$false</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Change database owner on the primary</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>Set-DbaDbOwner -SqlInstance $primaryNode -Database $databases -TargetLogin $dboLogin
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Failover the AG so we can set database DB</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>Invoke-DbaAgFailover -SqlInstance $secondaryNode -AvailabilityGroup $availabilityGroupName
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Change database owner</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>Set-DbaDbOwner -SqlInstance $secondaryNode -Database $databases -TargetLogin $dboLogin
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Failover back if wanted/needed</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>Invoke-DbaAgFailover -SqlInstance $primaryNode -AvailabilityGroup $availabilityGroupName
 </span></span></code></pre></div><h3 id=what-do-you-need-to-change>What do you need to change</h3><p>1 - Fill the variable values from lines 27 to 34.
 2 - Select your method of restore / seeding. Lines 51 to 59.</p><h2 id=same-task-but-not-for-databases-within-availability-groups>Same task but not for databases within Availability Groups</h2><p>With this script as a starting point you can adapt to do refreshes of databases that work on single instances.</p><h2 id=wrap-up>Wrap up</h2><p>I hope you find it useful.

@@ -18,7 +18,7 @@ To all of you that have contributed direct or indirectly to the module a big tha
 <span class=sidebar-button-desc>Twitter</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=https://www.linkedin.com/in/claudioessilva target=_blank rel=noopener title=LinkedIn><i class="sidebar-button-icon fab fa-lg fa-linkedin" aria-hidden=true></i>
 <span class=sidebar-button-desc>LinkedIn</span></a></li></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=/index.xml title=RSS><i class="sidebar-button-icon fas fa-lg fa-rss" aria-hidden=true></i>
 <span class=sidebar-button-desc>RSS</span></a></li></ul></div><div class=sidebar-container><div style=color:#ebebeb;font-size:25px;text-align:center>dbatools book</div><div style=color:#ebebeb;font-size:15px>Now available! Buy it at manning.com - 50% off with code bldbatools50</div><a href="https://www.manning.com/books/learn-dbatools-in-a-month-of-lunches?utm_source=claudioessilva&utm_medium=affiliate&utm_campaign=affiliate&a_aid=claudioessilva" target=_blank><center><img src=https://images.manning.com/264/352/resize/book/0/998b76f-982a-4661-a020-5d94909f7ea5/LeMaire-HI.png height=300></center></a></div></nav><div id=main data-behavior=4 class=hasCoverMetaIn><article class=post id=top><div class="post-header main-content-wrap text-left"><h1 class=post-title>dbatools v1.0? It's available - Check it out!</h1><div class="postShorten-meta post-meta"><time datetime=2019-06-19T00:00:00Z>June 19, 2019</time></div></div><div class="post-content markdown"><div class=main-content-wrap><p>Dear reader, before continue please open a PowerShell console and run the following command:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span>Install-Module -Name dbatools
-</span></span></code></pre></div><p>If you are doing this on the date of this blog post, you have just installed dbatools v1.0!</p><p>After more than 200 commits, the work of more than 20 contributors and 20 days since the last published version, dbatools v1.0 is live!</p><p>To all of you that have contributed direct or indirectly to the module a big thank you!</p><h2 id=fun-fact>Fun fact</h2><p>I&rsquo;m sure this was one of the longest periods without releasing new versions since <a href=https://dbatools.io/devops/>we started doing it more often</a>.
+</span></span></code></pre></div><p>If you are doing this on the date of this blog post, you have just installed dbatools v1.0!</p><p>After more than 200 commits, the work of more than 20 contributors and 20 days since the last published version, dbatools v1.0 is live!</p><p><strong>To all of you that have contributed direct or indirectly to the module a big thank you!</strong></p><h2 id=fun-fact>Fun fact</h2><p>I&rsquo;m sure this was one of the longest periods without releasing new versions since <a href=https://dbatools.io/devops/>we started doing it more often</a>.
 Bare minimum has been 1 release per week :-)</p><p>But, there are good reasons for it! v1.0 brings</p><ul><li>Standardised code - parameters names / output</li><li>Code cleanup</li><li>More tests</li><li>Azure connections supported</li><li>And of course, fixes and new (13) commands.</li></ul><p>You can read the <a href=https://github.com/sqlcollaborative/dbatools/blob/prerelease/changelog.md>v1.0 change log</a> for more details.</p><h2 id=new-commands>New commands</h2><p>From the 13 new commands, I decided to share the ones that make it possible to interact with Server/Database roles.</p><p>Here is the list of the newest commands:</p><ul><li><a href=https://dbatools.io/Add-DbaDbRoleMember>Add-DbaDbRoleMember</a></li><li><a href=https://dbatools.io/Get-DbaDbRole>Get-DbaDbRole</a></li><li><a href=https://dbatools.io/New-DbaDbRole>New-DbaDbRole</a></li><li><a href=https://dbatools.io/New-DbaInstanceRole>New-DbaInstanceRole</a></li><li><a href=https://dbatools.io/Remove-DbaDbRole>Remove-DbaDbRole</a></li><li><a href=https://dbatools.io/Remove-DbaDbRoleMember>Remove-DbaDbRoleMember</a></li><li><a href=https://dbatools.io/Remove-DbaInstanceRole>Remove-DbaInstanceRole</a></li></ul><p>Note: Database Application Roles are not covered yet.
 Note2: A new command to add logins to one (or more) server role is being cooked.
 This is why we release often, improvements and new features are always on our pipeline.</p><h2 id=code-examples>Code examples</h2><p>Here is a short script that shows how you can leverage these new commands.
@@ -33,46 +33,62 @@ Don&rsquo;t forget to use <code>Get-Help</code> or visit our <a href=https://doc
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e>### Create</span>
 </span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>### Create</span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Create new login and set default database</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>New-DbaLogin -SqlInstance $instance -Login $login -DefaultDatabase $database
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Create new server role</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>New-DbaInstanceRole -SqlInstance $instance -ServerRole $newServerRole
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Create new database user</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>New-DbaDbUser -SqlInstance $instance -Database $database -Username $username -Login $login
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Create new database role</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>New-DbaDbRole -SqlInstance $instance -Database $database -Role $newDatabaseRole
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Add new user to the newly created database role</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>Add-DbaDbRoleMember -SqlInstance $instance -Database $database -User $username -Role $newDatabaseRole
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e>### Now using Get-Dba*Role*</span>
 </span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>### Now using Get-Dba*Role*</span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Get all members of an role (or list of roles)</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>Get-DbaInstanceRoleMember -SqlInstance $instance -ServerRole $defaultExistingServerRole | Format-Table -AutoSize
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Get newly create server role &#39;securityMaster&#39; and defaul existing role &#39;sysadmin&#39;</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>Get-DbaInstanceRole -SqlInstance $instance -ServerRole $newServerRole, $defaultExistingServerRole
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e>### Database level</span>
 </span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>### Database level</span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Get newly creted &#39;SPExecuter&#39; role</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>Get-DbaDbRole -SqlInstance $instance -Database $database -Role $newDatabaseRole
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Get all users member of an role (or list of roles)</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>Get-DbaDbRoleMember -SqlInstance $instance -Database $database -Role $newDatabaseRole
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e>### Clean up</span>
 </span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>### Clean up</span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Remove user from database role</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>Remove-DbaDbRoleMember -SqlInstance $instance -Database $database -Role $newDatabaseRole -User $username
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Remove role from database</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>Remove-DbaDbRole -SqlInstance $instance -Database $database -Role $newDatabaseRole
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Remove server role from instance</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>Remove-DbaInstanceRole -SqlInstance $instance -ServerRole $newServerRole
 </span></span></code></pre></div><p>Hope you found them as useful as we did!</p><h2 id=wrap-up>Wrap up</h2><p>Even though this is a milestone for us, we will keep working on the module bringing more awesomeness to it!</p><p>We want to hear from you!
 If you have questions, suggestions, requests or you just want to give a shout out to the team you can:</p><ul><li><a href=http://dbatools.io/issues>Request a feature or report a bug</a></li><li><a href=https://dbatools.io/slack/>Join #dbatools channel on Slack SQL Community</a></li><li>Find us on <a href=https://twitter.com/psdbatools>Twitter - @psdbatools</a></li></ul><p>Other useful links:</p><ul><li><a href=https://dbatools.io>Website</a> and <a href=https://dbatools.io/blog/>blog</a></li><li><a href=https://docs.dbatools.io>documentation</a></li></ul><h3 id=to-celebrate-the-launch-of-v10-we-have-a-lot-of-blog-posts-related-to-it>To celebrate the launch of v1.0 we have a lot of blog posts related to it!</h3><p><a href=https://dbatools.io/dbatools10>dbatools 1.0 has arrived by Chrissy</a>

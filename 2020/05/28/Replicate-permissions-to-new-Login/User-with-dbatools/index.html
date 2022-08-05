@@ -22,9 +22,11 @@ A quick note/suggestion that may help minimize your work: If we are talking abou
 </span></span><span style=display:flex><span>$permissionsFileNewUser = <span style=color:#e6db74>&#34;D:\temp\NewUserPermissions.sql&#34;</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Because -replace takes a regular expression, we need to escape the &#39;\&#39; when dealing with windows logins</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>$existingUserToSearch = $existingUser <span style=color:#f92672>-replace</span> <span style=color:#e6db74>&#39;\\&#39;</span>, <span style=color:#e6db74>&#39;\\&#39;</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Export the user from every database and its permissions at database-roles and object level</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>Export-DbaUser -SqlInstance $sqlInstance -User $ExistingUser -FilePath $permissionsFile
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>((Get-Content $permissionsFile -Raw) <span style=color:#f92672>-replace</span> ($existingUserToSearch, $newUser)) | Set-content $permissionsFileNewUser
@@ -37,17 +39,24 @@ NOTE: Here I&rsquo;m assuming the login and user have the same name.</p><div cla
 </span></span><span style=display:flex><span>$permissionsFileNewLoginUser = <span style=color:#e6db74>&#34;D:\temp\NewLoginUser.sql&#34;</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Because -replace takes a regular expression, we need to escape the &#39;\&#39; when dealing with windows logins</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>$existingLoginUserToSearch = $existingLoginUser <span style=color:#f92672>-replace</span> <span style=color:#e6db74>&#39;\\&#39;</span>, <span style=color:#e6db74>&#39;\\&#39;</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Export the login and its server-roles, server-level and database-level permissions</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>Export-DbaLogin -SqlInstance $sqlInstance -Login $existingLoginUser -FilePath $permissionsFileLogin
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Export the user from every database and its permissions at database-roles and object level</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>Export-DbaUser -SqlInstance $sqlInstance -User $existingLoginUser -FilePath $permissionsFileUser
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Replaces:</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Replaces:</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 1 - Replace the login/username by the new one# Replaces:</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># 1 - Replace the login/username by the new one</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 2 - Replace SID (to prevent duplicate ones) by nothing/empty</span>
 </span></span><span style=display:flex><span>((Get-Content $permissionsFileLogin, $permissionsFileUser -Raw) <span style=color:#f92672>-replace</span> ($existingLoginUserToSearch, $newloginuser)) <span style=color:#f92672>-Replace</span> <span style=color:#e6db74>&#39;(, SID[^,]*)&#39;</span>, <span style=color:#e6db74>&#39; &#39;</span> | Set-content $permissionsFileNewLoginUser
 </span></span></code></pre></div><p>And then, you can open the new script <code>NewLoginUser.sql</code>, check and execute it on the instance.</p><h3 id=bonus-option---file-free>Bonus option - File free</h3><p>In the last few weeks I have had some questions about this method, if it is possible and how.
 The question is &ldquo;What if you don&rsquo;t want/need to save/keep the SQL file on the file system?&rdquo;
@@ -60,21 +69,33 @@ The question is &ldquo;What if you don&rsquo;t want/need to save/keep the SQL fi
 </span></span><span style=display:flex><span>$NewUserPermissions = $ExportedUser <span style=color:#f92672>-replace</span> $($existingUser <span style=color:#f92672>-replace</span> <span style=color:#e6db74>&#39;\\&#39;</span>, <span style=color:#e6db74>&#39;\\&#39;</span>), $newUser
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Copy the permission to the clipboard. Paste on your query editor and paste there.</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>$newUserPermissions | Set-Clipboard
 </span></span></code></pre></div><p>Did you notice the <code>-PassThru</code> at the end of line 5? This will put output on the $ExportedUser permissions.
-Finally, on line 10, it will put on your clipboard the whole script after the replace is done.</p><h3 id=i-like-itbut-can-i-avoid-opening-an-ide-to-run-the-query-can-dbatools-also-help-here>“I like it&mldr;but can I avoid opening an IDE to run the query? Can dbatools also help here?”</h3><p>Yes! However, here we have a caveat but we also have two possible workarounds.</p><p>The <code>Invoke-DbaQuery</code> is our command to run queries. Yet, it isn&rsquo;t dealing &ldquo;correctly&rdquo; with scripts with multiple statements divided by GO.</p><h4 id=here-is-two-different-workarounds-to-run-scripts-with-multiple-statements-divided-by-go-batch-separator>Here is two different workarounds to run scripts with multiple statements divided by GO batch separator:</h4><p>Workaround #1 - Remove the &lsquo;GO&rsquo;s from script</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span><span style=color:#75715e># This will replace the exact word GO by empty space</span>
+Finally, on line 10, it will put on your clipboard the whole script after the replace is done.</p><h3 id=i-like-itbut-can-i-avoid-opening-an-ide-to-run-the-query-can-dbatools-also-help-here>“I like it&mldr;but can I avoid opening an IDE to run the query? Can dbatools also help here?”</h3><p>Yes! However, here we have a caveat but we also have two possible workarounds.</p><p>The <code>Invoke-DbaQuery</code> is our command to run queries. Yet, it isn&rsquo;t dealing &ldquo;correctly&rdquo; with scripts with multiple statements divided by GO.</p><h4 id=here-is-two-different-workarounds-to-run-scripts-with-multiple-statements-divided-by-go-batch-separator>Here is two different workarounds to run scripts with multiple statements divided by GO batch separator:</h4><p>Workaround #1 - Remove the &lsquo;GO&rsquo;s from script</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># This will replace the exact word GO by empty space</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>$scriptWithoutGO = (Get-Content $permissionsFileNewLoginUser -Raw) <span style=color:#f92672>-replace</span> <span style=color:#e6db74>&#39;\bGO\b&#39;</span>, <span style=color:#e6db74>&#39; &#39;</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Or if it&#39;s from the variable that&#39;s in memory</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Or if it&#39;s from the variable that&#39;s in memory</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e>#$scriptWithoutGO = $NewUserPermissions -replace &#39;\bGO\b&#39;, &#39; &#39;</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Run the script using Invoke-DbaQuery</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>Invoke-DbaQuery -SqlInstance $sqlInstance -Query $scriptWithoutGO
-</span></span></code></pre></div><p>Workaround #2 - With this approach you can keep the GO batch separator. It&rsquo;s the similar of what we do manually when running within SSMS/ADS</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span><span style=color:#75715e># Workaround #2 - Run the changed script using the ExecuteNonQuery method</span>
+</span></span></code></pre></div><p>Workaround #2 - With this approach you can keep the GO batch separator. It&rsquo;s the similar of what we do manually when running within SSMS/ADS</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Workaround #2 - Run the changed script using the ExecuteNonQuery method</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>$sqlInst = Connect-DbaInstance $sqlInstance
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Get content from file</span>
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>$script = Get-Content $permissionsFileNewLoginUser -Raw
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Or if it&#39;s from the variable that&#39;s in memory</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Or if it&#39;s from the variable that&#39;s in memory</span>
 </span></span><span style=display:flex><span><span style=color:#75715e>#$script = $NewUserPermissions</span>
