@@ -31,7 +31,7 @@ What if we want to lower down that 2 hours execution? Or the Hiram Fleitas' ([b]
 
 ### Going parallel
 
-First let me remember that <strong>this doesn't come for free</strong>! I mean, if you set multiple checks in parallel (different sessions), you will consume more resources (CPU, memory, etc) on the machine where you are running them. Test the process and find a reasonable limit for it, otherwise this can become slower that the serial execution.
+First let me remember that **this doesn't come for free**! I mean, if you set multiple checks in parallel (different sessions), you will consume more resources (CPU, memory, etc) on the machine where you are running them. Test the process and find a reasonable limit for it, otherwise this can become slower that the serial execution.
 
 #### This brought some new needs.
 
@@ -56,7 +56,7 @@ Disclaimer: First, let me say that this is just one option you can come up with 
 <ol>
 <li>If you don't have a configuration file for the environment yet, start by configuring all the settings and use `Export-DbcConfig` to save them.</li>
 <li>You need to do a split of your instances/hosts in one or more groups that can share the exact same configurations.</li>
-<li>Start a new powershell session, set (using `Set-DbcConfig`) or import (using `Import-DbcConfig`) your configurations (set up on number 1) but <strong>don't forget to use the `-Temporary` parameter</strong>.</li>
+<li>Start a new powershell session, set (using `Set-DbcConfig`) or import (using `Import-DbcConfig`) your configurations (set up on number 1) but **don't forget to use the `-Temporary` parameter**.</li>
 <li>Run the `Invoke-DbcCheck`</li>
 <li>Repeat steps 1, 2 and 3 as many times as you want - I encourage you to start with just 2 sessions and monitoring your computer resources. Then if you still have room, add one more.</li>
 <li>Grab a coffee, a beer or any other drink of your choice and wait until it finishes.</li>

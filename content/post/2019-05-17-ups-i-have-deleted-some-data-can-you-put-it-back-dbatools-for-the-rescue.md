@@ -73,7 +73,7 @@ At this point I realised that some of the requested tables were dropped. The cli
 
 But dbatools got you covered and the warning gives you one hint: use `-AutoCreateTable` which will, per its description,
 
-<blockquote>Creates the destination table if it does not already exist, based off of the "Export..." script of the source table.</blockquote>
+<blockquote>Creates the destination table if it does not already exist, based off of the "Export..." script of the source table.
 
 That is nice!
 
@@ -177,14 +177,14 @@ This will do the following steps:
 For each of the tables that we define on our `$tables` list variable:
 
 <ul>
-<li>`Export-DbaScript` will generate the T-SQL script from the source table using the properties that we have defined. In this case, Keys (Primary, Foreign, Unique), Defaults and Checks Constraints and also clustered and non-clustered indexes.</p></li>
-<li><p>`Invoke-DbaQuery` will run the generated script on the destination database. At this point we have the same table structure on both sides. This will only run if the table does not exists on the destination database.</p></li>
-<li><p>Finally we use our `Copy-DbaDbTableData` command to copy the records. Here I have choosen to truncate the table with `-Truncate` parameter and keep identity values by specifying the `-KeepIdentity`.</p></li>
+<li>`Export-DbaScript` will generate the T-SQL script from the source table using the properties that we have defined. In this case, Keys (Primary, Foreign, Unique), Defaults and Checks Constraints and also clustered and non-clustered indexes.</li>
+<li>`Invoke-DbaQuery` will run the generated script on the destination database. At this point we have the same table structure on both sides. This will only run if the table does not exists on the destination database.</li>
+<li>Finally we use our `Copy-DbaDbTableData` command to copy the records. Here I have choosen to truncate the table with `-Truncate` parameter and keep identity values by specifying the `-KeepIdentity`.</li>
 </ul>
 
 ### Special callout:
 
-<p>If these tables have relations between them, you need to specify the table list in a specific order to make sure that parent tables are created before child tables. Otherwise you will get, as expected, some errors.
+If these tables have relations between them, you need to specify the table list in a specific order to make sure that parent tables are created before child tables. Otherwise you will get, as expected, some errors.
 
 ## Final thoughts
 

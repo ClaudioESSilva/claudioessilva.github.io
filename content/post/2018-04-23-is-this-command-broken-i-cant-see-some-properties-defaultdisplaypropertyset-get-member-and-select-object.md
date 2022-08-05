@@ -20,7 +20,7 @@ Get-Service WinRM
 ```
 
 which produces the following output:
-<a href="https://claudioessilva.github.io/img/2018/04/01_getservice_winrm.png"><img src="https://claudioessilva.github.io/img/2018/04/01_getservice_winrm.png?w=656" alt="" width="656" height="93" class="aligncenter size-large wp-image-1331" /></a>
+![01_getservice_winrm](/img/2018/04/01_getservice_winrm.png?w=656)
 
 As you can see, the "Startup Type" property that we can find on the user interface does not appear here!
 
@@ -28,7 +28,7 @@ As you can see, the "Startup Type" property that we can find on the user interfa
 
 ### Fear nothing!
 
-In this case, this property does not belong to the <strong>default display properties set</strong> but the properties are still there!
+In this case, this property does not belong to the **default display properties set** but the properties are still there!
 
 #### So how can we get the list of available properties?
 
@@ -38,13 +38,13 @@ The person tried:
 ``` powershell
 Get-Service WinRM | Select-Object Startup, Status, Name, DisplayName
 ```
-<a href="https://claudioessilva.github.io/img/2018/04/02_getservice_winrm_startupprop.png"><img src="https://claudioessilva.github.io/img/2018/04/02_getservice_winrm_startupprop.png?w=656" alt="" width="656" height="82" class="aligncenter size-large wp-image-1332" /></a>
+![02_getservice_winrm_startupprop](/img/2018/04/02_getservice_winrm_startupprop.png?w=656)
 
 and also:
 ``` powershell
 Get-Service WinRM | Select-Object StartupType, Status, Name, DisplayName
 ```
-<a href="https://claudioessilva.github.io/img/2018/04/03_getservice_winrm_startuptypeprop.png"><img src="https://claudioessilva.github.io/img/2018/04/03_getservice_winrm_startuptypeprop.png?w=656" alt="" width="656" height="76" class="aligncenter size-large wp-image-1333" /></a>
+![03_getservice_winrm_startuptypeprop](/img/2018/04/03_getservice_winrm_startuptypeprop.png?w=656)
 
 But all of them were just empty.
 
@@ -55,7 +55,7 @@ When I, and probably most of the people, started learning PowerShell, we learn t
 
 On the other hand, <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-member?view=powershell-6" rel="noopener" target="_blank">Get-Member</a> can be not so obvious for people that are not familirized with OOP (<a href="https://en.wikipedia.org/wiki/Object-oriented_programming" rel="noopener" target="_blank">Object-oriented programming</a>). Looking on documentation we can see that this command
 
-<blockquote>Gets the properties and methods of objects.</blockquote>
+<blockquote>Gets the properties and methods of objects.
 
 This means it can give you a variety of information on the objects you are working with, including, for our use case, the available properties.
 
@@ -64,26 +64,26 @@ Let's see if we can find the property we want. We can do this by piping the comm
 Get-Service | Get-Member
 ```
 
-<a href="https://claudioessilva.github.io/img/2018/04/04_getservice_getmember.png"><img src="https://claudioessilva.github.io/img/2018/04/04_getservice_getmember.png?w=656" alt="" width="656" height="375" class="aligncenter size-large wp-image-1334" /></a>
+![04_getservice_getmember](/img/2018/04/04_getservice_getmember.png?w=656)
 
 We can see all the member types, but since we know we want to search on properties we can filter it down using:
 ``` powershell
 Get-Service | Get-Member -MemberType Property
 ```
-<a href="https://claudioessilva.github.io/img/2018/04/05_getservice_getmember_properties.png"><img src="https://claudioessilva.github.io/img/2018/04/05_getservice_getmember_properties.png?w=656" alt="" width="656" height="240" class="aligncenter size-large wp-image-1335" /></a>
+![05_getservice_getmember_properties](/img/2018/04/05_getservice_getmember_properties.png?w=656)
 
 If it retrieves a big list we can also add a filter by the name we think it has like "Start"
 ``` powershell
 Get-Service | Get-Member -MemberType Property -Name Start*
 ```
-<a href="https://claudioessilva.github.io/img/2018/04/06_getservice_getmember_properties_filter.png"><img src="https://claudioessilva.github.io/img/2018/04/06_getservice_getmember_properties_filter.png?w=656" alt="" width="656" height="134" class="aligncenter size-large wp-image-1336" /></a>
+![06_getservice_getmember_properties_filter](/img/2018/04/06_getservice_getmember_properties_filter.png?w=656)
 
 And, in this case we narrow it down to just one result - `StartType`. Let's try to include on our original command.
 
 ``` powershell
 Get-Service WinRM | Select-Object StartType, Status, Name, DisplayName
 ```
-<a href="https://claudioessilva.github.io/img/2018/04/07_getservice_winrm_with_starttype.png"><img src="https://claudioessilva.github.io/img/2018/04/07_getservice_winrm_with_starttype.png?w=656" alt="" width="656" height="71" class="aligncenter size-large wp-image-1337" /></a>
+![07_getservice_winrm_with_starttype](/img/2018/04/07_getservice_winrm_with_starttype.png?w=656)
 
 Boom! We now have the property we are looking for!
 
@@ -95,14 +95,14 @@ I mentioned the `Select-Object *` on the title of this post, that is because we 
 Get-Service WinRM | Select-Object *
 ```
 
-<a href="https://claudioessilva.github.io/img/2018/04/08_getservice_winrm_selectstar.png"><img src="https://claudioessilva.github.io/img/2018/04/08_getservice_winrm_selectstar.png?w=656" alt="" width="656" height="352" class="aligncenter size-large wp-image-1338" /></a>
+![08_getservice_winrm_selectstar](/img/2018/04/08_getservice_winrm_selectstar.png?w=656)
 As you can see we can find the `StartType` there.
 
 ### Why hide some properties by default?
 
 This way it will become cleaner and faster.
-<strong>Faster:</strong> We can have 20 properties but if only 5 are the most useful, by setting this five the default the command will be faster than if we retrieve the whole 20 properties.
-<strong>Cleaner:</strong> We don't fill the screen with information that 90% of the time is not useful for us.
+**Faster:** We can have 20 properties but if only 5 are the most useful, by setting this five the default the command will be faster than if we retrieve the whole 20 properties.
+**Cleaner:** We don't fill the screen with information that 90% of the time is not useful for us.
 
 ### Can we know beforehand what are the default properties of a command?
 
@@ -113,7 +113,7 @@ Using our initial example:
 (Get-Service WinRM).PSStandardMembers.DefaultDisplayPropertySet
 ```
 
-<a href="https://claudioessilva.github.io/img/2018/04/09_getservice_winrm_defaulproperties.png"><img src="https://claudioessilva.github.io/img/2018/04/09_getservice_winrm_defaulproperties.png?w=656" alt="" width="656" height="128" class="aligncenter size-large wp-image-1339" /></a>
+![09_getservice_winrm_defaulproperties](/img/2018/04/09_getservice_winrm_defaulproperties.png?w=656)
 
 There they are.
 
@@ -121,7 +121,7 @@ Getting the full list of properties:
 ``` powershell
 (Get-Service WinRM).PSStandardMembers.DefaultDisplayPropertySet.ReferencedPropertyNames
 ```
-<a href="https://claudioessilva.github.io/img/2018/04/10_getservice_winrm_defaulpropertieslist.png"><img src="https://claudioessilva.github.io/img/2018/04/10_getservice_winrm_defaulpropertieslist.png?w=656" alt="" width="656" height="41" class="aligncenter size-large wp-image-1340" /></a>
+![10_getservice_winrm_defaulpropertieslist](/img/2018/04/10_getservice_winrm_defaulpropertieslist.png?w=656)
 
 ### Bonus
 

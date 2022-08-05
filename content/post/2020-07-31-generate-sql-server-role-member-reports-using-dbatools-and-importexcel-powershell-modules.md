@@ -65,15 +65,15 @@ To accomplish this we will write a PowerShell script and for that, we will using
 
 [dbatools](https://dbatools.io)
 
-<blockquote>dbatools is an open-source cross-platform PowerShell toolkit for SQL Server DBAs. With over 150 contributors from the SQL and PowerShell communities, dbatools is designed and written by the people who use it in their everyday work. dbatools includes solutions for everyday tasks like performing backups and restores, migrations, and setting up Availability Groups. dbatools is designed to enable SQL DBAs to reliably and repeatedly automate the usual daily tasks.</blockquote>
+<blockquote>dbatools is an open-source cross-platform PowerShell toolkit for SQL Server DBAs. With over 150 contributors from the SQL and PowerShell communities, dbatools is designed and written by the people who use it in their everyday work. dbatools includes solutions for everyday tasks like performing backups and restores, migrations, and setting up Availability Groups. dbatools is designed to enable SQL DBAs to reliably and repeatedly automate the usual daily tasks.
 
 And on top of this, you should know that it counts with more than 500 commands.
 
 The other module is [ImportExcel](https://github.com/dfinke/ImportExcel), created by Doug Finke ([T](https://twitter.com/dfinke) \| [B](https://dfinke.github.io/))
 
-<blockquote>ImportExcel allows you to read and write Excel files without installing Microsoft Excel on your system.</blockquote>
+<blockquote>ImportExcel allows you to read and write Excel files without installing Microsoft Excel on your system.
 
-"<em>...without installing Microsoft Excel...</em>" - How cool is that?!
+"*...without installing Microsoft Excel...*" - How cool is that?!
 
 ### How to install the modules
 

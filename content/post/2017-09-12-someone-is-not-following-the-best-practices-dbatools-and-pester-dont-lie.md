@@ -13,9 +13,9 @@ tags:
 - Unit Test
 title: Someone is not following the best practices - dbatools and Pester don't lie!
 ---
-<a href="https://sqldbawithabeard.com/2017/09/05/tsql2sday-94-lets-get-all-posh/"><img class="size-full wp-image-599 alignleft" src="https://claudioessilva.github.io/img/2017/09/tsql2sday.jpg" alt="" width="244" height="244" /></a>This month’s T-SQL Tuesday is brought to us by my good friend Rob Sewell (<a href="https://sqldbawithabeard.com" target="_blank" rel="noopener">b</a> \| <a href="https://twitter.com/sqldbawithbeard" target="_blank" rel="noopener">t</a>). Together “Let’s get all Posh – What are you going to automate today?”
+[b</a> \| <a href="https://twitter.com/sqldbawithbeard" target="_blank" rel="noopener">t](https://sqldbawithabeard.com)). Together “Let’s get all Posh – What are you going to automate today?”
 
-I have written some blog posts on how I use PowerShell to automate mundane tasks or some other more complex scenarios like:  <a href="http://redglue.org/find-and-fix-sql-server-databases-with-empty-owner-property-using-dbatools-powershell-module/" target="_blank" rel="noopener">Find and fix SQL Server databases with empty owner property using dbatools PowerShell module</a> or <a href="http://redglue.org/have-you-backed-up-your-sql-logins-today/" target="_blank" rel="noopener">Have you backed up your SQL Logins today?</a>  or even using ReportingServicesTools module for deploy reports - <a href="http://redglue.org/ssrs-report-deployment-made-easy-700-times-faster/" target="_blank" rel="noopener">SSRS Report Deployment Made Easy – 700 times Faster</a>.
+I have written some blog posts on how I use PowerShell to automate mundane tasks or some other more complex scenarios like:  [Find and fix SQL Server databases with empty owner property using dbatools PowerShell module](http://redglue.org/find-and-fix-sql-server-databases-with-empty-owner-property-using-dbatools-powershell-module/) or [Have you backed up your SQL Logins today?](http://redglue.org/have-you-backed-up-your-sql-logins-today/)  or even using ReportingServicesTools module for deploy reports - [SSRS Report Deployment Made Easy – 700 times Faster](http://redglue.org/ssrs-report-deployment-made-easy-700-times-faster/).
 
 But today I want to bring something little different.  This year, back in May I saw two presentations from Rob about using Pester to do unit tests for our PowerShell code and also to validate options/infrastructure like checklists. This got my attention and made me want to play with it!
 
@@ -39,15 +39,15 @@ For the propose of this blog, we will check:
 </ul>
 How would you do that?
 ### Let me introduce to you - dbatools
-For those who don’t know, <a href="https://github.com/sqlcollaborative/dbatools/" target="_blank" rel="noopener">dbatools is a PowerShell module</a>, written by the community, that makes SQL Server administration much easier using PowerShell. Today, the module has more than 260 commands. Go get it (<a href="http://dbatools.io" target="_blank" rel="noopener">dbatools.io</a>) and try it! If you have any doubt you can join the team on the #dbatools channel at the <a href="https://dbatools.io/slack" target="_blank" rel="noopener">Slack – SQL Server Community</a>.
+For those who don’t know, [dbatools is a PowerShell module](https://github.com/sqlcollaborative/dbatools/), written by the community, that makes SQL Server administration much easier using PowerShell. Today, the module has more than 260 commands. Go get it ([dbatools.io](http://dbatools.io)) and try it! If you have any doubt you can join the team on the #dbatools channel at the [Slack – SQL Server Community](https://dbatools.io/slack).
 
 In this post I will show some of those commands and how they can help us.
 
-Disclaimer: Obviously this <strong>is not the only way</strong> to accomplish this request, but for me, is <strong>one excellent way!</strong>
+Disclaimer: Obviously this **is not the only way</strong> to accomplish this request, but for me, is <strong>one excellent way!**
 ### Get-DbaDatabase command
-One existing command on the dbatools swiss army knife is <a href="https://dbatools.io/functions/get-dbadatabase/" target="_blank" rel="noopener">Get-DbaDatabase</a>.
+One existing command on the dbatools swiss army knife is [Get-DbaDatabase](https://dbatools.io/functions/get-dbadatabase/).
 As it states on the command description
-<blockquote>The Get-DbaDatabase command gets SQL database information for each database that is present in the target instance(s) of SQL Server. If the name of the database is provided, the command will return only the specific database information.</blockquote>
+<blockquote>The Get-DbaDatabase command gets SQL database information for each database that is present in the target instance(s) of SQL Server. If the name of the database is provided, the command will return only the specific database information.
 This means that I can run the following piece of PowerShell code and get some information about my databases:
 
 ``` powershell
@@ -56,14 +56,14 @@ Get-DbaDatabase -SqlServer sql2016 | Format-Table
 
 This returns the following information from all existing databases on this SQL2016 instance.
 
-<a href="https://claudioessilva.github.io/img/2017/09/get-dbadatabase_sql2016_ft.png"><img class="aligncenter size-large wp-image-579" src="https://claudioessilva.github.io/img/2017/09/get-dbadatabase_sql2016_ft.png?w=656" alt="" width="656" height="284" /></a>
+![get-dbadatabase_sql2016_ft](/img/2017/09/get-dbadatabase_sql2016_ft.png?w=656)
 #### Too little information
 That's true, when we look to it, it brings not enough information. I can't even get the "PageVerify" and "AutoShrink" properties that I want. But that is because we, by default, only output a bunch of properties and this doesn't mean that the others are not there.
 
 To confirm this we can run the same code without the " | Format-Table" that is useful to output the information in a table format but depending on the size of your window it can show more or less columns.
 By running the command without the "format-table" we can see the following (just showing the first 3 databases):
 
-<a href="https://claudioessilva.github.io/img/2017/09/get-dbadatabase_sql2016_without_ft2.png"><img class="aligncenter size-full wp-image-582" src="https://claudioessilva.github.io/img/2017/09/get-dbadatabase_sql2016_without_ft2.png" alt="" width="617" height="607" /></a>
+![get-dbadatabase_sql2016_without_ft2](/img/2017/09/get-dbadatabase_sql2016_without_ft2.png)
 
 Now, we can see more properties available look to the ones inside the red rectangle.
 #### I continue not to see the ones I want
@@ -75,7 +75,7 @@ $databases = Get-DbaDatabase -SqlServer sql2016
 $databases | Get-Member
 ```
 
-Now we get a lot of stuff! The <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-member?view=powershell-5.1" target="_blank" rel="noopener">Get-Member cmdlet</a> say to us which Properties and Methods of the object (in this case the `$databases`).
+Now we get a lot of stuff! The [Get-Member cmdlet](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-member?view=powershell-5.1) say to us which Properties and Methods of the object (in this case the `$databases`).
 
 This means that I can use a filter to find results with "auto" in its name:
 
@@ -91,7 +91,7 @@ $databases | Get-Member -Name *auto*
 
 Which will output something like this:
 
-<a href="https://claudioessilva.github.io/img/2017/09/databases_gm_whereauto.png"><img class="aligncenter size-large wp-image-583" src="https://claudioessilva.github.io/img/2017/09/databases_gm_whereauto.png?w=656" alt="" width="656" height="164"></a>
+![databases_gm_whereauto](/img/2017/09/databases_gm_whereauto.png?w=656)
 
 So, we have found our "AutoShrink" property. With this in mind, lets query all the properties we want.
 ``` powershell
@@ -100,7 +100,7 @@ $databases | Select-Object SqlInstance, Name, AutoShrink, PageVerify
 
 And here we have the result:
 
-<a href="https://claudioessilva.github.io/img/2017/09/databases_data.png"><img class="aligncenter size-large wp-image-584" src="https://claudioessilva.github.io/img/2017/09/databases_data.png?w=656" alt="" width="656" height="351" /></a>
+![databases_data](/img/2017/09/databases_data.png?w=656)
 ### Scaling for multiple instances
 This is where the fun begins.
 We can pass multiple instance names and the command will go through all of them and output a single object with the data.
@@ -112,37 +112,37 @@ $databases | Select-Object SqlInstance, Name, AutoShrink, PageVerify
 
 Which outputs:
 
-<a href="https://claudioessilva.github.io/img/2017/09/get-dbadatabase_sql2016_sql20121.png"><img class="aligncenter size-large wp-image-592" src="https://claudioessilva.github.io/img/2017/09/get-dbadatabase_sql2016_sql20121.png?w=656" alt="" width="656" height="471" /></a>
+![get-dbadatabase_sql2016_sql20121](/img/2017/09/get-dbadatabase_sql2016_sql20121.png?w=656)
 
 As you can see I have passed two different instances sql2016 (in red) and sql2012 (in green) and the output brought both information.
 ### Using Out-GridView to filter results
-We can use another PowerShell native cmdlet called <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/out-gridview?view=powershell-5.1" target="_blank" rel="noopener">Out-GridView</a> to show our results in a grid format. This grid also make it possible to use filters.
+We can use another PowerShell native cmdlet called [Out-GridView](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/out-gridview?view=powershell-5.1) to show our results in a grid format. This grid also make it possible to use filters.
 For the next example, I have misconfigurated two databases so we can find them among the others.
 
 ``` powershell
 $databases | Select-Object SqlInstance, Name, AutoShrink, PageVerify | Out-GridView
 ```
 
-<a href="https://claudioessilva.github.io/img/2017/09/databases_data_ogv.png"><img class="aligncenter size-large wp-image-586" src="https://claudioessilva.github.io/img/2017/09/databases_data_ogv.png?w=656" alt="" width="656" height="613" /></a>
+![databases_data_ogv](/img/2017/09/databases_data_ogv.png?w=656)
 
 As you can see, inside red rectangles we have two not optimal configurations regarding the SQL Server best practices. You can also see the green rectangle on the top left corner where you can type text and the results will be filter as you type. So if you type "true" you will end just with one record.
 
-<a href="https://claudioessilva.github.io/img/2017/09/databases_data_ogv_filter.png"><img class="aligncenter size-large wp-image-587" src="https://claudioessilva.github.io/img/2017/09/databases_data_ogv_filter.png?w=656" alt="" width="656" height="164" /></a>
+![databases_data_ogv_filter](/img/2017/09/databases_data_ogv_filter.png?w=656)
 ### Checking the MaxMemory configuration
-Now, that you have seen how to do it for one command, you can start exploring the other ones. As I said in the beginning of this post we will also check the MaxMemory setting for each instance. We will use the <a href="https://dbatools.io/functions/get-dbamaxmemory/" target="_blank" rel="noopener">Get-DbaMaxMemory</a>. From the help page we can see the description that says:
-<blockquote>This command retrieves the SQL Server ‘Max Server Memory’ configuration setting as well as the total physical installed on the server.</blockquote>
+Now, that you have seen how to do it for one command, you can start exploring the other ones. As I said in the beginning of this post we will also check the MaxMemory setting for each instance. We will use the [Get-DbaMaxMemory](https://dbatools.io/functions/get-dbamaxmemory/). From the help page we can see the description that says:
+<blockquote>This command retrieves the SQL Server ‘Max Server Memory’ configuration setting as well as the total physical installed on the server.
 Let's run it through our two instances:
 
 ``` powershell
 Get-DbaMaxMemory -SqlInstance sql2012, sql2016
 ```
 
-<a href="https://claudioessilva.github.io/img/2017/09/get-dbamaxmemory_2instances.png"><img class="aligncenter size-full wp-image-588" src="https://claudioessilva.github.io/img/2017/09/get-dbamaxmemory_2instances.png" alt="" width="497" height="176" /></a>
+![get-dbamaxmemory_2instances](/img/2017/09/get-dbamaxmemory_2instances.png)
 
 We can see that SQL2012 instance is running on a host with 6144MB of total memory but its MaxMemory setting is set to 3072MB and also, SQL2016 instance has 4608MB configured form the 18423MB existing on the host.
 ## Final thought on this fast introduction to dbatools PowerShell module
 As you see, it is pretty easy to run the commands for one or multiple instances to get information to work on. Also you have seen different ways to output that information.
-I encourage you to use the <a href="https://dbatools.io/functions/find-dbacommand/" target="_blank" rel="noopener">Find-DbaCommand</a> to discover what other commands exists and what they can do for you.
+I encourage you to use the [Find-DbaCommand](https://dbatools.io/functions/find-dbacommand/) to discover what other commands exists and what they can do for you.
 
 Example, if you want to know which commands we have that works with "memory" you can run the following code:
 
@@ -150,29 +150,29 @@ Example, if you want to know which commands we have that works with "memory" you
 Find-DbaCommand -Pattern memory
 ```
 
-<a href="https://claudioessilva.github.io/img/2017/09/find-dbacommand.png"><img class="aligncenter size-large wp-image-590" src="https://claudioessilva.github.io/img/2017/09/find-dbacommand.png?w=656" alt="" width="656" height="140" /></a>
+![find-dbacommand](/img/2017/09/find-dbacommand.png?w=656)
 ## Automating even more
 Using the dbatools module we could verify if the best practice is in place or not. But we had to run the command and then verify the values by filtering and looking for each row.
 
 You may be thinking that must exists some other more automated method to accomplish that, right?
 ### Say hello to Pester PowerShell module
-<a href="https://github.com/pester/Pester" target="_blank" rel="noopener">Pester</a> is unit test framework for PowerShell. I like to say <em>If you can PowerShell it, you can Pester it</em>.
-<blockquote>Pester provides a framework for running Unit Tests to execute and validate PowerShell commands. Pester follows a file naming convention for naming tests to be discovered by pester at test time and a simple set of functions that expose a Testing DSL for isolating, running, evaluating and reporting the results of PowerShell commands.</blockquote>
-Please see <a href="https://github.com/pester/Pester/wiki/Installation-and-Update" target="_blank" rel="noopener">how to install Pester module here</a>.
+[Pester](https://github.com/pester/Pester) is unit test framework for PowerShell. I like to say *If you can PowerShell it, you can Pester it*.
+<blockquote>Pester provides a framework for running Unit Tests to execute and validate PowerShell commands. Pester follows a file naming convention for naming tests to be discovered by pester at test time and a simple set of functions that expose a Testing DSL for isolating, running, evaluating and reporting the results of PowerShell commands.
+Please see [how to install Pester module here](https://github.com/pester/Pester/wiki/Installation-and-Update).
 
-With this framework, that I really encourage you to read more about it on the <a href="https://github.com/pester/Pester/wiki/Pester" target="_blank" rel="noopener">project Wiki</a>, we can automate our tests and make it do the validations for us!
+With this framework, that I really encourage you to read more about it on the [project Wiki](https://github.com/pester/Pester/wiki/Pester), we can automate our tests and make it do the validations for us!
 
 As quick example - if we run the following code:
 
 We are checking if the login returned by the `whoami` is base\claudio.
 
-<a href="https://claudioessilva.github.io/img/2017/09/pester_whoami_ok.png"><img class="aligncenter size-full wp-image-594" src="https://claudioessilva.github.io/img/2017/09/pester_whoami_ok.png" alt="" width="481" height="196" /></a>
+![pester_whoami_ok](/img/2017/09/pester_whoami_ok.png)
 
 This return green which means it's ok!
 
 If is not ok (because I'm testing to "base\claudio.silva"), will retrieve something like this:
 
-<a href="https://claudioessilva.github.io/img/2017/09/pester_whoami_nok.png"><img class="aligncenter size-large wp-image-595" src="https://claudioessilva.github.io/img/2017/09/pester_whoami_nok.png?w=656" alt="" width="656" height="197" /></a>
+![pester_whoami_nok](/img/2017/09/pester_whoami_nok.png?w=656)
 ### Quick walkthrough on Pester syntax
 As you can see, to do a test we need a:
 <ul>
@@ -231,7 +231,7 @@ To run this tests we should save a file with the ".Tests.ps1" ending name. Let's
 Invoke-Pester .\SQLServerBestPractices.Tests.ps1
 ```
 
-<a href="https://claudioessilva.github.io/img/2017/09/pester_tests_with_fails.png"><img class="aligncenter size-large wp-image-596" src="https://claudioessilva.github.io/img/2017/09/pester_tests_with_fails.png?w=656" alt="" width="656" height="754" /></a>
+![pester_tests_with_fails](/img/2017/09/pester_tests_with_fails.png?w=656)
 ### To much noise - can't find the failed tests easily
 You are right, showing all the greens make us lose the possible red ones. But Pester has an option to show just the failed tests.
 
@@ -239,7 +239,7 @@ You are right, showing all the greens make us lose the possible red ones. But Pe
 Invoke-Pester .\SQLServerBestPractices.Tests.ps1 -Show Failed
 ```
 
-<a href="https://claudioessilva.github.io/img/2017/09/pester_tests_with_show_failed_only.png"><img class="aligncenter size-large wp-image-597" src="https://claudioessilva.github.io/img/2017/09/pester_tests_with_show_failed_only.png?w=656" alt="" width="656" height="199" /></a>
+![pester_tests_with_show_failed_only](/img/2017/09/pester_tests_with_show_failed_only.png?w=656)
 
 But, be aware that `-Show Fails` can be a better solution, specially when you are working with multiple Tests.ps1 files.
 
@@ -268,16 +268,16 @@ Get the fails and email them (I will blog about it).
 <li>Check if you have access to the instance (great way to know quickly if some instance is stopped)</li>
 <li>Check if your backups are running with success and within our policy time interval</li>
 <li>Check if your datafiles are set to growth by fixed value and not percent. Also if that fixed value is more than X mb.
-<li>Want to <a href="https://sqldbawithabeard.com/2017/03/25/using-pester-with-dbatools-test-dbalastbackup/" target="_blank" rel="noopener">Test your last backup</a>? Or something completely different like Rob's made for <a href="https://sqldbawithabeard.com/2017/05/16/pester-for-presentations-ensuring-it-goes-ok/" target="_blank" rel="noopener">Pester for Presentations – Ensuring it goes ok</a>? </li>
+<li>Want to [Test your last backup](https://sqldbawithabeard.com/2017/03/25/using-pester-with-dbatools-test-dbalastbackup/)? Or something completely different like Rob's made for [Pester for Presentations – Ensuring it goes ok](https://sqldbawithabeard.com/2017/05/16/pester-for-presentations-ensuring-it-goes-ok/)? </li>
 </ul>
 </ul>
 You name it!
 ## Want more?
 I hope you have seen some new stuff and get some ideas from this blog post!
 
-If you want to know if there will be some dbatools presentations near you, visit our <a href="https://dbatools.io/presentations/" target="_blank" rel="noopener">presentation page</a>. You can find some of our presentations on our <a href="https://dbatools.io/youtube" target="_blank" rel="noopener">youtube channel</a> and code example on the <a href="https://github.com/sqlcollaborative/community-presentations" target="_blank" rel="noopener">community presentations on GitHub</a>.
+If you want to know if there will be some dbatools presentations near you, visit our [presentation page](https://dbatools.io/presentations/). You can find some of our presentations on our [youtube channel](https://dbatools.io/youtube) and code example on the [community presentations on GitHub](https://github.com/sqlcollaborative/community-presentations).
 
-About Pester and other examples and use cases, we have the <a href="https://github.com/pester/Pester/wiki/Articles-and-other-resources" target="_blank" rel="noopener">Articles and other resources</a> page maintained by the Pester team.
+About Pester and other examples and use cases, we have the [Articles and other resources](https://github.com/pester/Pester/wiki/Articles-and-other-resources) page maintained by the Pester team.
 
 I'm looking forward to read the other blog posts (follow the comments on Rob's post, or the roundup later) on this month's T-SQL Tuesdays and see what people is being doing with PowerShell.
 

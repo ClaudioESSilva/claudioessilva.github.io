@@ -54,7 +54,7 @@ SELECT sm.object_id, o.name, o.type, sm.definition
 
 From the [CREATE PROCEDURE](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-procedure-transact-sql) documentation, `WITH ENCRYPTION`:
 
-<blockquote>...SQL Server converts the original text of the CREATE [enter object type here] statement to an obfuscated format. The output of the obfuscation is not directly visible in any of the catalog views in SQL Server. Users who have no access to system tables or database files cannot retrieve the obfuscated text. However, the text is available to privileged users who can either access system tables over the DAC port or directly access database files. Also, users who can attach a debugger to the server process can retrieve the decrypted procedure from memory at runtime. For more information about accessing system metadata, see Metadata Visibility Configuration.</blockquote>
+<blockquote>...SQL Server converts the original text of the CREATE [enter object type here] statement to an obfuscated format. The output of the obfuscation is not directly visible in any of the catalog views in SQL Server. Users who have no access to system tables or database files cannot retrieve the obfuscated text. However, the text is available to privileged users who can either access system tables over the DAC port or directly access database files. Also, users who can attach a debugger to the server process can retrieve the decrypted procedure from memory at runtime. For more information about accessing system metadata, see Metadata Visibility Configuration.
 
 If you want to understand the [Internals of With Encryption](https://sqlperformance.com/2016/05/sql-performance/the-internals-of-with-encryption) make sure you read Paul White’s ([b](https://www.sql.kiwi/) \| [t](https://twitter.com/sql_kiwi)) blog post.
 
@@ -98,7 +98,7 @@ Install-Module -Name dbatools
 
 Stands for [Dedicated Admin Connection](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators).
 
-<blockquote>The DAC lets an administrator access a running server to execute diagnostic functions or Transact-SQL statements, or to troubleshoot problems on the server, even when the server is locked or running in an abnormal state and not responding to a SQL Server Database Engine connection.</blockquote>
+<blockquote>The DAC lets an administrator access a running server to execute diagnostic functions or Transact-SQL statements, or to troubleshoot problems on the server, even when the server is locked or running in an abnormal state and not responding to a SQL Server Database Engine connection.
 
 If you want to connect using DAC from a remote server, you need to configure the [remote admin connection](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/remote-admin-connections-server-configuration-option) option as the default is 0 (off).
 

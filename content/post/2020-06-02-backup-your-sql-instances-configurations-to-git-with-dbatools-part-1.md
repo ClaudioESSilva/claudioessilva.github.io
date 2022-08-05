@@ -80,7 +80,7 @@ Maybe, maybe not. It's up to you. Here I will share a version where clear-text p
 
 Introducing the `-ExcludePassword` parameter, as mentioned on the documentation (don't forget to use and abuse `Get-Help`):
 
-<blockquote>If this switch is used, the scripts will not include passwords for Credentials, LinkedServers or Logins.</blockquote>
+<blockquote>If this switch is used, the scripts will not include passwords for Credentials, LinkedServers or Logins.
 
 Just add `-ExcludePassword` like this:
 ``` powershell

@@ -17,7 +17,7 @@ I’m currently working on a SQL code migration from [Firebird](https://firebird
 The error message is the following:
 
 <blockquote>Msg 206, Level 16, State 2, Line 4
-Operand type clash: datetime2 is incompatible with int</blockquote>
+Operand type clash: datetime2 is incompatible with int
 
 This ringed the bell right away! Somewhere on the code someone was trying to do an arithmetic calculation without using the proper function.
 
@@ -43,7 +43,7 @@ WHERE OrderDate < @vOrderDate - 1
 ```
 
 <blockquote>Msg 206, Level 16, State 2, Line 20
-Operand type clash: datetime2 is incompatible with int</blockquote>
+Operand type clash: datetime2 is incompatible with int
 
 ## But it was working!?
 

@@ -52,7 +52,7 @@ Don't forget to use `Get-Help` cmdlet to find the available parameters and get s
 Get-Help Export-DbaScript -Detailed
 ```
 
-<strong>Tip:</strong> Try other switches like `-Examples` or even `-ShowWindow` (won't work on PSCore but dbatools does!) switches.
+**Tip:** Try other switches like `-Examples` or even `-ShowWindow` (won't work on PSCore but dbatools does!) switches.
 
 ### Example using our "MyTable" object
 

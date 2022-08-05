@@ -12,11 +12,11 @@ tags:
 title: PowerShell Modules Central - Share with community - What PowerShell modules
   are you using?
 ---
-Like the blog post title states this is <strong>all about sharing</strong> with others! My idea is to share with the community which PowerShell modules you are using.
+Like the blog post title states this is **all about sharing** with others! My idea is to share with the community which PowerShell modules you are using.
 
 ## Let me introduce to you the PowerShell Modules Central
 
-<a href="https://github.com/ClaudioESSilva/PowerShellModulesCentral" target="_blank">PowerShellModulesCentral</a> is a GitHub repository that was founded as a <strong>central</strong> hub to a list of PowerShell modules that people know/use. Each module has a file describing its name, basic information about the module, as well as one or more blog posts/videos from people that have written about or used them.
+<a href="https://github.com/ClaudioESSilva/PowerShellModulesCentral" target="_blank">PowerShellModulesCentral</a> is a GitHub repository that was founded as a **central** hub to a list of PowerShell modules that people know/use. Each module has a file describing its name, basic information about the module, as well as one or more blog posts/videos from people that have written about or used them.
 
 This way we can reduce friction when people are starting out or are trying to solve similar problems.
 
@@ -26,7 +26,7 @@ When a new module appears on the PowerShell scene it can be difficult to adverti
 
 ### Why not just use the PS Gallery or script center?
 
-This is, by no means, a replacement of those. Actually it is opposite, <strong>it is meant to be a community complement</strong>. Normally, when you need to do a task that you've never done before you like to have some jump start like blog posts or videos, and maybe you find the ones that are very close to your real scenario.
+This is, by no means, a replacement of those. Actually it is opposite, **it is meant to be a community complement**. Normally, when you need to do a task that you've never done before you like to have some jump start like blog posts or videos, and maybe you find the ones that are very close to your real scenario.
 This repository enables not only people to write blog posts and share them with the community, but also the new guy (on PowerShell or just on a new task) that is searching for a specific tool to accomplish a task.
 I can go to the PowerShell Gallery and see that the module I want to use has 1K downloads. That is really cool! It will give me confidence to use it. But, next, when you want to start working with it maybe you would like to see examples. The objective here is to have a quick look on some problems and tools used to solve them, as they can also be your problem.
 

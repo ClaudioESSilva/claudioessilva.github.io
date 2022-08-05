@@ -30,7 +30,7 @@ At that time I didn't even know that a community exists, but when I went to prof
 That was when I started using more and more the internet for study, found some blogs posts and the [SQLServerCentral](http://www.sqlservercentral.com/). So I can say that I started consuming the knowledge from the community back on 2006.
 
 A year later I started my intership in what was my first IT job. At the time I needed to work with a bit of everything but more focused on SQL Server development. The guy that was on my place before I arrived took a manager position but he was a big lover of SQL Server and I learnt a LOT from him! At the time he subscribed the [SQLServer Magazine](http://www.itprotoday.com/sql-server-pro-digital-magazine-archives) in paper! (later the name changed for SQLServer Pro).
-[caption id="attachment_1404" align="aligncenter" width="342"]<a href="https://claudioessilva.github.io/img/2018/05/sqlservermagazine.png"><img src="https://claudioessilva.github.io/img/2018/05/sqlservermagazine.png?w=342" alt="SQLServer Magazine October 2007" width="342" height="450" /></a> SQLServer Magazine<br />October 2007[/caption]
+[caption id="attachment_1404" align="aligncenter" width="342"]![sqlservermagazine](/img/2018/05/sqlservermagazine.png?w=342) SQLServer Magazine<br />October 2007[/caption]
 You can found the maganize archives in PDF format [here](http://www.itprotoday.com/sql-server-pro-digital-magazine-archives).
 
 That was when I start knewing who people like [Itzik Ben-Gan</a> and <a href="https://twitter.com/sqlqueen">Kalen Delaney](https://twitter.com/ItzikBenGan) were!

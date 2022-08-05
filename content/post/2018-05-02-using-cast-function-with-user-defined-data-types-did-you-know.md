@@ -31,7 +31,7 @@ SELECT CAST('value' AS VARCHAR_50)
 and it yields the following error message:
 
 <blockquote><i>Msg 243, Level 16, State 2, Line 1</i>
-<i>Type VARCHAR_50 is not a defined system type.</i></blockquote>
+<i>Type VARCHAR_50 is not a defined system type.</i>
 
 this means that we need to change it to the defined system type like:
 ``` sql

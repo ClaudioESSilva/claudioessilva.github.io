@@ -20,7 +20,7 @@ If you are doing this on the date of this blog post, you have just installed dba
 
 After more than 200 commits, the work of more than 20 contributors and 20 days since the last published version, <a href="">dbatools v1.0</a> is live!
 
-<strong>To all of you that have contributed direct or indirectly to the module a big thank you!</strong>
+**To all of you that have contributed direct or indirectly to the module a big thank you!**
 
 ## Fun fact
 

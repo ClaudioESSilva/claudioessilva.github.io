@@ -26,7 +26,7 @@ The client has 2 machines: one an application server and one a database server.
 
 Both run on Windows Server 2016 OS and, the database server runs SQL Server 2016 using Availability Groups feature (where their databases resides).
 
-This seems normal... but actually SQL Server 2016 SP2 is the first version that provides <strong>full support for distributed transactions in availability groups</strong>.
+This seems normal... but actually SQL Server 2016 SP2 is the first version that provides **full support for distributed transactions in availability groups**.
 For more info take a look on [Transactions - availability groups and database mirroring](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/transactions-always-on-availability-and-database-mirroring) help page.
 
 ## Configuration

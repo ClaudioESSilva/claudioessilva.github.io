@@ -152,6 +152,6 @@ However, this can bring more work when talking about maintaining this process. I
 
 We have seen how we can provide more control to clients so they can manage their jobs without compromising security.
 I have used this method several times with success. By success I mean, I was able to explain to the client the limitation on SQL Server side and, on the other hand I present to them a possible solution.
-It is not easy to change the code within a step using the stored procedure instead of using the interface? Sure it is not! But at least you provide a working solution that makes the client autonomous! In order to help them show how they can script out the changes, add the suffix for <em>NonAdmins</em> and they are good to go.
+It is not easy to change the code within a step using the stored procedure instead of using the interface? Sure it is not! But at least you provide a working solution that makes the client autonomous! In order to help them show how they can script out the changes, add the suffix for *NonAdmins* and they are good to go.
 
 Thanks for reading.

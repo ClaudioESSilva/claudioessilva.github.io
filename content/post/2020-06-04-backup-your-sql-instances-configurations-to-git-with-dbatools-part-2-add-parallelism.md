@@ -46,7 +46,7 @@ In case you don't know, with PowerShell v7 it's possible to use a new option `-P
 However, because I don't have (yet :-)) PS7, I will keep leveraging on [PoshRSJob](https://github.com/proxb/PoshRSJob) module, which uses runspaces, created by Boe Prox ([T](https://twitter.com/proxb) \| [B](https://learn-powershell.net/)).
 If this module is unknown to you, as a quick summary, it:
 
-<blockquote>Provides an alternative to PSjobs with greater performance and less overhead to run commands in the background, freeing up the console and allowing throttling on the jobs.</blockquote>
+<blockquote>Provides an alternative to PSjobs with greater performance and less overhead to run commands in the background, freeing up the console and allowing throttling on the jobs.
 
 I have been using it for a long time and I'm very happy with the results.
 
@@ -94,7 +94,7 @@ There is an explanation
 
 On the small description that I have shared about the PoshRsJob it says:
 
-<blockquote>allowing throttling on the jobs</blockquote>
+<blockquote>allowing throttling on the jobs
 
 Although we haven't specified this parameter, the parallelism kicked anyway. That happened because a value of 5 is being used by default.
 

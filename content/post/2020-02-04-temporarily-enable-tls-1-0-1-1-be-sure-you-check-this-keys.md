@@ -27,7 +27,7 @@ A client needed to run a setup to install an application. This setup uses a util
 
 We got into an impasse where we would not enable TLS 1.0 on the database server (which shares multiple databases) hence, as a workaround, we have suggested installing a SQL Server express edition instance on the application server just to surpass this step of the application setup. The funny (or not) part is that after installation, the application works just fine with any other driver that supports de TLS 1.2.
 
-NOTE: It is strange why the vendor decided on this approach. I mean, having <strong>two different ways</strong> to test the access to the database. Even more when one of them is very limited. Maybe legacy... ¯&#092;_(ツ)_/¯
+NOTE: It is strange why the vendor decided on this approach. I mean, having **two different ways** to test the access to the database. Even more when one of them is very limited. Maybe legacy... ¯&#092;_(ツ)_/¯
 
 ## Easy! Just repeat the steps that have worked before
 
@@ -35,7 +35,7 @@ With all the approvals to get these settings turned on as an exception for a sho
 
 ### Registry keys to
 
-<strong>Enable TLS 1.0</strong>
+**Enable TLS 1.0**
 `[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server] "Enabled"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server] "DisabledByDefault"=dword:00000000
@@ -44,7 +44,7 @@ With all the approvals to get these settings turned on as an exception for a sho
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Client] "DisabledByDefault"=dword:00000000`
 
-<strong>Enable TLS 1.1</strong>
+**Enable TLS 1.1**
 `[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server] "Enabled"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server] "DisabledByDefault"=dword:00000000
@@ -59,7 +59,7 @@ After this change, we need to restart the server. At this time I was confident t
 
 This continued to yield the following the error message:
 
-<blockquote>Connection Problem: [DBNETLIB][ConnectionOpen (SECDoClientHandshake()).]SSL Security error</blockquote>
+<blockquote>Connection Problem: [DBNETLIB][ConnectionOpen (SECDoClientHandshake()).]SSL Security error
 
 ## Analyse
 
@@ -67,7 +67,7 @@ Because it didn't work, I first scratched my head trying to understand what coul
 
 ### Digging on the interwebs...again
 
-Using my <em>google-fu</em> skills lead me to all of the 99% of the posts about this error message where they just talk about the 4 registry keys (for each version) that need to be changed. I gave up when I was already on the third/fourth page of results. Yes, I was starting to think I was crazy :-)
+Using my *google-fu* skills lead me to all of the 99% of the posts about this error message where they just talk about the 4 registry keys (for each version) that need to be changed. I gave up when I was already on the third/fourth page of results. Yes, I was starting to think I was crazy :-)
 I decided to request some help from a colleague of the Windows team. I needed a different pair of eyes to be sure that I wasn't missing something.
 
 ### I was not seeing the obvious
@@ -94,7 +94,7 @@ The keys exported on the registry didn't have the `Hashes` entries and when impo
 NOTE: Don't forget to revert the changes after you finish your tests/workaround.
 
 This time, using PowerShell :-)
-<strong>Disable TLS 1.0</strong>
+**Disable TLS 1.0**
 ``` powershell
 New-Item 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server' -Force | Out-Null
 
@@ -111,7 +111,7 @@ New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders
 Write-Host 'TLS 1.0 has been disabled.'
 ```
 
-<strong>Disable TLS 1.1</strong>
+**Disable TLS 1.1**
 ``` powershell
 New-Item 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server' -Force | Out-Null
 
@@ -127,7 +127,7 @@ New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders
 Write-Host 'TLS 1.1 has been disabled.'
 ```
 
-<strong>Add Hashes folder back</strong>
+**Add Hashes folder back**
 ``` powershell
 New-Item 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Hashes' -Force | Out-Null
 

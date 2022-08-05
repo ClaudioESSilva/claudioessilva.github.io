@@ -47,7 +47,7 @@ $namespace = $Outlook.GetNameSpace("MAPI")
 $namespace.Logon($null, $null, $false, $true);
 ```
 
-<blockquote>Note: To do this you need to be running your PowerShell session with the same privileges. If you are running Outlook as a non-administrator (and you should!) you need to open a PowerShell session with the same privilege level.</blockquote>
+<blockquote>Note: To do this you need to be running your PowerShell session with the same privileges. If you are running Outlook as a non-administrator (and you should!) you need to open a PowerShell session with the same privilege level.
 
 Then, we need to create a new Mail item
 ``` powershell
@@ -56,7 +56,7 @@ $Mail = $Outlook.CreateItem(0)
 $Mail.GetInspector.Activate()
 ```
 
-<blockquote>Note: The second line (`Activate()`) is being used because the mail will not be sent automatically, it will be a manual process after the colleague checks a couple of things. This way, activate will bring the focus to the window and this way we can see the magic happening!</blockquote>
+<blockquote>Note: The second line (`Activate()`) is being used because the mail will not be sent automatically, it will be a manual process after the colleague checks a couple of things. This way, activate will bring the focus to the window and this way we can see the magic happening!
 
 To set the To and CC (which is optional) emails is easy as setting the properties' values.
 ``` powershell
@@ -119,7 +119,7 @@ To get the account as an `account` type I have used the following code where the
 $account = $outlook.Session.Accounts.Item($EmailFrom)
 ```
 
-<blockquote>NOTE: You need to have this email address configured on your Outlook, otherwise this will not work.</blockquote>
+<blockquote>NOTE: You need to have this email address configured on your Outlook, otherwise this will not work.
 
 With our `$account` variable set let's assign it to our `SendUsingAccount` mail object property.
 ``` powershell

@@ -18,9 +18,9 @@ It doesn't!
 
 From de <a href="https://docs.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql" rel="noopener" target="_blank">documentation</a>:
 
-<blockquote>Specifies a <strong>temporary</strong> named result set, known as a common table expression (CTE). </blockquote>
+<blockquote>Specifies a **temporary** named result set, known as a common table expression (CTE). 
 
-Maybe they are focusing on the "<strong>temporary</strong>" word.
+Maybe they are focusing on the "**temporary**" word.
 
 Using the CTE two times will perform two different executions! Don't believe me? See the next example!
 If we run the following code do you expect to get the same value for both queries? Note: we have a `UNION ALL` between them.

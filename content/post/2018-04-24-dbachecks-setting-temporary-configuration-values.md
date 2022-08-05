@@ -34,13 +34,13 @@ When we start a new session and we import dbachecks (in matter of fact when the 
 
 ### Let me introduce to you the `-Temporary` parameter
 
-This parameter is available on `Set-DbcConfig` command. As said before, this command allows us to set a configuration which is, by default, persisted. But, if we use the `-Temporary` parameter we are saying that the configured value is <strong>only available for the current session</strong> the value will not be persisted for future executions, hence, will not mess with other new sessions.
+This parameter is available on `Set-DbcConfig` command. As said before, this command allows us to set a configuration which is, by default, persisted. But, if we use the `-Temporary` parameter we are saying that the configured value is **only available for the current session** the value will not be persisted for future executions, hence, will not mess with other new sessions.
 
 You can run the following code to get the parameter description:
 ``` powershell
 Get-Help Set-DbcConfig -Parameter temporary
 ```
-<a href="https://claudioessilva.github.io/img/2018/03/temporaryparameter_helpdescription.png"><img src="https://claudioessilva.github.io/img/2018/03/temporaryparameter_helpdescription.png?w=656" alt="" width="656" height="174" class="aligncenter size-large wp-image-1351" /></a>
+![temporaryparameter_helpdescription](/img/2018/03/temporaryparameter_helpdescription.png?w=656)
 
 Here is a demonstration:
 https://youtu.be/bVm4yVE5vrk
@@ -59,7 +59,7 @@ If you run
 Get-Help Import-DbcConfig -Detailed
 ```
 you can see the `-Temporary` is also available in this command.
-<a href="https://claudioessilva.github.io/img/2018/04/gethelp_importdbcconfig_temporaryparameter.png"><img src="https://claudioessilva.github.io/img/2018/04/gethelp_importdbcconfig_temporaryparameter.png?w=656" alt="" width="656" height="375" class="aligncenter size-large wp-image-1356" /></a>
+![gethelp_importdbcconfig_temporaryparameter](/img/2018/04/gethelp_importdbcconfig_temporaryparameter.png?w=656)
 
 Hope this bring some new ideas like making your single, ad-hoc, one-time tests easier to configure!"
 I have an idea that I will share on my next post about dbachecks!

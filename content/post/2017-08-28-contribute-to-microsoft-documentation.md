@@ -11,9 +11,9 @@ tags:
 - syndicated
 title: Contribute to Microsoft Documentation
 ---
-Times have changed and Microsoft has changed the way we can contribute for <a href="https://docs.microsoft.com/en-gb/" target="_blank" rel="noopener">documentation</a>!
+Times have changed and Microsoft has changed the way we can contribute for [documentation](https://docs.microsoft.com/en-gb/)!
 
-We already have access to the source code from some programs. One example is <a href="https://github.com/PowerShell/PowerShell" target="_blank" rel="noopener">PowerShell, that has an GitHub repository</a> where anyone can contribute!
+We already have access to the source code from some programs. One example is [PowerShell, that has an GitHub repository](https://github.com/PowerShell/PowerShell) where anyone can contribute!
 
 Now anyone can contribute to the documentation too!
 ## How and where?
@@ -23,7 +23,7 @@ If you haven't seen before, now we have a pencil icon on the top right corner th
 
 &nbsp;
 
-When clicking on that pencil we will be redirected, in this case, to the <a href="https://github.com/MicrosoftDocs/sql-docs/" target="_blank" rel="noopener">MicrosoftDocs - sql-docs</a> repository on GitHub.
+When clicking on that pencil we will be redirected, in this case, to the [MicrosoftDocs - sql-docs](https://github.com/MicrosoftDocs/sql-docs/) repository on GitHub.
 
 There, we need to fork the repository, make the changes and submit our suggestion by doing a pull request (PR). After that we just need to wait for some feedback from the Microsoft team that will review what we have submitted.
 ## Start contributing

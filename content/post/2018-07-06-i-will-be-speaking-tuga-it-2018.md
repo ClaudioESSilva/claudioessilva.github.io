@@ -20,7 +20,7 @@ This edition will have:
 <blockquote>4 full-day workshops
 38 breakout sessions (1 hour)
 5 deep dive sessions (2 hours)
-That is over 72 hours of content delivered by 44 awesome speakers, many of them recognized industry experts.</blockquote>
+That is over 72 hours of content delivered by 44 awesome speakers, many of them recognized industry experts.
 
 You can see the full schedule [here](http://tugait.pt/schedule/). This edition will have sessions about: Cloud, Data Platform, Development, Integration, IOT, Office, PowerShell and Security.
 

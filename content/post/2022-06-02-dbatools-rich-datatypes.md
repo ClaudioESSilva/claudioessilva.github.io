@@ -23,6 +23,7 @@ What should we show? Sizes should be always in bytes? It will be easier for you 
 That's why we have created some rich datatypes like, `DbaTime`, `DbaDate`, `DbaDatetime`, `DbaTimeSpan`, `PrettyTimeSpan` or `DbaSize` to make it easier to read and be more consistent acrross multiple commands.
 
 ## How to identify the property datatype?
+
 When we run a command, just by looking into the output we can't infer the datatypes being used by each property.
 
 To check a  property datatype we can make use of `Get-Member` cmdlet.
@@ -36,9 +37,10 @@ $dbaDbSpace | Get-Member
 
 ![Size_datatype](/img/2022/06/Size_datatype.png)
 
-This shows that some of our proprieties are of the type of `Size`. 
+This shows that some of our proprieties are of the type of `Size`.
 
 If we go one level deeper and run
+
 ``` powershell
 $dbaDbSpace.FileSize | Get-Member
 ```
@@ -51,7 +53,8 @@ And, as we can also see from the output, this type as multiple properties.
 
 This means that we can easily get the value in any of the other different units available just by reading that property.
 
-Example if you want to read the `FileSize` in `Byte` for the data file, you can get it like this: 
+Example if you want to read the `FileSize` in `Byte` for the data file, you can get it like this:
+
 ``` powershell
 ($dbaDbSpace | Where-Object FileType -eq 'Rows').FileSize.Byte
 ```
@@ -59,6 +62,7 @@ Example if you want to read the `FileSize` in `Byte` for the data file, you can 
 ![FileSize_rows_byte](/img/2022/06/FileSize_rows_byte.png)
 
 If you want to see all properties and values
+
 ``` powershell
 $dbaDbSpace | Where-Object FileType -eq 'Rows' | Select-Object -ExpandProperty FileSize
 ```
@@ -66,6 +70,7 @@ $dbaDbSpace | Where-Object FileType -eq 'Rows' | Select-Object -ExpandProperty F
 ![FileSize_properties_values](/img/2022/06/FileSize_properties_values.png)
 
 ### DbaDateTime
+
 On a different example let's use the `Get-DbaInstanceInstallDate` command to show that the `SqlInstallDate` has the `DbaDateTime` datatype.
 
 ![DbaDateTime](/img/2022/06/DbaDateTime.png)
@@ -88,6 +93,7 @@ $DateTime
 `PrettyTimespan` is another rich datatype that we use, as example, at `Test-DbaNetworkLatency` or `Import-DbaCsv` commands.
 
 Here is an out of the box example comparing native vs dbatools:
+
 ``` PowerShell
 $timespan = [pscustomobject]@{
    nativeTimespan = [Timespan]::FromMilliseconds(29.69)
@@ -104,6 +110,7 @@ Which one is prettier? :-)
 If you are curious how we do it, here is an example. When the timespan is less than 1 second, [we format](https://github.com/dataplat/dbatools/blob/development/bin/projects/dbatools/dbatools/Utility/DbaTimeSpanPretty.cs#L112) the value as `XX ms`
 
 ## Defaults and configurations
+
 Out of the shelf, dbatools uses some defaults.
 
 ![Get-DbatoolsConfig_formatting](/img/2022/06/Get-DbatoolsConfig_formatting.png)
@@ -113,6 +120,7 @@ You can find them using the `Get-DbatoolsConfig -Module formatting` command.
 Note: Make sure you read our [configuration](https://dbatools.io/configuration) post to learn more about them.
 
 ## Configuration example
+
 Let’s say you want to see your DateTime using the 12 hour format (with AM and PM) instead of 24h and without the milliseconds.  
 We can make it by changing the `formatting.datetime` configuration
 

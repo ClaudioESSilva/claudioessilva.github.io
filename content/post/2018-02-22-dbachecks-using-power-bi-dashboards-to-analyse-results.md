@@ -13,29 +13,31 @@ tags:
 - syndicated
 title: dbachecks - Using Power BI dashboards to analyse results
 ---
-For the last couple of months, members of the <a href="http://dbatools.io/" target="_blank" rel="noopener">dbatools</a> team have been working on a new PowerShell module called dbachecks. This open source PowerShell module will enable you to validate your SQL Instances. Today it is released for you all to start to use 🙂
+For the last couple of months, members of the [dbatools](http://dbatools.io/) team have been working on a new PowerShell module called dbachecks. This open source PowerShell module will enable you to validate your SQL Instances. Today it is released for you all to start to use 🙂
 
 ### dbachecks launch - the blog posts series
 
 Here you can find a list of the blog posts made available today:
-[Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell](https://sqldbawithabeard.com/2018/02/22/announcing-dbachecks-configurable-powershell-validation-for-your-sql-instances/)
-[introducing dbachecks - a new module from the dbatools team! by Chrissy LeMaire](https://dbachecks.io/introducing)
-[install dbachecks by Chrissy LeMaire](https://dbachecks.io/install)
-[dbachecks commands by Chrissy LeMaire](https://dbachecks.io/commands)
-[dbachecks – Using Power BI dashboards to analyse results by Cláudio Silva](http://claudioessilva.eu/2018/02/22/dbachecks-using-power-bi-dashboards-to-analyse-results/)
-[My wrapper for dbachecks by Tony Wilhelm](https://v-roddba.blogspot.com/2018/02/wrapper-for-dbachecks.html)
-[Checking backups with dbachecks by Jess Promfret](http://jesspomfret.com/checking-backups-with-dbachecks/)
-[dbachecks please! by Garry Bargsley](http://blog.garrybargsley.com/dbachecks-please)
-[dbachecks – Configuration Deep Dive by Rob Sewell](https://sqldbawithabeard.com/2018/02/22/dbachecks-configuration-deep-dive/)
-[Test Log Shipping with dbachecks](https://www.sqlstad.nl/powershell/test-log-shipping-with-dbachecks/)
-[Checking your backup strategy with dbachecks by Joshua Corrick](https://corrick.io/blog/checking-your-backup-strategy-with-dbachecks)
-[Enterprise-level reporting with dbachecks by Jason Squires](http://www.sqlnotnull.com/2018/02/20/enterprise-level-reporting-with-dbachecks-from-the-makers-of-dbatools)
-[Adding your own checks to dbachecks by Shane O'Neill](http://nocolumnname.blog/2018/02/22/adding-your-own-checks-to-dbachecks)
-[dbachecks - A different approach for an in-progress and incremental validation by Cláudio Silva](https://claudioessilva.eu/2018/02/22/dbachecks-a-different-approach-for-an-in-progress-and-incremental-validation/)
+
+* [Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell](https://sqldbawithabeard.com/2018/02/22/announcing-dbachecks-configurable-powershell-validation-for-your-sql-instances/)  
+* [introducing dbachecks - a new module from the dbatools team! by Chrissy LeMaire](https://dbachecks.io/introducing)  
+* [install dbachecks by Chrissy LeMaire](https://dbachecks.io/install)  
+* [dbachecks commands by Chrissy LeMaire](https://dbachecks.io/commands)  
+* [dbachecks – Using Power BI dashboards to analyse results by Cláudio Silva](http://claudioessilva.eu/2018/02/22/dbachecks-using-power-bi-dashboards-to-analyse-results/)  
+* [My wrapper for dbachecks by Tony Wilhelm](https://v-roddba.blogspot.com/2018/02/wrapper-for-dbachecks.html)  
+* [Checking backups with dbachecks by Jess Promfret](http://jesspomfret.com/checking-backups-with-dbachecks/)  
+* [dbachecks please! by Garry Bargsley](http://blog.garrybargsley.com/dbachecks-please)  
+* [dbachecks – Configuration Deep Dive by Rob Sewell](https://sqldbawithabeard.com/2018/02/22/dbachecks-configuration-deep-dive/)  
+* [Test Log Shipping with dbachecks](https://www.sqlstad.nl/powershell/test-log-shipping-with-dbachecks/)  
+* [Checking your backup strategy with dbachecks by Joshua Corrick](https://corrick.io/blog/checking-your-backup-strategy-with-dbachecks)  
+* [Enterprise-level reporting with dbachecks by Jason Squires](http://www.sqlnotnull.com/2018/02/20/enterprise-level-reporting-with-dbachecks-from-the-makers-of-dbatools)  
+* [Adding your own checks to dbachecks by Shane O'Neill](http://nocolumnname.blog/2018/02/22/adding-your-own-checks-to-dbachecks)  
+* [dbachecks - A different approach for an in-progress and incremental validation by Cláudio Silva](https://claudioessilva.eu/2018/02/22/dbachecks-a-different-approach-for-an-in-progress-and-incremental-validation/)
 
 Other documentation:
-[dbachecks readme](https://github.com/sqlcollaborative/dbachecks)
-[dbachecks wiki (for developers)](https://github.com/sqlcollaborative/dbachecks/wiki)
+
+* [dbachecks readme](https://github.com/sqlcollaborative/dbachecks)  
+* [dbachecks wiki (for developers)](https://github.com/sqlcollaborative/dbachecks/wiki)
 
 ### Let's begin
 
@@ -49,25 +51,25 @@ In this blog post, I will write about the Power BI dashboards that we have creat
 
 ### Why Power BI? The background...
 
-I started to work with Power BI after seeing a couple of sessions where it was and was not the main attraction. One of those sessions was from Rob Sewell (<a href="https://sqldbawithabeard.com" target="_blank" rel="noopener">b</a> \| <a href="https://twitter.com/sqldbawithbeard" target="_blank" rel="noopener">t</a>) where he was showing Pester and, to show the output, he has used Power BI desktop. This means that he is the principal "culprit" for this choice 🙂. If, in addition to that, we join the ease of import the JSON (and other) files, the usefulness and the eye-candy dashboards all together made the decision easier.
+I started to work with Power BI after seeing a couple of sessions where it was and was not the main attraction. One of those sessions was from Rob Sewell ([b</a> \| <a href="https://twitter.com/sqldbawithbeard" target="_blank" rel="noopener">t](https://sqldbawithabeard.com)) where he was showing Pester and, to show the output, he has used Power BI desktop. This means that he is the principal "culprit" for this choice 🙂. If, in addition to that, we join the ease of import the JSON (and other) files, the usefulness and the eye-candy dashboards all together made the decision easier.
 With this in mind, I picked the initial Power BI from Rob and started digging on it and make some changes.
 
 Note: If your tool of choice is not Power BI or you just feel more comfortable using another tool to work with JSON files, please share your dashboards with us. Write about it and share with the community.
 
 ### Tests output format
 
-dbachecks output consists of one or more JSON files. When you write your dbachecks scripts you can choose between just one or more files as result of your validation. For instance, you can generate one output file per context or just one that includes all contexts. You can even use the -Append to append results to an existing file as Rob described on <a href="https://sqldbawithabeard.com/?p=9020" target="_blank" rel="noopener">dbachecks – Configuration Deep Dive</a> blog post.
+dbachecks output consists of one or more JSON files. When you write your dbachecks scripts you can choose between just one or more files as result of your validation. For instance, you can generate one output file per context or just one that includes all contexts. You can even use the -Append to append results to an existing file as Rob described on [dbachecks – Configuration Deep Dive](https://sqldbawithabeard.com/?p=9020) blog post.
 
 ### Before opening the file that contains the dashboards...
 
 For a more pleasant and smooth experience, we recommend that you update your Power BI desktop to the latest version.
 
 Nowadays, Power BI's team releases a new version every month. Each new version brings new features and improvements. Because we may be using the most recent version of Power BI (desktop) to take advantage of some of those, we also encourage you to use the most recent version.
-You can download it from <a href="https://powerbi.microsoft.com/en-us/desktop/" target="_blank" rel="noopener">the official Power BI website</a>.
+You can download it from [the official Power BI website](https://powerbi.microsoft.com/en-us/desktop/).
 
 Note: If you try to open a Power BI file saved on a more recent version than the one you are using you <u>may</u> see an error message like:
 
-<a href="https://claudioessilva.github.io/img/2018/02/wrong_powerbi_version1.png" target="_blank" rel="noopener"><img class="aligncenter size-full wp-image-1241" src="https://claudioessilva.github.io/img/2018/02/wrong_powerbi_version1.png" alt="" width="458" height="259"></a>
+![wrong_powerbi_version1](https://claudioessilva.github.io/img/2018/02/wrong_powerbi_version1.png)
 
 This was the result of an attempt to open a file on the December 2017 version that was saved on a more recent (the February 2018) version.
 
@@ -91,7 +93,7 @@ Note: When using pbit, if no objects appear, please make sure you have entered t
 
 The pbix file will keep the last data you saw on the dashboard. If you have rerun all or some tests, don't forget to click the "Refresh" button!
 
-<a href="https://claudioessilva.github.io/img/2018/02/refresh_button.png"><img class="aligncenter size-large wp-image-1220" src="https://claudioessilva.github.io/img/2018/02/refresh_button.png?w=656" alt="" width="656" height="404"></a>
+![refresh_button](/img/2018/02/refresh_button.png?w=656)
 
 Only after refreshing the data source you will get all the data (re) loaded and thus get the most recent version of it.
 
@@ -103,7 +105,7 @@ If you never used Power BI before you may not know that you can maximize just on
 
 See this example (click to open on new window):
 
-<a href="https://claudioessilva.github.io/img/2018/02/68f25aec-d9a5-44be-8959-447506aecc8c1.gif" target="_blank" rel="noopener"><img class="aligncenter size-large wp-image-1228" src="https://claudioessilva.github.io/img/2018/02/68f25aec-d9a5-44be-8959-447506aecc8c1.gif?w=400" alt="" width="400" height="250"></a>
+![68f25aec-d9a5-44be-8959-447506aecc8c19](https://claudioessilva.github.io/img/2018/02/68f25aec-d9a5-44be-8959-447506aecc8c1.gif)
 
 #### By Environment
 
@@ -117,7 +119,7 @@ To help you to read this dashboard, on the left side you have the quick filters 
 There are two other ways to filter the information - you can select a row on the matrix or on the grid to see information just related to that row.
 Example:
 
-<a href="https://claudioessilva.github.io/img/2018/02/filteronmatrixorgrid.gif" target="_blank" rel="noopener"><img class="aligncenter size-large wp-image-1231" src="https://claudioessilva.github.io/img/2018/02/filteronmatrixorgrid.gif?w=656" alt="" width="656" height="369"></a>
+![filteronmatrixorgrid](https://claudioessilva.github.io/img/2018/02/filteronmatrixorgrid.gif)
 
 #### By Time
 
@@ -131,20 +133,20 @@ On the next example, I can see that my Production environment is the one taking 
 
 Take a look:
 
-<a href="https://claudioessilva.github.io/img/2018/02/bytime_withexclude.gif" target="_blank" rel="noopener"><img class="aligncenter size-large wp-image-1233" src="https://claudioessilva.github.io/img/2018/02/bytime_withexclude.gif?w=656" alt="" width="656" height="369"></a>
+![bytime_withexclude.gif](https://claudioessilva.github.io/img/2018/02/bytime_withexclude.gif)
 
 ### Rules
 
 Yes, there are some rules :-)
 
-To accomplish these dashboards, some rules must be followed. For example, the "Context" message needs to follow a specific nomenclature. You can read more about it on our <a href="https://github.com/potatoqualitee/dbachecks/wiki#context-usage" target="_blank" rel="noopener">wiki on Github</a>.
+To accomplish these dashboards, some rules must be followed. For example, the "Context" message needs to follow a specific nomenclature. You can read more about it on our [wiki on Github](https://github.com/potatoqualitee/dbachecks/wiki#context-usage).
 If these rules are not followed when writing the tests, you can see some weird results on the dashboards.
 
 On this example, you can see six instances, but the last two "Procedures" and "table" appear because the test wasn't write in the right way.
 
-<a href="https://claudioessilva.github.io/img/2018/02/notfollowingrules1.png" target="_blank" rel="noopener"><img class="aligncenter size-large wp-image-1236" src="https://claudioessilva.github.io/img/2018/02/notfollowingrules1.png?w=656" alt="" width="656" height="352"></a>
+![notfollowingrules1](https://claudioessilva.github.io/img/2018/02/notfollowingrules1.png)
 
-Also, we have a <a href="https://github.com/potatoqualitee/dbachecks/blob/master/tests/Unit.Tests.ps1#L60" rel="noopener" target="_blank">unit test</a> to help you check for these "Context" rules!
+Also, we have a [unit test](https://github.com/potatoqualitee/dbachecks/blob/master/tests/Unit.Tests.ps1#L60) to help you check for these "Context" rules!
 
 ### Dynamic
 
@@ -168,26 +170,26 @@ If you have a case that you would like to see covered by a dashboard share with 
 
 ## It’s Open Source – We Want Your Ideas, Issues, New CodeNew Code
 
-dbachecks is open-source <a href="https://github.com/potatoqualitee/dbachecks" target="_blank" rel="noopener">available on GitHub for anyone to contribute</a>.
+dbachecks is open-source [available on GitHub for anyone to contribute](https://github.com/potatoqualitee/dbachecks).
 
 We would love you to contribute. Please open issues for new tests, enhancements, bugs. Please fork the repository and add code to improve the module. please give feedback to make this module even more useful.
 
-You can also come in the <a href="https://sqlps.io/slack" target="_blank" rel="noopener">SQL Server Community Slack</a> and join the dbachecks channel and get advice, make comments or just join in the conversation.
+You can also come in the [SQL Server Community Slack](https://sqlps.io/slack) and join the dbachecks channel and get advice, make comments or just join in the conversation.
 
 ## Thank You
 
 I want to say thank you to all of the people who have enabled dbachecks to get this far. These wonderful people have used their own time to ensure that you have a useful tool available to you for free
 
-Chrissy Lemaire <a href="https://twitter.com/cl" target="_blank" rel="noopener">@cl</a>
-Rob Sewell <a href="https://github.com/sqldbawithbeard" target="_blank" rel="noopener">@sqldbawithbeard</a>
-Fred Weinmann <a href="https://twitter.com/FredWeinmann" target="_blank" rel="noopener">@FredWeinmann</a>
-Stuart Moore <a href="https://github.com/napalmgram" target="_blank" rel="noopener">@napalmgram</a>
-Shawn Melton <a href="https://twitter.com/wsmelton" target="_blank" rel="noopener">@wsmelton</a>
-Garry Bargsley <a href="https://twitter.com/gbargsley" target="_blank" rel="noopener">@gbargsley</a>
-Stephen Bennett <a href="https://twitter.com/staggerlee011" target="_blank" rel="noopener">@staggerlee011</a>
-Sander Stad <a href="https://twitter.com/sqlstad" target="_blank" rel="noopener">@SQLStad</a>
-Jess Pomfret <a href="https://twitter.com/jpomfret" target="_blank" rel="noopener">@jpomfret</a>
-Jason Squires <a href="https://twitter.com/js0505" target="_blank" rel="noopener">@js0505</a>
-Shane O'Neill <a href="https://twitter.com/SOZDBA" target="_blank" rel="noopener">@SOZDBA</a>
+Chrissy Lemaire [@cl](https://twitter.com/cl)
+Rob Sewell [@sqldbawithbeard](https://github.com/sqldbawithbeard)
+Fred Weinmann [@FredWeinmann](https://twitter.com/FredWeinmann)
+Stuart Moore [@napalmgram](https://github.com/napalmgram)
+Shawn Melton [@wsmelton](https://twitter.com/wsmelton)
+Garry Bargsley [@gbargsley](https://twitter.com/gbargsley)
+Stephen Bennett [@staggerlee011](https://twitter.com/staggerlee011)
+Sander Stad [@SQLStad](https://twitter.com/sqlstad)
+Jess Pomfret [@jpomfret](https://twitter.com/jpomfret)
+Jason Squires [@js0505](https://twitter.com/js0505)
+Shane O'Neill [@SOZDBA](https://twitter.com/SOZDBA)
 
 and all of the other people who have contributed in the dbachecks Slack channel

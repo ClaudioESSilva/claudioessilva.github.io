@@ -50,7 +50,7 @@ Just a couple of examples to ilustrate the differences:
 Firebird has the `similar` function which translate to `LIKE '%%'` on T-SQL
 Other example is the `SUBSTRING` function which has the following structure `SUBSTRING([field] from [start_position] for [number of chars])` which, in order to translate for T-SQL, we just need to replace the "from" and "for" words by a comma (",").
 
-<blockquote>Everything was going well, work was progressing at a good pace until...</blockquote>
+<blockquote>Everything was going well, work was progressing at a good pace until...
 
 ### The pain strikes back
 
@@ -150,7 +150,7 @@ SELECT
 ```
 
 Let's say I have a `Customers` table with 3 columns `ID, NAME, COMPANY_NAME` the output will be:
-<a href="https://claudioessilva.github.io/img/2018/08/output_triggers.png"><img src="https://claudioessilva.github.io/img/2018/08/output_triggers.png" alt="" width="656" height="36" class="aligncenter size-full wp-image-1516" /></a>
+![output_triggers](/img/2018/08/output_triggers.png)
 
 Example of the full string for the INSTEAD OF INSERT trigger:
 ```
@@ -209,7 +209,7 @@ Everything could go wrong doing that way:
 <li>a witch hunt when problems arise</li>
 </ul>
 
-After all, with this approach I have made in <strong>less than one month</strong>! And, half of those days were to tweak the regular expressions/hashtable.
+After all, with this approach I have made in **less than one month**! And, half of those days were to tweak the regular expressions/hashtable.
 
 Automation? You gotta to love it! :-)
 

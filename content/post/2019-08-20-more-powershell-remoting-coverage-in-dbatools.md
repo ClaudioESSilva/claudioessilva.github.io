@@ -31,12 +31,12 @@ I wondered why and asked the Windows team if they could provide any insight. A c
 <li>Use `-IncludePortInSPN` parameter for the `New-PsSessionOption` command</li>
 </ol>
 
-And <em>voilà</em> with these settings in place it worked like a charm!<img class="aligncenter size-large wp-image-1767" src="https://claudioessilva.github.io/img/2019/08/psremoting_working.png?w=800" alt="" width="800" height="164">
+And *voilà* with these settings in place it worked like a charm!<img class="aligncenter size-large wp-image-1767" src="https://claudioessilva.github.io/img/2019/08/psremoting_working.png?w=800" alt="" width="800" height="164">
 
 NOTE: Currently, in my environment if I respect the points 1 and 2 it's ok. However, by reading the documentation about `-IncludePortInSPN` I understand why it may be needed.
 
 <blockquote>...
-The option is designed for enterprises where multiple services that support Kerberos authentication are running under different user accounts. For example, an IIS application that allows for Kerberos authentication can require the default SPN to be registered to a user account that differs from the computer account. In such cases, PowerShell remoting cannot use Kerberos to authenticate because it requires an SPN that is registered to the computer account. To resolve this problem, administrators can create different SPNs, such as by using Setspn.exe, that are registered to different user accounts and can distinguish between them by including the port number in the SPN.</blockquote>
+The option is designed for enterprises where multiple services that support Kerberos authentication are running under different user accounts. For example, an IIS application that allows for Kerberos authentication can require the default SPN to be registered to a user account that differs from the computer account. In such cases, PowerShell remoting cannot use Kerberos to authenticate because it requires an SPN that is registered to the computer account. To resolve this problem, administrators can create different SPNs, such as by using Setspn.exe, that are registered to different user accounts and can distinguish between them by including the port number in the SPN.
 
 ## Time to make this available to everyone!
 
@@ -76,19 +76,19 @@ Before the change, I got these errors:
 
 <ul>
 <li>Just setting `-UseSSL` to `$true`
-As said before, in my case it works. (No picture here :-))</p></li>
-<li><p>When specifying `$false` for both options and with or without FQDN</p></li>
+As said before, in my case it works. (No picture here :-))</li>
+<li>When specifying `$false` for both options and with or without FQDN</li>
 </ul>
 
-<blockquote>WARNING: [HH:mm:ss][Get-DbaComputerCertificate] Issue connecting to computer | Connecting to remote server "ComputerName" failed with the following error message : The client cannot connect to the destination specified in the request. Verify that the service on the destination is running and is accepting requests. Consult the logs and documentation for the WS-Management service running on the destination, most commonly IIS or WinRM. If the destination is the WinRM service, run the following command on the destination to analyze and configure the WinRM service: "winrm quickconfig". For more information, see the about_Remote_Troubleshooting Help topic.</blockquote>
+<blockquote>WARNING: [HH:mm:ss][Get-DbaComputerCertificate] Issue connecting to computer | Connecting to remote server "ComputerName" failed with the following error message : The client cannot connect to the destination specified in the request. Verify that the service on the destination is running and is accepting requests. Consult the logs and documentation for the WS-Management service running on the destination, most commonly IIS or WinRM. If the destination is the WinRM service, run the following command on the destination to analyze and configure the WinRM service: "winrm quickconfig". For more information, see the about_Remote_Troubleshooting Help topic.
 
-<p><img class="aligncenter size-large wp-image-1779" src="https://claudioessilva.github.io/img/2019/08/test_failing_nosettings.png?w=800" alt="" width="800" height="81">
+<img class="aligncenter size-large wp-image-1779" src="https://claudioessilva.github.io/img/2019/08/test_failing_nosettings.png?w=800" alt="" width="800" height="81">
 
 <ul>
 <li>Just setting `-IncludePortInSPN` to `$true` and with or without FQDN</li>
 </ul>
 
-<blockquote>WARNING: [HH:mm:ss][Get-DbaComputerCertificate] Issue connecting to computer | Connecting to remote server "ComputerName" failed with the following error message : WinRM cannot process the request. The following error occurred while using Kerberos authentication: Cannot find the computer "ComputerName". Verify that the computer exists on the network and that the name provided is spelled correctly. For more information, see the about_Remote_Troubleshooting Help topic.</blockquote>
+<blockquote>WARNING: [HH:mm:ss][Get-DbaComputerCertificate] Issue connecting to computer | Connecting to remote server "ComputerName" failed with the following error message : WinRM cannot process the request. The following error occurred while using Kerberos authentication: Cannot find the computer "ComputerName". Verify that the computer exists on the network and that the name provided is spelled correctly. For more information, see the about_Remote_Troubleshooting Help topic.
 
 <img class="aligncenter size-large wp-image-1774" src="https://claudioessilva.github.io/img/2019/08/test_failing_includeportinspn.png?w=800" alt="" width="800" height="71">
 
@@ -97,7 +97,7 @@ As said before, in my case it works. (No picture here :-))</p></li>
 </ul>
 
 <blockquote>WARNING: [HH:mm:ss][Get-DbaComputerCertificate] Issue connecting to computer | Connecting to remote server "ComputerName" failed with the following error message : The server certificate on the destination computer ("ComputerName":5986) has the following errors:
-The SSL certificate contains a common name (CN) that does not match the hostname. For more information, see the about_Remote_Troubleshooting Help topic.</blockquote>
+The SSL certificate contains a common name (CN) that does not match the hostname. For more information, see the about_Remote_Troubleshooting Help topic.
 
 <img class="aligncenter size-large wp-image-1773" src="https://claudioessilva.github.io/img/2019/08/test_failing_bothtrue_notfqdn.png?w=800" alt="" width="800" height="70">
 

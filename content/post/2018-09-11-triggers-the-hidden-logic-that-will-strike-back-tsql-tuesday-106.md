@@ -23,7 +23,7 @@ This is the 106nd edition of [TSQL2sDay](http://tsqltuesday.com/) - an Adam Mach
 
 From my experience triggers are objects that we "tend" to forget are there, and only when we hit a problem and, sometimes, after digging into the problem we end by saying something like
 
-<blockquote>wait..but why is the value different from what I have used?! Ohh...maybe the table has some triggers.</blockquote>
+<blockquote>wait..but why is the value different from what I have used?! Ohh...maybe the table has some triggers.
 
 Yes, it has already been uttered by me before. For me, triggers are a hole of possible business logic written and forgotten...forever.
 Let me just clarify the meaning of "forever" here - until you hit a problem or you need to rewrite some logic and the result is not what you expect. Again, because the code is 'hidden'.

@@ -18,11 +18,11 @@ I've received an alert saying that a specific database could not allocate a new 
 
 The message that you will see on the SQL Server Error log is:
 
-<blockquote>Could not allocate a new page for database '' because of insufficient disk space in filegroup ''. Create the necessary space by dropping objects in the filegroup, adding additional files to the filegroup, or setting autogrowth on for existing files in the filegroup.</blockquote>
+<blockquote>Could not allocate a new page for database '' because of insufficient disk space in filegroup ''. Create the necessary space by dropping objects in the filegroup, adding additional files to the filegroup, or setting autogrowth on for existing files in the filegroup.
 
 I didn't know the database structure or what is saved there, so I picked up a script from my toolbelt that shreds all indexes from all table. Just some information like number of rows and space that it is occupying. I have sorted by occupying space in descending order, look what I found...
 
-<a href="https://claudioessilva.github.io/img/2017/09/zero_rows_with_occupying_space.png"><img src="https://claudioessilva.github.io/img/2017/09/zero_rows_with_occupying_space.png" alt="" width="392" height="39" class="aligncenter size-full wp-image-812" /></a>
+![zero_rows_with_occupying_space](/img/2017/09/zero_rows_with_occupying_space.png)
 
 So...my script has a bug? :-) No, it hasn't!
 
@@ -30,7 +30,7 @@ So...my script has a bug? :-) No, it hasn't!
 
 ### First, the definition:
 
-<blockquote>A heap is a table without a clustered index. One or more nonclustered indexes can be created on tables stored as a heap. Data is stored in the heap without specifying an order. Usually data is initially stored in the order in which is the rows are inserted into the table, but the Database Engine can move data around in the heap to store the rows efficiently; so the data order cannot be predicted. To guarantee the order of rows returned from a heap, you must use the ORDER BY clause. To specify the order for storage of the rows, create a clustered index on the table, so that the table is not a heap.</blockquote>
+<blockquote>A heap is a table without a clustered index. One or more nonclustered indexes can be created on tables stored as a heap. Data is stored in the heap without specifying an order. Usually data is initially stored in the order in which is the rows are inserted into the table, but the Database Engine can move data around in the heap to store the rows efficiently; so the data order cannot be predicted. To guarantee the order of rows returned from a heap, you must use the ORDER BY clause. To specify the order for storage of the rows, create a clustered index on the table, so that the table is not a heap.
 
 Source: <a href="https://docs.microsoft.com/en-us/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes" rel="noopener" target="_blank">MS Docs - Heaps (Tables without Clustered Indexes)</a>
 
@@ -40,9 +40,9 @@ Until now, everything seems normal, it is just a table with unordered data.
 
 Not because of table name (was created on purpose for this demo), let me show to you the whole row of the script:
 
-<a href="https://claudioessilva.github.io/img/2017/09/heap_empty_occupyingspace_1.png"><img src="https://claudioessilva.github.io/img/2017/09/heap_empty_occupyingspace_1.png?w=656" alt="" width="656" height="33" class="aligncenter size-large wp-image-815" /></a>
+![heap_empty_occupyingspace_1](/img/2017/09/heap_empty_occupyingspace_1.png?w=656)
 
-<a href="https://claudioessilva.github.io/img/2017/09/heap_empty_occupyingspace_2.png"><img src="https://claudioessilva.github.io/img/2017/09/heap_empty_occupyingspace_2.png?w=656" alt="" width="656" height="32" class="aligncenter size-large wp-image-816" /></a>
+![heap_empty_occupyingspace_2](/img/2017/09/heap_empty_occupyingspace_2.png?w=656)
 
 Do you have a clue? Yup, `index_id = 0`. That means that our table does not have a clustered index defined and therefore it is an HEAP.
 
@@ -50,7 +50,7 @@ Do you have a clue? Yup, `index_id = 0`. That means that our table does not have
 
 The answer is...on the documentation :-)
 
-<blockquote>When rows are deleted from a heap the Database Engine may use row or page locking for the operation. As a result, the pages made empty by the delete operation remain allocated to the heap. When empty pages are not deallocated, the associated space cannot be reused by other objects in the database.</blockquote>
+<blockquote>When rows are deleted from a heap the Database Engine may use row or page locking for the operation. As a result, the pages made empty by the delete operation remain allocated to the heap. When empty pages are not deallocated, the associated space cannot be reused by other objects in the database.
 
 source: <a href="https://docs.microsoft.com/en-us/sql/t-sql/statements/delete-transact-sql" rel="noopener" target="_blank">DELETE (Transact-SQL) - Locking behavior</a>
 
@@ -63,7 +63,7 @@ On the same documentation page we can read the following:
 <blockquote>To delete rows in a heap and deallocate pages, use one of the following methods.
 <ul><li>Specify the TABLOCK hint in the DELETE statement. Using the TABLOCK hint causes the delete operation to take an exclusive lock on the table instead of a row or page lock. This allows the pages to be deallocated. For more information about the TABLOCK hint, see Table Hints (Transact-SQL).</li>
 <li>Use TRUNCATE TABLE if all rows are to be deleted from the table.</li>
-<li>Create a clustered index on the heap before deleting the rows. You can drop the clustered index after the rows are deleted. This method is more time consuming than the previous methods and uses more temporary resources.</li></ul></blockquote>
+<li>Create a clustered index on the heap before deleting the rows. You can drop the clustered index after the rows are deleted. This method is more time consuming than the previous methods and uses more temporary resources.</li></ul>
 
 Following the documentation, it suggest we can to use the TABLOCK hint in order to release the empty pages when deleting the data.
 Example:
@@ -81,7 +81,7 @@ ALTER TABLE dbo.Heap REBUILD
 
 This way, the table will release the empty pages and you will recovery the space to use on other objects in the database.
 
-<a href="https://claudioessilva.github.io/img/2017/09/heap_after_rebuild.png"><img src="https://claudioessilva.github.io/img/2017/09/heap_after_rebuild.png" alt="" width="314" height="36" class="aligncenter size-full wp-image-818" /></a>
+![heap_after_rebuild](/img/2017/09/heap_after_rebuild.png)
 
 ## Wrap up
 
