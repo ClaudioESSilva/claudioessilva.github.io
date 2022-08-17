@@ -7,7 +7,7 @@ tags:
 - PowerShell
 - SQLServer
 - syndicate
-title: dbatools - Rich Datatypes
+title: dbatools - rich datatypes
 autoThumbnailImage: false
 thumbnailImagePosition: "top"
 thumbnailImage: /img/2022/06/PrettyTimeSpan_small.png
