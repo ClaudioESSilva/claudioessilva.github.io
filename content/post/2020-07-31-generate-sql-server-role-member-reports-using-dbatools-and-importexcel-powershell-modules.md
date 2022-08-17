@@ -15,6 +15,12 @@ tags:
 - syndicated
 title: Generate SQL Server Role Member Reports using dbatools and ImportExcel PowerShell
   modules
+autoThumbnailImage: false
+thumbnailImagePosition: "top"
+thumbnailImage: /img/2020/06/featureimage.png
+coverImage: /img/2020/06/featureimage.png
+metaAlignment: center
+coverMeta: out
 ---
 > This was initial posted on [SQL Server Central articles](https://www.sqlservercentral.com/articles/generate-role-member-reports-using-dbatools-and-the-importexcel-powershell-modules).
 
@@ -33,7 +39,7 @@ Excel makes these reports even better because they can be used to sort/filter la
 I would like you to think about how much time you would need to:
 
 * Get a list of all roles at the server and database level
-* Get a list of all members in these roles from all databases 
+* Get a list of all members in these roles from all databases
 * Copy results to an Excel file
 * Format the data as a table, add filters, freeze rows, put some colors, etc.
 
@@ -51,7 +57,7 @@ The output will be an Excel (xlsx) file that will have multiple spreadsheets. In
 
 Here is a sneak-peak of the result that you will see right after opening the file.
 
-<img src="https://claudioessilva.github.io/img/2020/06/featureimage.png" alt="" width="656" height="263" class="aligncenter size-large wp-image-2257" />
+![Sneakpeak](/img/2020/06/featureimage.png)
 
 The formatted table with headers, filters and top freeze-row will be there too!
 
@@ -61,13 +67,13 @@ To accomplish this we will write a PowerShell script and for that, we will using
 
 [dbatools](https://dbatools.io)
 
-<blockquote>dbatools is an open-source cross-platform PowerShell toolkit for SQL Server DBAs. With over 150 contributors from the SQL and PowerShell communities, dbatools is designed and written by the people who use it in their everyday work. dbatools includes solutions for everyday tasks like performing backups and restores, migrations, and setting up Availability Groups. dbatools is designed to enable SQL DBAs to reliably and repeatedly automate the usual daily tasks.
+> dbatools is an open-source cross-platform PowerShell toolkit for SQL Server DBAs. With over 150 contributors from the SQL and PowerShell communities, dbatools is designed and written by the people who use it in their everyday work. dbatools includes solutions for everyday tasks like performing backups and restores, migrations, and setting up Availability Groups. dbatools is designed to enable SQL DBAs to reliably and repeatedly automate the usual daily tasks.
 
 And on top of this, you should know that it counts with more than 500 commands.
 
 The other module is [ImportExcel](https://github.com/dfinke/ImportExcel), created by Doug Finke ([T](https://twitter.com/dfinke) \| [B](https://dfinke.github.io/))
 
-<blockquote>ImportExcel allows you to read and write Excel files without installing Microsoft Excel on your system.
+> ImportExcel allows you to read and write Excel files without installing Microsoft Excel on your system.
 
 "*...without installing Microsoft Excel...*" - How cool is that?!
 
@@ -95,7 +101,7 @@ For instance, because we are talking about logins, I would run the following com
 Find-DbaCommand -Tag Login
 ```
 
-<img class="aligncenter size-large wp-image-2203" src="https://claudioessilva.github.io/img/2020/06/find-dbacommand__tag_login.png?w=656" alt="" width="656" height="246" />
+![finddbacommand](/img/2020/06/find-dbacommand__tag_login.png)
 
 The dbatools' team has tagged all these (+20) commands as to be related with logins.
 
@@ -327,7 +333,6 @@ $dbRoleMembers | Export-Excel @exceldbRoleMembersOutput
 
 ## FAQ
 
-## FAQ
 ### What if I want to get different properties?
 
 In the script, you can change the output list by changing the properties used on the `Select-Object` cmdlet (line 37).
