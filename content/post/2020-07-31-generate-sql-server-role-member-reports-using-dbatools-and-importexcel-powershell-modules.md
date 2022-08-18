@@ -267,7 +267,6 @@ $autoSize = $true
 
 #Region Get data
 
-#Region Get data
 # Get all instance logins
 $Logins = Get-DbaLogin -SqlInstance $SQLInstance -ExcludeLogin $excludeLogin -ExcludeFilter $excludeLoginFilter
 
@@ -281,16 +280,11 @@ $dbRoleMembers = Get-DbaDbRoleMember -SqlInstance $SQLInstance -ExcludeDatabase 
 
 #EndRegion
 
-#EndRegion
 # Remove the report file if exists
 
 Remove-Item -Path $excelFilepath -Force -ErrorAction SilentlyContinue
 
 #Region Export Data to Excel
-
-#Region Export Data to Excel
-
-# Export data to Excel#Region Export Data to Excel
 
 # Export data to Excel
 $excelLoginSplatting = @{
@@ -313,7 +307,7 @@ $excelinstanceRoleMembersOutput = @{
     FreezeTopRow = $freezeTopRow
     AutoSize = $autoSize
 }
-$instanceRoleMembers | Export-Excel @excelinstanceRoleMembersOutput
+$instanceRoleMembers | Select-Object "ComputerName", "InstanceName", "SqlInstance", "Role", "Name" | Export-Excel @excelinstanceRoleMembersOutput
 
 ## Export database roles and its members
 
