@@ -52,7 +52,7 @@ Disclaimer: Obviously this **is not the only way</strong> to accomplish this req
 
 One existing command on the dbatools swiss army knife is [Get-DbaDatabase](https://dbatools.io/functions/get-dbadatabase/).
 As it states on the command description
-<blockquote>The Get-DbaDatabase command gets SQL database information for each database that is present in the target instance(s) of SQL Server. If the name of the database is provided, the command will return only the specific database information.
+> The Get-DbaDatabase command gets SQL database information for each database that is present in the target instance(s) of SQL Server. If the name of the database is provided, the command will return only the specific database information.
 This means that I can run the following piece of PowerShell code and get some information about my databases:
 
 ``` powershell
@@ -146,7 +146,7 @@ As you can see, inside red rectangles we have two not optimal configurations reg
 ### Checking the MaxMemory configuration
 
 Now, that you have seen how to do it for one command, you can start exploring the other ones. As I said in the beginning of this post we will also check the MaxMemory setting for each instance. We will use the [Get-DbaMaxMemory](https://dbatools.io/functions/get-dbamaxmemory/). From the help page we can see the description that says:
-<blockquote>This command retrieves the SQL Server ‘Max Server Memory’ configuration setting as well as the total physical installed on the server.
+> This command retrieves the SQL Server ‘Max Server Memory’ configuration setting as well as the total physical installed on the server.
 Let's run it through our two instances:
 
 ``` powershell
@@ -179,7 +179,7 @@ You may be thinking that must exists some other more automated method to accompl
 ### Say hello to Pester PowerShell module
 
 [Pester](https://github.com/pester/Pester) is unit test framework for PowerShell. I like to say *If you can PowerShell it, you can Pester it*.
-<blockquote>Pester provides a framework for running Unit Tests to execute and validate PowerShell commands. Pester follows a file naming convention for naming tests to be discovered by pester at test time and a simple set of functions that expose a Testing DSL for isolating, running, evaluating and reporting the results of PowerShell commands.
+> Pester provides a framework for running Unit Tests to execute and validate PowerShell commands. Pester follows a file naming convention for naming tests to be discovered by pester at test time and a simple set of functions that expose a Testing DSL for isolating, running, evaluating and reporting the results of PowerShell commands.
 Please see [how to install Pester module here](https://github.com/pester/Pester/wiki/Installation-and-Update).
 
 With this framework, that I really encourage you to read more about it on the [project Wiki](https://github.com/pester/Pester/wiki/Pester), we can automate our tests and make it do the validations for us!
@@ -270,7 +270,7 @@ Invoke-Pester .\SQLServerBestPractices.Tests.ps1 -Show Failed
 
 But, be aware that `-Show Fails` can be a better solution, specially when you are working with multiple Tests.ps1 files.
 
-<img style="max-width:100%;" src="https://claudioessilva.github.io/img/2017/09/pester_tests_with_fails_summary_value.png" />
+![pester_tests_with_fails_summary_value](/2017/09/pester_tests_with_fails_summary_value.png)
 
 This way you can see where your error come from.
 

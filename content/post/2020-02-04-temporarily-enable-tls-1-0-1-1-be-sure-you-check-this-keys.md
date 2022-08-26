@@ -53,13 +53,13 @@ With all the approvals to get these settings turned on as an exception for a sho
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Client] "DisabledByDefault"=dword:00000000`
 
-You can find more about this and other keys on <a href="https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs#enable-and-disable-tls-10" rel="noopener" target="_blank">Microsoft Documentation</a>.
+You can find more about this and other keys on [Microsoft Documentation](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs#enable-and-disable-tls-10)
 
 After this change, we need to restart the server. At this time I was confident that when we come back I could test the connections and everything would be as wanted to move on. However...that was not the case!
 
 This continued to yield the following the error message:
 
-<blockquote>Connection Problem: [DBNETLIB][ConnectionOpen (SECDoClientHandshake()).]SSL Security error
+> Connection Problem: [DBNETLIB][ConnectionOpen (SECDoClientHandshake()).]SSL Security error
 
 ## Analyse
 
@@ -67,7 +67,7 @@ Because it didn't work, I first scratched my head trying to understand what coul
 
 ### Digging on the interwebs...again
 
-Using my *google-fu* skills lead me to all of the 99% of the posts about this error message where they just talk about the 4 registry keys (for each version) that need to be changed. I gave up when I was already on the third/fourth page of results. Yes, I was starting to think I was crazy :-)
+Using my _google-fu_ skills lead me to all of the 99% of the posts about this error message where they just talk about the 4 registry keys (for each version) that need to be changed. I gave up when I was already on the third/fourth page of results. Yes, I was starting to think I was crazy :-)
 I decided to request some help from a colleague of the Windows team. I needed a different pair of eyes to be sure that I wasn't missing something.
 
 ### I was not seeing the obvious

@@ -59,7 +59,7 @@ When I, and probably most of the people, started learning PowerShell, we learn t
 
 On the other hand, <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-member?view=powershell-6" rel="noopener" target="_blank">Get-Member</a> can be not so obvious for people that are not familirized with OOP (<a href="https://en.wikipedia.org/wiki/Object-oriented_programming" rel="noopener" target="_blank">Object-oriented programming</a>). Looking on documentation we can see that this command
 
-<blockquote>Gets the properties and methods of objects.
+> Gets the properties and methods of objects.
 
 This means it can give you a variety of information on the objects you are working with, including, for our use case, the available properties.
 

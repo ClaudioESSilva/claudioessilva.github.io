@@ -32,7 +32,7 @@ To search for commands within [dbatools](https://dbatools.io) we can use the [Fi
 Find-DbaCommand -Pattern Copy*Table*Data
 ```
 
-<img class="aligncenter size-full wp-image-1677" src="https://claudioessilva.github.io/img/2019/05/find-dbacommand.png" alt="" width="640" height="97">
+![find-dbacommand](/img/2019/05/find-dbacommand.png)
 
 Note: As you can see, we can use wildcards to do the search when using `-Pattern` parameter.
 
@@ -46,7 +46,7 @@ Don't forget to use `Get-Help` cmdlet to find the available parameters and get s
 Get-Help Copy-DbaDbTableData -Detailed
 ```
 
-<img class="aligncenter size-full wp-image-1679" src="https://claudioessilva.github.io/img/2019/05/get-help_detailed.png" alt="" width="800" height="578">
+![get-help_detailed](/img/2019/05/get-help_detailed.png)
 
 ## Let's try the command and copy the data
 
@@ -74,7 +74,7 @@ At this point I realised that some of the requested tables were dropped. The cli
 
 But dbatools got you covered and the warning gives you one hint: use `-AutoCreateTable` which will, per its description,
 
-<blockquote>Creates the destination table if it does not already exist, based off of the "Export..." script of the source table.
+> Creates the destination table if it does not already exist, based off of the "Export..." script of the source table.
 
 That is nice!
 

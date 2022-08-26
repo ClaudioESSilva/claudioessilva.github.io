@@ -16,18 +16,16 @@ If you have been reading my last blog posts, you know that I’m currently worki
 
 The client provided the scripts with all modules (Stored Procedures, functions, etc) and the steps I'm following (roughly speaking) for converting are:
 
-<ol>
 * Open new query window
 * Copy and paste de object code
-<li>Save the file
+* Save the file
 This is how the file look like:
-<img src="https://claudioessilva.github.io/img/2018/06/savedwithdefaultencoding_ansi1.png?w=300" alt="" width="300" height="53" class="aligncenter size-medium wp-image-1458" /></li>
+![savedwithdefaultencoding_ansi1](/img/2018/06/savedwithdefaultencoding_ansi1.png)
 * Run a PowerShell script that does a find and replace based on a hashtable. Apply all the changes and save the file again.
-<li>The file refresh on SSMS
+* The file refresh on SSMS
 This is how the file look like after the find and replace:
-<img src="https://claudioessilva.github.io/img/2018/06/afterfindreplacepowershellandsaveasutf81.png?w=300" alt="" width="300" height="43" class="aligncenter size-medium wp-image-1457" /></li>
+![afterfindreplacepowershellandsaveasutf81](/img/2018/06/afterfindreplacepowershellandsaveasutf81.png)
 * Unicode characters are broken :-(
-</ol>
 
 ### So...what is happening?
 

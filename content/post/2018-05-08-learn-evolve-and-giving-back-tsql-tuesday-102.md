@@ -12,15 +12,15 @@ tags:
 - SQLServer
 - syndicated
 - TSQL2sDay
-title: 'Learn, Evolve and Giving Back - TSQL Tuesday #102'
+title: "Learn, Evolve and Giving Back - TSQL Tuesday 102"
 ---
-<a href="https://scribnasium.com/2018/05/giving-back-t-sql-tuesday-102-invite/"><img src="https://claudioessilva.github.io/img/2017/09/tsql2sday.jpg" alt="https://scribnasium.com/2018/05/giving-back-t-sql-tuesday-102-invite/" width="244" height="244" class="aligncenter size-full wp-image-599" /></a>
+![tsql2sday](/img/2017/09/tsql2sday.jpg)
 
 This month’s T-SQL Tuesday is brought to us by Riley Major‏ ([b](https://scribnasium.com) \| [t](https://twitter.com/RileyMajor)) and he encourage us to talk about how we are helping by giving back to our community.
 
 This is the 102nd edition of [TSQL2sDay](http://tsqltuesday.com/) - an Adam Machanic’s ([b](http://dataeducation.com/blog/) \| [t](https://twitter.com/AdamMachanic)) brainchild.
 
-## Let's go back for a moment:
+## "Let's go back for a moment:"
 
 I have heard about SQL Server the first time back in 2003 when I was on the high school and I had a database class. Was a slow start and, at that moment I haven't imagined that would follow that path professionally.
 
@@ -30,10 +30,11 @@ At that time I didn't even know that a community exists, but when I went to prof
 That was when I started using more and more the internet for study, found some blogs posts and the [SQLServerCentral](http://www.sqlservercentral.com/). So I can say that I started consuming the knowledge from the community back on 2006.
 
 A year later I started my intership in what was my first IT job. At the time I needed to work with a bit of everything but more focused on SQL Server development. The guy that was on my place before I arrived took a manager position but he was a big lover of SQL Server and I learnt a LOT from him! At the time he subscribed the [SQLServer Magazine](http://www.itprotoday.com/sql-server-pro-digital-magazine-archives) in paper! (later the name changed for SQLServer Pro).
-[caption id="attachment_1404" align="aligncenter" width="342"]![sqlservermagazine](/img/2018/05/sqlservermagazine.png?w=342) SQLServer Magazine<br />October 2007[/caption]
+[caption id="attachment_1404" align="aligncenter" width="342"]![sqlservermagazine](/img/2018/05/sqlservermagazine.png?w=342) SQLServer Magazine - October 2007
+
 You can found the maganize archives in PDF format [here](http://www.itprotoday.com/sql-server-pro-digital-magazine-archives).
 
-That was when I start knewing who people like [Itzik Ben-Gan</a> and <a href="https://twitter.com/sqlqueen">Kalen Delaney](https://twitter.com/ItzikBenGan) were!
+That was when I start knewing who people like [Itzik Ben-Gan](https://twitter.com/ItzikBenGan) and [Kalen Delaney](https://twitter.com/sqlqueen) were!
 
 ### Evolve
 
@@ -61,7 +62,7 @@ Some contribution points:
 ## What you will do?
 
 As you can see I didn't born inside the comunity, I have grown because of it and decided to start giving back less then 3 years ago.
-It hurst? Nothing!
+It hurts? Nothing!
 It helps? A lot!
 Help me be a better professional? For sure, I have learned so much from many different sources and every day is a new learning day!
 

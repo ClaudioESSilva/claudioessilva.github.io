@@ -17,7 +17,7 @@ Starting on 19th of July and during 3 days the [Tuga IT 2018 Summer Edition](htt
 
 This edition will have:
 
-<blockquote>4 full-day workshops
+> 4 full-day workshops
 38 breakout sessions (1 hour)
 5 deep dive sessions (2 hours)
 That is over 72 hours of content delivered by 44 awesome speakers, many of them recognized industry experts.

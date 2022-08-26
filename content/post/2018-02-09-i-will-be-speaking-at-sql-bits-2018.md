@@ -27,4 +27,4 @@ https://twitter.com/SQLBits/status/960889124415791104
 If you want to know more about the conference you can follow [@sqlbits on Twitter](https://twitter.com/SQLBits) or go to [sqlbits website](http://sqlbits.com).
 
 See you in London!
-<a href="https://claudioessilva.github.io/img/2018/02/sqlbits2018_magic.jpg"><img class="aligncenter size-large wp-image-1194" src="https://claudioessilva.github.io/img/2018/02/sqlbits2018_magic.jpg?w=656" alt="" width="656" height="463" /></a>
+![sqlbits2018_magic](/img/2018/02/sqlbits2018_magic.jpg)

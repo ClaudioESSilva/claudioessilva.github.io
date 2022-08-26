@@ -16,7 +16,7 @@ I’m currently working on a SQL code migration from [Firebird](https://firebird
 
 The error message is the following:
 
-<blockquote>Msg 206, Level 16, State 2, Line 4
+> Msg 206, Level 16, State 2, Line 4
 Operand type clash: datetime2 is incompatible with int
 
 This ringed the bell right away! Somewhere on the code someone was trying to do an arithmetic calculation without using the proper function.
@@ -42,7 +42,7 @@ FROM dbo.Orders
 WHERE OrderDate < @vOrderDate - 1
 ```
 
-<blockquote>Msg 206, Level 16, State 2, Line 20
+> Msg 206, Level 16, State 2, Line 20
 Operand type clash: datetime2 is incompatible with int
 
 ## But it was working!?
@@ -61,6 +61,7 @@ To solve this, we need to convert the
 ``` sql
 @vOrderDate  -1
 ```
+
 to
 
 ``` sql
@@ -83,6 +84,6 @@ NOTE: [DATEADD](https://docs.microsoft.com/en-us/sql/t-sql/functions/dateadd-tra
 ## Wrap up
 
 Are you thinking about changing your `DATETIME` columns to `DATETIME2`? Or are you just beginning to use it in your projects?
-Documentation encourages you to do so (https://docs.microsoft.com/en-us/sql/t-sql/data-types/datetime-transact-sql) but as you could see from this post, you need to pay attention and do the proper testing and T-SQL code revision.
+[Documentation encourages you to do so](https://docs.microsoft.com/en-us/sql/t-sql/data-types/datetime-transact-sql) but as you could see from this post, you need to pay attention and do the proper testing and T-SQL code revision.
 
 Thanks for reading.

@@ -50,7 +50,7 @@ It turns out that even if the person has said that all the jobs' owners were cha
 
 We found a job that stopped running on the 'View History' of the job we could see the following message
 
-<blockquote>'EXECUTE AS LOGIN' failed for the requested login 'domain\username'.  The step failed.
+> 'EXECUTE AS LOGIN' failed for the requested login 'domain\username'.  The step failed.
 
 <img src="https://claudioessilvaeu.files.wordpress.com/2020/09/sqlserveragent_job_errormessage-1.png" alt="" width="501" height="485" class="aligncenter size-full wp-image-2411" />
 
@@ -63,7 +63,7 @@ If you have a set of checks in place running regularly using for example [dbache
 However here I will be focusing on how we can use [dbatools](https://dbatools.io) PowerShell module as in this case we are talking about one ad-hoc check.
 dbatools has a command called [Find-DbaUserObject](https://docs.dbatools.io/#Find-DbaUserObject) which:
 
-<blockquote>Searches SQL Server to find user-owned objects (i.e. not dbo or sa) or for any object owned by a specific user specified by the Pattern parameter.
+> Searches SQL Server to find user-owned objects (i.e. not dbo or sa) or for any object owned by a specific user specified by the Pattern parameter.
 
 This is even better because we can use a list of instances and check all of them with just one command.
 
@@ -71,7 +71,7 @@ This is even better because we can use a list of instances and check all of them
 
 From the command description we can find the following:
 
-<blockquote>Looks at the below list of objects to see if they are either owned by a user or a specific user (using the parameter -Pattern)
+> Looks at the below list of objects to see if they are either owned by a user or a specific user (using the parameter -Pattern)
 
 - Database Owner
 - Agent Job Owner

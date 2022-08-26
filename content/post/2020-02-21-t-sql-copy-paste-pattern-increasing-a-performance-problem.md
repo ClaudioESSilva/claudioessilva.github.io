@@ -31,7 +31,7 @@ I had some luck and saw one with a pattern that I knew clearly that could be rew
 
 If you don't know what `sp_WhoIsActive` (<a href="http://dataeducation.com/about/" rel="noopener" target="_blank">Adam Machanic</a>'s creation) stored procedure is, let me copy the short definition from the <a href="http://whoisactive.com/" rel="noopener" target="_blank">whoisactive.com</a> website:
 
-<blockquote>sp_whoisactive is a comprehensive activity monitoring stored procedure that works for all versions of SQL Server from 2005 through 2017.
+> sp_whoisactive is a comprehensive activity monitoring stored procedure that works for all versions of SQL Server from 2005 through 2017.
 
 You can download it from the <a href="http://whoisactive.com/downloads" rel="noopener" target="_blank">download</a> page or if you use <a href="https://dbatools.io" rel="noopener" target="_blank">dbatools</a> you can use the command that will download it for you and install it. You can read more about it in my previous blog post <a href="https://claudioessilva.eu/2017/12/05/new-version-of-sp_whoisactive-v11-20-is-available-deployed-on-123-instances-in-less-than-1-minute/" rel="noopener" target="_blank">New Version Of sp_WhoIsActive (V11.20) Is Available – Deployed On 123 Instances In Less Than 1 Minute</a>
 
@@ -144,7 +144,7 @@ Also, the number of logical reads for the table dive-bombed!
 
 Before (optimizer used a Worktable):
 
-<blockquote>Table 'Worktable'. Scan count 924230, logical reads 1045662012
+> Table 'Worktable'. Scan count 924230, logical reads 1045662012
 ...
 Table 'table3'. Scan count 6, logical reads 4967238
 ...
@@ -153,7 +153,7 @@ SQL Server Execution Times:
 
 After:
 
-<blockquote>Table 'table3'. Scan count 9, logical reads 829734,
+> Table 'table3'. Scan count 9, logical reads 829734,
 ...
 SQL Server Execution Times:
    CPU time = 86345 ms,  elapsed time = 26074 ms.
@@ -164,7 +164,7 @@ This means that on the whole process we have saved 1h!
 
 As said in my title and initial disclaimer, this smells like a copy &amp; paste pattern. Maybe something similar to:
 
-<blockquote>Client: "Hey can we have another validation for a different value?"
+> Client: "Hey can we have another validation for a different value?"
 Dev: "Sure, it's pretty easy to do so"
 Also Dev: *copy &amp; paste existing OR EXISTS () change parameter, commit to source control and push it into QA test (with few data) and it's good to go into PROD.*
 Client: "Thanks it's working just a little bit slower but today things are slower in general"

@@ -25,11 +25,10 @@ In this post, I will add one step and save the output on a GIT repository.
 * You need a GIT repository
 * GIT tools installed on the server where you are running the script so you can commit your changes
 * dbatools
-* A list or a place to get all instances that you want to run the export 
+* A list or a place to get all instances that you want to run the export
 
 ## Preparation
 
-## Preparation
 ### Git repository
 
 Clone your repository to a location where dbatools can write to.
@@ -84,7 +83,7 @@ Maybe, maybe not. It's up to you. Here I will share a version where clear-text p
 
 Introducing the `-ExcludePassword` parameter, as mentioned on the documentation (don't forget to use and abuse `Get-Help`):
 
-<blockquote>If this switch is used, the scripts will not include passwords for Credentials, LinkedServers or Logins.
+> If this switch is used, the scripts will not include passwords for Credentials, LinkedServers or Logins.
 
 Just add `-ExcludePassword` like this:
 
@@ -93,16 +92,18 @@ Export-DbaInstance -SqlInstance "devInstance" -Path "D:\temp" -ExcludePassword
 ```
 
 If you run with this switch and if open the scripts, you will see that for:
-- Logins: No hashed password is present
-- Credentials &amp; LinkedServers will have their clear text passwords replaced by 'EnterStrongPasswordHere' and '#####' respectively.
+
+* Logins: No hashed password is present
+* Credentials &amp; LinkedServers will have their clear text passwords replaced by 'EnterStrongPasswordHere' and '#####' respectively.
 
 ## GIT commands I'm using
 
 Here are the 4 git commands that I'm using:
- - `git pull` -> To make sure I have the most recent version of the repository on my local folder
- - `git add .` -> Will stage all changes for the next commit
- - `git commit -m"some message"` -> Will do the commit of the changes with a specific message
- - `git push` -> Will push the changes to the central repository
+
+* `git pull` -> To make sure I have the most recent version of the repository on my local folder
+* `git add .` -> Will stage all changes for the next commit
+* `git commit -m"some message"` -> Will do the commit of the changes with a specific message
+* `git push` -> Will push the changes to the central repository
 
 The first one is run before triggering the `Export-DbaInstance` and the rest only after all the other steps finish.
 
@@ -139,6 +140,7 @@ Using the same logic, we remove the suffix "-date" from the folder's name.
 
 Get-ChildItem -Path $tempPath | Foreach-Object {Rename-Item -Path $_.FullName -NewName $_.Name.Substring(0, $_.Name.LastIndexOf('-')) -Force}
 ```
+
 In this case, I have decided to use the `Substring` method along with the `LastIndexOf('-')` because the '-' char is a valid character to use as an instance name.
 
 NOTE: We can use the `-split` method anyway but we will need then to join all the occurrences excluding the last one. This way you see two different ways to accomplish the same result.
@@ -256,7 +258,7 @@ git push
 
 ### Example of the output for one of the instances
 
-<img src="https://claudioessilva.github.io/img/2020/05/exportdbainstance_togit_folderout.png" alt="" width="447" height="360" class="aligncenter size-full wp-image-2092" />
+![exportdbainstance_togit_folderout](/img/2020/05/exportdbainstance_togit_folderout.png)
 
 ## Summary
 

@@ -18,7 +18,7 @@ I've received an alert saying that a specific database could not allocate a new 
 
 The message that you will see on the SQL Server Error log is:
 
-<blockquote>Could not allocate a new page for database '' because of insufficient disk space in filegroup ''. Create the necessary space by dropping objects in the filegroup, adding additional files to the filegroup, or setting autogrowth on for existing files in the filegroup.
+> Could not allocate a new page for database '' because of insufficient disk space in filegroup ''. Create the necessary space by dropping objects in the filegroup, adding additional files to the filegroup, or setting autogrowth on for existing files in the filegroup.
 
 I didn't know the database structure or what is saved there, so I picked up a script from my toolbelt that shreds all indexes from all table. Just some information like number of rows and space that it is occupying. I have sorted by occupying space in descending order, look what I found...
 
@@ -28,12 +28,11 @@ So...my script has a bug? :-) No, it hasn't!
 
 ## The joy of heaps
 
-## The joy of heaps
-### First, the definition:
+### First, the definition
 
-<blockquote>A heap is a table without a clustered index. One or more nonclustered indexes can be created on tables stored as a heap. Data is stored in the heap without specifying an order. Usually data is initially stored in the order in which is the rows are inserted into the table, but the Database Engine can move data around in the heap to store the rows efficiently; so the data order cannot be predicted. To guarantee the order of rows returned from a heap, you must use the ORDER BY clause. To specify the order for storage of the rows, create a clustered index on the table, so that the table is not a heap.
+> A heap is a table without a clustered index. One or more nonclustered indexes can be created on tables stored as a heap. Data is stored in the heap without specifying an order. Usually data is initially stored in the order in which is the rows are inserted into the table, but the Database Engine can move data around in the heap to store the rows efficiently; so the data order cannot be predicted. To guarantee the order of rows returned from a heap, you must use the ORDER BY clause. To specify the order for storage of the rows, create a clustered index on the table, so that the table is not a heap.
 
-Source: <a href="https://docs.microsoft.com/en-us/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes" rel="noopener" target="_blank">MS Docs - Heaps (Tables without Clustered Indexes)</a>
+Source: [Tables without Clustered Indexes - MS Docs - Heaps](https://docs.microsoft.com/en-us/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes)
 
 Until now, everything seems normal, it is just a table with unordered data.
 
@@ -51,9 +50,9 @@ Do you have a clue? Yup, `index_id = 0`. That means that our table does not have
 
 The answer is...on the documentation :-)
 
-<blockquote>When rows are deleted from a heap the Database Engine may use row or page locking for the operation. As a result, the pages made empty by the delete operation remain allocated to the heap. When empty pages are not deallocated, the associated space cannot be reused by other objects in the database.
+> When rows are deleted from a heap the Database Engine may use row or page locking for the operation. As a result, the pages made empty by the delete operation remain allocated to the heap. When empty pages are not deallocated, the associated space cannot be reused by other objects in the database.
 
-source: <a href="https://docs.microsoft.com/en-us/sql/t-sql/statements/delete-transact-sql" rel="noopener" target="_blank">DELETE (Transact-SQL) - Locking behavior</a>
+source: [DELETE (Transact-SQL) - Locking behavior](https://docs.microsoft.com/en-us/sql/t-sql/statements/delete-transact-sql)
 
 That explains it!
 
@@ -61,7 +60,8 @@ That explains it!
 
 On the same documentation page we can read the following:
 
-<blockquote>To delete rows in a heap and deallocate pages, use one of the following methods.
+> To delete rows in a heap and deallocate pages, use one of the following methods.
+
 * Specify the TABLOCK hint in the DELETE statement. Using the TABLOCK hint causes the delete operation to take an exclusive lock on the table instead of a row or page lock. This allows the pages to be deallocated. For more information about the TABLOCK hint, see Table Hints (Transact-SQL).
 * Use TRUNCATE TABLE if all rows are to be deleted from the table.
 * Create a clustered index on the heap before deleting the rows. You can drop the clustered index after the rows are deleted. This method is more time consuming than the previous methods and uses more temporary resources.

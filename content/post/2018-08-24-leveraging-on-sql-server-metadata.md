@@ -48,7 +48,7 @@ Just a couple of examples to ilustrate the differences:
 Firebird has the `similar` function which translate to `LIKE '%%'` on T-SQL
 Other example is the `SUBSTRING` function which has the following structure `SUBSTRING([field] from [start_position] for [number of chars])` which, in order to translate for T-SQL, we just need to replace the "from" and "for" words by a comma (",").
 
-<blockquote>Everything was going well, work was progressing at a good pace until...
+> Everything was going well, work was progressing at a good pace until...
 
 ### The pain strikes back
 
@@ -97,7 +97,7 @@ AS
 
 Yes that much work..on almost 300 triggers! Feeling the pain, right?
 
-<h1>Here is where the SQL Server metadata joins the party!</h1>
+## Here is where the SQL Server metadata joins the party!
 
 This is just an example, but with it you can imagine the others :-)
 
@@ -153,7 +153,8 @@ Let's say I have a `Customers` table with 3 columns `ID, NAME, COMPANY_NAME` the
 ![output_triggers](/img/2018/08/output_triggers.png)
 
 Example of the full string for the INSTEAD OF INSERT trigger:
-```
+
+``` powershell
 '(FOR )(\bCustomers\b)((.|\r\n){1,})(\bACTIVE BEFORE INSERT POSITION 0\b)(\r\n)(AS)(\r\n)(BEGIN)(\r\n)((.|\n){1,})(gen_id\()(\w{1,})((.|\r\n)*?)(?=end;)(.*)' = "ON `$2`$3INSTEAD OF INSERT`$3`$7`$8`$9`$10`$11`$12 `$3INSERT INTO `$2 (  ID, NAME, COMPANY_NAME ) `$3SELECT NEXT VALUE FOR dbo.`$14,  ID, NAME, COMPANY_NAME FROM INSERTED `$3 --`$13`$14`$15`$16`$17"`
 ```
 

@@ -49,7 +49,7 @@ $namespace = $Outlook.GetNameSpace("MAPI")
 $namespace.Logon($null, $null, $false, $true);
 ```
 
-<blockquote>Note: To do this you need to be running your PowerShell session with the same privileges. If you are running Outlook as a non-administrator (and you should!) you need to open a PowerShell session with the same privilege level.
+> Note: To do this you need to be running your PowerShell session with the same privileges. If you are running Outlook as a non-administrator (and you should!) you need to open a PowerShell session with the same privilege level.
 
 Then, we need to create a new Mail item
 
@@ -61,7 +61,7 @@ $Mail = $Outlook.CreateItem(0)
 $Mail.GetInspector.Activate()
 ```
 
-<blockquote>Note: The second line (`Activate()`) is being used because the mail will not be sent automatically, it will be a manual process after the colleague checks a couple of things. This way, activate will bring the focus to the window and this way we can see the magic happening!
+> Note: The second line (`Activate()`) is being used because the mail will not be sent automatically, it will be a manual process after the colleague checks a couple of things. This way, activate will bring the focus to the window and this way we can see the magic happening!
 
 To set the To and CC (which is optional) emails is easy as setting the properties' values.
 
@@ -86,6 +86,7 @@ To sign and/or encrypt the email we need to set like this:
 
 $Mail.PropertyAccessor.SetProperty("http://schemas.microsoft.com/mapi/proptag/0x6E010003", 0x03)
 ```
+
 The possible values are:
 
 0x00 - Message has no security
@@ -93,7 +94,7 @@ The possible values are:
 0x02 - Message is signed
 0x03 - Message is signed and encrypted
 
-#### Keeping the signature
+### Keeping the signature
 
 After opening the message we can get the current HTML of the body which will include the default signature (with images, links, etc)
 
@@ -119,7 +120,7 @@ Using the `SendUsingAccount` property I tried to set the email address that I wa
 ### Using `Get-Member` to know more
 
 I took a closer look and using the `Get-Member` I was able to be sure what data type this property accepts.
-<img src="https://claudioessilva.github.io/img/2020/02/sendingusingaccount_datatype.png" alt="" width="515" height="156" class="aligncenter size-full wp-image-1908" />
+![sendingusingaccount_datatype](/img/2020/02/sendingusingaccount_datatype.png)
 
 As we can see it expects an object of type `Account`.
 
@@ -134,7 +135,7 @@ To get the account as an `account` type I have used the following code where the
 $account = $outlook.Session.Accounts.Item($EmailFrom)
 ```
 
-<blockquote>NOTE: You need to have this email address configured on your Outlook, otherwise this will not work.
+> NOTE: You need to have this email address configured on your Outlook, otherwise this will not work.
 
 With our `$account` variable set let's assign it to our `SendUsingAccount` mail object property.
 
@@ -174,11 +175,11 @@ And finally, it worked!
 
 ### Conclusion
 
-In this case we are using <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/reflection" rel="noopener" target="_blank">reflection</a> (by calling InvokeMember()) .Normally we use this, for example, when we want to change private properties of an object. I’m not sure in this case why the “normal” way didn’t work but, at least, this can be used as a workaround for the future in case other similar cases appear.
+In this case we are using [reflection](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/reflection) (by calling InvokeMember()) .Normally we use this, for example, when we want to change private properties of an object. I’m not sure in this case why the “normal” way didn’t work but, at least, this can be used as a workaround for the future in case other similar cases appear.
 
 ### The whole function code
 
-You can get the whole function code from <a href="https://gist.github.com/ClaudioESSilva/dfaf1de2e5da88fca1e59f70edd7f4ae" rel="noopener" target="_blank">here</a>
+You can get the whole function code from [here](https://gist.github.com/ClaudioESSilva/dfaf1de2e5da88fca1e59f70edd7f4ae)
 
 ### A final curiosity
 

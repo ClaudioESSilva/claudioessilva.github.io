@@ -10,7 +10,7 @@ tags:
 title: 'Triggers: The hidden logic that will strike back - TSQL Tuesday #106'
 ---
 
-<a href="https://voiceofthedba.com/2018/09/03/t-sql-tuesday-106-trigger-headaches-or-happiness//"><img src="https://claudioessilva.github.io/img/2017/09/tsql2sday.jpg" alt="https://voiceofthedba.com/2018/09/03/t-sql-tuesday-106-trigger-headaches-or-happiness/" width="244" height="244" class="aligncenter size-full wp-image-599" /></a>
+[![(TSQL2sDay)](/img/2017/09/tsql2sday.jpg)](https://voiceofthedba.com/2018/09/03/t-sql-tuesday-106-trigger-headaches-or-happiness/)
 
 This month’s T-SQL Tuesday is brought by Steve Jones ([b](https://voiceofthedba.com) \| [t](https://twitter.com/way0utwest)) and he wants to know if triggers causes headaches or happiness to us.
 
@@ -23,7 +23,7 @@ This is the 106nd edition of [TSQL2sDay](http://tsqltuesday.com/) - an Adam Mach
 
 From my experience triggers are objects that we "tend" to forget are there, and only when we hit a problem and, sometimes, after digging into the problem we end by saying something like
 
-<blockquote>wait..but why is the value different from what I have used?! Ohh...maybe the table has some triggers.
+> wait..but why is the value different from what I have used?! Ohh...maybe the table has some triggers.
 
 Yes, it has already been uttered by me before. For me, triggers are a hole of possible business logic written and forgotten...forever.
 Let me just clarify the meaning of "forever" here - until you hit a problem or you need to rewrite some logic and the result is not what you expect. Again, because the code is 'hidden'.

@@ -109,21 +109,20 @@ Definitely something is broken.
 
 To fix this problem we need to reinstall the SQL Server WMI provider. To do this we need to run 2 commands. (I found this in [this post](http://www.chongchonggou.com/g_852406064.html))
 
-<ol>
-    <li>Install classes:
+* Install classes:
 Go to *C:\Program Files (x86)\Microsoft SQL Server\{Version 110 is SQL2012}\Shared*
 There you can find a file with *mof* extension. The file name *sqlmgmproviderxpsp2up.mof*
 Now on the command line run the following command:
 **mofcomp sqlmgmproviderxpsp2up.mof**
 The output:
 ![output_mofcomp_mof](/img/2017/09/output_mofcomp_mof.png)</li>
-    <li>Install localization info:
+
+* Install localization info:
 Navigate to the Shared sub-folder that indicates the locale of your SQL Server installation. In my case is the 1033 (english-US).
-Inside that folder you will find a file with the *.mfl* extension. The file name is *sqlmgmprovider.mfl.*** **On the command line run the following command:
+Inside that folder you will find a file with the *.mfl* extension. The file name is *sqlmgmprovider.mfl.* On the command line run the following command:
 **mofcomp sqlmgmprovider.mfl**
 The output:
 ![output_mofcomp_mfl](/img/2017/09/output_mofcomp_mfl.png)</li>
-</ol>
 
 With these 2 actions, we are done.
 
