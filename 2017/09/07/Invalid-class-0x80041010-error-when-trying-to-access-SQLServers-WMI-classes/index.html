@@ -35,7 +35,18 @@ At line:1 char:1
 At line:1 char:5
 + gwmi &lt;&lt;&lt;&lt; -Namespace &ldquo;root\Microsoft\SQLServer\ComputerManagement10&rdquo; -Query &ldquo;SELECT * FROM SqlService&rdquo;<br>+ CategoryInfo : InvalidOperation: (:) [Get-WmiObject], ManagementException<br>+ FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiObjectCommand</p></blockquote><p>I remembered, from past experiences, that SQL Server Configuration manager relies on WMI classes to show the information, so I tried to open it and I got the following error message:
 <a href=https://claudioessilva.github.io/img/2017/09/sqlserverconfigurationmanager_invalidclass_error.png>sqlserverconfigurationmanager_invalidclass_error</a></p><blockquote><p>Cannot connect to WMI provider. You do not have permission or the server in unreachable. Note that you can only manage SQL Server 2005 and later servers with SQL Server Configuration Manager.
-<strong>Invalid class [0x80041010]</strong></p></blockquote><p>Again, that 2005 callout, but&mldr;did you recognize the last sentence? It&rsquo;s the same error I was getting with Get-CIMInstance remotely and Get-WmiObject locally.</p><p>Definitely something is broken.</p><h2 id=lets-fix-it>&ldquo;Let&rsquo;s fix it!&rdquo;</h2><p>To fix this problem we need to reinstall the SQL Server WMI provider. To do this we need to run 2 commands. (I found this in <a href=http://www.chongchonggou.com/g_852406064.html>this post</a>)</p><p>With these 2 actions, we are done.</p><p>Now we can try to open the SQL Server Configuration Manager again and it opens like expected! Without error messages.</p><p>Let&rsquo;s go back and rerun our commands.
+<strong>Invalid class [0x80041010]</strong></p></blockquote><p>Again, that 2005 callout, but&mldr;did you recognize the last sentence? It&rsquo;s the same error I was getting with Get-CIMInstance remotely and Get-WmiObject locally.</p><p>Definitely something is broken.</p><h2 id=lets-fix-it>&ldquo;Let&rsquo;s fix it!&rdquo;</h2><p>To fix this problem we need to reinstall the SQL Server WMI provider. To do this we need to run 2 commands. (I found this in <a href=http://www.chongchonggou.com/g_852406064.html>this post</a>)</p><ul><li><p>Install classes:
+Go to <em>C:\Program Files (x86)\Microsoft SQL Server{Version 110 is SQL2012}\Shared</em>
+There you can find a file with <em>mof</em> extension. The file name <em>sqlmgmproviderxpsp2up.mof</em>
+Now on the command line run the following command:
+<strong>mofcomp sqlmgmproviderxpsp2up.mof</strong>
+The output:
+<img src=/img/2017/09/output_mofcomp_mof.png alt=output_mofcomp_mof></p></li><li><p>Install localization info:
+Navigate to the Shared sub-folder that indicates the locale of your SQL Server installation. In my case is the 1033 (english-US).
+Inside that folder you will find a file with the <em>.mfl</em> extension. The file name is <em>sqlmgmprovider.mfl.</em> On the command line run the following command:
+<strong>mofcomp sqlmgmprovider.mfl</strong>
+The output:
+<img src=/img/2017/09/output_mofcomp_mfl.png alt=output_mofcomp_mfl></p></li></ul><p>With these 2 actions, we are done.</p><p>Now we can try to open the SQL Server Configuration Manager again and it opens like expected! Without error messages.</p><p>Let&rsquo;s go back and rerun our commands.
 On the host:
 <img src="/img/2017/09/output_gwmi_locally_ok.png?w=656" alt=output_gwmi_locally_ok></p><p>Remotely:
 <img src="/img/2017/09/output_getciminstance_remotely_ok.png?w=656" alt=output_getciminstance_remotely_ok></p><p>And from dbatools Get-DbaSqlService command:

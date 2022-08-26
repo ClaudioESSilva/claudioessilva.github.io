@@ -2,5 +2,6 @@
 I still hear a lot of people suggesting CTEs because they think it works like a temporary table (you populate the table and then it can be/is reutilized).
 It doesn&amp;rsquo;t!
 From de documentation:
+Specifies a temporary named result set, known as a common table expression (CTE).
 Maybe they are focusing on the &amp;ldquo;temporary&amp;rdquo; word.
-Using the CTE two times will perform two different executions! Don&amp;rsquo;t believe me? See the next example!</description></item></channel></rss>
+Using the CTE two times will perform two different executions!</description></item></channel></rss>

@@ -95,7 +95,6 @@ hasCoverMetaOut"><article class=post id=top><div class="post-header main-content
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e>#Region Get data</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#Region Get data</span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Get all instance logins</span>
 </span></span><span style=display:flex><span>$Logins = Get-DbaLogin -SqlInstance $SQLInstance -ExcludeLogin $excludeLogin -ExcludeFilter $excludeLoginFilter
 </span></span><span style=display:flex><span>
@@ -109,16 +108,11 @@ hasCoverMetaOut"><article class=post id=top><div class="post-header main-content
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e>#EndRegion</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#EndRegion</span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Remove the report file if exists</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>Remove-Item -Path $excelFilepath -Force -ErrorAction SilentlyContinue
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e>#Region Export Data to Excel</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#Region Export Data to Excel</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Export data to Excel#Region Export Data to Excel</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Export data to Excel</span>
 </span></span><span style=display:flex><span>$excelLoginSplatting = @{
@@ -141,7 +135,7 @@ hasCoverMetaOut"><article class=post id=top><div class="post-header main-content
 </span></span><span style=display:flex><span>    FreezeTopRow = $freezeTopRow
 </span></span><span style=display:flex><span>    AutoSize = $autoSize
 </span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span>$instanceRoleMembers | Export-Excel @excelinstanceRoleMembersOutput
+</span></span><span style=display:flex><span>$instanceRoleMembers | Select-Object <span style=color:#e6db74>&#34;ComputerName&#34;</span>, <span style=color:#e6db74>&#34;InstanceName&#34;</span>, <span style=color:#e6db74>&#34;SqlInstance&#34;</span>, <span style=color:#e6db74>&#34;Role&#34;</span>, <span style=color:#e6db74>&#34;Name&#34;</span> | Export-Excel @excelinstanceRoleMembersOutput
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e>## Export database roles and its members</span>
 </span></span><span style=display:flex><span>
