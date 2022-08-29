@@ -67,7 +67,7 @@ As an example for the SQL docs, you have to choose a folder from the [Docs root]
 If you find any difficulty working with it let me know by writing a comment to this blog post.
 Let's say you want to do the same but for Azure - you need to change the URLs too. The script is currently pointing to 'SQL.sql-content' and for Azure is 'Azure.azure-documents'. The way I know this is by clicking on download PDF on one of the pages and read the URL from the PDF.
 
-## Wrap up:
+## Wrap up
 
 I have shown how you can download a copy of the documentation manually but also how to get all existing files for a specific topic.
 Also, I explained that this is **not** available for every Microsoft product. For example, [PowerShell docs](https://docs.microsoft.com/en-gb/powershell/scripting/powershell-scripting?view=powershell-5.1) don't have the link to download PDF file on the [docs.microsoft.com site](https://docs.microsoft.com/en-gb/powershell/scripting/powershell-scripting?view=powershell-5.1).

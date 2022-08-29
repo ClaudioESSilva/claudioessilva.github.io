@@ -45,13 +45,13 @@ In this blog post, I will write about the Power BI dashboards that we have creat
 
 #### Disclaimer
 
-<i>Here, at dbachecks team, we don't have BI gurus. This means, that what you are about to see come from our non-BI minds plus some research on the web to achieve the output we wanted.</i>
-<i>The main objective is to have something functional, that helps to make decisions and help to know where we should look next.</i>
-<i>That being said if you master Power BI, M query language, DAX or other stuff that we have used or can be used on this project and you found some archaic or a too much year 2000 way to do some stuff, let us know! We would love to follow best practices and improve the dashboards.</i>
+> Here, at dbachecks team, we don't have BI gurus. This means, that what you are about to see come from our non-BI minds plus some research on the web to achieve the output we wanted.
+> The main objective is to have something functional, that helps to make decisions and help to know where we should look next.
+> That being said if you master Power BI, M query language, DAX or other stuff that we have used or can be used on this project and you found some archaic or a too much year 2000 way to do some stuff, let us know! We would love to follow best practices and improve the dashboards.
 
 ### Why Power BI? The background...
 
-I started to work with Power BI after seeing a couple of sessions where it was and was not the main attraction. One of those sessions was from Rob Sewell ([b</a> \| <a href="https://twitter.com/sqldbawithbeard" target="_blank" rel="noopener">t](https://sqldbawithabeard.com)) where he was showing Pester and, to show the output, he has used Power BI desktop. This means that he is the principal "culprit" for this choice 🙂. If, in addition to that, we join the ease of import the JSON (and other) files, the usefulness and the eye-candy dashboards all together made the decision easier.
+I started to work with Power BI after seeing a couple of sessions where it was and was not the main attraction. One of those sessions was from Rob Sewell ([b](https://sqldbawithabeard.com) \| [t](https://twitter.com/sqldbawithbeard)) where he was showing Pester and, to show the output, he has used Power BI desktop. This means that he is the principal "culprit" for this choice 🙂. If, in addition to that, we join the ease of import the JSON (and other) files, the usefulness and the eye-candy dashboards all together made the decision easier.
 With this in mind, I picked the initial Power BI from Rob and started digging on it and make some changes.
 
 Note: If your tool of choice is not Power BI or you just feel more comfortable using another tool to work with JSON files, please share your dashboards with us. Write about it and share with the community.
@@ -67,7 +67,7 @@ For a more pleasant and smooth experience, we recommend that you update your Pow
 Nowadays, Power BI's team releases a new version every month. Each new version brings new features and improvements. Because we may be using the most recent version of Power BI (desktop) to take advantage of some of those, we also encourage you to use the most recent version.
 You can download it from [the official Power BI website](https://powerbi.microsoft.com/en-us/desktop/).
 
-Note: If you try to open a Power BI file saved on a more recent version than the one you are using you <u>may</u> see an error message like:
+Note: If you try to open a Power BI file saved on a more recent version than the one you are using you _may_ see an error message like:
 
 ![wrong_powerbi_version1](https://claudioessilva.github.io/img/2018/02/wrong_powerbi_version1.png)
 

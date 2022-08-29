@@ -12,7 +12,7 @@ tags:
 title: "TSQL Tuesday 127 - Non SQL Tips and Tricks - Windows"
 ---
 This month’s (#127) T-SQL Tuesday is brought by [B](https://sqlstudies.com/) \| [T](https://twitter.com/sqlstudent144)) and he asked about Non SQL Tips and tricks.
-<img src="https://claudioessilva.github.io/img/2017/09/tsql2sday.jpg" alt="https://sqlstudies.com/2020/06/02/tsql-tuesday-127-invite-non-sql-tips-and-tricks/" width="244" height="244" class="aligncenter size-full wp-image-599" />
+[![(TSQL2sDay)](/img/2017/09/tsql2sday.jpg)](https://sqlstudies.com/2020/06/02/tsql-tuesday-127-invite-non-sql-tips-and-tricks/)
 
 As a Windows user I know there are lots of shortcuts and small hacks, that I love, which make my life much easier!
 Here is my small contribution:
@@ -28,7 +28,7 @@ Here is my small contribution:
 ### Open "Add or Remove programs"
 
 A way to open the "Add or Remove programs" menu quicker, you can `SHIFT + DEL` on the shortcut (example: Docker Desktop) on desktop and the prompt popup will have there a link to this option.
-<img src="https://claudioessilva.github.io/img/2020/06/addremoveprogramshortcut.png" alt="" width="490" height="312" class="aligncenter size-full wp-image-2166" />
+![addremoveprogramshortcut](/img/2019/06/addremoveprogramshortcut.png)
 
 #### The ones I use without thinking
 
@@ -40,7 +40,7 @@ A way to open the "Add or Remove programs" menu quicker, you can `SHIFT + DEL` o
 * `CTRL + SHIFT + ESCAPE` -> System is unresponsive? Use this shortcut to open the task manager.
 * `ALT (+ SHIFT) + TAB` - Toggle between windows. With SHIFT toggle backwards. (You can also use, WIN + TAB)
 * `ALT + TAB + CLICK` -> ALT + TAB will open a list of open programs, instead move back/forward with TAB multiple times, you can use your mouse and click on the program you want.
-* `ALT + SHIFT` -> Change keyboard language. I can't say how many times this bite me before! Typing passwords and not working..why? Keyboard language/layout has changed how? Probably you pressed ALT + SHIFT. 
+* `ALT + SHIFT` -> Change keyboard language. I can't say how many times this bite me before! Typing passwords and not working..why? Keyboard language/layout has changed how? Probably you pressed ALT + SHIFT.
 
 ## Bonus - Search for PowerShell commands used before
 

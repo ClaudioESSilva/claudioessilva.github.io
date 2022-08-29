@@ -19,7 +19,7 @@ Install-Module -Name dbatools
 
 If you are doing this on the date of this blog post, you have just installed dbatools v1.0!
 
-After more than 200 commits, the work of more than 20 contributors and 20 days since the last published version, <a href="">dbatools v1.0</a> is live!
+After more than 200 commits, the work of more than 20 contributors and 20 days since the last published version, dbatools v1.0 is live!
 
 **To all of you that have contributed direct or indirectly to the module a big thank you!**
 
@@ -29,6 +29,7 @@ I'm sure this was one of the longest periods without releasing new versions sinc
 Bare minimum has been 1 release per week :-)
 
 But, there are good reasons for it! v1.0 brings
+
 - Standardised code - parameters names / output
 - Code cleanup
 - More tests
@@ -42,6 +43,7 @@ You can read the [v1.0 change log](https://github.com/sqlcollaborative/dbatools/
 From the 13 new commands, I decided to share the ones that make it possible to interact with Server/Database roles.
 
 Here is the list of the newest commands:
+
 - [Add-DbaDbRoleMember](https://dbatools.io/Add-DbaDbRoleMember)
 - [Get-DbaDbRole](https://dbatools.io/Get-DbaDbRole)
 - [New-DbaDbRole](https://dbatools.io/New-DbaDbRole)
@@ -138,11 +140,13 @@ Even though this is a milestone for us, we will keep working on the module bring
 
 We want to hear from you!
 If you have questions, suggestions, requests or you just want to give a shout out to the team you can:
+
 - [Request a feature or report a bug](http://dbatools.io/issues)
 - [Join #dbatools channel on Slack SQL Community](https://dbatools.io/slack/)
 - Find us on [Twitter - @psdbatools](https://twitter.com/psdbatools)
 
 Other useful links:
+
 - [Website](https://dbatools.io) and [blog](https://dbatools.io/blog/)
 - [documentation](https://docs.dbatools.io)
 

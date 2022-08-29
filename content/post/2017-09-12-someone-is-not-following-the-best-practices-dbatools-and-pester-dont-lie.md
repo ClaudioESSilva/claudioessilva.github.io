@@ -46,7 +46,7 @@ For those who don’t know, [dbatools is a PowerShell module](https://github.com
 
 In this post I will show some of those commands and how they can help us.
 
-Disclaimer: Obviously this **is not the only way</strong> to accomplish this request, but for me, is <strong>one excellent way!**
+Disclaimer: Obviously this **is not the only way** to accomplish this request, but for me, is **one excellent way!**
 
 ### Get-DbaDatabase command
 
@@ -92,7 +92,7 @@ This means that I can use a filter to find results with "auto" in its name:
 $databases | Get-Member | Where-Object Name -like *auto*
 ```
 
-Some cmdlets have parameters that allow us to filter information without the need to pipeing it so<ins>,</ins> the last line command could be written as:
+Some cmdlets have parameters that allow us to filter information without the need to pipeing it so, the last line command could be written as:
 
 ``` powershell
 $databases | Get-Member -Name *auto*
@@ -200,9 +200,9 @@ If is not ok (because I'm testing to "base\claudio.silva"), will retrieve someth
 
 As you can see, to do a test we need a:
 
-* <a href="https://github.com/pester/Pester/wiki/Describe" target="_blank">Describe block</a> (attention: the "{" must be on the same line!)
-* Inside it, the <a href="https://github.com/pester/Pester/wiki/Context" target="_blank">Context block</a>
-* And inside the Context block the validation that we want to do the <a href="https://github.com/pester/Pester/wiki/It" target="_blank">It</a> and <a href="https://github.com/pester/Pester/wiki/Should" target="_blank">Should</a>. 
+* [Describe block](https://github.com/pester/Pester/wiki/Describe) (attention: the "{" must be on the same line!)
+* Inside it, the [Context block](https://github.com/pester/Pester/wiki/Context)
+* And inside the Context block the validation that we want to do the [It](https://github.com/pester/Pester/wiki/It) and [Should](https://github.com/pester/Pester/wiki/Should)
 
 ### Let's join forces
 
@@ -298,8 +298,8 @@ Get the fails and email them (I will blog about it).
 
 * Check if you have access to the instance (great way to know quickly if some instance is stopped)
 * Check if your backups are running with success and within our policy time interval
-<li>Check if your datafiles are set to growth by fixed value and not percent. Also if that fixed value is more than X mb.
-* Want to [Test your last backup](https://sqldbawithabeard.com/2017/03/25/using-pester-with-dbatools-test-dbalastbackup/)? Or something completely different like Rob's made for [Pester for Presentations – Ensuring it goes ok](https://sqldbawithabeard.com/2017/05/16/pester-for-presentations-ensuring-it-goes-ok/)? 
+* Check if your datafiles are set to growth by fixed value and not percent. Also if that fixed value is more than X mb.
+* Want to [Test your last backup](https://sqldbawithabeard.com/2017/03/25/using-pester-with-dbatools-test-dbalastbackup/)? Or something completely different like Rob's made for [Pester for Presentations – Ensuring it goes ok](https://sqldbawithabeard.com/2017/05/16/pester-for-presentations-ensuring-it-goes-ok/)?
 
 You name it!
 

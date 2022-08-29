@@ -13,7 +13,7 @@ tags:
 - syndicated
 title: dbachecks - A different approach for an in-progress and incremental validation
 ---
-<a href="https://dbachecks.io/" rel="noopener" target="_blank">dbachecks</a> is a new PowerShell module from the SQL Server Community! For more information, read <a href="https://dbatools.io/introducing-dbachecks/" rel="noopener" target="_blank">introducing dbachecks</a>.
+[dbachecks](https://dbachecks.io/) is a new PowerShell module from the SQL Server Community! For more information, read [introducing dbachecks](https://dbatools.io/introducing-dbachecks/).
 
 If you don't know dbachecks, we have released a good amount of blog posts that will help you:
 [Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell](https://sqldbawithabeard.com/2018/02/22/announcing-dbachecks-configurable-powershell-validation-for-your-sql-instances/)

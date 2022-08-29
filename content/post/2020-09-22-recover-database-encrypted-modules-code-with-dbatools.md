@@ -163,6 +163,7 @@ Invoke-DbaDbDecryptObject -SqlInstance "instance1" -Database "WithEncryption"
 Back to my story, I knew that I would like to save a decrypted version of each object. This way we can edit the code and update the module or just to keep a readable copy of it (don't forget to keep it on your versioning tool).
 
 Ultimately, I have decided to do the following:
+
 1. Save a decrypted version of each object as a T-SQL script.
 2. Compile SQL scripts but without encryption on a different/same database
 
@@ -183,6 +184,7 @@ If you open any of these decrypted files, you will see that the `WITH ENCRYPTION
 ![decrypttwoobjects](/img/2020/09/afterdecrypt.png)
 
 If you want to replace all encrypted (Stored Procedures, for example) version by the decrypted version, you will need to:
+
 1. drop encrypted Stored Procedures objects
 2. Comment/remove the `WITH ENCRYPTION`
 3. Compile them on the database
@@ -225,4 +227,3 @@ This can be useful to recover lost code, make backups even for versioning it.
 Hopefully, it is nothing that you will need to use every single day! But, if that day arrives you will be prepared with another tool to make your life easier!
 
 Thanks for reading!
-decry

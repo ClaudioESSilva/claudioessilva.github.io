@@ -32,7 +32,7 @@ What if we want to lower down that 2 hours execution? Or the Hiram Fleitas' ([b]
 
 First let me remember that **this doesn't come for free**! I mean, if you set multiple checks in parallel (different sessions), you will consume more resources (CPU, memory, etc) on the machine where you are running them. Test the process and find a reasonable limit for it, otherwise this can become slower that the serial execution.
 
-#### This brought some new needs.
+#### This brought some new needs
 
 By default, dbachecks works with the values previously saved (for that we use `Set-DbcConfig` or the `Import-DbcCheck`). This means when we start a new session and the last session have changed any configuration, that configuration is the one that will be used in the new session.
 

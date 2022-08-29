@@ -178,7 +178,7 @@ For each of the tables that we define on our `$tables` list variable:
 * `Invoke-DbaQuery` will run the generated script on the destination database. At this point we have the same table structure on both sides. This will only run if the table does not exists on the destination database.
 * Finally we use our `Copy-DbaDbTableData` command to copy the records. Here I have choosen to truncate the table with `-Truncate` parameter and keep identity values by specifying the `-KeepIdentity`.
 
-### Special callout:
+### Special callout
 
 If these tables have relations between them, you need to specify the table list in a specific order to make sure that parent tables are created before child tables. Otherwise you will get, as expected, some errors.
 

@@ -16,7 +16,7 @@ Disclaimer: The title is my assumption because I saw it in the past happening th
 
 This blog post aims to make you remember something: something that is obvious to you, might not be obvious to others.
 
-## Scenario:
+## Scenario
 
 A client has a process which consists of a stored procedure that wraps a bunch of other stored procedures.
 The process runs for about 10 hours.
@@ -29,11 +29,11 @@ I had some luck and saw one with a pattern that I knew clearly that could be rew
 
 ## sp_WhoIsActive to the rescue
 
-If you don't know what `sp_WhoIsActive` (<a href="http://dataeducation.com/about/" rel="noopener" target="_blank">Adam Machanic</a>'s creation) stored procedure is, let me copy the short definition from the <a href="http://whoisactive.com/" rel="noopener" target="_blank">whoisactive.com</a> website:
+If you don't know what `sp_WhoIsActive` ([Adam Machanic's creation](http://dataeducation.com/about/)) stored procedure is, let me copy the short definition from the [whoisactive.com](http://whoisactive.com/) website:
 
 > sp_whoisactive is a comprehensive activity monitoring stored procedure that works for all versions of SQL Server from 2005 through 2017.
 
-You can download it from the <a href="http://whoisactive.com/downloads" rel="noopener" target="_blank">download</a> page or if you use <a href="https://dbatools.io" rel="noopener" target="_blank">dbatools</a> you can use the command that will download it for you and install it. You can read more about it in my previous blog post <a href="https://claudioessilva.eu/2017/12/05/new-version-of-sp_whoisactive-v11-20-is-available-deployed-on-123-instances-in-less-than-1-minute/" rel="noopener" target="_blank">New Version Of sp_WhoIsActive (V11.20) Is Available – Deployed On 123 Instances In Less Than 1 Minute</a>
+You can download it from the [download](http://whoisactive.com/downloads) page or if you use [dbatools](https://dbatools.io) you can use the command that will download it for you and install it. You can read more about it in my previous blog post [New Version Of sp_WhoIsActive (V11.20) Is Available – Deployed On 123 Instances In Less Than 1 Minute](https://claudioessilva.eu/2017/12/05/new-version-of-sp_whoisactive-v11-20-is-available-deployed-on-123-instances-in-less-than-1-minute/)
 
 ### Using `sp_WhoIsActive` to get the current running query
 
@@ -67,9 +67,9 @@ However this default call does not bring the execution plan, for that you need t
 EXEC sp_WhoIsActive @get_plans = 1
 ```
 
-I have copied the XML that contains the sqlplan to <a href="http://sentryone.com/plan-explorer" rel="noopener" target="_blank">SentryOne Plan Explorer</a> and this was what I saw
+I have copied the XML that contains the sqlplan to [SentryOne Plan Explorer](http://sentryone.com/plan-explorer) and this was what I saw
 
-<img src="https://claudioessilva.github.io/img/2020/02/executionplanpattern-1.jpg" alt="" width="460" height="513" class="aligncenter size-full wp-image-1938" />
+![executionplanpattern-1](/img/2020/02/executionplanpattern-1.jpg)
 
 Within the red circle we can see a concatenation operator (first one on top left) which will get the result of each EXISTS sub query (8 in total).
 
@@ -125,13 +125,13 @@ SELECT column1
 This way we will just hit the `table3` once instead of one time per `OR EXISTS()`.
 
 The actual plan seems to have a much better shape:
-<img src="https://claudioessilva.github.io/img/2020/02/afterchangesingleorexists.png" alt="" width="592" height="217" class="aligncenter size-full wp-image-1947" />
+![afterchangesingleorexists](/img/2020/02/afterchangesingleorexists.png)
 
 A different approach would be a single `IN ()` condition with all variables comma separated. However, I preferred this way as it's easy to show to the developement team the differences between now and before.
 
 In fact, when we use the `IN` operator the optimizer will expand it to various `OR` conditions. Example:
 
-<img src="https://claudioessilva.github.io/img/2020/02/predicateexpandstoors.png" alt="" width="497" height="635" class="aligncenter size-full wp-image-1934" />
+![predicateexpandstoors](/img/2020/02/predicateexpandstoors.png)
 
 ### Result
 
@@ -149,7 +149,7 @@ Before (optimizer used a Worktable):
 Table 'table3'. Scan count 6, logical reads 4967238
 ...
 SQL Server Execution Times:
-   CPU time = 3824887 ms,  elapsed time = 4344872 ms. 
+   CPU time = 3824887 ms,  elapsed time = 4344872 ms.
 
 After:
 

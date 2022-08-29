@@ -122,7 +122,6 @@ AS
 	END
 GO
 ```
-&nbsp;
 
 ### More examples on my GitHub
 
@@ -143,7 +142,6 @@ GO
 GRANT EXECUTE ON [dbo].[sp_update_job_for_non_admins] TO [SQLAgentOperatorRole]
 GO
 ```
-&nbsp;
 
 ### You can be more creative but be aware of the maintenance costs
 

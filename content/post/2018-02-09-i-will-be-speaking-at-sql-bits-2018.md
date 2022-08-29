@@ -21,8 +21,7 @@ You can check the great content that will be shared on the 4 days:
 Trainning days: [Wednesday](http://sqlbits.com/information/event17/schedule?20180221) and [Thursday](http://sqlbits.com/information/event17/schedule?20180222)
 Regular sessions: [Friday](http://sqlbits.com/information/event17/schedule?20180223) and [Saturday](http://sqlbits.com/information/event17/schedule?20180224)
 
-Are you gonna be there? More than 2000 people are already registered!
-https://twitter.com/SQLBits/status/960889124415791104
+Are you gonna be there? More than [2000 people are already registered](https://twitter.com/SQLBits/status/960889124415791104)!
 
 If you want to know more about the conference you can follow [@sqlbits on Twitter](https://twitter.com/SQLBits) or go to [sqlbits website](http://sqlbits.com).
 

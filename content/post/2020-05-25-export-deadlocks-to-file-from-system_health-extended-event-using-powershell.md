@@ -88,8 +88,6 @@ $results = Invoke-Sqlcmd -ServerInstance $instance -Query $query
 
 # With dbatools module
 
-# With dbatools module
-
 #$results = Invoke-DbaQuery -SqlInstance $instance -Query $query
 
 # Create a folder to save the files
@@ -104,7 +102,7 @@ $results.foreach {
 ```
 
 The output on the folder will be something like:
-<img src="https://claudioessilva.github.io/img/2020/05/featureimage_2.png" alt="" width="186" height="240" class="aligncenter size-full wp-image-2020" />
+![featureimage_2](/img/2019/05/featureimage_2.png)
 
 ## Bonus step - if you want
 

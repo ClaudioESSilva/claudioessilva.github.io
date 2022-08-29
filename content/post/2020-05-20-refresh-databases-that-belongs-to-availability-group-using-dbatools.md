@@ -14,9 +14,7 @@ tags:
 - syndicated
 title: Refresh databases that belongs to Availability Group using dbatools
 ---
-Few days ago I was surfing on Twitter when [dbatools](https://twitter.com/psdbatools) asked about how it's PowerShell module changed the way people work.
-
-https://twitter.com/psdbatools/status/1261563168113012736
+Few days ago I was surfing on Twitter when [dbatools](https://twitter.com/psdbatools) asked about [how it's PowerShell module changed the way people work](https://twitter.com/psdbatools/status/1261563168113012736).
 
 Open and check the answers given by the community as there is really good stuff there!
 
@@ -24,20 +22,19 @@ Open and check the answers given by the community as there is really good stuff 
 
 I have shared one of my recipes related to database refreshes. You know, when the client says, "please restore this backup or the most recent backup on our instance.". But what if the databases belong to an availability group? It's not as simple as a standalone installation.
 
-Seconds later, John McCormack ([T</a> \| <a href="https://johnmccormack.it/">B](https://twitter.com/actualjohn)) asked if I have blogged about this
-https://twitter.com/actualjohn/status/1261605078013747200
+Seconds later, John McCormack ([B](https://johnmccormack.it/) \| [T](https://twitter.com/actualjohn)) asked if [I have blogged about this](https://twitter.com/actualjohn/status/1261605078013747200)
 The truth is that this blog post was already on the queue, so without further ado, I will share the script I normally use.
 
-## Not so fast - A couple of notes:
+## Not so fast - A couple of notes
 
 * Read carefully what each command does as you normally do for every single script you use from the internet. You do that, right? :-)
-* I have used multiple times but always only on Availability Groups with 2 nodes. 
-* It's written to use automatic seeding. 
+* I have used multiple times but always only on Availability Groups with 2 nodes.
+* It's written to use automatic seeding.
 * You can, and you should, run the script command by command in your first try as this will be much easier to understand how it's working.
 
 ### Variations that you may need
 
-* With some changes you can put it to work with Availability Groups with more than 2 nodes. The failover and the set dbowner part is the one that is being done just having 2 nodes in mind. 
+* With some changes you can put it to work with Availability Groups with more than 2 nodes. The failover and the set dbowner part is the one that is being done just having 2 nodes in mind.
 * If you have huge databases and automatic seeding is not an option for you, you may want to leverage on the backup/restore process. Take a look on the [Add-DbaAgDatabase](https://docs.dbatools.io/#Add-DbaAgDatabase) command docs (look to `-SharedPath` parameter along with `-SeedingMode Manual`)
 
 ## The script

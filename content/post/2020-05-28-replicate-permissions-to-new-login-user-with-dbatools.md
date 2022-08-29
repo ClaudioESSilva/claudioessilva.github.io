@@ -25,6 +25,7 @@ A quick note/suggestion that may help minimize your work: If we are talking abou
 ## What are the steps involved in a process like this?
 
 Generally speaking, the quickest way I know is:
+
 1. Get the permissions of the source login/user (For each database because we don't want to miss any permission)
 2. Save them to a .sql file
 3. Open the file and replace 'srcUser' by 'newUser'
@@ -32,15 +33,14 @@ Generally speaking, the quickest way I know is:
 
 ## A (boring) life before dbatools - how to do it
 
-I did a quick poll on Twitter to know how people handled it before dbatools existed. Maybe they still use that process. That is OK :-) but maybe I can help change the way they do it with this post.
-https://twitter.com/ClaudioESSilva/status/1265676570544484352
+I did a quick poll on Twitter to know how people handled it before dbatools existed. Maybe they still use that process. That is OK :-) but maybe I can help change the way they do it with [this post](https://twitter.com/ClaudioESSilva/status/1265676570544484352).
 
 In  my case the votes goes to '1 or more T-SQL scripts'. At the time it wasn't that hard. Of course if we compare with today's options/tools...that was hard. However, it was what I knew and felt comfortable with.
 
 ## The life with dbatools - a better life
 
 In dbatools (v1.0.111) we have 20 Export-Dba* commands.
-<img src="https://claudioessilva.github.io/img/2020/05/dbatools-export-commands.png" alt="" width="791" height="371" class="aligncenter size-full wp-image-2049" />
+![dbatools-export-commands](/img/2019/05/dbatools-export-commands.png)
 
 Two of them are related with the login and user permissions.
 `Export-DbaLogin` and `Export-DbaUser` (Rob Sewell ([T](https://twitter.com/sqldbawithbeard)) wrote about this last one on his blog post [Export SQL User Permissions to T-SQL script using PowerShell and dbatools](https://sqldbawithabeard.com/2017/04/10/export-sql-user-permissions-to-t-sql-script-using-powershell-and-dbatools/) back in 2017.
@@ -70,6 +70,7 @@ Export-DbaUser -SqlInstance $sqlInstance -User $ExistingUser -FilePath $permissi
 
 ((Get-Content $permissionsFile -Raw) -replace ($existingUserToSearch, $newUser)) | Set-content $permissionsFileNewUser
 ```
+
 And now you can open the new user script, check and execute it on the instance.
 
 ### That's cool! But, what if I also want the login and instance level permissions?
@@ -106,6 +107,7 @@ Export-DbaUser -SqlInstance $sqlInstance -User $existingLoginUser -FilePath $per
 # 1 - Replace the login/username by the new one
 ((Get-Content $permissionsFileLogin, $permissionsFileUser -Raw) -replace ($existingLoginUserToSearch, $newloginuser)) -Replace '(, SID[^,]*)', ' ' | Set-content $permissionsFileNewLoginUser
 ```
+
 And then, you can open the new script `NewLoginUser.sql`, check and execute it on the instance.
 
 ### Bonus option - File free
@@ -129,6 +131,7 @@ $NewUserPermissions = $ExportedUser -replace $($existingUser -replace '\\', '\\'
 
 $newUserPermissions | Set-Clipboard
 ```
+
 Did you notice the `-PassThru` at the end of line 5? This will put output on the $ExportedUser permissions.
 Finally, on line 10, it will put on your clipboard the whole script after the replace is done.
 
@@ -138,7 +141,7 @@ Yes! However, here we have a caveat but we also have two possible workarounds.
 
 The `Invoke-DbaQuery` is our command to run queries. Yet, it isn't dealing "correctly" with scripts with multiple statements divided by GO.
 
-#### Here is two different workarounds to run scripts with multiple statements divided by GO batch separator:
+#### Here is two different workarounds to run scripts with multiple statements divided by GO batch separator
 
 Workaround #1 - Remove the 'GO's from script
 
@@ -179,7 +182,7 @@ $script = Get-Content $permissionsFileNewLoginUser -Raw
 $sqlInst.Databases["master"].ExecuteNonQuery($script)
 ```
 
-## Final note:
+## Final note
 
 Are you using dbatools to accomplish this process and you found that some permissions are not being scripted out? Maybe it's new object permission that it's not being covered yet. Please [fill an issue on our GitHub repository](http://dbatools.io/issues) so we can help.
 

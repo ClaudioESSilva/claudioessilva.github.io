@@ -13,10 +13,9 @@ title: Using dbatools to verify your SQL Server instances version compliance
 ---
 One of the main DBA's duties is to guarantee that SQL Server instances are up-to-date in terms of patches (Service Packs, Cumulative Updates or Security Updates).
 
-Recently, dbatools added a new command that turns this validation a piece of cake. Thanks to Simone Bizzotto (@niphlod) for baking up the command that <a href="https://twitter.com/wsmelton" rel="noopener" target="_blank">Shawn Melton</a> (@wsmelton) and I initially requested.
+Recently, dbatools added a new command that turns this validation a piece of cake. Thanks to Simone Bizzotto (@niphlod) for baking up the command that [Shawn Melton (@wsmelton)](https://twitter.com/wsmelton) and I initially requested.
 
-Some dbatools users already expressed their happiness with the command, like <a href="https://twitter.com/jpomfret" rel="noopener" target="_blank">Jess Pomfret</a>
-https://twitter.com/jpomfret/status/954018103507251201
+Some dbatools users already expressed their happiness with the command, like [Jess Pomfret](https://twitter.com/jpomfret) did [here](https://twitter.com/jpomfret/status/954018103507251201)
 
 So, I thought that this information should be shared with other people too.
 
@@ -29,11 +28,12 @@ If you are running this version or higher you can already take advantage of it, 
 ``` powershell
 Update-Module dbatools -Force
 ```
+
 Otherwise, you can use the `Save-Module` command and then copy the files to your destination host.
 
 ## How does the command works?
 
-This command uses the `dbatools-buildref-index.json` file that contains all the information about SQL Server builds. This is the same file that feeds the <a href="https://sqlcollaborative.github.io/builds" rel="noopener" target="_blank">dbatools builds table</a> already shown on the <a href="https://dbatools.io/buildref/" rel="noopener" target="_blank">introducing the community-driven build reference</a> blog post.
+This command uses the `dbatools-buildref-index.json` file that contains all the information about SQL Server builds. This is the same file that feeds the [dbatools builds table](https://sqlcollaborative.github.io/builds) already shown on the [introducing the community-driven build reference](https://dbatools.io/buildref/) blog post.
 
 ### The combinations
 
@@ -75,7 +75,7 @@ Test-DbaSqlBuild -SqlInstance $SQLInstances -MaxBehind "1SP"
 
 We saw the "online" example where we will query each instance at the moment. Now, I want to share with you two more examples.
 
-#### Using central database as data source
+### Using central database as data source
 
 Let's say you have a central database where you keep some of the information about your estate and one of those pieces of information is the SQL Server build version.
 

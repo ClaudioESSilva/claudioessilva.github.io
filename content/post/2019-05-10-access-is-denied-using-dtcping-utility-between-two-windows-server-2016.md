@@ -16,7 +16,7 @@ tags:
 - WSFC
 title: Access is denied - Using DTCPing utility between two Windows Server 2016
 ---
-<img src="https://claudioessilva.github.io/img/2019/05/featureimage_smaller-1.png" alt="" width="800" height="297" class="aligncenter size-full wp-image-1666" />
+![featureimage_smaller](/img/2019/05/featureimage_smaller-1.png)
 
 Few days ago a client requested the configuration of MSDTC (Microsoft Distributed Transaction Coordinator).
 
@@ -35,9 +35,10 @@ To configure the MSDTC correctly, you can/should follow all the check lists on t
 
 ## "Ok, but you mentioned 'Access is denied' error on the title" - Here is the story behind it
 
-To test and/or troubleshoot if the configuration of MSDTC is correct you can rely on two main utilities:<br />
- - [DTCTester](https://www.microsoft.com/en-ca/download/details.aspx?id=30746) - Tests the transactions between two computers if SQL Server is installed on one computer, using ODBC to verify transaction support against an SQL Server database.
- - [DTCPing](https://www.microsoft.com/en-ca/download/details.aspx?id=2868) - Tests the transaction support between two computers without testing SQL Server duties. The DTCPing tool must be run on both the client and server computer. Read more on [Troubleshooting MSDTC issues with the DTCPing tool](https://blogs.msdn.microsoft.com/puneetgupta/2008/11/12/troubleshooting-msdtc-issues-with-the-dtcping-tool/)
+To test and/or troubleshoot if the configuration of MSDTC is correct you can rely on two main utilities:
+
+* [DTCTester](https://www.microsoft.com/en-ca/download/details.aspx?id=30746) - Tests the transactions between two computers if SQL Server is installed on one computer, using ODBC to verify transaction support against an SQL Server database.
+* [DTCPing](https://www.microsoft.com/en-ca/download/details.aspx?id=2868) - Tests the transaction support between two computers without testing SQL Server duties. The DTCPing tool must be run on both the client and server computer. Read more on [Troubleshooting MSDTC issues with the DTCPing tool](https://blogs.msdn.microsoft.com/puneetgupta/2008/11/12/troubleshooting-msdtc-issues-with-the-dtcping-tool/)
 
 The client requested a test with DTCPing utility. After hitting the "The RPC server is unavailable" error which can be overpass by open the correct firewall rules, I was hitting the "Access is Denied" error.
 I read, once again, the troubleshooting post but the explanation/resolution for this error did not fit on my configuration (remember the application server is an Windows Server 2016 not an "client OS" (AKA windows 7/8/10) as mentioned on the post.

@@ -32,7 +32,7 @@ Once again, remember, I'm talking about default output not if you use a `CAST`, 
 When I was looking for this behaviour I did some research and found that a similar problem was raised but regarding `DATETIME2`. You can see it [here - issue #570](https://github.com/Microsoft/vscode-mssql/issues/570).
 With this in mind, I decided to open an new [issue (#1139) on the vscode-mssql extension repository on GitHub](https://github.com/Microsoft/vscode-mssql/issues/1139) and point to the other one already solved.
 
-If you identify yourself with it, please add your <span class="dashicons dashicons-thumbs-up"></span> to the issue.
+If you identify yourself with it, please add your "+1" to the issue.
 
 Now, we need to wait to see the evolution and, hopefully, a fix will be included on a upcoming release.
 

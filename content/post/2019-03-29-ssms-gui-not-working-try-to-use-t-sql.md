@@ -16,7 +16,7 @@ This does not necessarily mean that they are complex. As a matter of fact, they 
 
 From my experience, this can happen mainly because one of two reasons, they have some very specific need, or because the way the application is built will make you work with features that you haven't played yet.
 
-<h1>SQL Server Agent Job Schedules - Scenario</h1>
+# SQL Server Agent Job Schedules - Scenario
 
 The client approached me and asked "Hey, we have an account that is the owner of our jobs, but we would like to use a different account to change the schedule of the job, mainly the start time: is that possible?
 As I was not sure about it, I jumped to the documentation.
@@ -26,7 +26,7 @@ As I was not sure about it, I jumped to the documentation.
 I double checked that the login they were mentioning had any permissions on the [msdb database](https://docs.microsoft.com/en-us/sql/relational-databases/databases/msdb-database). In this case, the login was already part of one of the [SQL Server Agent Fixed Database Roles](https://docs.microsoft.com/en-us/sql/ssms/agent/sql-server-agent-fixed-database-roles), namely the [SQLAgentOperatorRole, which have the following permissions described here](https://docs.microsoft.com/en-us/sql/ssms/agent/sql-server-agent-fixed-database-roles#sqlagentoperatorrole-permissions).
 
 If we take a look at the 1st row of the grid we can see that a login can change a Job Schedule if they own it.
-<img src="https://claudioessilva.github.io/img/2019/03/sqlagentoperatorrole_permissions-1.png" alt="" width="800" height="395" class="aligncenter size-full wp-image-1637" />
+![sqlagentoperatorrole_permissions](/img/2019/03/sqlagentoperatorrole_permissions-1.png)
 
 ## Fair enough, let's try it
 
@@ -55,13 +55,13 @@ Now that the login we want to use to change the schedule is the owner of it, the
 ## Bug on GUI, or missing detail on documentation?
 
 I tested on SSMS and the GUI is disabled
-<img src="https://claudioessilva.github.io/img/2019/03/editscheduleonsssm_disabled.png" alt="" width="800" height="475" class="aligncenter size-full wp-image-1634" />
+![editscheduleonsssm_disabled](/img/2019/03/editscheduleonsssm_disabled.png)
 
 I had SSMS v17.3 which is a little bit out of date, so I upgraded to v17.9.1 which is the current GA (General Availability) version but I got the same behaviour. I have also installed the most recent version which is v18.0 preview 7 (by the time of this post) but, then again the same behaviour.
 
 I decided to open a bug item 37230619 on SQL Server UserVoice called ["Edit Job Schedule not working when login is the schedule owner"](https://feedback.azure.com/forums/908035-sql-server/suggestions/37230619-edit-job-schedule-not-working-when-login-is-the-sc) that you can upvote here if you agree that this should be fixed.
 
-<h1>Workaround</h1>
+## Workaround
 
 Get the schedule id from the list above and you can run the following command (with the login that is the owner of the schedule) in order to change the schedule properties, in this case, the start date, to run at 1am.
 
@@ -78,6 +78,6 @@ In this example, '01:00:00' is translated to 10000.
 
 At least this way it works. The client was happy to have one way to do it.
 
-<h1>Bottom line</h1>
+## Bottom line
 
 When the GUI doesn't work, try to script out the action or find what is running behind the hood and run the command manually. Maybe you get a surprise!

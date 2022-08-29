@@ -40,7 +40,8 @@ You can run the following code to get the parameter description:
 
 ``` powershell
 Get-Help Set-DbcConfig -Parameter temporary
-```
+
+
 ![temporaryparameter_helpdescription](/img/2018/03/temporaryparameter_helpdescription.png?w=656)
 
 Here is a demonstration:
@@ -60,6 +61,7 @@ If you run
 ``` powershell
 Get-Help Import-DbcConfig -Detailed
 ```
+
 you can see the `-Temporary` is also available in this command.
 ![gethelp_importdbcconfig_temporaryparameter](/img/2018/04/gethelp_importdbcconfig_temporaryparameter.png?w=656)
 

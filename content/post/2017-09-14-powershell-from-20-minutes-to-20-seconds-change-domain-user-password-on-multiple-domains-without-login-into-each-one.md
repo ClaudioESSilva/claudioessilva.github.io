@@ -27,7 +27,7 @@ This code resets the password and not to change/update it. Because I don't have 
 
 Despite this, his code gave me some clues about the way it could work. I did some more research and finally I found a way to do it from a single machine.
 
-**Disclaimer: For this script work, you need to be able to <a href="https://technet.microsoft.com/en-us/library/aa996205%28v=exchg.65%29.aspx?f=255&amp;MSPPError=-2147217396" target="_blank">query the LDAP</a> on the different domains. Some things may differ between my environment configuration and yours. Example: In my environment I had to use the IP of the DC instead of name.**
+**Disclaimer: For this script work, you need to be able to [query the LDAP](https://technet.microsoft.com/en-us/library/aa996205%28v=exchg.65%29.aspx?f=255&amp;MSPPError=-2147217396) on the different domains. Some things may differ between my environment configuration and yours. Example: In my environment I had to use the IP of the DC instead of name.**
 
 When you run the script you will be prompted for your current/old credentials and the new password.
 

@@ -16,7 +16,7 @@ Like the blog post title states this is **all about sharing** with others! My id
 
 ## Let me introduce to you the PowerShell Modules Central
 
-<a href="https://github.com/ClaudioESSilva/PowerShellModulesCentral" target="_blank">PowerShellModulesCentral</a> is a GitHub repository that was founded as a **central** hub to a list of PowerShell modules that people know/use. Each module has a file describing its name, basic information about the module, as well as one or more blog posts/videos from people that have written about or used them.
+[PowerShellModulesCentral](https://github.com/ClaudioESSilva/PowerShellModulesCentral) is a GitHub repository that was founded as a **central** hub to a list of PowerShell modules that people know/use. Each module has a file describing its name, basic information about the module, as well as one or more blog posts/videos from people that have written about or used them.
 
 This way we can reduce friction when people are starting out or are trying to solve similar problems.
 
@@ -48,13 +48,13 @@ Are you trying to find a module to work on a specific task? Use the search on th
 ## How to contribute?
 
 Just fork the repository, add the information and send a pull request (PR). I will merge it once everything is OK.
-For new modules please use the <a href="https://github.com/ClaudioESSilva/PowerShellModulesCentral/blob/master/.github/template.md" target="_blank">template available here</a>. If you find that module already exists, you just need to add your URLs and any other information to be updated, tags that you think may be useful, add something to description, etc.
+For new modules please use the [template available here](https://github.com/ClaudioESSilva/PowerShellModulesCentral/blob/master/.github/template.md). If you find that module already exists, you just need to add your URLs and any other information to be updated, tags that you think may be useful, add something to description, etc.
 
 If you use a module that doesn't have a blog post and/or videos yet, you can submit a PR anyway so all of the community can know that it exists and maybe someone will write about it!
 
 ## Follow up
 
-Follow the repository news by clicking on "Watch" button and/or follow <a href="https://twitter.com/psmcentral" target="_blank">@psmcentral</a> Twitter account.
+Follow the repository news by clicking on "Watch" button and/or follow [@psmcentral](https://twitter.com/psmcentral) Twitter account.
 
 Feel free to share this blog post! The more people we reach, the better!
 

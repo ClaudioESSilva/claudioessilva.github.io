@@ -70,9 +70,9 @@ Invoke-Command -ScriptBlock { Get-Service *sql* } -ComputerName $DestinationComp
 
 Now I get prompted for the user password and I can... get a different error message (*sigh*):
 
-> [10.10.10.1] Connecting to remote server 10.10.10.1 failed with the following error message : The WinRM client received an HTTP status code of 403 from the remote WS-Management service. For more information, see the about_Remote_Troubleshooting Help topic.
-> + CategoryInfo : OpenError: (10.10.10.1:String) [], PSRemotingTransportException
-> + FullyQualifiedErrorId : -2144108273,PSSessionStateBroken
+> [10.10.10.1] Connecting to remote server 10.10.10.1 failed with the following error message : The WinRM client received an HTTP status code of 403 from the remote WS-Management service. For more information, see the about_Remote_Troubleshooting Help topic.  
+> \+ CategoryInfo : OpenError: (10.10.10.1:String) [], PSRemotingTransportException  
+> \+ FullyQualifiedErrorId : -2144108273,PSSessionStateBroken
 
 This one was new for me so I jumped to google and started searching for this error message. Unfortunately all the references I found are to solve an IIS problem with SSL checkbox on the website like [this example](https://secure.tkfast.com/faqs_view.php?id=162).
 Clearly this is not the problem I was having.

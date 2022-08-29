@@ -34,6 +34,7 @@ For example, think about the SQL Server instance and/or database objects ownersh
 It's pretty easy to create a new database for a client without explicitly specifying the owner and then you will become the database owner. The same can happen with SQL Server Agent jobs.
 
 But the list doesn't stop here, just to enumerate a couple more:
+
 - User login can be used in Credential
 - User login can be the only used in a Proxy (SQL Agent Steps using a Proxy)
 
@@ -52,7 +53,7 @@ We found a job that stopped running on the 'View History' of the job we could se
 
 > 'EXECUTE AS LOGIN' failed for the requested login 'domain\username'.  The step failed.
 
-<img src="https://claudioessilvaeu.files.wordpress.com/2020/09/sqlserveragent_job_errormessage-1.png" alt="" width="501" height="485" class="aligncenter size-full wp-image-2411" />
+![sqlserveragent_job_errormessage](/img/2020/09/sqlserveragent_job_errormessage-1.png)
 
 Note: What else can we learn from this? Whenever possible use a non-user dedicated account (service account is OK) for these processes. This will make it much easier to keep everything working. However, you need to be sure that the ownership of that account is transferred to a new person, otherwise, this request can be deleted and everything fails anyways.
 
@@ -92,9 +93,10 @@ To use the command we just need to provide one or more instances where we want t
 ``` powershell
 Find-DbaUserObject -SqlInstance 'myInstance' -Pattern 'u_ssc'
 ```
+
 This will find all objects where the login contains 'u_ssc' word. This means if you have a Windows Login and a SQL Server Login with 'u_ssc' on the name, it will get results for both.
 
-<img src="https://claudioessilvaeu.files.wordpress.com/2020/09/find-dbauserobject-1.png?w=656" alt="" width="656" height="278" class="aligncenter size-large wp-image-2415" />
+![sqlserveragent_job_errormessage](/img/2020/09/find-dbauserobject-1.png)
 
 In this example you can see that this login owns not only our job that has been falling but also a database.
 
@@ -116,13 +118,13 @@ Fortunately, dbatools has commands to do this kind of changes in bulk.
 
 For a database, we can run the [Set-DbaDbOwner](https://docs.dbatools.io/#Set-DbaDbOwner) command.
 
-If you don't specify the <code>-TargetLogin</code> parameter the database owner will change to the <code>sa</code> account
+If you don't specify the `-TargetLogin` parameter the database owner will change to the `sa` account
 
 ``` powershell
 Set-DbaDbOwner -SqlInstance localhost -Database 'db1'
 ```
 
-However, you can specify the <code>-TargetLogin</code> parameter to set the database owner to a different account
+However, you can specify the `-TargetLogin` parameter to set the database owner to a different account
 
 ``` powershell
 Set-DbaDbOwner -SqlInstance localhost -Database 'db1' -TargetLogin 'GEN_Account'
@@ -136,7 +138,7 @@ If we talk about the jobs, we can use the [Set-DbaAgentJobOwner](https://docs.db
 Set-DbaAgentJobOwner -SqlInstance localhost -TargetLogin 'DOMAIN\account' -Job 'job1', 'job2'
 ```
 
-The following example lets you get only the jobs where the current owner is <code>DOMAIN\colleagueLeaving</code> and pipe the results to the <code>Set-</code> command that will change that by the <code>DOMAIN\account</code> that you have selected.
+The following example lets you get only the jobs where the current owner is `DOMAIN\colleagueLeaving` and pipe the results to the `Set-` command that will change that by the `DOMAIN\account` that you have selected.
 
 ``` powershell
 Get-DbaAgentJob -SqlInstance localhost | Where-Object OwnerLoginName -eq 'DOMAIN\colleagueLeaving' | Set-DbaAgentJobOwner -TargetLogin 'DOMAIN\account'

@@ -14,7 +14,7 @@ tags:
 title: New version of sp_WhoIsActive (v11.20) is available - Deployed on 123 instances
   in less than 1 minute
 ---
-Last night, I received Adam Machanic's ([b</a> \| <a href="https://twitter.com/AdamMachanic" target="_blank" rel="noopener">t](http://dataeducation.com)) newsletter "Announcing sp_whoisactive v11.20: Live Query Plans".
+Last night, I received Adam Machanic's ([b](http://dataeducation.com) \| [t](https://twitter.com/AdamMachanic)) newsletter "Announcing sp_whoisactive v11.20: Live Query Plans".
 
 For those who don't know about it, [sp_WhoIsActive](http://whoisactive.com) is a stored procedure that provides detailed information about the sessions running on your SQL Server instance.
 It is a great tool when we need to troubleshoot some problems such as long-running queries or blocking. (**just** two examples)

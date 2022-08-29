@@ -53,6 +53,7 @@ Just install from the PowerShell gallery with
 ``` powershell
 Install-Module -Name PoshRSJob
 ```
+
 or download from the Github repository.
 
 ### What does it look like?
@@ -83,7 +84,7 @@ This execution took about ~6 seconds. This translates in a 7 times faster execut
 
 Just to explain the code:
 
-* The script block of the `Start-RSJob` is picking the values from the pipeline and using them directly. 
+* The script block of the `Start-RSJob` is picking the values from the pipeline and using them directly.
 * Then, we pipe the results to the `Wait-RSJob` which will wait for all runspaces to be finished.
 * Finally, we request the results using the `Receive-RSJob` command.
 
@@ -148,7 +149,7 @@ This means when we run a command using the `Start-RSjob` we have 5 (by default) 
 
 Note: There is a `-ModulesToImport` parameter however, in my previous tests this hasn't made any big difference.
 
-### Let's add one dbatools' command, Test-DbaConnection.
+### Let's add one dbatools' command, Test-DbaConnection
 
 Sequential execution:
 
@@ -169,30 +170,10 @@ Get-RsJob | Remove-RSJob
 ```
 
 I have also run for 10 and 20 instances. Here are the results:
-<table>
-<thead>
-<tr>
-  <th>Test-DbaConnection</th>
-  <th align="center">Execution Time (5 instances)</th>
-  <th align="center">Execution Time (10 instances)</th>
-  <th>Execution Time (20 instances)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Sequential Execution</td>
-  <td align="center">00:02:15</td>
-  <td align="center">00:03:50</td>
-  <td>00:06:45</td>
-</tr>
-<tr>
-  <td>Start-RSJob</td>
-  <td align="center">00:01:21</td>
-  <td align="center">00:01:53</td>
-  <td>00:02:51</td>
-</tr>
-</tbody>
-</table>
+| Test-DbaConnection   | Execution Time (5 instances) | Execution Time (10 instances) | Execution Time (20 instances) |
+|----------------------|------------------------------|-------------------------------|-------------------------------|
+| Sequential Execution | 00:02:15                     | 00:03:50                      | 00:06:45                      |
+| Start-RSJob          | 00:01:21                     | 00:01:53                      | 00:02:51                      |
 
 Note: I have used cold cache (started a new session).
 Note2: On my test server the module load takes ~23 seconds
