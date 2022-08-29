@@ -50,8 +50,6 @@ NOTE2: The time that will take to execute the script is directly related with th
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># With dbatools module</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># With dbatools module</span>
-</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e>#$results = Invoke-DbaQuery -SqlInstance $instance -Query $query</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e># Create a folder to save the files</span>
@@ -63,7 +61,8 @@ NOTE2: The time that will take to execute the script is directly related with th
 </span></span><span style=display:flex><span>$results.<span style=color:#66d9ef>foreach</span> {
 </span></span><span style=display:flex><span>    $_.deadlock | Out-File -FilePath <span style=color:#e6db74>&#34;$outputDirectory\deadlock</span>$($_.Execution_Time.TofileTime())<span style=color:#e6db74>.xdl&#34;</span>
 </span></span><span style=display:flex><span>}
-</span></span></code></pre></div><p>The output on the folder will be something like:</p><h2 id=bonus-step---if-you-want>Bonus step - if you want</h2><p>Probably you will share this on a shared folder or even by email. It can be good idea to compress the folder into a zip file.
+</span></span></code></pre></div><p>The output on the folder will be something like:
+<img src=/img/2019/05/featureimage_2.png alt=featureimage_2></p><h2 id=bonus-step---if-you-want>Bonus step - if you want</h2><p>Probably you will share this on a shared folder or even by email. It can be good idea to compress the folder into a zip file.
 You can easily do that by running the <code>Compress-Archive</code> cmdlet (PowerShell v5+).</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span>Compress-Archive -Path D:\Deadlocks -DestinationPath D:\Deadlocks.zip
 </span></span></code></pre></div><p>Thanks for reading.</p></div></div><div id=post-footer class="post-footer main-content-wrap"><div class=post-footer-tags><span class="text-color-light text-small">TAGGED IN</span><br><a class="tag tag--primary tag--small" href=/tags/Automation/>Automation</a>
 <a class="tag tag--primary tag--small" href=/tags/dbatools/>dbatools</a>
