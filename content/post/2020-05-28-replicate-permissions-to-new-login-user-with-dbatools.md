@@ -14,7 +14,7 @@ tags:
 - syndicated
 title: Replicate permissions to new Login/User with dbatools
 ---
-Continuing to share tips and tricks using [dbatools](https://dbatools.io) like the [Refresh databases that belongs to availability group using dbatools](https://claudioessilva.eu/2020/05/20/refresh-databases-that-belongs-to-availability-group-using-dbatools/) posted a few days ago, today I will share a way to export the permissions of a login/user at instance/database level and apply them to a new login/user.
+Continuing to share tips and tricks using [dbatools](https://dbatools.io) like the [Refresh databases that belongs to availability group using dbatools](https://claudioessilva.eu/2020/05/20/Refresh-databases-that-belongs-to-Availability-Group-using-dbatools/) posted a few days ago, today I will share a way to export the permissions of a login/user at instance/database level and apply them to a new login/user.
 
 ## The typical request
 
