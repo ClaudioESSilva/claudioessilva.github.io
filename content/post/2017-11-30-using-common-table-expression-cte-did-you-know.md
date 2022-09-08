@@ -12,11 +12,12 @@ title: Using Common Table Expression (CTE) - Did you know...
 autoThumbnailImage: true
 thumbnailImagePosition: "top"
 #thumbnailImage: /img/2017/11/output1.png
-#thumbnail: img/2017/11/output1.png
 coverImage: /img/2017/11/output1.png
 metaAlignment: center
 coverMeta: out
 ---
+<meta name="image" property="og:image" content="/img/2017/11/output1.png">
+
 Today I will write just a short blog post to do a quick reminder!
 
 I still hear a lot of people suggesting CTEs because they think it works like a temporary table (you populate the table and then it can be/is reutilized).
