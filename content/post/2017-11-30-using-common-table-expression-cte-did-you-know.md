@@ -9,6 +9,12 @@ tags:
 - syndicated
 - TSQL
 title: Using Common Table Expression (CTE) - Did you know...
+autoThumbnailImage: false
+thumbnailImagePosition: "top"
+thumbnailImage: /img/2017/11/output1.png
+coverImage: /img/2017/11/output1.png
+metaAlignment: center
+coverMeta: out
 ---
 Today I will write just a short blog post to do a quick reminder!
 
