@@ -95,14 +95,12 @@ However, if you, like me, kind of live inside SSMS and do a lot of performance t
 
 This stored procedure allows you to do much more granular filtering using a lot of different parameters and is way faster then the GUI. 
 
-![sp_QuickieStore example](/img/2024/0129/sp_QuickieStoreSearch.png)
+[![sp_QuickieStore example](/img/2024/0129/sp_QuickieStoreSearch.png)](/img/2024/0129/sp_QuickieStoreSearch.png)
 
 With the results, you can pick the `query_Id` you want and use it directly on the dashboard if you want.
 
 ## What's my use case?
-My real-life examples are when I want to take some screenshots to share with clients to show/explain a performance gain/degradation or even a pattern.
-
-Your milleage may vary.  
+My real-life examples are when I want to take some screenshots to share with clients to show/explain a performance gain/degradation or even a pattern. You may have different reasons.  
 
 
 Hope you find it useful.  
