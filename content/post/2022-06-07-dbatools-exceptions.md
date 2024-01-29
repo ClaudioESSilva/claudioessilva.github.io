@@ -8,7 +8,7 @@ tags:
 - Logging
 - PowerShell
 - SQLServer
-- syndicate
+- syndicated
 title: dbatools - Exceptions
 autoThumbnailImage: false
 thumbnailImagePosition: "top"

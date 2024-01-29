@@ -9,7 +9,7 @@ tags:
 - PowerShell
 - Registry
 - Tools
-- syndicate
+- syndicated
 title: Changing SSMS options with PowerShell
 draft: true
 

@@ -6,7 +6,7 @@ tags:
 - QueryStore
 - SQLServer
 - performance
-- syndicate
+- syndicated
 title: Search for queries with Query Store GUI
 autoThumbnailImage: false
 thumbnailImagePosition: top

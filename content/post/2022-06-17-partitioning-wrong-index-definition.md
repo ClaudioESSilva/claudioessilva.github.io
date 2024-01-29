@@ -9,7 +9,7 @@ tags:
 - Index
 - Exceptions
 - dbatools
-- syndicate
+- syndicated
 title: Partitioning and the wrong index definiton
 draft: true
 ---

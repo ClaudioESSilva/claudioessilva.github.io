@@ -6,7 +6,7 @@ tags:
 - dbatools
 - PowerShell
 - SQLServer
-- syndicate
+- syndicated
 title: dbatools - rich datatypes
 autoThumbnailImage: false
 thumbnailImagePosition: "top"
