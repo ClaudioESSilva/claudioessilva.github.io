@@ -18,7 +18,7 @@ tags:
 title: Backup your SQL instances configurations to GIT with dbatools - Part 2 - Add
   parallelism
 ---
-We have seen how we can export and save the results to a folder and commit them to a GIT repository on my last blog post [Backup your SQL instances configurations to GIT with dbatools – Part 1](https://claudioessilva.eu/2020/06/02/backup-your-sql-instances-configurations-to-git-with-dbatools-part-1/).
+We have seen how we can export and save the results to a folder and commit them to a GIT repository on my last blog post [Backup your SQL instances configurations to GIT with dbatools – Part 1](https://claudioessilva.eu/2020/06/02/Backup-your-SQL-instances-configurations-to-GIT-with-dbatools-Part-1/).
 At the end of that post, I have mentioned that I would write about how we can lower down the execution times of our script by leveraging on parallelism.
 
 ## Going parallel
