@@ -20,6 +20,8 @@ At the beginning of this week, I shared how you can [Search for queries with Que
 
 Today I want to share something, Query Store related, that bugged me for awhile and a workaround to overcome it.
 
+**NOTE:** This happens at least until SSMS v19.3 (most recent version of SSMS at the time of this writing). Let’s see what newer versions bring us.
+
 ## Multiple instances of the same dashboard
 When you navigate throug Query Store dashboards, it can become handy open two instances of the same dashboard but with a different time range, or different aggreagations or even a different metric so you can do a quick compare.
 
