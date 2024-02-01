@@ -25,7 +25,7 @@ Today I want to share something, Query Store related, that bugged me for awhile 
 ## Multiple instances of the same dashboard
 When you navigate through Query Store dashboards, it can become handy open two instances of the same dashboard but with a different time range, or different aggreagations or even a different metric so you can do a quick compare.
 
-Here is an image to exemplify it. We have "Avg Elapsed Time" and "Avg Logical Reads" side by side for the same `Tracking query` on two instances of the `Tracked Queries` dashboard.
+Here is an image to demonstrate it. We have "Avg Elapsed Time" and "Avg Logical Reads" side by side for the same `Tracking query` on two instances of the `Tracked Queries` dashboard.
 [![Avg Elapsed Time VS Avg Logical Reads - Side by side](/img/2024/0201/AvgElapsedTimeVSLogicalReads_side_by_side.png)](/img/2024/0201/AvgElapsedTimeVSLogicalReads_side_by_side.png).
 
 
