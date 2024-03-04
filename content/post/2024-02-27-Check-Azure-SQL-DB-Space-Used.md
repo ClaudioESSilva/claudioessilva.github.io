@@ -22,7 +22,7 @@ A couple of days ago I was doing some cleaning on some Azure SQL DBs and shrinki
 To check my progress I needed to check the size before/after the task in an easy way for multiple Azure SQL DBs.  
 
 ## Check Azure SQL DB storage space for 1 database
-If you need to check the storage space being used by 1 Azure SQL DB, that is as easy as jumping on the portal, select the desired database and you can find the information.
+If you need to check the storage space being used by 1 Azure SQL DB, that is as easy as jumping on the portal, select the desired database and you can find the information in the Overview. This is shown below.
 
 [![Portal View](/img/2024/0301/AzureSQLDB-PortalView.png)](/img/2024/0301/AzureSQLDB-PortalView.png)
 
