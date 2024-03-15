@@ -72,7 +72,7 @@ GO
 ### Now let's insert 50,000 records
 The data we are going to insert will be all equal, in this case, it does not have to make sense, so I chose `Alex` for the `Name` and a `1900-01-01` for a `DoB` (Date of Birth) columns.
 
-For that, I will use query that relies on a bunch of CTEs to generate more records easily.
+For that, I will use a query that relies on a bunch of CTEs to generate more records easily.
 
 ```SQL
 ;WITH
@@ -110,7 +110,7 @@ We have `1440 KB` of data pages meaning 180 pages (each page has 8KB).
 ## How to find a data page?
 To be able to check the content of a page we first need a way to find which pages are allocated to a specific table. 
 
-For that we can either use the `DBCC IND` command - which isn't official documented:
+For that, we can either use the `DBCC IND` command - which isn't officially documented:
 
 ``` SQL
 -- The syntax
