@@ -1,7 +1,7 @@
 ---
 author: claudiosilva
 comments: true
-date: "2024-05-01T11:00:00Z"
+date: "2024-05-29T11:00:00Z"
 tags:
 - SQLServer
 - TSQL
@@ -85,7 +85,7 @@ For that, I will use a query that relies on a bunch of CTEs to generate more rec
     Nums AS ( SELECT ROW_NUMBER() OVER(ORDER BY (SELECT NULL)) AS rownum
               FROM L3 
 			)
-	INSERT INTO Client ([Name], DoB)
+	INSERT INTO Client (FirstName, DoB)
 	SELECT TOP (50000) 'Alex', '1900-01-01'
 	  FROM Nums
 GO
