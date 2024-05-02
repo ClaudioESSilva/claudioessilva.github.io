@@ -1,7 +1,7 @@
 ---
 author: claudiosilva
 comments: true
-date: "2024-02-27T11:00:00Z"
+date: "2024-05-02T11:00:00Z"
 tags:
 - AzureSQLDB
 - SQLServer
@@ -15,7 +15,6 @@ thumbnailImage: /img/2024/0301/AzureSQLDB-PortalViewDataStorage.png
 coverImage: /img/2024/0301/AzureSQLDB-PortalViewDataStorage.png
 metaAlignment: center
 coverMeta: out
-draft: true
 ---
 
 A couple of days ago I was doing some cleaning on some Azure SQL DBs and shrinking some files to lower the bill.  
