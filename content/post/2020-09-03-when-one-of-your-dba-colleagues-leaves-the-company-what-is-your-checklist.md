@@ -12,6 +12,10 @@ tags:
 comments: true
 date: "2020-09-03T00:00:00Z"
 title: When one of your DBA colleagues leaves the company, what is your checklist?
+thumbnailImage: /img/2020/09/find-dbauserobject-1.png
+coverImage: /img/2020/09/find-dbauserobject-1.png
+metaAlignment: center
+coverMeta: out
 ---
 Whether it’s in our personal lives or the professional one, we do have checklists for certain tasks.
 
