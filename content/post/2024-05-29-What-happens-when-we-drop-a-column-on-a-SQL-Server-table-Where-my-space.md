@@ -18,8 +18,9 @@ thumbnailImage: /img/2024/0301/TableInternals_droppedColumn.png
 coverImage: /img/2024/0301/TableInternals_droppedColumn_CoverImage.png
 metaAlignment: center
 coverMeta: out
-draft: true
 ---
+
+> This article was initially posted on [SQLServerCentral](https://www.sqlservercentral.com/articles/what-happens-when-we-drop-a-column-on-a-sql-server-table-wheres-my-space) @ 2024-04-26.
 
 Short answer: The column is marked as 'deleted' and will stop being visible/usable.  
 But, most importantly - **The record/table size will remain unchanged**.
