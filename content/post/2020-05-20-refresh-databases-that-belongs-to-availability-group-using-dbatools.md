@@ -94,7 +94,7 @@ $secondaryNode = ($agReplicas | Where-Object role -eq 'Secondary').Name
 
 # Export users permissions
 
-Export-DbaUser -SqlInstance $sqlinstance -Database $databases -Path $exportUserPath
+Export-DbaUser -SqlInstance $primaryNode -Database $databases -Path $exportUserPath
 
 # Remove the databses from the AG
 
