@@ -1,7 +1,7 @@
 ---
 author: claudiosilva
 comments: true
-date: "2024-06-15T11:00:00Z"
+date: "2024-07-09T10:00:00Z"
 tags:
 - SQLServer
 - TSQL
@@ -18,7 +18,7 @@ thumbnailImage: /img/2024/0415/GetDroppedColumns_thumbnailImage.png
 coverImage: /img/2024/0415/GetDroppedColumns_coverImage.png
 metaAlignment: center
 coverMeta: out
-draft: true
+draft: false
 ---
 
 On my last article - [What happens when we drop a column on a SQL Server table? Where's my space?](https://www.sqlservercentral.com/articles/what-happens-when-we-drop-a-column-on-a-sql-server-table-wheres-my-space) - I have shown what happens when we drop a column from a table.  
