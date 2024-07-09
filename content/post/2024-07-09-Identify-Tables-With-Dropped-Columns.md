@@ -18,10 +18,9 @@ thumbnailImage: /img/2024/0415/GetDroppedColumns_thumbnailImage.png
 coverImage: /img/2024/0415/GetDroppedColumns_coverImage.png
 metaAlignment: center
 coverMeta: out
-draft: false
 ---
 
-On my last article - [What happens when we drop a column on a SQL Server table? Where's my space?](https://www.sqlservercentral.com/articles/what-happens-when-we-drop-a-column-on-a-sql-server-table-wheres-my-space) - I have shown what happens when we drop a column from a table.  
+On my last article - [What happens when we drop a column on a SQL Server table? Where's my space?](https://claudioessilva.eu/2024/05/29/What-happens-when-we-drop-a-column-on-a-SQL-Server-table-Wheres-my-space/) - I have shown what happens when we drop a column from a table.  
 Today, we are going to check if we have a way to find tables with dropped columns.
 
 ## Why?
