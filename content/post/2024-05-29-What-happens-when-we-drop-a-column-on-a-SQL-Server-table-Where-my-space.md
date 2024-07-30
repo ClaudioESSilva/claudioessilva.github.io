@@ -27,7 +27,8 @@ But, most importantly - **The record/table size will remain unchanged**.
 
 # A metadata operation
 Dropping a column is a metadata/logical operation, not a physical one. This means that the data isn't removed/overwritten by this action. 
-As Paul Randal mentions [here]((https://www.sqlskills.com/blogs/paul/inside-the-storage-engine-anatomy-of-a-page/)): 
+
+If we were talking about deleting data (records), as Paul Randal mentions [here](https://www.sqlskills.com/blogs/paul/inside-the-storage-engine-anatomy-of-a-page/): 
 > "the cost of that will be deferred for the inserters and not for the deleters". 
 
 ## Does that mean that the content is still visible?
