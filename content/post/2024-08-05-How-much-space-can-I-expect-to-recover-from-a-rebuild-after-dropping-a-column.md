@@ -1,7 +1,7 @@
 ---
 author: claudiosilva
 comments: true
-date: "2024-08-09T10:00:00Z"
+date: "2024-08-05T10:00:00Z"
 tags:
 - SQLServer
 - TSQL
@@ -18,7 +18,7 @@ thumbnailImage: /img/2024/0611/howMuchSpaceCanIRecover_thumbnailImage.png
 coverImage: /img/2024/0611/howMuchSpaceCanIRecover_coverImage.png
 metaAlignment: center
 coverMeta: out
-draft: true
+draft: false
 ---
 
  
