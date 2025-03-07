@@ -1,16 +1,143 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Automation on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/Automation/</link><description>Recent content in Automation on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 22 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/Automation/index.xml" rel="self" type="application/rss+xml"/><item><title>Recover database encrypted modules code with dbatools</title><link>https://claudioessilva.eu/2020/09/22/Recover-database-encrypted-modules-code-with-dbatools/</link><pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/09/22/Recover-database-encrypted-modules-code-with-dbatools/</guid><description>This article was initially posted on SQLServerCentral @ 2020-08-18. It was interesting some comments I read about it, mainly why people still use WITH ENCRYPTION when it&amp;rsquo;s simple to overcome this when we have the right permissions.
-SQL Server offers an option to encrypt the code of your modules when using the WITH ENCRYPTION syntax. This allows to hide/obfuscate the modules&amp;rsquo; code and thus keep away from prying eyes. It&amp;rsquo;s often used to protect business rules since it allows you to protect some intellectual property.</description></item><item><title>Generate SQL Server Role Member Reports using dbatools and ImportExcel PowerShell modules</title><link>https://claudioessilva.eu/2020/07/31/Generate-SQL-Server-Role-Member-Reports-using-dbatools-and-ImportExcel-PowerShell-modules/</link><pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/07/31/Generate-SQL-Server-Role-Member-Reports-using-dbatools-and-ImportExcel-PowerShell-modules/</guid><description>This was initial posted on SQL Server Central articles .
-As one of dbatools&amp;rsquo; first members, I&amp;rsquo;ve been using it for years and it&amp;rsquo;s really my goto tool. This task was no different!
-Today&amp;rsquo;s tip and trick using dbatools is about generating an Excel workbook that contains lists of SQL Server roles and its members.
-The Usefulness of these Reports These reports are especially useful when performing tech-refreshes (migrating from an old version to a newer one) and you want to do some housekeeping.</description></item><item><title>Backup your SQL instances configurations to GIT with dbatools - Part 2 - Add parallelism</title><link>https://claudioessilva.eu/2020/06/04/Backup-your-SQL-instances-configurations-to-GIT-with-dbatools-Part-2-Add-parallelism/</link><pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/06/04/Backup-your-SQL-instances-configurations-to-GIT-with-dbatools-Part-2-Add-parallelism/</guid><description>We have seen how we can export and save the results to a folder and commit them to a GIT repository on my last blog post Backup your SQL instances configurations to GIT with dbatools – Part 1 . At the end of that post, I have mentioned that I would write about how we can lower down the execution times of our script by leveraging on parallelism.
-Going parallel When we need to manage dozens of servers/instances, even with automated scripts sometimes we would like that our script finishes faster.</description></item><item><title>Backup your SQL instances configurations to GIT with dbatools - Part 1</title><link>https://claudioessilva.eu/2020/06/02/Backup-your-SQL-instances-configurations-to-GIT-with-dbatools-Part-1/</link><pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/06/02/Backup-your-SQL-instances-configurations-to-GIT-with-dbatools-Part-1/</guid><description>Today I want to share how I&amp;rsquo;m keeping a copy of instances&amp;rsquo; configurations using dbatools .
-Chrissy LeMaire ( B | T ) wrote about it before on the Simplifying disaster recovery with dbatools blog post. In this post, I will add one step and save the output on a GIT repository.
-Pre-requirements You need a GIT repository GIT tools installed on the server where you are running the script so you can commit your changes dbatools A list or a place to get all instances that you want to run the export Preparation Git repository Clone your repository to a location where dbatools can write to.</description></item><item><title>Replicate permissions to new Login/User with dbatools</title><link>https://claudioessilva.eu/2020/05/28/Replicate-permissions-to-new-Login/User-with-dbatools/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/05/28/Replicate-permissions-to-new-Login/User-with-dbatools/</guid><description>Continuing to share tips and tricks using dbatools like the Refresh databases that belongs to availability group using dbatools posted a few days ago, today I will share a way to export the permissions of a login/user at instance/database level and apply them to a new login/user.
-The typical request Client: &amp;ldquo;We have a new colleague, can you please grant them the exact same permissions I have?!&amp;rdquo;
-A quick note/suggestion that may help minimize your work: If we are talking about a Windows Login, please suggest the use of AD groups to help you (so that you don&amp;rsquo;t need to do this process) and also them (they don&amp;rsquo;t need to make this request).</description></item><item><title>Export Deadlocks to file from system_health Extended Event using PowerShell</title><link>https://claudioessilva.eu/2020/05/25/Export-Deadlocks-to-file-from-system_health-Extended-Event-using-PowerShell/</link><pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/05/25/Export-Deadlocks-to-file-from-system_health-Extended-Event-using-PowerShell/</guid><description>Just a quick post as may help any of you searching for this.
-Scenario Client wants to analyze most recent deadlocks that happened on a specific instance. They asked us to send the xdl files.
-How do we get the deadlocks? Depending on the version of SQL Server that you are running, there are different ways to do it. In this post I will share how you can do it from all files that belongs to the system_health extended event session.</description></item><item><title>Refresh databases that belongs to Availability Group using dbatools</title><link>https://claudioessilva.eu/2020/05/20/Refresh-databases-that-belongs-to-Availability-Group-using-dbatools/</link><pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/05/20/Refresh-databases-that-belongs-to-Availability-Group-using-dbatools/</guid><description>Few days ago I was surfing on Twitter when dbatools asked about how it&amp;rsquo;s PowerShell module changed the way people work .
-Open and check the answers given by the community as there is really good stuff there!
-My turn I have shared one of my recipes related to database refreshes. You know, when the client says, &amp;ldquo;please restore this backup or the most recent backup on our instance.&amp;rdquo;. But what if the databases belong to an availability group?</description></item><item><title>Scripting SQL Server objects with dbatools - Beyond default options</title><link>https://claudioessilva.eu/2019/05/15/Scripting-SQL-Server-objects-with-dbatools-Beyond-default-options/</link><pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2019/05/15/Scripting-SQL-Server-objects-with-dbatools-Beyond-default-options/</guid><description>Probably you had the need to script out some objects from a SQL Server instance/database and this is quite easy. You just need to right click on the object (well&amp;hellip;not on every single one, try it with an Availability Group :-), no script option available) select &amp;ldquo;Script XXXX as&amp;rdquo; and you have it.
-But have you realized that this option doesn&amp;rsquo;t bring all the stuff? Let&amp;rsquo;s say you are scripting a table and you have a Non-Clustered index or a trigger&amp;hellip;using this option some of the objects under the table will not be scripted out.</description></item><item><title>Leveraging on SQL Server metadata</title><link>https://claudioessilva.eu/2018/08/24/Leveraging-on-SQL-Server-metadata/</link><pubDate>Fri, 24 Aug 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/08/24/Leveraging-on-SQL-Server-metadata/</guid><description>I&amp;rsquo;m working on a project where I need to convert Firebird SQL code into T-SQL code. No schema, just the modules. There are more than 1000 objects between stored procedures, views, triggers, user-defined data types, etc.
-First - the pain&amp;hellip; While checking the Firebird reference manuals I saw a lot of different concepts (Selectable Stored Procedures - Yes you can do SELECT FROM StoredProcedure) and different functions names with different syntax compared to T-SQL.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Automation on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/Automation/</link><description>Recent content in Automation on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 22 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/Automation/index.xml" rel="self" type="application/rss+xml"/><item><title>Recover database encrypted modules code with dbatools</title><link>https://claudioessilva.eu/2020/09/22/Recover-database-encrypted-modules-code-with-dbatools/</link><pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/09/22/Recover-database-encrypted-modules-code-with-dbatools/</guid><description>&lt;p>This article was initially posted on &lt;a href="https://www.sqlservercentral.com/articles/recover-database-encrypted-modules-code-with-dbatools"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ SQLServerCentral
+&lt;/a>
+ @ 2020-08-18.
+It was interesting some comments I read about it, mainly why people still use &lt;code>WITH ENCRYPTION&lt;/code> when it&amp;rsquo;s simple to overcome this when we have the right permissions.&lt;/p>
+&lt;p>SQL Server offers an option to encrypt the code of your modules when using the &lt;code>WITH ENCRYPTION&lt;/code> syntax.
+This allows to hide/obfuscate the modules&amp;rsquo; code and thus keep away from prying eyes.
+It&amp;rsquo;s often used to protect business rules since it allows you to protect some intellectual property.&lt;/p></description></item><item><title>Generate SQL Server Role Member Reports using dbatools and ImportExcel PowerShell modules</title><link>https://claudioessilva.eu/2020/07/31/Generate-SQL-Server-Role-Member-Reports-using-dbatools-and-ImportExcel-PowerShell-modules/</link><pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/07/31/Generate-SQL-Server-Role-Member-Reports-using-dbatools-and-ImportExcel-PowerShell-modules/</guid><description>&lt;blockquote>
+&lt;p>This was initial posted on &lt;a href="https://www.sqlservercentral.com/articles/generate-role-member-reports-using-dbatools-and-the-importexcel-powershell-modules"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ SQL Server Central articles
+&lt;/a>
+.&lt;/p>&lt;/blockquote>
+&lt;p>As one of dbatools&amp;rsquo; first members, I&amp;rsquo;ve been using it for years and it&amp;rsquo;s really my goto tool. This task was no different!&lt;/p>
+&lt;p>Today&amp;rsquo;s tip and trick using &lt;a href="https://dbatools.io"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbatools
+&lt;/a>
+ is about generating an Excel workbook that contains lists of SQL Server roles and its members.&lt;/p>
+&lt;h2 id="the-usefulness-of-these-reports">The Usefulness of these Reports&lt;/h2>
+&lt;p>These reports are especially useful when performing tech-refreshes (migrating from an old version to a newer one) and you want to do some housekeeping. For example, finding logins that should be part of a role and they are not. Once you know there are problems, you decided to do a double-check on the whole list.&lt;/p></description></item><item><title>Backup your SQL instances configurations to GIT with dbatools - Part 2 - Add parallelism</title><link>https://claudioessilva.eu/2020/06/04/Backup-your-SQL-instances-configurations-to-GIT-with-dbatools-Part-2-Add-parallelism/</link><pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/06/04/Backup-your-SQL-instances-configurations-to-GIT-with-dbatools-Part-2-Add-parallelism/</guid><description>&lt;p>We have seen how we can export and save the results to a folder and commit them to a GIT repository on my last blog post &lt;a href="https://claudioessilva.eu/2020/06/02/Backup-your-SQL-instances-configurations-to-GIT-with-dbatools-Part-1/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Backup your SQL instances configurations to GIT with dbatools – Part 1
+&lt;/a>
+.
+At the end of that post, I have mentioned that I would write about how we can lower down the execution times of our script by leveraging on parallelism.&lt;/p>
+&lt;h2 id="going-parallel">Going parallel&lt;/h2>
+&lt;p>When we need to manage dozens of servers/instances, even with automated scripts sometimes we would like that our script finishes faster.
+There are multiple reasons that a sequential (one-by-one) run takes longer.
+Few examples I have hit in the past:&lt;/p></description></item><item><title>Backup your SQL instances configurations to GIT with dbatools - Part 1</title><link>https://claudioessilva.eu/2020/06/02/Backup-your-SQL-instances-configurations-to-GIT-with-dbatools-Part-1/</link><pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/06/02/Backup-your-SQL-instances-configurations-to-GIT-with-dbatools-Part-1/</guid><description>&lt;p>Today I want to share how I&amp;rsquo;m keeping a copy of instances&amp;rsquo; configurations using &lt;a href="https://dbatools.io"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbatools
+&lt;/a>
+.&lt;/p>
+&lt;p>Chrissy LeMaire (&lt;a href="https://blog.netnerds.net/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ B
+&lt;/a>
+ | &lt;a href="https://twitter.com/cl"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ T
+&lt;/a>
+) wrote about it before on the &lt;a href="https://dbatools.io/dr/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Simplifying disaster recovery with dbatools
+&lt;/a>
+ blog post.
+In this post, I will add one step and save the output on a GIT repository.&lt;/p>
+&lt;h2 id="pre-requirements">Pre-requirements&lt;/h2>
+&lt;ul>
+&lt;li>You need a GIT repository&lt;/li>
+&lt;li>GIT tools installed on the server where you are running the script so you can commit your changes&lt;/li>
+&lt;li>dbatools&lt;/li>
+&lt;li>A list or a place to get all instances that you want to run the export&lt;/li>
+&lt;/ul>
+&lt;h2 id="preparation">Preparation&lt;/h2>
+&lt;h3 id="git-repository">Git repository&lt;/h3>
+&lt;p>Clone your repository to a location where dbatools can write to.&lt;/p></description></item><item><title>Replicate permissions to new Login/User with dbatools</title><link>https://claudioessilva.eu/2020/05/28/Replicate-permissions-to-new-Login/User-with-dbatools/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/05/28/Replicate-permissions-to-new-Login/User-with-dbatools/</guid><description>&lt;p>Continuing to share tips and tricks using &lt;a href="https://dbatools.io"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbatools
+&lt;/a>
+ like the &lt;a href="https://claudioessilva.eu/2020/05/20/Refresh-databases-that-belongs-to-Availability-Group-using-dbatools/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Refresh databases that belongs to availability group using dbatools
+&lt;/a>
+ posted a few days ago, today I will share a way to export the permissions of a login/user at instance/database level and apply them to a new login/user.&lt;/p>
+&lt;h2 id="the-typical-request">The typical request&lt;/h2>
+&lt;p>Client: &amp;ldquo;We have a new colleague, can you please grant them the exact same permissions I have?!&amp;rdquo;&lt;/p>
+&lt;p>A quick note/suggestion that may help minimize your work: If we are talking about a Windows Login, please suggest the use of AD groups to help you (so that you don&amp;rsquo;t need to do this process) and also them (they don&amp;rsquo;t need to make this request).&lt;/p></description></item><item><title>Export Deadlocks to file from system_health Extended Event using PowerShell</title><link>https://claudioessilva.eu/2020/05/25/Export-Deadlocks-to-file-from-system_health-Extended-Event-using-PowerShell/</link><pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/05/25/Export-Deadlocks-to-file-from-system_health-Extended-Event-using-PowerShell/</guid><description>&lt;p>Just a quick post as may help any of you searching for this.&lt;/p>
+&lt;h2 id="scenario">Scenario&lt;/h2>
+&lt;p>Client wants to analyze most recent deadlocks that happened on a specific instance. They asked us to send the xdl files.&lt;/p>
+&lt;h2 id="how-do-we-get-the-deadlocks">How do we get the deadlocks?&lt;/h2>
+&lt;p>Depending on the version of SQL Server that you are running, there are different ways to do it.
+In this post I will share how you can do it from all files that belongs to the &lt;code>system_health&lt;/code> extended event session. (Not only the current file).
+This works on SQL Server 2012 or higher version.
+For a better overview I recommend you to read the &lt;a href="https://www.sqlshack.com/what-are-sql-server-deadlocks-and-how-to-monitor-them/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ What are SQL Server deadlocks and how to monitor them
+&lt;/a>
+ article from SQLShack.&lt;/p></description></item><item><title>Refresh databases that belongs to Availability Group using dbatools</title><link>https://claudioessilva.eu/2020/05/20/Refresh-databases-that-belongs-to-Availability-Group-using-dbatools/</link><pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/05/20/Refresh-databases-that-belongs-to-Availability-Group-using-dbatools/</guid><description>&lt;p>Few days ago I was surfing on Twitter when &lt;a href="https://twitter.com/psdbatools"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbatools
+&lt;/a>
+ asked about &lt;a href="https://twitter.com/psdbatools/status/1261563168113012736"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ how it&amp;rsquo;s PowerShell module changed the way people work
+&lt;/a>
+.&lt;/p>
+&lt;p>Open and check the answers given by the community as there is really good stuff there!&lt;/p>
+&lt;h2 id="my-turn">My turn&lt;/h2>
+&lt;p>I have shared one of my recipes related to database refreshes. You know, when the client says, &amp;ldquo;please restore this backup or the most recent backup on our instance.&amp;rdquo;. But what if the databases belong to an availability group? It&amp;rsquo;s not as simple as a standalone installation.&lt;/p></description></item><item><title>Scripting SQL Server objects with dbatools - Beyond default options</title><link>https://claudioessilva.eu/2019/05/15/Scripting-SQL-Server-objects-with-dbatools-Beyond-default-options/</link><pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2019/05/15/Scripting-SQL-Server-objects-with-dbatools-Beyond-default-options/</guid><description>&lt;p>Probably you had the need to script out some objects from a SQL Server instance/database and this is quite easy. You just need to right click on the object (well&amp;hellip;not on every single one, try it with an Availability Group :-), no script option available) select &amp;ldquo;Script XXXX as&amp;rdquo; and you have it.&lt;/p>
+&lt;p>But have you realized that this option doesn&amp;rsquo;t bring all the stuff?
+Let&amp;rsquo;s say you are scripting a table and you have a Non-Clustered index or a trigger&amp;hellip;using this option some of the objects under the table will not be scripted out. I understand this as each one of this is a different object, which means if you go to each one you can right click and script just that one.&lt;/p></description></item><item><title>Leveraging on SQL Server metadata</title><link>https://claudioessilva.eu/2018/08/24/Leveraging-on-SQL-Server-metadata/</link><pubDate>Fri, 24 Aug 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/08/24/Leveraging-on-SQL-Server-metadata/</guid><description>&lt;p>I&amp;rsquo;m working on a project where I need to convert Firebird SQL code into T-SQL code.
+No schema, just the modules. There are more than 1000 objects between stored procedures, views, triggers, user-defined data types, etc.&lt;/p>
+&lt;h2 id="first---the-pain">First - the pain&amp;hellip;&lt;/h2>
+&lt;p>While checking the &lt;a href="https://firebirdsql.org/en/reference-manuals/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Firebird reference manuals
+&lt;/a>
+ I saw a lot of different concepts (Selectable Stored Procedures - Yes you can do SELECT FROM StoredProcedure) and different functions names with different syntax compared to T-SQL.&lt;/p></description></item></channel></rss>

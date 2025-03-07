@@ -1,16 +1,72 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Performance on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/performance/</link><description>Recent content in Performance on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 01 Feb 2024 11:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/performance/index.xml" rel="self" type="application/rss+xml"/><item><title>Query Store: How to open multiple instances of the 'Tracked Queries' dashboard</title><link>https://claudioessilva.eu/2024/02/01/Query-Store-How-to-open-multiple-instances-of-the-Tracked-Queries-dashboard/</link><pubDate>Thu, 01 Feb 2024 11:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2024/02/01/Query-Store-How-to-open-multiple-instances-of-the-Tracked-Queries-dashboard/</guid><description>At the beginning of this week, I shared how you can Search for queries with Query Store GUI .
-Today I want to share something, Query Store related, that bugged me for awhile and a workaround to overcome it.
-NOTE: This happens at least until SSMS v19.3 (most recent version of SSMS at the time of this writing). Let’s see what newer versions bring us.
-Multiple instances of the same dashboard When you navigate through Query Store dashboards, it can become handy open two instances of the same dashboard but with a different time range, or different aggreagations or even a different metric so you can do a quick compare.</description></item><item><title>Search for queries with Query Store GUI</title><link>https://claudioessilva.eu/2024/01/29/Search-for-queries-with-Query-Store-GUI/</link><pubDate>Mon, 29 Jan 2024 09:30:00 +0000</pubDate><guid>https://claudioessilva.eu/2024/01/29/Search-for-queries-with-Query-Store-GUI/</guid><description>Hey folks, long time no write!
-Today I want to bring a tip that I use every week but I found that most SSMS users are unaware it exists.
-I can understand why! At the moment this isn&amp;rsquo;t the most obvious and user-friendly option. However, it can and hopefully it will improve in the future.
-&amp;ldquo;But&amp;hellip;What is it?&amp;rdquo; I&amp;rsquo;m talking about using the Query Store GUI to search for some portion of text used in a T-SQL query and, with that, find a query that you want to analyze within it.</description></item><item><title>Export Deadlocks to file from system_health Extended Event using PowerShell</title><link>https://claudioessilva.eu/2020/05/25/Export-Deadlocks-to-file-from-system_health-Extended-Event-using-PowerShell/</link><pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/05/25/Export-Deadlocks-to-file-from-system_health-Extended-Event-using-PowerShell/</guid><description>Just a quick post as may help any of you searching for this.
-Scenario Client wants to analyze most recent deadlocks that happened on a specific instance. They asked us to send the xdl files.
-How do we get the deadlocks? Depending on the version of SQL Server that you are running, there are different ways to do it. In this post I will share how you can do it from all files that belongs to the system_health extended event session.</description></item><item><title>T-SQL Copy &amp; Paste Pattern - Increasing a performance problem</title><link>https://claudioessilva.eu/2020/02/21/T-SQL-Copy-Paste-Pattern-Increasing-a-performance-problem/</link><pubDate>Fri, 21 Feb 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/02/21/T-SQL-Copy-Paste-Pattern-Increasing-a-performance-problem/</guid><description>Disclaimer: The title is my assumption because I saw it in the past happening this way.
-This blog post aims to make you remember something: something that is obvious to you, might not be obvious to others.
-Scenario A client has a process which consists of a stored procedure that wraps a bunch of other stored procedures. The process runs for about 10 hours.
-Taking a look&amp;hellip;what is running right now?</description></item><item><title>dbachecks - Going parallel - Cut off your execution times</title><link>https://claudioessilva.eu/2018/04/26/dbachecks-Going-parallel-Cut-off-your-execution-times/</link><pubDate>Thu, 26 Apr 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/04/26/dbachecks-Going-parallel-Cut-off-your-execution-times/</guid><description>On one of the last clients I have worked, I have implemented dbachecks in order to get the state of art and know how cool or bad the environments are before start knocking down the bad practices.
-This client has seven different environments with more than 100 instances and more than 2000 databases.
-Serial execution A non-parallel execution (single session) took more than 2 hours. This is not a big problem when we run it out of hours and we don&amp;rsquo;t want/need to be looking or waiting for it to finish.</description></item><item><title>New version of sp_WhoIsActive (v11.20) is available - Deployed on 123 instances in less than 1 minute</title><link>https://claudioessilva.eu/2017/12/05/New-version-of-sp_WhoIsActive-v11.20-is-available-Deployed-on-123-instances-in-less-than-1-minute/</link><pubDate>Tue, 05 Dec 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/12/05/New-version-of-sp_WhoIsActive-v11.20-is-available-Deployed-on-123-instances-in-less-than-1-minute/</guid><description>Last night, I received Adam Machanic&amp;rsquo;s ( b | t ) newsletter &amp;ldquo;Announcing sp_whoisactive v11.20: Live Query Plans&amp;rdquo;.
-For those who don&amp;rsquo;t know about it, sp_WhoIsActive is a stored procedure that provides detailed information about the sessions running on your SQL Server instance. It is a great tool when we need to troubleshoot some problems such as long-running queries or blocking. (just two examples)
-This stored procedure works on any version/edition since SQL Server 2005 SP1.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Performance on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/performance/</link><description>Recent content in Performance on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 01 Feb 2024 11:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/performance/index.xml" rel="self" type="application/rss+xml"/><item><title>Query Store: How to open multiple instances of the 'Tracked Queries' dashboard</title><link>https://claudioessilva.eu/2024/02/01/Query-Store-How-to-open-multiple-instances-of-the-Tracked-Queries-dashboard/</link><pubDate>Thu, 01 Feb 2024 11:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2024/02/01/Query-Store-How-to-open-multiple-instances-of-the-Tracked-Queries-dashboard/</guid><description>&lt;p>At the beginning of this week, I shared how you can &lt;a href="https://claudioessilva.eu/2024/01/29/Search-for-queries-with-Query-Store-GUI/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Search for queries with Query Store GUI
+&lt;/a>
+.&lt;/p>
+&lt;p>Today I want to share something, Query Store related, that bugged me for awhile and a workaround to overcome it.&lt;/p>
+&lt;p>&lt;strong>NOTE:&lt;/strong> This happens at least until SSMS v19.3 (most recent version of SSMS at the time of this writing). Let’s see what newer versions bring us.&lt;/p>
+&lt;h2 id="multiple-instances-of-the-same-dashboard">Multiple instances of the same dashboard&lt;/h2>
+&lt;p>When you navigate through Query Store dashboards, it can become handy open two instances of the same dashboard but with a different time range, or different aggreagations or even a different metric so you can do a quick compare.&lt;/p></description></item><item><title>Search for queries with Query Store GUI</title><link>https://claudioessilva.eu/2024/01/29/Search-for-queries-with-Query-Store-GUI/</link><pubDate>Mon, 29 Jan 2024 09:30:00 +0000</pubDate><guid>https://claudioessilva.eu/2024/01/29/Search-for-queries-with-Query-Store-GUI/</guid><description>&lt;p>Hey folks, long time no write!&lt;/p>
+&lt;p>Today I want to bring a tip that I use every week but I found that most SSMS users are unaware it exists.&lt;br>
+I can understand why! At the moment this isn&amp;rsquo;t the most obvious and user-friendly option. However, it can and hopefully it will improve in the future.&lt;/p>
+&lt;h1 id="butwhat-is-it">&amp;ldquo;But&amp;hellip;What is it?&amp;rdquo;&lt;/h1>
+&lt;p>I&amp;rsquo;m talking about using the Query Store GUI to search for some portion of text used in a T-SQL query and, with that, find a query that you want to analyze within it.&lt;/p></description></item><item><title>Export Deadlocks to file from system_health Extended Event using PowerShell</title><link>https://claudioessilva.eu/2020/05/25/Export-Deadlocks-to-file-from-system_health-Extended-Event-using-PowerShell/</link><pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/05/25/Export-Deadlocks-to-file-from-system_health-Extended-Event-using-PowerShell/</guid><description>&lt;p>Just a quick post as may help any of you searching for this.&lt;/p>
+&lt;h2 id="scenario">Scenario&lt;/h2>
+&lt;p>Client wants to analyze most recent deadlocks that happened on a specific instance. They asked us to send the xdl files.&lt;/p>
+&lt;h2 id="how-do-we-get-the-deadlocks">How do we get the deadlocks?&lt;/h2>
+&lt;p>Depending on the version of SQL Server that you are running, there are different ways to do it.
+In this post I will share how you can do it from all files that belongs to the &lt;code>system_health&lt;/code> extended event session. (Not only the current file).
+This works on SQL Server 2012 or higher version.
+For a better overview I recommend you to read the &lt;a href="https://www.sqlshack.com/what-are-sql-server-deadlocks-and-how-to-monitor-them/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ What are SQL Server deadlocks and how to monitor them
+&lt;/a>
+ article from SQLShack.&lt;/p></description></item><item><title>T-SQL Copy &amp; Paste Pattern - Increasing a performance problem</title><link>https://claudioessilva.eu/2020/02/21/T-SQL-Copy-Paste-Pattern-Increasing-a-performance-problem/</link><pubDate>Fri, 21 Feb 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/02/21/T-SQL-Copy-Paste-Pattern-Increasing-a-performance-problem/</guid><description>&lt;p>Disclaimer: The title is my assumption because I saw it in the past happening this way.&lt;/p>
+&lt;p>This blog post aims to make you remember something: something that is obvious to you, might not be obvious to others.&lt;/p>
+&lt;h2 id="scenario">Scenario&lt;/h2>
+&lt;p>A client has a process which consists of a stored procedure that wraps a bunch of other stored procedures.
+The process runs for about 10 hours.&lt;/p>
+&lt;h2 id="taking-a-lookwhat-is-running-right-now">Taking a look&amp;hellip;what is running right now?&lt;/h2>
+&lt;p>I was curious about the process, I&amp;rsquo;ve seen this running before but never explored the code. After a couple of days of seeing it running for so long, I decided to see what would be the random query I would get executing.&lt;/p></description></item><item><title>dbachecks - Going parallel - Cut off your execution times</title><link>https://claudioessilva.eu/2018/04/26/dbachecks-Going-parallel-Cut-off-your-execution-times/</link><pubDate>Thu, 26 Apr 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/04/26/dbachecks-Going-parallel-Cut-off-your-execution-times/</guid><description>&lt;p>On one of the last clients I have worked, I have implemented &lt;a href="http://dbachecks.io"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbachecks
+&lt;/a>
+ in order to get the state of art and know how cool or bad the environments are before start knocking down the bad practices.&lt;/p>
+&lt;p>This client has &lt;strong>seven&lt;/strong> different environments with more than 100 instances and more than 2000 databases.&lt;/p>
+&lt;h3 id="serial-execution">Serial execution&lt;/h3>
+&lt;p>A non-parallel execution (single session) took more than 2 hours.
+This is not a big problem when we run it out of hours and we don&amp;rsquo;t want/need to be looking or waiting for it to finish.
+I set up it to run at 6 in the morning and when I arrive at the office I can refresh the Power BI dashboard a get a recent state of art.&lt;/p></description></item><item><title>New version of sp_WhoIsActive (v11.20) is available - Deployed on 123 instances in less than 1 minute</title><link>https://claudioessilva.eu/2017/12/05/New-version-of-sp_WhoIsActive-v11.20-is-available-Deployed-on-123-instances-in-less-than-1-minute/</link><pubDate>Tue, 05 Dec 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/12/05/New-version-of-sp_WhoIsActive-v11.20-is-available-Deployed-on-123-instances-in-less-than-1-minute/</guid><description>&lt;p>Last night, I received Adam Machanic&amp;rsquo;s (&lt;a href="http://dataeducation.com"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ b
+&lt;/a>
+ | &lt;a href="https://twitter.com/AdamMachanic"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ t
+&lt;/a>
+) newsletter &amp;ldquo;Announcing sp_whoisactive v11.20: Live Query Plans&amp;rdquo;.&lt;/p>
+&lt;p>For those who don&amp;rsquo;t know about it, &lt;a href="http://whoisactive.com"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ sp_WhoIsActive
+&lt;/a>
+ is a stored procedure that provides detailed information about the sessions running on your SQL Server instance.
+It is a great tool when we need to troubleshoot some problems such as long-running queries or blocking. (&lt;strong>just&lt;/strong> two examples)&lt;/p>
+&lt;p>This stored procedure works on any version/edition since SQL Server 2005 SP1. Although, you only will be able to see the new feature (live query plans) if you run it on SQL Server 2016 or 2017.&lt;/p></description></item></channel></rss>

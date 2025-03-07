@@ -1,2 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>FTS on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/FTS/</link><description>Recent content in FTS on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 29 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/FTS/index.xml" rel="self" type="application/rss+xml"/><item><title>A (big) SQLPackage caveat</title><link>https://claudioessilva.eu/2021/12/29/A-big-SQLPackage-caveat/</link><pubDate>Wed, 29 Dec 2021 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2021/12/29/A-big-SQLPackage-caveat/</guid><description>Context I had a request to help with a database from a third-party vendor which uses a lot of FullText-Search (FTS) catalogs. I have to say that I just have played a handful of times with FTS, mostly in a didactic way, and not so much in the perspective of a production system and its maintenance.
-Long story short, this client had a couple of problems in the past with FTS.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>FTS on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/FTS/</link><description>Recent content in FTS on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 29 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/FTS/index.xml" rel="self" type="application/rss+xml"/><item><title>A (big) SQLPackage caveat</title><link>https://claudioessilva.eu/2021/12/29/A-big-SQLPackage-caveat/</link><pubDate>Wed, 29 Dec 2021 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2021/12/29/A-big-SQLPackage-caveat/</guid><description>&lt;h2 id="context">Context&lt;/h2>
+&lt;p>I had a request to help with a database from a third-party vendor which uses a lot of &lt;a href="https://docs.microsoft.com/en-us/sql/relational-databases/search/full-text-search"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ FullText-Search
+&lt;/a>
+ (FTS) catalogs.
+I have to say that I just have played a handful of times with FTS, mostly in a didactic way, and not so much in the perspective of a production system and its maintenance.&lt;/p>
+&lt;p>Long story short, this client had a couple of problems in the past with FTS. Sometimes it wasn&amp;rsquo;t being populated as expected, other times it was giving errors that indicate the catalog has problems.&lt;/p></description></item></channel></rss>

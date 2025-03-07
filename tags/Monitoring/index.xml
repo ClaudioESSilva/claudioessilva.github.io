@@ -1,9 +1,69 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Monitoring on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/Monitoring/</link><description>Recent content in Monitoring on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 03 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/Monitoring/index.xml" rel="self" type="application/rss+xml"/><item><title>When one of your DBA colleagues leaves the company, what is your checklist?</title><link>https://claudioessilva.eu/2020/09/03/When-one-of-your-DBA-colleagues-leaves-the-company-what-is-your-checklist/</link><pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/09/03/When-one-of-your-DBA-colleagues-leaves-the-company-what-is-your-checklist/</guid><description>Whether it’s in our personal lives or the professional one, we do have checklists for certain tasks.
-On the professional level, it can be purely technical like SQL Server installation, configuration or even uninstall, but they can also be not so technical like when a colleague join the team and someone needs to request permissions to access the company&amp;rsquo;s tools (such as ticketing/incidents/VPN/etc).
-What about when a colleague leaves the company?</description></item><item><title>Export Deadlocks to file from system_health Extended Event using PowerShell</title><link>https://claudioessilva.eu/2020/05/25/Export-Deadlocks-to-file-from-system_health-Extended-Event-using-PowerShell/</link><pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/05/25/Export-Deadlocks-to-file-from-system_health-Extended-Event-using-PowerShell/</guid><description>Just a quick post as may help any of you searching for this.
-Scenario Client wants to analyze most recent deadlocks that happened on a specific instance. They asked us to send the xdl files.
-How do we get the deadlocks? Depending on the version of SQL Server that you are running, there are different ways to do it. In this post I will share how you can do it from all files that belongs to the system_health extended event session.</description></item><item><title>dbachecks - Going parallel - Cut off your execution times</title><link>https://claudioessilva.eu/2018/04/26/dbachecks-Going-parallel-Cut-off-your-execution-times/</link><pubDate>Thu, 26 Apr 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/04/26/dbachecks-Going-parallel-Cut-off-your-execution-times/</guid><description>On one of the last clients I have worked, I have implemented dbachecks in order to get the state of art and know how cool or bad the environments are before start knocking down the bad practices.
-This client has seven different environments with more than 100 instances and more than 2000 databases.
-Serial execution A non-parallel execution (single session) took more than 2 hours. This is not a big problem when we run it out of hours and we don&amp;rsquo;t want/need to be looking or waiting for it to finish.</description></item><item><title>'Invalid class [0x80041010]' error when trying to access SQLServer's WMI classes</title><link>https://claudioessilva.eu/2017/09/07/Invalid-class-0x80041010-error-when-trying-to-access-SQLServers-WMI-classes/</link><pubDate>Thu, 07 Sep 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/09/07/Invalid-class-0x80041010-error-when-trying-to-access-SQLServers-WMI-classes/</guid><description>I was using open source PowerShell module dbatools ( GitHub repository ) to get the list of SQL Server services I have on a bunch of hosts so I could confirm if they are in &amp;ldquo;running&amp;rdquo; state.
-&amp;ndash; Quick note &amp;ndash; For those who don’t know, dbatools is a module, written by the community, that makes SQL Server administration much easier using PowerShell. Today, the module has more than 260 commands.</description></item><item><title>HTTP 403 error - PowerShell Remoting, Different Domains and Proxies</title><link>https://claudioessilva.eu/2017/09/04/HTTP-403-error-PowerShell-Remoting-Different-Domains-and-Proxies/</link><pubDate>Mon, 04 Sep 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/09/04/HTTP-403-error-PowerShell-Remoting-Different-Domains-and-Proxies/</guid><description>On my day to day work I use Nagios monitoring software. I want to add some custom SQL Server scripts to enrich the monitoring, and to accomplish this I will need to:
-Find a folder Create a sub folder Copy bunch of file edit a ini file to verify/add new entries all of this for every single host on my entire estate. Obviously (for me :-) ) I decided to use PowerShell!</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Monitoring on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/Monitoring/</link><description>Recent content in Monitoring on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 03 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/Monitoring/index.xml" rel="self" type="application/rss+xml"/><item><title>When one of your DBA colleagues leaves the company, what is your checklist?</title><link>https://claudioessilva.eu/2020/09/03/When-one-of-your-DBA-colleagues-leaves-the-company-what-is-your-checklist/</link><pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/09/03/When-one-of-your-DBA-colleagues-leaves-the-company-what-is-your-checklist/</guid><description>&lt;p>Whether it’s in our personal lives or the professional one, we do have checklists for certain tasks.&lt;/p>
+&lt;p>On the professional level, it can be purely technical like SQL Server installation, configuration or even uninstall, but they can also be not so technical like when a colleague join the team and someone needs to request permissions to access the company&amp;rsquo;s tools (such as ticketing/incidents/VPN/etc).&lt;/p>
+&lt;h2 id="what-about-when-a-colleague-leaves-the-company">What about when a colleague leaves the company?&lt;/h2>
+&lt;p>What is your checklist for this situation?
+At first, and the most obvious is to &amp;ldquo;rollback&amp;rdquo; the things done when that person joined the company. For instance:&lt;/p></description></item><item><title>Export Deadlocks to file from system_health Extended Event using PowerShell</title><link>https://claudioessilva.eu/2020/05/25/Export-Deadlocks-to-file-from-system_health-Extended-Event-using-PowerShell/</link><pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/05/25/Export-Deadlocks-to-file-from-system_health-Extended-Event-using-PowerShell/</guid><description>&lt;p>Just a quick post as may help any of you searching for this.&lt;/p>
+&lt;h2 id="scenario">Scenario&lt;/h2>
+&lt;p>Client wants to analyze most recent deadlocks that happened on a specific instance. They asked us to send the xdl files.&lt;/p>
+&lt;h2 id="how-do-we-get-the-deadlocks">How do we get the deadlocks?&lt;/h2>
+&lt;p>Depending on the version of SQL Server that you are running, there are different ways to do it.
+In this post I will share how you can do it from all files that belongs to the &lt;code>system_health&lt;/code> extended event session. (Not only the current file).
+This works on SQL Server 2012 or higher version.
+For a better overview I recommend you to read the &lt;a href="https://www.sqlshack.com/what-are-sql-server-deadlocks-and-how-to-monitor-them/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ What are SQL Server deadlocks and how to monitor them
+&lt;/a>
+ article from SQLShack.&lt;/p></description></item><item><title>dbachecks - Going parallel - Cut off your execution times</title><link>https://claudioessilva.eu/2018/04/26/dbachecks-Going-parallel-Cut-off-your-execution-times/</link><pubDate>Thu, 26 Apr 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/04/26/dbachecks-Going-parallel-Cut-off-your-execution-times/</guid><description>&lt;p>On one of the last clients I have worked, I have implemented &lt;a href="http://dbachecks.io"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbachecks
+&lt;/a>
+ in order to get the state of art and know how cool or bad the environments are before start knocking down the bad practices.&lt;/p>
+&lt;p>This client has &lt;strong>seven&lt;/strong> different environments with more than 100 instances and more than 2000 databases.&lt;/p>
+&lt;h3 id="serial-execution">Serial execution&lt;/h3>
+&lt;p>A non-parallel execution (single session) took more than 2 hours.
+This is not a big problem when we run it out of hours and we don&amp;rsquo;t want/need to be looking or waiting for it to finish.
+I set up it to run at 6 in the morning and when I arrive at the office I can refresh the Power BI dashboard a get a recent state of art.&lt;/p></description></item><item><title>'Invalid class [0x80041010]' error when trying to access SQLServer's WMI classes</title><link>https://claudioessilva.eu/2017/09/07/Invalid-class-0x80041010-error-when-trying-to-access-SQLServers-WMI-classes/</link><pubDate>Thu, 07 Sep 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/09/07/Invalid-class-0x80041010-error-when-trying-to-access-SQLServers-WMI-classes/</guid><description>&lt;p>I was using open source PowerShell module &lt;a href="http://dbatools.io"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbatools
+&lt;/a>
+ (&lt;a href="https://github.com/sqlcollaborative/dbatools"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ GitHub repository
+&lt;/a>
+) to get the list of SQL Server services I have on a bunch of hosts so I could confirm if they are in &amp;ldquo;&lt;em>running&lt;/em>&amp;rdquo; state.&lt;/p>
+&lt;p>&amp;ndash; Quick note &amp;ndash;
+For those who don’t know, dbatools is a module, written by the community, that makes SQL Server administration much easier using PowerShell. Today, the module has more than 260 commands. Go get it and try it! If you have any doubt you can join the team on the #dbatools channel at the &lt;a href="http://dbatools.io/slack"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Slack - SQL Server Community
+&lt;/a>
+.
+&amp;ndash; Quick note &amp;ndash;&lt;/p></description></item><item><title>HTTP 403 error - PowerShell Remoting, Different Domains and Proxies</title><link>https://claudioessilva.eu/2017/09/04/HTTP-403-error-PowerShell-Remoting-Different-Domains-and-Proxies/</link><pubDate>Mon, 04 Sep 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/09/04/HTTP-403-error-PowerShell-Remoting-Different-Domains-and-Proxies/</guid><description>&lt;p>On my day to day work I use &lt;a href="https://www.nagios.org/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Nagios
+&lt;/a>
+ monitoring software. I want to add some custom SQL Server scripts to enrich the monitoring, and to accomplish this I will need to:&lt;/p>
+&lt;ul>
+&lt;li>Find a folder&lt;/li>
+&lt;li>Create a sub folder&lt;/li>
+&lt;li>Copy bunch of file&lt;/li>
+&lt;li>edit a ini file to verify/add new entries&lt;/li>
+&lt;/ul>
+&lt;p>all of this for every single host on my entire estate. Obviously (for me :-) ) I decided to use PowerShell!&lt;/p></description></item></channel></rss>

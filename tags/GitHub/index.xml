@@ -1,8 +1,72 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GitHub on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/GitHub/</link><description>Recent content in GitHub on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 12 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/GitHub/index.xml" rel="self" type="application/rss+xml"/><item><title>SQL Server Operations Studio and VSCode: The wrong default datetimeoffset format</title><link>https://claudioessilva.eu/2018/09/12/SQL-Server-Operations-Studio-and-VSCode-The-wrong-default-datetimeoffset-format/</link><pubDate>Wed, 12 Sep 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/09/12/SQL-Server-Operations-Studio-and-VSCode-The-wrong-default-datetimeoffset-format/</guid><description>This post is to answer the question: &amp;ldquo;You are used to seeing in the format of yyyy-MM-dd right?&amp;rdquo; that I have raised on my blog post Don’t cutoff yourself with dates in T-SQL – Did you know… .
-As you could see from that blog post, my screen shots were from VSCode and in this case using mssql extension, but this happens also on SQL Server Operations Studio .
-&amp;ldquo;But why are my datetimeoffset values on VSCode being showed in that format?</description></item><item><title>Generate Markdown Table of Contents based on files within a folder with PowerShell</title><link>https://claudioessilva.eu/2017/09/18/Generate-Markdown-Table-of-Contents-based-on-files-within-a-folder-with-PowerShell/</link><pubDate>Mon, 18 Sep 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/09/18/Generate-Markdown-Table-of-Contents-based-on-files-within-a-folder-with-PowerShell/</guid><description>Last week I was talking with Constantine Kokkinos ( b | t ) about generating a Table Of Contents (TOC) for a GitHub repository.
-He wrote a cool blog post - Generating Tables of Contents for Github Projects with PowerShell - about it and I will write this one with a different problem/solution.
-Context I’m working on a new project (news coming soon) that uses a GitHub repository and I expect to have a big number of files within a specific folder.</description></item><item><title>Contribute to Microsoft Documentation</title><link>https://claudioessilva.eu/2017/08/28/Contribute-to-Microsoft-Documentation/</link><pubDate>Mon, 28 Aug 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/08/28/Contribute-to-Microsoft-Documentation/</guid><description>Times have changed and Microsoft has changed the way we can contribute for documentation !
-We already have access to the source code from some programs. One example is PowerShell, that has an GitHub repository where anyone can contribute!
-Now anyone can contribute to the documentation too!
-How and where? If you haven&amp;rsquo;t seen before, now we have a pencil icon on the top right corner that makes possible to suggest a change.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GitHub on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/GitHub/</link><description>Recent content in GitHub on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 12 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/GitHub/index.xml" rel="self" type="application/rss+xml"/><item><title>SQL Server Operations Studio and VSCode: The wrong default datetimeoffset format</title><link>https://claudioessilva.eu/2018/09/12/SQL-Server-Operations-Studio-and-VSCode-The-wrong-default-datetimeoffset-format/</link><pubDate>Wed, 12 Sep 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/09/12/SQL-Server-Operations-Studio-and-VSCode-The-wrong-default-datetimeoffset-format/</guid><description>&lt;p>This post is to answer the question: &amp;ldquo;You are used to seeing in the format of &lt;code>yyyy-MM-dd&lt;/code> right?&amp;rdquo; that I have raised on my blog post &lt;a href="https://claudioessilva.eu/2018/09/04/dont-cutoff-yourself-when-dealing-with-dates-in-t-sql-did-you-know/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Don’t cutoff yourself with dates in T-SQL – Did you know…
+&lt;/a>
+.&lt;/p>
+&lt;p>As you could see from that blog post, my screen shots were from &lt;a href="https://code.visualstudio.com/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ VSCode
+&lt;/a>
+ and in this case using &lt;a href="https://github.com/Microsoft/vscode-mssql"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ mssql
+&lt;/a>
+ extension, but this happens also on &lt;a href="https://docs.microsoft.com/en-us/sql/sql-operations-studio/download?view=sql-server-2017"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ SQL Server Operations Studio
+&lt;/a>
+.&lt;/p></description></item><item><title>Generate Markdown Table of Contents based on files within a folder with PowerShell</title><link>https://claudioessilva.eu/2017/09/18/Generate-Markdown-Table-of-Contents-based-on-files-within-a-folder-with-PowerShell/</link><pubDate>Mon, 18 Sep 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/09/18/Generate-Markdown-Table-of-Contents-based-on-files-within-a-folder-with-PowerShell/</guid><description>&lt;p>Last week I was talking with Constantine Kokkinos (&lt;a href="https://constantinekokkinos.com"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ b
+&lt;/a>
+ | &lt;a href="https://twitter.com/mobileck"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ t
+&lt;/a>
+) about generating a Table Of Contents (TOC) for a GitHub repository.&lt;/p>
+&lt;p>He wrote a cool blog post - &lt;a href="https://constantinekokkinos.com/articles/210/generating-tables-of-contents-for-github-projects-with-powershell"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Generating Tables of Contents for Github Projects with PowerShell
+&lt;/a>
+ - about it and I will write this one with a different problem/solution.&lt;/p>
+&lt;h2 id="context">Context&lt;/h2>
+&lt;p>I’m working on a new project (news coming soon) that uses a GitHub repository and I expect to have a big number of files within a specific folder.&lt;/p></description></item><item><title>Contribute to Microsoft Documentation</title><link>https://claudioessilva.eu/2017/08/28/Contribute-to-Microsoft-Documentation/</link><pubDate>Mon, 28 Aug 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/08/28/Contribute-to-Microsoft-Documentation/</guid><description>&lt;p>Times have changed and Microsoft has changed the way we can contribute for &lt;a href="https://docs.microsoft.com/en-gb/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ documentation
+&lt;/a>
+!&lt;/p>
+&lt;p>We already have access to the source code from some programs. One example is &lt;a href="https://github.com/PowerShell/PowerShell"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ PowerShell, that has an GitHub repository
+&lt;/a>
+ where anyone can contribute!&lt;/p>
+&lt;p>Now anyone can contribute to the documentation too!&lt;/p>
+&lt;h2 id="how-and-where">How and where?&lt;/h2>
+&lt;p>If you haven&amp;rsquo;t seen before, now we have a pencil icon on the top right corner that makes possible to suggest a change.&lt;/p></description></item></channel></rss>

@@ -1,2 +1,43 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Shortcuts on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/shortcuts/</link><description>Recent content in Shortcuts on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 09 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/shortcuts/index.xml" rel="self" type="application/rss+xml"/><item><title>TSQL Tuesday 127 - Non SQL Tips and Tricks - Windows</title><link>https://claudioessilva.eu/2020/06/09/TSQL-Tuesday-127-Non-SQL-Tips-and-Tricks-Windows/</link><pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/06/09/TSQL-Tuesday-127-Non-SQL-Tips-and-Tricks-Windows/</guid><description>This month’s (#127) T-SQL Tuesday is brought by B | T ) and he asked about Non SQL Tips and tricks. As a Windows user I know there are lots of shortcuts and small hacks, that I love, which make my life much easier! Here is my small contribution:
-Windows tips &amp;amp; tricks and shortcuts WIN + X -&amp;gt; to access a lot of management stuff in a quick way WIN + V -&amp;gt; If you looking for a clipboard manager (keep multiple entries) since Windows 10 (build 1809) we can have it natively.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Shortcuts on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/shortcuts/</link><description>Recent content in Shortcuts on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 09 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/shortcuts/index.xml" rel="self" type="application/rss+xml"/><item><title>TSQL Tuesday 127 - Non SQL Tips and Tricks - Windows</title><link>https://claudioessilva.eu/2020/06/09/TSQL-Tuesday-127-Non-SQL-Tips-and-Tricks-Windows/</link><pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/06/09/TSQL-Tuesday-127-Non-SQL-Tips-and-Tricks-Windows/</guid><description>&lt;p>This month’s (#127) T-SQL Tuesday is brought by &lt;a href="https://sqlstudies.com/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ B
+&lt;/a>
+ | &lt;a href="https://twitter.com/sqlstudent144"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ T
+&lt;/a>
+) and he asked about Non SQL Tips and tricks.
+&lt;a href="https://sqlstudies.com/2020/06/02/tsql-tuesday-127-invite-non-sql-tips-and-tricks/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ &lt;img src="https://claudioessilva.eu/img/2017/09/tsql2sday.jpg" alt="(TSQL2sDay)">
+&lt;/a>
+&lt;/p>
+&lt;p>As a Windows user I know there are lots of shortcuts and small hacks, that I love, which make my life much easier!
+Here is my small contribution:&lt;/p>
+&lt;h2 id="windows-tips--tricks-and-shortcuts">Windows tips &amp;amp; tricks and shortcuts&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>WIN + X&lt;/code> -&amp;gt; to access a lot of management stuff in a quick way&lt;/li>
+&lt;li>&lt;code>WIN + V&lt;/code> -&amp;gt; If you looking for a clipboard manager (keep multiple entries) since Windows 10 (build 1809) we can have it natively. However, I keep using &lt;a href="https://bluemars.org/clipx/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ ClipX
+&lt;/a>
+.&lt;/li>
+&lt;li>&lt;code>WIN + [0-9]&lt;/code> -&amp;gt; The number is linked to the position of the apps on your taskbar.&lt;/li>
+&lt;li>&lt;code>WIN + .&lt;/code> -&amp;gt; Big fan of emoticons? Select one from this list&lt;/li>
+&lt;li>Open PowerShell (or cmd) console from a windows explorer window. How many times have you wanted to jump to the PowerShell console already on a specific folder that you have already open on the windows explorer? Just type on the address bar &amp;ldquo;PowerShell&amp;rdquo; and a new PowerShell session will open right on that location.&lt;/li>
+&lt;/ul>
+&lt;h3 id="open-add-or-remove-programs">Open &amp;ldquo;Add or Remove programs&amp;rdquo;&lt;/h3>
+&lt;p>A way to open the &amp;ldquo;Add or Remove programs&amp;rdquo; menu quicker, you can &lt;code>SHIFT + DEL&lt;/code> on the shortcut (example: Docker Desktop) on desktop and the prompt popup will have there a link to this option.
+&lt;img src="https://claudioessilva.eu/img/2019/06/addremoveprogramshortcut.png" alt="addremoveprogramshortcut">&lt;/p></description></item></channel></rss>

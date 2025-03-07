@@ -1,3 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Encoding on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/Encoding/</link><description>Recent content in Encoding on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 05 Jun 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/Encoding/index.xml" rel="self" type="application/rss+xml"/><item><title>Did you know...you can change the default file encoding for new query on SSMS?</title><link>https://claudioessilva.eu/2018/06/05/Did-you-know...you-can-change-the-default-file-encoding-for-new-query-on-SSMS/</link><pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/06/05/Did-you-know...you-can-change-the-default-file-encoding-for-new-query-on-SSMS/</guid><description>If you have been reading my last blog posts, you know that I’m currently working on a SQL code migration from Firebird to SQL Server.
-The client provided the scripts with all modules (Stored Procedures, functions, etc) and the steps I&amp;rsquo;m following (roughly speaking) for converting are:
-Open new query window Copy and paste de object code Save the file This is how the file look like: Run a PowerShell script that does a find and replace based on a hashtable.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Encoding on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/Encoding/</link><description>Recent content in Encoding on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 05 Jun 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/Encoding/index.xml" rel="self" type="application/rss+xml"/><item><title>Did you know...you can change the default file encoding for new query on SSMS?</title><link>https://claudioessilva.eu/2018/06/05/Did-you-know...you-can-change-the-default-file-encoding-for-new-query-on-SSMS/</link><pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/06/05/Did-you-know...you-can-change-the-default-file-encoding-for-new-query-on-SSMS/</guid><description>&lt;p>If you have been reading my last blog posts, you know that I’m currently working on a SQL code migration from Firebird to SQL Server.&lt;/p>
+&lt;p>The client provided the scripts with all modules (Stored Procedures, functions, etc) and the steps I&amp;rsquo;m following (roughly speaking) for converting are:&lt;/p>
+&lt;ul>
+&lt;li>Open new query window&lt;/li>
+&lt;li>Copy and paste de object code&lt;/li>
+&lt;li>Save the file
+This is how the file look like:
+&lt;img src="https://claudioessilva.eu/img/2018/06/savedwithdefaultencoding_ansi1.png" alt="savedwithdefaultencoding_ansi1">&lt;/li>
+&lt;li>Run a PowerShell script that does a find and replace based on a hashtable. Apply all the changes and save the file again.&lt;/li>
+&lt;li>The file refresh on SSMS
+This is how the file look like after the find and replace:
+&lt;img src="https://claudioessilva.eu/img/2018/06/afterfindreplacepowershellandsaveasutf81.png" alt="afterfindreplacepowershellandsaveasutf81">&lt;/li>
+&lt;li>Unicode characters are broken :-(&lt;/li>
+&lt;/ul>
+&lt;h3 id="sowhat-is-happening">So&amp;hellip;what is happening?&lt;/h3>
+&lt;p>The file that is used to create a new query window has ANSI encoding but when I save the file on the PowerShell script I save it as UTF-8 because the client have comments on the code with unicode characters.&lt;/p></description></item></channel></rss>

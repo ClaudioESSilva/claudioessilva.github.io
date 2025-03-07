@@ -1,15 +1,130 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Speaking on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/Speaking/</link><description>Recent content in Speaking on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 05 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/Speaking/index.xml" rel="self" type="application/rss+xml"/><item><title>I will be speaking @ SQLSaturday 795 Porto</title><link>https://claudioessilva.eu/2018/09/05/I-will-be-speaking-@-SQLSaturday-795-Porto/</link><pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/09/05/I-will-be-speaking-@-SQLSaturday-795-Porto/</guid><description>On 29th September we will have SQL Saturday Porto and I’m proud to announce that I will be speaking!
-I will be speaking about dbachecks PowerShell module - dbachecks - Checking SQL Server environments with PowerShell .
-The event will be held at ISEP, Rua Dr. António Bernardino de Almeida, 431, 4249-015 Porto, Portugal and you can see the full schedule here .
-Register , it&amp;rsquo;s free!
-Hope to see you in Porto!</description></item><item><title>I will be speaking @ Tuga IT 2018</title><link>https://claudioessilva.eu/2018/07/06/I-will-be-speaking-@-Tuga-IT-2018/</link><pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/07/06/I-will-be-speaking-@-Tuga-IT-2018/</guid><description>Starting on 19th of July and during 3 days the Tuga IT 2018 Summer Edition will be happening in Lisbon!
-This edition will have:
-4 full-day workshops 38 breakout sessions (1 hour) 5 deep dive sessions (2 hours) That is over 72 hours of content delivered by 44 awesome speakers, many of them recognized industry experts.
-You can see the full schedule here . This edition will have sessions about: Cloud, Data Platform, Development, Integration, IOT, Office, PowerShell and Security.</description></item><item><title>SQL Saturday 731 Athens 2018</title><link>https://claudioessilva.eu/2018/06/04/SQL-Saturday-731-Athens-2018/</link><pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/06/04/SQL-Saturday-731-Athens-2018/</guid><description>In less than two weeks (on 16th June) it&amp;rsquo;s time for SQL Saturday Athens and I&amp;rsquo;m proud to announce that I will be speaking!
-This will be my first SQL Saturday ever both as speaker and attendee outside Portugal so I&amp;rsquo;m especially thrilled and excited to be part of it!
-I will be presenting my Administrate SSRS/PBIRS with PowerShell session and I can share in first hand that it will include new demos with some fixes and enhancements that will be available on the next version of the module later this week.</description></item><item><title>Learn, Evolve and Giving Back - TSQL Tuesday 102</title><link>https://claudioessilva.eu/2018/05/08/Learn-Evolve-and-Giving-Back-TSQL-Tuesday-102/</link><pubDate>Tue, 08 May 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/05/08/Learn-Evolve-and-Giving-Back-TSQL-Tuesday-102/</guid><description>This month’s T-SQL Tuesday is brought to us by Riley Major‏ ( b | t ) and he encourage us to talk about how we are helping by giving back to our community.
-This is the 102nd edition of TSQL2sDay - an Adam Machanic’s ( b | t ) brainchild.
-&amp;ldquo;Let&amp;rsquo;s go back for a moment:&amp;rdquo; I have heard about SQL Server the first time back in 2003 when I was on the high school and I had a database class.</description></item><item><title>I will be speaking at PowerShell Conference Asia 2017</title><link>https://claudioessilva.eu/2017/08/25/I-will-be-speaking-at-PowerShell-Conference-Asia-2017/</link><pubDate>Fri, 25 Aug 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/08/25/I-will-be-speaking-at-PowerShell-Conference-Asia-2017/</guid><description>Which better way could I have to launch my blog if not with great news ?!
-I am so happy and excited to announce that I will be speaking at PowerShell Conference Asia in Singapore!
-On 28th of October I will be presenting two sessions with the following titles:
-Next step to your script&amp;hellip;turn it into an Advanced Function SQLServer Reporting Services administration new best friend - PowerShell Also, on 26th there will be 2 precon:</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Speaking on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/Speaking/</link><description>Recent content in Speaking on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 05 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/Speaking/index.xml" rel="self" type="application/rss+xml"/><item><title>I will be speaking @ SQLSaturday 795 Porto</title><link>https://claudioessilva.eu/2018/09/05/I-will-be-speaking-@-SQLSaturday-795-Porto/</link><pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/09/05/I-will-be-speaking-@-SQLSaturday-795-Porto/</guid><description>&lt;p>On 29th September we will have &lt;a href="http://www.sqlsaturday.com/795/eventhome.aspx"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ SQL Saturday Porto
+&lt;/a>
+ and I’m proud to announce that I will be speaking!&lt;/p>
+&lt;p>I will be speaking about &lt;a href="http://dbacheck.io"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbachecks
+&lt;/a>
+ PowerShell module - &lt;a href="http://www.sqlsaturday.com/795/Sessions/Details.aspx?sid=82842"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbachecks - Checking SQL Server environments with PowerShell
+&lt;/a>
+.&lt;/p>
+&lt;p>The event will be held at ISEP, Rua Dr. António Bernardino de Almeida, 431, 4249-015 Porto, Portugal and you can see the &lt;a href="http://www.sqlsaturday.com/795/Sessions/Schedule.aspx"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ full schedule here
+&lt;/a>
+.&lt;/p>
+&lt;p>&lt;a href="https://www.sqlsaturday.com/795/registernow.aspx"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Register
+&lt;/a>
+, it&amp;rsquo;s free!&lt;/p></description></item><item><title>I will be speaking @ Tuga IT 2018</title><link>https://claudioessilva.eu/2018/07/06/I-will-be-speaking-@-Tuga-IT-2018/</link><pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/07/06/I-will-be-speaking-@-Tuga-IT-2018/</guid><description>&lt;p>Starting on 19th of July and during 3 days the &lt;a href="http://tugait.pt/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Tuga IT 2018 Summer Edition
+&lt;/a>
+ will be happening in Lisbon!&lt;/p>
+&lt;p>This edition will have:&lt;/p>
+&lt;blockquote>
+&lt;p>4 full-day workshops
+38 breakout sessions (1 hour)
+5 deep dive sessions (2 hours)
+That is over 72 hours of content delivered by 44 awesome speakers, many of them recognized industry experts.&lt;/p>&lt;/blockquote>
+&lt;p>You can see the full schedule &lt;a href="http://tugait.pt/schedule/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ here
+&lt;/a>
+. This edition will have sessions about: Cloud, Data Platform, Development, Integration, IOT, Office, PowerShell and Security.&lt;/p></description></item><item><title>SQL Saturday 731 Athens 2018</title><link>https://claudioessilva.eu/2018/06/04/SQL-Saturday-731-Athens-2018/</link><pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/06/04/SQL-Saturday-731-Athens-2018/</guid><description>&lt;p>&lt;img src="https://claudioessilva.eu/img/2018/06/sqlsat731_bigger.png" alt="sqlsat731_bigger">&lt;/p>
+&lt;p>In less than two weeks (on 16th June) it&amp;rsquo;s time for &lt;a href="http://www.sqlsaturday.com/731/EventHome.aspx"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ SQL Saturday Athens
+&lt;/a>
+ and I&amp;rsquo;m proud to announce that I will be speaking!&lt;/p>
+&lt;p>This will be my first SQL Saturday ever both as speaker and attendee outside Portugal so I&amp;rsquo;m especially thrilled and excited to be part of it!&lt;/p>
+&lt;p>I will be presenting my &lt;a href="http://www.sqlsaturday.com/731/Sessions/Details.aspx?sid=71728"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Administrate SSRS/PBIRS with PowerShell
+&lt;/a>
+ session and I can share in first hand that it will include new demos with some fixes and enhancements that will be available on the next version of the module later this week.&lt;/p></description></item><item><title>Learn, Evolve and Giving Back - TSQL Tuesday 102</title><link>https://claudioessilva.eu/2018/05/08/Learn-Evolve-and-Giving-Back-TSQL-Tuesday-102/</link><pubDate>Tue, 08 May 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/05/08/Learn-Evolve-and-Giving-Back-TSQL-Tuesday-102/</guid><description>&lt;p>&lt;img src="https://claudioessilva.eu/img/2017/09/tsql2sday.jpg" alt="tsql2sday">&lt;/p>
+&lt;p>This month’s T-SQL Tuesday is brought to us by Riley Major‏ (&lt;a href="https://scribnasium.com"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ b
+&lt;/a>
+ | &lt;a href="https://twitter.com/RileyMajor"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ t
+&lt;/a>
+) and he encourage us to talk about how we are helping by giving back to our community.&lt;/p>
+&lt;p>This is the 102nd edition of &lt;a href="http://tsqltuesday.com/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ TSQL2sDay
+&lt;/a>
+ - an Adam Machanic’s (&lt;a href="http://dataeducation.com/blog/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ b
+&lt;/a>
+ | &lt;a href="https://twitter.com/AdamMachanic"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ t
+&lt;/a>
+) brainchild.&lt;/p>
+&lt;h2 id="lets-go-back-for-a-moment">&amp;ldquo;Let&amp;rsquo;s go back for a moment:&amp;rdquo;&lt;/h2>
+&lt;p>I have heard about SQL Server the first time back in 2003 when I was on the high school and I had a database class. Was a slow start and, at that moment I haven&amp;rsquo;t imagined that would follow that path professionally.&lt;/p></description></item><item><title>I will be speaking at PowerShell Conference Asia 2017</title><link>https://claudioessilva.eu/2017/08/25/I-will-be-speaking-at-PowerShell-Conference-Asia-2017/</link><pubDate>Fri, 25 Aug 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/08/25/I-will-be-speaking-at-PowerShell-Conference-Asia-2017/</guid><description>&lt;p>Which better way could I have to launch my blog if not with great news ?!&lt;/p>
+&lt;p>I am so happy and excited to announce that I will be speaking at &lt;a href="http://psconf.asia/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ PowerShell Conference Asia
+&lt;/a>
+ in Singapore!&lt;/p>
+&lt;p>On 28th of October I will be presenting two sessions with the following titles:&lt;/p>
+&lt;ul>
+&lt;li>Next step to your script&amp;hellip;turn it into an Advanced Function&lt;/li>
+&lt;li>SQLServer Reporting Services administration new best friend - PowerShell&lt;/li>
+&lt;/ul>
+&lt;p>Also, on 26th there will be 2 precon:&lt;/p></description></item></channel></rss>

@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Roles on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/roles/</link><description>Recent content in Roles on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 31 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/roles/index.xml" rel="self" type="application/rss+xml"/><item><title>Generate SQL Server Role Member Reports using dbatools and ImportExcel PowerShell modules</title><link>https://claudioessilva.eu/2020/07/31/Generate-SQL-Server-Role-Member-Reports-using-dbatools-and-ImportExcel-PowerShell-modules/</link><pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/07/31/Generate-SQL-Server-Role-Member-Reports-using-dbatools-and-ImportExcel-PowerShell-modules/</guid><description>This was initial posted on SQL Server Central articles .
-As one of dbatools&amp;rsquo; first members, I&amp;rsquo;ve been using it for years and it&amp;rsquo;s really my goto tool. This task was no different!
-Today&amp;rsquo;s tip and trick using dbatools is about generating an Excel workbook that contains lists of SQL Server roles and its members.
-The Usefulness of these Reports These reports are especially useful when performing tech-refreshes (migrating from an old version to a newer one) and you want to do some housekeeping.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Roles on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/roles/</link><description>Recent content in Roles on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 31 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/roles/index.xml" rel="self" type="application/rss+xml"/><item><title>Generate SQL Server Role Member Reports using dbatools and ImportExcel PowerShell modules</title><link>https://claudioessilva.eu/2020/07/31/Generate-SQL-Server-Role-Member-Reports-using-dbatools-and-ImportExcel-PowerShell-modules/</link><pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/07/31/Generate-SQL-Server-Role-Member-Reports-using-dbatools-and-ImportExcel-PowerShell-modules/</guid><description>&lt;blockquote>
+&lt;p>This was initial posted on &lt;a href="https://www.sqlservercentral.com/articles/generate-role-member-reports-using-dbatools-and-the-importexcel-powershell-modules"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ SQL Server Central articles
+&lt;/a>
+.&lt;/p>&lt;/blockquote>
+&lt;p>As one of dbatools&amp;rsquo; first members, I&amp;rsquo;ve been using it for years and it&amp;rsquo;s really my goto tool. This task was no different!&lt;/p>
+&lt;p>Today&amp;rsquo;s tip and trick using &lt;a href="https://dbatools.io"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbatools
+&lt;/a>
+ is about generating an Excel workbook that contains lists of SQL Server roles and its members.&lt;/p>
+&lt;h2 id="the-usefulness-of-these-reports">The Usefulness of these Reports&lt;/h2>
+&lt;p>These reports are especially useful when performing tech-refreshes (migrating from an old version to a newer one) and you want to do some housekeeping. For example, finding logins that should be part of a role and they are not. Once you know there are problems, you decided to do a double-check on the whole list.&lt;/p></description></item></channel></rss>

@@ -1,3 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>TOC on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/TOC/</link><description>Recent content in TOC on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 18 Sep 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/TOC/index.xml" rel="self" type="application/rss+xml"/><item><title>Generate Markdown Table of Contents based on files within a folder with PowerShell</title><link>https://claudioessilva.eu/2017/09/18/Generate-Markdown-Table-of-Contents-based-on-files-within-a-folder-with-PowerShell/</link><pubDate>Mon, 18 Sep 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/09/18/Generate-Markdown-Table-of-Contents-based-on-files-within-a-folder-with-PowerShell/</guid><description>Last week I was talking with Constantine Kokkinos ( b | t ) about generating a Table Of Contents (TOC) for a GitHub repository.
-He wrote a cool blog post - Generating Tables of Contents for Github Projects with PowerShell - about it and I will write this one with a different problem/solution.
-Context I’m working on a new project (news coming soon) that uses a GitHub repository and I expect to have a big number of files within a specific folder.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>TOC on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/TOC/</link><description>Recent content in TOC on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 18 Sep 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/TOC/index.xml" rel="self" type="application/rss+xml"/><item><title>Generate Markdown Table of Contents based on files within a folder with PowerShell</title><link>https://claudioessilva.eu/2017/09/18/Generate-Markdown-Table-of-Contents-based-on-files-within-a-folder-with-PowerShell/</link><pubDate>Mon, 18 Sep 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/09/18/Generate-Markdown-Table-of-Contents-based-on-files-within-a-folder-with-PowerShell/</guid><description>&lt;p>Last week I was talking with Constantine Kokkinos (&lt;a href="https://constantinekokkinos.com"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ b
+&lt;/a>
+ | &lt;a href="https://twitter.com/mobileck"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ t
+&lt;/a>
+) about generating a Table Of Contents (TOC) for a GitHub repository.&lt;/p>
+&lt;p>He wrote a cool blog post - &lt;a href="https://constantinekokkinos.com/articles/210/generating-tables-of-contents-for-github-projects-with-powershell"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Generating Tables of Contents for Github Projects with PowerShell
+&lt;/a>
+ - about it and I will write this one with a different problem/solution.&lt;/p>
+&lt;h2 id="context">Context&lt;/h2>
+&lt;p>I’m working on a new project (news coming soon) that uses a GitHub repository and I expect to have a big number of files within a specific folder.&lt;/p></description></item></channel></rss>

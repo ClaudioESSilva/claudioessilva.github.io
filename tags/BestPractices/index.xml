@@ -1,4 +1,49 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>BestPractices on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/BestPractices/</link><description>Recent content in BestPractices on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 03 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/BestPractices/index.xml" rel="self" type="application/rss+xml"/><item><title>When one of your DBA colleagues leaves the company, what is your checklist?</title><link>https://claudioessilva.eu/2020/09/03/When-one-of-your-DBA-colleagues-leaves-the-company-what-is-your-checklist/</link><pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/09/03/When-one-of-your-DBA-colleagues-leaves-the-company-what-is-your-checklist/</guid><description>Whether it’s in our personal lives or the professional one, we do have checklists for certain tasks.
-On the professional level, it can be purely technical like SQL Server installation, configuration or even uninstall, but they can also be not so technical like when a colleague join the team and someone needs to request permissions to access the company&amp;rsquo;s tools (such as ticketing/incidents/VPN/etc).
-What about when a colleague leaves the company?</description></item><item><title>Someone is not following the best practices - dbatools and Pester don't lie!</title><link>https://claudioessilva.eu/2017/09/12/Someone-is-not-following-the-best-practices-dbatools-and-Pester-dont-lie/</link><pubDate>Tue, 12 Sep 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/09/12/Someone-is-not-following-the-best-practices-dbatools-and-Pester-dont-lie/</guid><description>This month’s T-SQL Tuesday is brought to us by my good friend Rob Sewell ( b | t ). Together “Let’s get all Posh – What are you going to automate today?”
-I have written some blog posts on how I use PowerShell to automate mundane tasks or some other more complex scenarios like: Find and fix SQL Server databases with empty owner property using dbatools PowerShell module or Have you backed up your SQL Logins today?</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>BestPractices on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/BestPractices/</link><description>Recent content in BestPractices on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 03 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/BestPractices/index.xml" rel="self" type="application/rss+xml"/><item><title>When one of your DBA colleagues leaves the company, what is your checklist?</title><link>https://claudioessilva.eu/2020/09/03/When-one-of-your-DBA-colleagues-leaves-the-company-what-is-your-checklist/</link><pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/09/03/When-one-of-your-DBA-colleagues-leaves-the-company-what-is-your-checklist/</guid><description>&lt;p>Whether it’s in our personal lives or the professional one, we do have checklists for certain tasks.&lt;/p>
+&lt;p>On the professional level, it can be purely technical like SQL Server installation, configuration or even uninstall, but they can also be not so technical like when a colleague join the team and someone needs to request permissions to access the company&amp;rsquo;s tools (such as ticketing/incidents/VPN/etc).&lt;/p>
+&lt;h2 id="what-about-when-a-colleague-leaves-the-company">What about when a colleague leaves the company?&lt;/h2>
+&lt;p>What is your checklist for this situation?
+At first, and the most obvious is to &amp;ldquo;rollback&amp;rdquo; the things done when that person joined the company. For instance:&lt;/p></description></item><item><title>Someone is not following the best practices - dbatools and Pester don't lie!</title><link>https://claudioessilva.eu/2017/09/12/Someone-is-not-following-the-best-practices-dbatools-and-Pester-dont-lie/</link><pubDate>Tue, 12 Sep 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/09/12/Someone-is-not-following-the-best-practices-dbatools-and-Pester-dont-lie/</guid><description>&lt;p>&lt;a href="https://sqldbawithabeard.com/2017/09/05/tsql2sday-94-lets-get-all-posh/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ &lt;img src="https://claudioessilva.eu/img/2017/09/tsql2sday.jpg" alt="(TSQL2sDay)">
+&lt;/a>
+&lt;/p>
+&lt;p>This month’s T-SQL Tuesday is brought to us by my good friend Rob Sewell (&lt;a href="https://twitter.com/sqldbawithbeard"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ b
+&lt;/a>
+ | &lt;a href="https://sqldbawithabeard.com"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ t
+&lt;/a>
+). Together “Let’s get all Posh – What are you going to automate today?”&lt;/p>
+&lt;p>I have written some blog posts on how I use PowerShell to automate mundane tasks or some other more complex scenarios like:  &lt;a href="http://redglue.org/find-and-fix-sql-server-databases-with-empty-owner-property-using-dbatools-powershell-module/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Find and fix SQL Server databases with empty owner property using dbatools PowerShell module
+&lt;/a>
+ or &lt;a href="http://redglue.org/have-you-backed-up-your-sql-logins-today/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Have you backed up your SQL Logins today?
+&lt;/a>
+  or even using ReportingServicesTools module for deploy reports - &lt;a href="http://redglue.org/ssrs-report-deployment-made-easy-700-times-faster/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ SSRS Report Deployment Made Easy – 700 times Faster
+&lt;/a>
+.&lt;/p></description></item></channel></rss>

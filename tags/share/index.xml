@@ -1,8 +1,111 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Share on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/share/</link><description>Recent content in Share on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 12 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/share/index.xml" rel="self" type="application/rss+xml"/><item><title>SQL Server Operations Studio and VSCode: The wrong default datetimeoffset format</title><link>https://claudioessilva.eu/2018/09/12/SQL-Server-Operations-Studio-and-VSCode-The-wrong-default-datetimeoffset-format/</link><pubDate>Wed, 12 Sep 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/09/12/SQL-Server-Operations-Studio-and-VSCode-The-wrong-default-datetimeoffset-format/</guid><description>This post is to answer the question: &amp;ldquo;You are used to seeing in the format of yyyy-MM-dd right?&amp;rdquo; that I have raised on my blog post Don’t cutoff yourself with dates in T-SQL – Did you know… .
-As you could see from that blog post, my screen shots were from VSCode and in this case using mssql extension, but this happens also on SQL Server Operations Studio .
-&amp;ldquo;But why are my datetimeoffset values on VSCode being showed in that format?</description></item><item><title>Learn, Evolve and Giving Back - TSQL Tuesday 102</title><link>https://claudioessilva.eu/2018/05/08/Learn-Evolve-and-Giving-Back-TSQL-Tuesday-102/</link><pubDate>Tue, 08 May 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/05/08/Learn-Evolve-and-Giving-Back-TSQL-Tuesday-102/</guid><description>This month’s T-SQL Tuesday is brought to us by Riley Major‏ ( b | t ) and he encourage us to talk about how we are helping by giving back to our community.
-This is the 102nd edition of TSQL2sDay - an Adam Machanic’s ( b | t ) brainchild.
-&amp;ldquo;Let&amp;rsquo;s go back for a moment:&amp;rdquo; I have heard about SQL Server the first time back in 2003 when I was on the high school and I had a database class.</description></item><item><title>TSQL Tuesday 96: Folks Who Have Made a Difference</title><link>https://claudioessilva.eu/2017/11/14/TSQL-Tuesday-96-Folks-Who-Have-Made-a-Difference/</link><pubDate>Tue, 14 Nov 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/11/14/TSQL-Tuesday-96-Folks-Who-Have-Made-a-Difference/</guid><description>This month’s T-SQL Tuesday is brought to us by Ewald Cress ( blog | twitter ) and is all about &amp;ldquo;folks who have made a difference&amp;rdquo; in our careers.
-Thank you, Ewald! This is a great topic!
-Here is my short list Paulo Silva ( in ) He was my first boss in the IT world! I was his apprentice when I started my internship. He was going to move to a manager position and I had to continue his work.</description></item><item><title>PowerShell Modules Central - Share with community - What PowerShell modules are you using?</title><link>https://claudioessilva.eu/2017/09/19/PowerShell-Modules-Central-Share-with-community-What-PowerShell-modules-are-you-using/</link><pubDate>Tue, 19 Sep 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/09/19/PowerShell-Modules-Central-Share-with-community-What-PowerShell-modules-are-you-using/</guid><description>Like the blog post title states this is all about sharing with others! My idea is to share with the community which PowerShell modules you are using.
-Let me introduce to you the PowerShell Modules Central PowerShellModulesCentral is a GitHub repository that was founded as a central hub to a list of PowerShell modules that people know/use. Each module has a file describing its name, basic information about the module, as well as one or more blog posts/videos from people that have written about or used them.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Share on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/share/</link><description>Recent content in Share on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 12 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/share/index.xml" rel="self" type="application/rss+xml"/><item><title>SQL Server Operations Studio and VSCode: The wrong default datetimeoffset format</title><link>https://claudioessilva.eu/2018/09/12/SQL-Server-Operations-Studio-and-VSCode-The-wrong-default-datetimeoffset-format/</link><pubDate>Wed, 12 Sep 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/09/12/SQL-Server-Operations-Studio-and-VSCode-The-wrong-default-datetimeoffset-format/</guid><description>&lt;p>This post is to answer the question: &amp;ldquo;You are used to seeing in the format of &lt;code>yyyy-MM-dd&lt;/code> right?&amp;rdquo; that I have raised on my blog post &lt;a href="https://claudioessilva.eu/2018/09/04/dont-cutoff-yourself-when-dealing-with-dates-in-t-sql-did-you-know/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Don’t cutoff yourself with dates in T-SQL – Did you know…
+&lt;/a>
+.&lt;/p>
+&lt;p>As you could see from that blog post, my screen shots were from &lt;a href="https://code.visualstudio.com/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ VSCode
+&lt;/a>
+ and in this case using &lt;a href="https://github.com/Microsoft/vscode-mssql"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ mssql
+&lt;/a>
+ extension, but this happens also on &lt;a href="https://docs.microsoft.com/en-us/sql/sql-operations-studio/download?view=sql-server-2017"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ SQL Server Operations Studio
+&lt;/a>
+.&lt;/p></description></item><item><title>Learn, Evolve and Giving Back - TSQL Tuesday 102</title><link>https://claudioessilva.eu/2018/05/08/Learn-Evolve-and-Giving-Back-TSQL-Tuesday-102/</link><pubDate>Tue, 08 May 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/05/08/Learn-Evolve-and-Giving-Back-TSQL-Tuesday-102/</guid><description>&lt;p>&lt;img src="https://claudioessilva.eu/img/2017/09/tsql2sday.jpg" alt="tsql2sday">&lt;/p>
+&lt;p>This month’s T-SQL Tuesday is brought to us by Riley Major‏ (&lt;a href="https://scribnasium.com"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ b
+&lt;/a>
+ | &lt;a href="https://twitter.com/RileyMajor"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ t
+&lt;/a>
+) and he encourage us to talk about how we are helping by giving back to our community.&lt;/p>
+&lt;p>This is the 102nd edition of &lt;a href="http://tsqltuesday.com/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ TSQL2sDay
+&lt;/a>
+ - an Adam Machanic’s (&lt;a href="http://dataeducation.com/blog/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ b
+&lt;/a>
+ | &lt;a href="https://twitter.com/AdamMachanic"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ t
+&lt;/a>
+) brainchild.&lt;/p>
+&lt;h2 id="lets-go-back-for-a-moment">&amp;ldquo;Let&amp;rsquo;s go back for a moment:&amp;rdquo;&lt;/h2>
+&lt;p>I have heard about SQL Server the first time back in 2003 when I was on the high school and I had a database class. Was a slow start and, at that moment I haven&amp;rsquo;t imagined that would follow that path professionally.&lt;/p></description></item><item><title>TSQL Tuesday 96: Folks Who Have Made a Difference</title><link>https://claudioessilva.eu/2017/11/14/TSQL-Tuesday-96-Folks-Who-Have-Made-a-Difference/</link><pubDate>Tue, 14 Nov 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/11/14/TSQL-Tuesday-96-Folks-Who-Have-Made-a-Difference/</guid><description>&lt;p>&lt;a href="https://sqlonice.com/tsql-tuesday-96-three-people-who-made-a-difference/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ &lt;img src="https://claudioessilva.eu/img/2017/09/tsql2sday.jpg" alt="(TSQL2sDay)">
+&lt;/a>
+&lt;/p>
+&lt;p>This month’s T-SQL Tuesday is brought to us by Ewald Cress (&lt;a href="https://sqlonice.com/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ blog
+&lt;/a>
+ | &lt;a href="https://twitter.com/sqlonice"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ twitter
+&lt;/a>
+) and is all about &amp;ldquo;folks who have made a difference&amp;rdquo; in our careers.&lt;/p>
+&lt;p>Thank you, Ewald! This is a great topic!&lt;/p>
+&lt;h2 id="here-is-my-short-list">Here is my short list&lt;/h2>
+&lt;h3 id="paulo-silva-in">Paulo Silva (&lt;a href="https://www.linkedin.com/in/paulo-silva/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ in
+&lt;/a>
+)&lt;/h3>
+&lt;p>He was my first boss in the IT world! I was his apprentice when I started my internship. He was going to move to a manager position and I  had to continue his work. He was responsible for the beginning of my career with SQL Server 2000 and VB6.&lt;/p></description></item><item><title>PowerShell Modules Central - Share with community - What PowerShell modules are you using?</title><link>https://claudioessilva.eu/2017/09/19/PowerShell-Modules-Central-Share-with-community-What-PowerShell-modules-are-you-using/</link><pubDate>Tue, 19 Sep 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/09/19/PowerShell-Modules-Central-Share-with-community-What-PowerShell-modules-are-you-using/</guid><description>&lt;p>Like the blog post title states this is &lt;strong>all about sharing&lt;/strong> with others! My idea is to share with the community which PowerShell modules you are using.&lt;/p>
+&lt;h2 id="let-me-introduce-to-you-the-powershell-modules-central">Let me introduce to you the PowerShell Modules Central&lt;/h2>
+&lt;p>&lt;a href="https://github.com/ClaudioESSilva/PowerShellModulesCentral"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ PowerShellModulesCentral
+&lt;/a>
+ is a GitHub repository that was founded as a &lt;strong>central&lt;/strong> hub to a list of PowerShell modules that people know/use. Each module has a file describing its name, basic information about the module, as well as one or more blog posts/videos from people that have written about or used them.&lt;/p></description></item></channel></rss>

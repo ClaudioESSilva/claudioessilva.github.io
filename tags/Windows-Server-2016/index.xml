@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Windows Server 2016 on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/Windows-Server-2016/</link><description>Recent content in Windows Server 2016 on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 10 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/Windows-Server-2016/index.xml" rel="self" type="application/rss+xml"/><item><title>Access is denied - Using DTCPing utility between two Windows Server 2016</title><link>https://claudioessilva.eu/2019/05/10/Access-is-denied-Using-DTCPing-utility-between-two-Windows-Server-2016/</link><pubDate>Fri, 10 May 2019 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2019/05/10/Access-is-denied-Using-DTCPing-utility-between-two-Windows-Server-2016/</guid><description>Few days ago a client requested the configuration of MSDTC (Microsoft Distributed Transaction Coordinator).
-NOTE: If you want to know more about it here is a nice FAQ from Microsoft blogs - MSDTC Recommendations on SQL Failover Cluster ?
-The client has 2 machines: one an application server and one a database server.
-Both run on Windows Server 2016 OS and, the database server runs SQL Server 2016 using Availability Groups feature (where their databases resides).</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Windows Server 2016 on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/Windows-Server-2016/</link><description>Recent content in Windows Server 2016 on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 10 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/Windows-Server-2016/index.xml" rel="self" type="application/rss+xml"/><item><title>Access is denied - Using DTCPing utility between two Windows Server 2016</title><link>https://claudioessilva.eu/2019/05/10/Access-is-denied-Using-DTCPing-utility-between-two-Windows-Server-2016/</link><pubDate>Fri, 10 May 2019 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2019/05/10/Access-is-denied-Using-DTCPing-utility-between-two-Windows-Server-2016/</guid><description>&lt;p>&lt;img src="https://claudioessilva.eu/img/2019/05/featureimage_smaller-1.png" alt="featureimage_smaller">&lt;/p>
+&lt;p>Few days ago a client requested the configuration of MSDTC (Microsoft Distributed Transaction Coordinator).&lt;/p>
+&lt;p>NOTE: If you want to know more about it here is a nice FAQ from Microsoft blogs - &lt;a href="https://blogs.msdn.microsoft.com/alwaysonpro/2014/01/15/msdtc-recommendations-on-sql-failover-cluster"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ MSDTC Recommendations on SQL Failover Cluster
+&lt;/a>
+?&lt;/p>
+&lt;p>The client has 2 machines: one an application server and one a database server.&lt;/p>
+&lt;p>Both run on Windows Server 2016 OS and, the database server runs SQL Server 2016 using Availability Groups feature (where their databases resides).&lt;/p></description></item></channel></rss>

@@ -1,5 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Table Structure on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/Table-Structure/</link><description>Recent content in Table Structure on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 29 May 2024 11:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/Table-Structure/index.xml" rel="self" type="application/rss+xml"/><item><title>What happens when we drop a column on a SQL Server table? Where's my space?</title><link>https://claudioessilva.eu/2024/05/29/What-happens-when-we-drop-a-column-on-a-SQL-Server-table-Wheres-my-space/</link><pubDate>Wed, 29 May 2024 11:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2024/05/29/What-happens-when-we-drop-a-column-on-a-SQL-Server-table-Wheres-my-space/</guid><description>This article was initially posted on SQLServerCentral @ 2024-04-26.
-Short answer: The column is marked as &amp;lsquo;deleted&amp;rsquo; and will stop being visible/usable.
-But, most importantly - The record/table size will remain unchanged.
-A metadata operation Dropping a column is a metadata/logical operation, not a physical one. This means that the data isn&amp;rsquo;t removed/overwritten by this action.
-If we were talking about deleting data (records), as Paul Randal mentions here :</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Table Structure on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/Table-Structure/</link><description>Recent content in Table Structure on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 29 May 2024 11:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/Table-Structure/index.xml" rel="self" type="application/rss+xml"/><item><title>What happens when we drop a column on a SQL Server table? Where's my space?</title><link>https://claudioessilva.eu/2024/05/29/What-happens-when-we-drop-a-column-on-a-SQL-Server-table-Wheres-my-space/</link><pubDate>Wed, 29 May 2024 11:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2024/05/29/What-happens-when-we-drop-a-column-on-a-SQL-Server-table-Wheres-my-space/</guid><description>&lt;blockquote>
+&lt;p>This article was initially posted on &lt;a href="https://www.sqlservercentral.com/articles/what-happens-when-we-drop-a-column-on-a-sql-server-table-wheres-my-space"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ SQLServerCentral
+&lt;/a>
+ @ 2024-04-26.&lt;/p>&lt;/blockquote>
+&lt;p>Short answer: The column is marked as &amp;lsquo;deleted&amp;rsquo; and will stop being visible/usable.&lt;br>
+But, most importantly - &lt;strong>The record/table size will remain unchanged&lt;/strong>.&lt;/p>
+&lt;h1 id="a-metadata-operation">A metadata operation&lt;/h1>
+&lt;p>Dropping a column is a metadata/logical operation, not a physical one. This means that the data isn&amp;rsquo;t removed/overwritten by this action.&lt;/p>
+&lt;p>If we were talking about deleting data (records), as Paul Randal mentions &lt;a href="https://www.sqlskills.com/blogs/paul/inside-the-storage-engine-anatomy-of-a-page/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ here
+&lt;/a>
+:&lt;/p></description></item></channel></rss>

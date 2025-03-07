@@ -1,7 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CTE; Common Table Expression on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/CTE-Common-table-expression/</link><description>Recent content in CTE; Common Table Expression on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 30 Nov 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/CTE-Common-table-expression/index.xml" rel="self" type="application/rss+xml"/><item><title>Using Common Table Expression (CTE) - Did you know...</title><link>https://claudioessilva.eu/2017/11/30/Using-Common-Table-Expression-CTE-Did-you-know.../</link><pubDate>Thu, 30 Nov 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/11/30/Using-Common-Table-Expression-CTE-Did-you-know.../</guid><description>Today I will write just a short blog post to do a quick reminder!
-I still hear a lot of people suggesting CTEs because they think it works like a temporary table (you populate the table and then it can be/is reutilized).
-It doesn&amp;rsquo;t!
-From de documentation :
-Specifies a temporary named result set, known as a common table expression (CTE).
-Maybe they are focusing on the &amp;ldquo;temporary&amp;rdquo; word.
-Using the CTE two times will perform two different executions!</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CTE; Common Table Expression on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/CTE-Common-table-expression/</link><description>Recent content in CTE; Common Table Expression on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 30 Nov 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/CTE-Common-table-expression/index.xml" rel="self" type="application/rss+xml"/><item><title>Using Common Table Expression (CTE) - Did you know...</title><link>https://claudioessilva.eu/2017/11/30/Using-Common-Table-Expression-CTE-Did-you-know.../</link><pubDate>Thu, 30 Nov 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/11/30/Using-Common-Table-Expression-CTE-Did-you-know.../</guid><description>&lt;p>Today I will write just a short blog post to do a quick reminder!&lt;/p>
+&lt;p>I still hear a lot of people suggesting CTEs because they think it works like a temporary table (you populate the table and then it can be/is reutilized).&lt;/p>
+&lt;p>It doesn&amp;rsquo;t!&lt;/p>
+&lt;p>From de &lt;a href="https://docs.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ documentation
+&lt;/a>
+:&lt;/p>
+&lt;blockquote>
+&lt;p>Specifies a &lt;strong>temporary&lt;/strong> named result set, known as a common table expression (CTE).&lt;/p>&lt;/blockquote>
+&lt;p>Maybe they are focusing on the &amp;ldquo;&lt;strong>temporary&lt;/strong>&amp;rdquo; word.&lt;/p></description></item></channel></rss>

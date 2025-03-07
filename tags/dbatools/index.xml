@@ -1,44 +1,601 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dbatools on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/dbatools/</link><description>Recent content in Dbatools on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 07 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/dbatools/index.xml" rel="self" type="application/rss+xml"/><item><title>dbatools - Exceptions</title><link>https://claudioessilva.eu/2022/06/07/dbatools-Exceptions/</link><pubDate>Tue, 07 Jun 2022 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2022/06/07/dbatools-Exceptions/</guid><description>Who doesn&amp;rsquo;t like a good red and verbose exception?
-At PowerShell community we often call it a &amp;ldquo;sea of red&amp;rdquo; which we found as something that can be intimidating. The bigger the error message the more problematic it is? :-)
-We don&amp;rsquo;t think so! That&amp;rsquo;s why we, within dbatools project, try to keep the output of the exceptions more user friendly and try to give the direct error message to you.</description></item><item><title>dbatools - rich datatypes</title><link>https://claudioessilva.eu/2022/06/02/dbatools-rich-datatypes/</link><pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2022/06/02/dbatools-rich-datatypes/</guid><description>Some datatypes can be shown in so many different forms (think measurament units, dates with short/long forms, or regional settings) that can be difficult to have a standard.
-What should we show? Sizes should be always in bytes? It will be easier for you to interpret 1610612736 bytes or 1.50 GB?
-That&amp;rsquo;s why we have created some rich datatypes like, DbaTime, DbaDate, DbaDatetime, DbaTimeSpan, PrettyTimeSpan or DbaSize to make it easier to read and be more consistent acrross multiple commands.</description></item><item><title>Recover database encrypted modules code with dbatools</title><link>https://claudioessilva.eu/2020/09/22/Recover-database-encrypted-modules-code-with-dbatools/</link><pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/09/22/Recover-database-encrypted-modules-code-with-dbatools/</guid><description>This article was initially posted on SQLServerCentral @ 2020-08-18. It was interesting some comments I read about it, mainly why people still use WITH ENCRYPTION when it&amp;rsquo;s simple to overcome this when we have the right permissions.
-SQL Server offers an option to encrypt the code of your modules when using the WITH ENCRYPTION syntax. This allows to hide/obfuscate the modules&amp;rsquo; code and thus keep away from prying eyes. It&amp;rsquo;s often used to protect business rules since it allows you to protect some intellectual property.</description></item><item><title>When one of your DBA colleagues leaves the company, what is your checklist?</title><link>https://claudioessilva.eu/2020/09/03/When-one-of-your-DBA-colleagues-leaves-the-company-what-is-your-checklist/</link><pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/09/03/When-one-of-your-DBA-colleagues-leaves-the-company-what-is-your-checklist/</guid><description>Whether it’s in our personal lives or the professional one, we do have checklists for certain tasks.
-On the professional level, it can be purely technical like SQL Server installation, configuration or even uninstall, but they can also be not so technical like when a colleague join the team and someone needs to request permissions to access the company&amp;rsquo;s tools (such as ticketing/incidents/VPN/etc).
-What about when a colleague leaves the company?</description></item><item><title>Generate SQL Server Role Member Reports using dbatools and ImportExcel PowerShell modules</title><link>https://claudioessilva.eu/2020/07/31/Generate-SQL-Server-Role-Member-Reports-using-dbatools-and-ImportExcel-PowerShell-modules/</link><pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/07/31/Generate-SQL-Server-Role-Member-Reports-using-dbatools-and-ImportExcel-PowerShell-modules/</guid><description>This was initial posted on SQL Server Central articles .
-As one of dbatools&amp;rsquo; first members, I&amp;rsquo;ve been using it for years and it&amp;rsquo;s really my goto tool. This task was no different!
-Today&amp;rsquo;s tip and trick using dbatools is about generating an Excel workbook that contains lists of SQL Server roles and its members.
-The Usefulness of these Reports These reports are especially useful when performing tech-refreshes (migrating from an old version to a newer one) and you want to do some housekeeping.</description></item><item><title>Backup your SQL instances configurations to GIT with dbatools - Part 2 - Add parallelism</title><link>https://claudioessilva.eu/2020/06/04/Backup-your-SQL-instances-configurations-to-GIT-with-dbatools-Part-2-Add-parallelism/</link><pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/06/04/Backup-your-SQL-instances-configurations-to-GIT-with-dbatools-Part-2-Add-parallelism/</guid><description>We have seen how we can export and save the results to a folder and commit them to a GIT repository on my last blog post Backup your SQL instances configurations to GIT with dbatools – Part 1 . At the end of that post, I have mentioned that I would write about how we can lower down the execution times of our script by leveraging on parallelism.
-Going parallel When we need to manage dozens of servers/instances, even with automated scripts sometimes we would like that our script finishes faster.</description></item><item><title>Backup your SQL instances configurations to GIT with dbatools - Part 1</title><link>https://claudioessilva.eu/2020/06/02/Backup-your-SQL-instances-configurations-to-GIT-with-dbatools-Part-1/</link><pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/06/02/Backup-your-SQL-instances-configurations-to-GIT-with-dbatools-Part-1/</guid><description>Today I want to share how I&amp;rsquo;m keeping a copy of instances&amp;rsquo; configurations using dbatools .
-Chrissy LeMaire ( B | T ) wrote about it before on the Simplifying disaster recovery with dbatools blog post. In this post, I will add one step and save the output on a GIT repository.
-Pre-requirements You need a GIT repository GIT tools installed on the server where you are running the script so you can commit your changes dbatools A list or a place to get all instances that you want to run the export Preparation Git repository Clone your repository to a location where dbatools can write to.</description></item><item><title>Replicate permissions to new Login/User with dbatools</title><link>https://claudioessilva.eu/2020/05/28/Replicate-permissions-to-new-Login/User-with-dbatools/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/05/28/Replicate-permissions-to-new-Login/User-with-dbatools/</guid><description>Continuing to share tips and tricks using dbatools like the Refresh databases that belongs to availability group using dbatools posted a few days ago, today I will share a way to export the permissions of a login/user at instance/database level and apply them to a new login/user.
-The typical request Client: &amp;ldquo;We have a new colleague, can you please grant them the exact same permissions I have?!&amp;rdquo;
-A quick note/suggestion that may help minimize your work: If we are talking about a Windows Login, please suggest the use of AD groups to help you (so that you don&amp;rsquo;t need to do this process) and also them (they don&amp;rsquo;t need to make this request).</description></item><item><title>Export Deadlocks to file from system_health Extended Event using PowerShell</title><link>https://claudioessilva.eu/2020/05/25/Export-Deadlocks-to-file-from-system_health-Extended-Event-using-PowerShell/</link><pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/05/25/Export-Deadlocks-to-file-from-system_health-Extended-Event-using-PowerShell/</guid><description>Just a quick post as may help any of you searching for this.
-Scenario Client wants to analyze most recent deadlocks that happened on a specific instance. They asked us to send the xdl files.
-How do we get the deadlocks? Depending on the version of SQL Server that you are running, there are different ways to do it. In this post I will share how you can do it from all files that belongs to the system_health extended event session.</description></item><item><title>Refresh databases that belongs to Availability Group using dbatools</title><link>https://claudioessilva.eu/2020/05/20/Refresh-databases-that-belongs-to-Availability-Group-using-dbatools/</link><pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/05/20/Refresh-databases-that-belongs-to-Availability-Group-using-dbatools/</guid><description>Few days ago I was surfing on Twitter when dbatools asked about how it&amp;rsquo;s PowerShell module changed the way people work .
-Open and check the answers given by the community as there is really good stuff there!
-My turn I have shared one of my recipes related to database refreshes. You know, when the client says, &amp;ldquo;please restore this backup or the most recent backup on our instance.&amp;rdquo;. But what if the databases belong to an availability group?</description></item><item><title>More PowerShell Remoting coverage in dbatools</title><link>https://claudioessilva.eu/2019/08/20/More-PowerShell-Remoting-coverage-in-dbatools/</link><pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2019/08/20/More-PowerShell-Remoting-coverage-in-dbatools/</guid><description>Starting on dbatools version 1.0.31 we introduced better coverage for commands that make use of PowerShell Remoting.
-Which commands? Commands like Get-DbaComputerCertificate, Get-DbaPrivilege, Get-DbaClientAlias, just to mention a few of them, make use of the internal function Invoke-Command2 which uses New-PSSession when we run it against a remote computer.
-&amp;ldquo;Why have you changed it?&amp;rdquo; Let me give you a little bit of background&amp;hellip; At my company, I found that some dbatools commands were not working.</description></item><item><title>dbatools v1.0? It's available - Check it out!</title><link>https://claudioessilva.eu/2019/06/19/dbatools-v1.0-Its-available-Check-it-out/</link><pubDate>Wed, 19 Jun 2019 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2019/06/19/dbatools-v1.0-Its-available-Check-it-out/</guid><description>Dear reader, before continue please open a PowerShell console and run the following command:
-Install-Module -Name dbatools If you are doing this on the date of this blog post, you have just installed dbatools v1.0!
-After more than 200 commits, the work of more than 20 contributors and 20 days since the last published version, dbatools v1.0 is live!
-To all of you that have contributed direct or indirectly to the module a big thank you!</description></item><item><title>'Ups...I have deleted some data. Can you put it back?' - dbatools for the rescue</title><link>https://claudioessilva.eu/2019/05/17/Ups...I-have-deleted-some-data.-Can-you-put-it-back-dbatools-for-the-rescue/</link><pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2019/05/17/Ups...I-have-deleted-some-data.-Can-you-put-it-back-dbatools-for-the-rescue/</guid><description>Few days ago I received a request to restore a dozen of tables because someone have deleted more data than it was supposed. I immediately thought about dbatools for the job!
-NOTE: I also thought about SSMS &amp;ldquo;Import/Export Data&amp;rdquo;. And this is ok when someone says &amp;ldquo;it&amp;rsquo;s to run just once, just now&amp;rdquo;. When you are in the IT for a while you know that is not only once :-). And what if I need to re-run?</description></item><item><title>Scripting SQL Server objects with dbatools - Beyond default options</title><link>https://claudioessilva.eu/2019/05/15/Scripting-SQL-Server-objects-with-dbatools-Beyond-default-options/</link><pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2019/05/15/Scripting-SQL-Server-objects-with-dbatools-Beyond-default-options/</guid><description>Probably you had the need to script out some objects from a SQL Server instance/database and this is quite easy. You just need to right click on the object (well&amp;hellip;not on every single one, try it with an Availability Group :-), no script option available) select &amp;ldquo;Script XXXX as&amp;rdquo; and you have it.
-But have you realized that this option doesn&amp;rsquo;t bring all the stuff? Let&amp;rsquo;s say you are scripting a table and you have a Non-Clustered index or a trigger&amp;hellip;using this option some of the objects under the table will not be scripted out.</description></item><item><title>Don't cutoff yourself with dates in T-SQL - Did you know...</title><link>https://claudioessilva.eu/2018/09/04/Dont-cutoff-yourself-with-dates-in-T-SQL-Did-you-know.../</link><pubDate>Tue, 04 Sep 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/09/04/Dont-cutoff-yourself-with-dates-in-T-SQL-Did-you-know.../</guid><description>Almost all the applications we use have a lot of options. And, sometimes we even stumble across them by accident. Who&amp;rsquo;s ever heard something like &amp;ldquo;Normal user don&amp;rsquo;t even use 5% of Excel capabilities!&amp;rdquo;?
-Other options, we know they exist but because the default value it’s ok (so far) we tend to forget it. It is just sitting there, waiting for the day we want/need to change it.
-The oddity Few days ago I was talking with a friend that show me some &amp;ldquo;odd behavior&amp;rdquo; when working with dates on SQL Server.</description></item><item><title>Learn, Evolve and Giving Back - TSQL Tuesday 102</title><link>https://claudioessilva.eu/2018/05/08/Learn-Evolve-and-Giving-Back-TSQL-Tuesday-102/</link><pubDate>Tue, 08 May 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/05/08/Learn-Evolve-and-Giving-Back-TSQL-Tuesday-102/</guid><description>This month’s T-SQL Tuesday is brought to us by Riley Major‏ ( b | t ) and he encourage us to talk about how we are helping by giving back to our community.
-This is the 102nd edition of TSQL2sDay - an Adam Machanic’s ( b | t ) brainchild.
-&amp;ldquo;Let&amp;rsquo;s go back for a moment:&amp;rdquo; I have heard about SQL Server the first time back in 2003 when I was on the high school and I had a database class.</description></item><item><title>dbachecks - Going parallel - Cut off your execution times</title><link>https://claudioessilva.eu/2018/04/26/dbachecks-Going-parallel-Cut-off-your-execution-times/</link><pubDate>Thu, 26 Apr 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/04/26/dbachecks-Going-parallel-Cut-off-your-execution-times/</guid><description>On one of the last clients I have worked, I have implemented dbachecks in order to get the state of art and know how cool or bad the environments are before start knocking down the bad practices.
-This client has seven different environments with more than 100 instances and more than 2000 databases.
-Serial execution A non-parallel execution (single session) took more than 2 hours. This is not a big problem when we run it out of hours and we don&amp;rsquo;t want/need to be looking or waiting for it to finish.</description></item><item><title>dbachecks - Setting temporary configuration values</title><link>https://claudioessilva.eu/2018/04/24/dbachecks-Setting-temporary-configuration-values/</link><pubDate>Tue, 24 Apr 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/04/24/dbachecks-Setting-temporary-configuration-values/</guid><description>dbachecks has seen the light about two months ago. As I&amp;rsquo;m writing this blog post, the module counts with more than 2600 downloads just from the PowerShell gallery . The module has about 110 configurable checks that make our live easier!
-Today I will write about an option that I think users still do not realize that exists.
-The default dbachecks works with the values previously saved (for that we use Set-DbcConfig).</description></item><item><title>dbachecks - A different approach for an in-progress and incremental validation</title><link>https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/</link><pubDate>Thu, 22 Feb 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/</guid><description>dbachecks is a new PowerShell module from the SQL Server Community! For more information, read introducing dbachecks .
-If you don&amp;rsquo;t know dbachecks, we have released a good amount of blog posts that will help you: Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell introducing dbachecks - a new module from the dbatools team! by Chrissy LeMaire install dbachecks by Chrissy LeMaire dbachecks commands by Chrissy LeMaire dbachecks – Using Power BI dashboards to analyse results by Cláudio Silva My wrapper for dbachecks by Tony Wilhelm Checking backups with dbachecks by Jess Promfret dbachecks please!</description></item><item><title>dbachecks - Using Power BI dashboards to analyse results</title><link>https://claudioessilva.eu/2018/02/22/dbachecks-Using-Power-BI-dashboards-to-analyse-results/</link><pubDate>Thu, 22 Feb 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/02/22/dbachecks-Using-Power-BI-dashboards-to-analyse-results/</guid><description>For the last couple of months, members of the dbatools team have been working on a new PowerShell module called dbachecks. This open source PowerShell module will enable you to validate your SQL Instances. Today it is released for you all to start to use 🙂
-dbachecks launch - the blog posts series Here you can find a list of the blog posts made available today:
-Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell introducing dbachecks - a new module from the dbatools team!</description></item><item><title>Using dbatools to verify your SQL Server instances version compliance</title><link>https://claudioessilva.eu/2018/01/23/Using-dbatools-to-verify-your-SQL-Server-instances-version-compliance/</link><pubDate>Tue, 23 Jan 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/01/23/Using-dbatools-to-verify-your-SQL-Server-instances-version-compliance/</guid><description>One of the main DBA&amp;rsquo;s duties is to guarantee that SQL Server instances are up-to-date in terms of patches (Service Packs, Cumulative Updates or Security Updates).
-Recently, dbatools added a new command that turns this validation a piece of cake. Thanks to Simone Bizzotto (@niphlod) for baking up the command that Shawn Melton (@wsmelton) and I initially requested.
-Some dbatools users already expressed their happiness with the command, like Jess Pomfret did here So, I thought that this information should be shared with other people too.</description></item><item><title>New version of sp_WhoIsActive (v11.20) is available - Deployed on 123 instances in less than 1 minute</title><link>https://claudioessilva.eu/2017/12/05/New-version-of-sp_WhoIsActive-v11.20-is-available-Deployed-on-123-instances-in-less-than-1-minute/</link><pubDate>Tue, 05 Dec 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/12/05/New-version-of-sp_WhoIsActive-v11.20-is-available-Deployed-on-123-instances-in-less-than-1-minute/</guid><description>Last night, I received Adam Machanic&amp;rsquo;s ( b | t ) newsletter &amp;ldquo;Announcing sp_whoisactive v11.20: Live Query Plans&amp;rdquo;.
-For those who don&amp;rsquo;t know about it, sp_WhoIsActive is a stored procedure that provides detailed information about the sessions running on your SQL Server instance. It is a great tool when we need to troubleshoot some problems such as long-running queries or blocking. (just two examples)
-This stored procedure works on any version/edition since SQL Server 2005 SP1.</description></item><item><title>Someone is not following the best practices - dbatools and Pester don't lie!</title><link>https://claudioessilva.eu/2017/09/12/Someone-is-not-following-the-best-practices-dbatools-and-Pester-dont-lie/</link><pubDate>Tue, 12 Sep 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/09/12/Someone-is-not-following-the-best-practices-dbatools-and-Pester-dont-lie/</guid><description>This month’s T-SQL Tuesday is brought to us by my good friend Rob Sewell ( b | t ). Together “Let’s get all Posh – What are you going to automate today?”
-I have written some blog posts on how I use PowerShell to automate mundane tasks or some other more complex scenarios like: Find and fix SQL Server databases with empty owner property using dbatools PowerShell module or Have you backed up your SQL Logins today?</description></item><item><title>'Invalid class [0x80041010]' error when trying to access SQLServer's WMI classes</title><link>https://claudioessilva.eu/2017/09/07/Invalid-class-0x80041010-error-when-trying-to-access-SQLServers-WMI-classes/</link><pubDate>Thu, 07 Sep 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/09/07/Invalid-class-0x80041010-error-when-trying-to-access-SQLServers-WMI-classes/</guid><description>I was using open source PowerShell module dbatools ( GitHub repository ) to get the list of SQL Server services I have on a bunch of hosts so I could confirm if they are in &amp;ldquo;running&amp;rdquo; state.
-&amp;ndash; Quick note &amp;ndash; For those who don’t know, dbatools is a module, written by the community, that makes SQL Server administration much easier using PowerShell. Today, the module has more than 260 commands.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dbatools on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/dbatools/</link><description>Recent content in Dbatools on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 07 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/dbatools/index.xml" rel="self" type="application/rss+xml"/><item><title>dbatools - Exceptions</title><link>https://claudioessilva.eu/2022/06/07/dbatools-Exceptions/</link><pubDate>Tue, 07 Jun 2022 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2022/06/07/dbatools-Exceptions/</guid><description>&lt;p>Who doesn&amp;rsquo;t like a good red and verbose exception?&lt;/p>
+&lt;p>&lt;img src="https://claudioessilva.eu/img/2022/06/Exceptions_see_of_read_WinPS.png" alt="Exceptions_see_of_read_WinPS">&lt;/p>
+&lt;p>At PowerShell community we often call it a &amp;ldquo;sea of red&amp;rdquo; which we found as something that can be intimidating. The bigger the error message the more problematic it is? :-)&lt;/p>
+&lt;p>We don&amp;rsquo;t think so! That&amp;rsquo;s why we, within dbatools project, try to keep the output of the exceptions more user friendly and try to give the direct error message to you. No line numbers or stack traces to confuse you.&lt;/p></description></item><item><title>dbatools - rich datatypes</title><link>https://claudioessilva.eu/2022/06/02/dbatools-rich-datatypes/</link><pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2022/06/02/dbatools-rich-datatypes/</guid><description>&lt;p>Some datatypes can be shown in so many different forms (think measurament units, dates with short/long forms, or regional settings) that can be difficult to have a standard.&lt;/p>
+&lt;p>What should we show? Sizes should be always in bytes? It will be easier for you to interpret &lt;code>1610612736 bytes&lt;/code> or &lt;code>1.50 GB&lt;/code>?&lt;/p>
+&lt;p>That&amp;rsquo;s why we have created some rich datatypes like, &lt;code>DbaTime&lt;/code>, &lt;code>DbaDate&lt;/code>, &lt;code>DbaDatetime&lt;/code>, &lt;code>DbaTimeSpan&lt;/code>, &lt;code>PrettyTimeSpan&lt;/code> or &lt;code>DbaSize&lt;/code> to make it easier to read and be more consistent acrross multiple commands.&lt;/p></description></item><item><title>Recover database encrypted modules code with dbatools</title><link>https://claudioessilva.eu/2020/09/22/Recover-database-encrypted-modules-code-with-dbatools/</link><pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/09/22/Recover-database-encrypted-modules-code-with-dbatools/</guid><description>&lt;p>This article was initially posted on &lt;a href="https://www.sqlservercentral.com/articles/recover-database-encrypted-modules-code-with-dbatools"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ SQLServerCentral
+&lt;/a>
+ @ 2020-08-18.
+It was interesting some comments I read about it, mainly why people still use &lt;code>WITH ENCRYPTION&lt;/code> when it&amp;rsquo;s simple to overcome this when we have the right permissions.&lt;/p>
+&lt;p>SQL Server offers an option to encrypt the code of your modules when using the &lt;code>WITH ENCRYPTION&lt;/code> syntax.
+This allows to hide/obfuscate the modules&amp;rsquo; code and thus keep away from prying eyes.
+It&amp;rsquo;s often used to protect business rules since it allows you to protect some intellectual property.&lt;/p></description></item><item><title>When one of your DBA colleagues leaves the company, what is your checklist?</title><link>https://claudioessilva.eu/2020/09/03/When-one-of-your-DBA-colleagues-leaves-the-company-what-is-your-checklist/</link><pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/09/03/When-one-of-your-DBA-colleagues-leaves-the-company-what-is-your-checklist/</guid><description>&lt;p>Whether it’s in our personal lives or the professional one, we do have checklists for certain tasks.&lt;/p>
+&lt;p>On the professional level, it can be purely technical like SQL Server installation, configuration or even uninstall, but they can also be not so technical like when a colleague join the team and someone needs to request permissions to access the company&amp;rsquo;s tools (such as ticketing/incidents/VPN/etc).&lt;/p>
+&lt;h2 id="what-about-when-a-colleague-leaves-the-company">What about when a colleague leaves the company?&lt;/h2>
+&lt;p>What is your checklist for this situation?
+At first, and the most obvious is to &amp;ldquo;rollback&amp;rdquo; the things done when that person joined the company. For instance:&lt;/p></description></item><item><title>Generate SQL Server Role Member Reports using dbatools and ImportExcel PowerShell modules</title><link>https://claudioessilva.eu/2020/07/31/Generate-SQL-Server-Role-Member-Reports-using-dbatools-and-ImportExcel-PowerShell-modules/</link><pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/07/31/Generate-SQL-Server-Role-Member-Reports-using-dbatools-and-ImportExcel-PowerShell-modules/</guid><description>&lt;blockquote>
+&lt;p>This was initial posted on &lt;a href="https://www.sqlservercentral.com/articles/generate-role-member-reports-using-dbatools-and-the-importexcel-powershell-modules"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ SQL Server Central articles
+&lt;/a>
+.&lt;/p>&lt;/blockquote>
+&lt;p>As one of dbatools&amp;rsquo; first members, I&amp;rsquo;ve been using it for years and it&amp;rsquo;s really my goto tool. This task was no different!&lt;/p>
+&lt;p>Today&amp;rsquo;s tip and trick using &lt;a href="https://dbatools.io"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbatools
+&lt;/a>
+ is about generating an Excel workbook that contains lists of SQL Server roles and its members.&lt;/p>
+&lt;h2 id="the-usefulness-of-these-reports">The Usefulness of these Reports&lt;/h2>
+&lt;p>These reports are especially useful when performing tech-refreshes (migrating from an old version to a newer one) and you want to do some housekeeping. For example, finding logins that should be part of a role and they are not. Once you know there are problems, you decided to do a double-check on the whole list.&lt;/p></description></item><item><title>Backup your SQL instances configurations to GIT with dbatools - Part 2 - Add parallelism</title><link>https://claudioessilva.eu/2020/06/04/Backup-your-SQL-instances-configurations-to-GIT-with-dbatools-Part-2-Add-parallelism/</link><pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/06/04/Backup-your-SQL-instances-configurations-to-GIT-with-dbatools-Part-2-Add-parallelism/</guid><description>&lt;p>We have seen how we can export and save the results to a folder and commit them to a GIT repository on my last blog post &lt;a href="https://claudioessilva.eu/2020/06/02/Backup-your-SQL-instances-configurations-to-GIT-with-dbatools-Part-1/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Backup your SQL instances configurations to GIT with dbatools – Part 1
+&lt;/a>
+.
+At the end of that post, I have mentioned that I would write about how we can lower down the execution times of our script by leveraging on parallelism.&lt;/p>
+&lt;h2 id="going-parallel">Going parallel&lt;/h2>
+&lt;p>When we need to manage dozens of servers/instances, even with automated scripts sometimes we would like that our script finishes faster.
+There are multiple reasons that a sequential (one-by-one) run takes longer.
+Few examples I have hit in the past:&lt;/p></description></item><item><title>Backup your SQL instances configurations to GIT with dbatools - Part 1</title><link>https://claudioessilva.eu/2020/06/02/Backup-your-SQL-instances-configurations-to-GIT-with-dbatools-Part-1/</link><pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/06/02/Backup-your-SQL-instances-configurations-to-GIT-with-dbatools-Part-1/</guid><description>&lt;p>Today I want to share how I&amp;rsquo;m keeping a copy of instances&amp;rsquo; configurations using &lt;a href="https://dbatools.io"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbatools
+&lt;/a>
+.&lt;/p>
+&lt;p>Chrissy LeMaire (&lt;a href="https://blog.netnerds.net/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ B
+&lt;/a>
+ | &lt;a href="https://twitter.com/cl"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ T
+&lt;/a>
+) wrote about it before on the &lt;a href="https://dbatools.io/dr/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Simplifying disaster recovery with dbatools
+&lt;/a>
+ blog post.
+In this post, I will add one step and save the output on a GIT repository.&lt;/p>
+&lt;h2 id="pre-requirements">Pre-requirements&lt;/h2>
+&lt;ul>
+&lt;li>You need a GIT repository&lt;/li>
+&lt;li>GIT tools installed on the server where you are running the script so you can commit your changes&lt;/li>
+&lt;li>dbatools&lt;/li>
+&lt;li>A list or a place to get all instances that you want to run the export&lt;/li>
+&lt;/ul>
+&lt;h2 id="preparation">Preparation&lt;/h2>
+&lt;h3 id="git-repository">Git repository&lt;/h3>
+&lt;p>Clone your repository to a location where dbatools can write to.&lt;/p></description></item><item><title>Replicate permissions to new Login/User with dbatools</title><link>https://claudioessilva.eu/2020/05/28/Replicate-permissions-to-new-Login/User-with-dbatools/</link><pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/05/28/Replicate-permissions-to-new-Login/User-with-dbatools/</guid><description>&lt;p>Continuing to share tips and tricks using &lt;a href="https://dbatools.io"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbatools
+&lt;/a>
+ like the &lt;a href="https://claudioessilva.eu/2020/05/20/Refresh-databases-that-belongs-to-Availability-Group-using-dbatools/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Refresh databases that belongs to availability group using dbatools
+&lt;/a>
+ posted a few days ago, today I will share a way to export the permissions of a login/user at instance/database level and apply them to a new login/user.&lt;/p>
+&lt;h2 id="the-typical-request">The typical request&lt;/h2>
+&lt;p>Client: &amp;ldquo;We have a new colleague, can you please grant them the exact same permissions I have?!&amp;rdquo;&lt;/p>
+&lt;p>A quick note/suggestion that may help minimize your work: If we are talking about a Windows Login, please suggest the use of AD groups to help you (so that you don&amp;rsquo;t need to do this process) and also them (they don&amp;rsquo;t need to make this request).&lt;/p></description></item><item><title>Export Deadlocks to file from system_health Extended Event using PowerShell</title><link>https://claudioessilva.eu/2020/05/25/Export-Deadlocks-to-file-from-system_health-Extended-Event-using-PowerShell/</link><pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/05/25/Export-Deadlocks-to-file-from-system_health-Extended-Event-using-PowerShell/</guid><description>&lt;p>Just a quick post as may help any of you searching for this.&lt;/p>
+&lt;h2 id="scenario">Scenario&lt;/h2>
+&lt;p>Client wants to analyze most recent deadlocks that happened on a specific instance. They asked us to send the xdl files.&lt;/p>
+&lt;h2 id="how-do-we-get-the-deadlocks">How do we get the deadlocks?&lt;/h2>
+&lt;p>Depending on the version of SQL Server that you are running, there are different ways to do it.
+In this post I will share how you can do it from all files that belongs to the &lt;code>system_health&lt;/code> extended event session. (Not only the current file).
+This works on SQL Server 2012 or higher version.
+For a better overview I recommend you to read the &lt;a href="https://www.sqlshack.com/what-are-sql-server-deadlocks-and-how-to-monitor-them/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ What are SQL Server deadlocks and how to monitor them
+&lt;/a>
+ article from SQLShack.&lt;/p></description></item><item><title>Refresh databases that belongs to Availability Group using dbatools</title><link>https://claudioessilva.eu/2020/05/20/Refresh-databases-that-belongs-to-Availability-Group-using-dbatools/</link><pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2020/05/20/Refresh-databases-that-belongs-to-Availability-Group-using-dbatools/</guid><description>&lt;p>Few days ago I was surfing on Twitter when &lt;a href="https://twitter.com/psdbatools"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbatools
+&lt;/a>
+ asked about &lt;a href="https://twitter.com/psdbatools/status/1261563168113012736"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ how it&amp;rsquo;s PowerShell module changed the way people work
+&lt;/a>
+.&lt;/p>
+&lt;p>Open and check the answers given by the community as there is really good stuff there!&lt;/p>
+&lt;h2 id="my-turn">My turn&lt;/h2>
+&lt;p>I have shared one of my recipes related to database refreshes. You know, when the client says, &amp;ldquo;please restore this backup or the most recent backup on our instance.&amp;rdquo;. But what if the databases belong to an availability group? It&amp;rsquo;s not as simple as a standalone installation.&lt;/p></description></item><item><title>More PowerShell Remoting coverage in dbatools</title><link>https://claudioessilva.eu/2019/08/20/More-PowerShell-Remoting-coverage-in-dbatools/</link><pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2019/08/20/More-PowerShell-Remoting-coverage-in-dbatools/</guid><description>&lt;p>Starting on dbatools version 1.0.31 we introduced better coverage for commands that make use of PowerShell Remoting.&lt;/p>
+&lt;h2 id="which-commands">Which commands?&lt;/h2>
+&lt;p>Commands like &lt;code>Get-DbaComputerCertificate&lt;/code>, &lt;code>Get-DbaPrivilege&lt;/code>, &lt;code>Get-DbaClientAlias&lt;/code>, just to mention a few of them, make use of the internal function &lt;code>Invoke-Command2&lt;/code> which uses &lt;code>New-PSSession&lt;/code> when we run it against a remote computer.&lt;/p>
+&lt;h2 id="why-have-you-changed-it">&amp;ldquo;Why have you changed it?&amp;rdquo;&lt;/h2>
+&lt;p>Let me give you a little bit of background&amp;hellip;
+At my company, I found that some dbatools commands were not working. They were returning errors related with WinRM configurations, as seen here when attempting to create a new session using &lt;code>New-PSSession&lt;/code>:
+&lt;img src="https://claudioessilva.eu/img/2019/08/new-pssession_error.png" alt="new-pssession_error">&lt;/p></description></item><item><title>dbatools v1.0? It's available - Check it out!</title><link>https://claudioessilva.eu/2019/06/19/dbatools-v1.0-Its-available-Check-it-out/</link><pubDate>Wed, 19 Jun 2019 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2019/06/19/dbatools-v1.0-Its-available-Check-it-out/</guid><description>&lt;p>Dear reader, before continue please open a PowerShell console and run the following command:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>Install-Module -Name dbatools
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>If you are doing this on the date of this blog post, you have just installed dbatools v1.0!&lt;/p>
+&lt;p>After more than 200 commits, the work of more than 20 contributors and 20 days since the last published version, dbatools v1.0 is live!&lt;/p>
+&lt;p>&lt;strong>To all of you that have contributed direct or indirectly to the module a big thank you!&lt;/strong>&lt;/p></description></item><item><title>'Ups...I have deleted some data. Can you put it back?' - dbatools for the rescue</title><link>https://claudioessilva.eu/2019/05/17/Ups...I-have-deleted-some-data.-Can-you-put-it-back-dbatools-for-the-rescue/</link><pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2019/05/17/Ups...I-have-deleted-some-data.-Can-you-put-it-back-dbatools-for-the-rescue/</guid><description>&lt;p>Few days ago I received a request to restore a dozen of tables because someone have deleted more data than it was supposed.
+I immediately thought about &lt;a href="https://dbatools.io"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbatools
+&lt;/a>
+ for the job!&lt;/p>
+&lt;p>NOTE: I also thought about SSMS &amp;ldquo;Import/Export Data&amp;rdquo;. And this is ok when someone says &amp;ldquo;it&amp;rsquo;s to run just once, just now&amp;rdquo;. When you are in the IT for a while you know that is not only once :-). And what if I need to re-run? Or save it as example and share with my colleagues? Doing this using a PowerShell script makes it much more flexible.&lt;/p></description></item><item><title>Scripting SQL Server objects with dbatools - Beyond default options</title><link>https://claudioessilva.eu/2019/05/15/Scripting-SQL-Server-objects-with-dbatools-Beyond-default-options/</link><pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2019/05/15/Scripting-SQL-Server-objects-with-dbatools-Beyond-default-options/</guid><description>&lt;p>Probably you had the need to script out some objects from a SQL Server instance/database and this is quite easy. You just need to right click on the object (well&amp;hellip;not on every single one, try it with an Availability Group :-), no script option available) select &amp;ldquo;Script XXXX as&amp;rdquo; and you have it.&lt;/p>
+&lt;p>But have you realized that this option doesn&amp;rsquo;t bring all the stuff?
+Let&amp;rsquo;s say you are scripting a table and you have a Non-Clustered index or a trigger&amp;hellip;using this option some of the objects under the table will not be scripted out. I understand this as each one of this is a different object, which means if you go to each one you can right click and script just that one.&lt;/p></description></item><item><title>Don't cutoff yourself with dates in T-SQL - Did you know...</title><link>https://claudioessilva.eu/2018/09/04/Dont-cutoff-yourself-with-dates-in-T-SQL-Did-you-know.../</link><pubDate>Tue, 04 Sep 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/09/04/Dont-cutoff-yourself-with-dates-in-T-SQL-Did-you-know.../</guid><description>&lt;p>Almost all the applications we use have a lot of options. And, sometimes we even stumble across them by accident.
+Who&amp;rsquo;s ever heard something like &amp;ldquo;Normal user don&amp;rsquo;t even use 5% of Excel capabilities!&amp;rdquo;?&lt;/p>
+&lt;p>Other options, we know they exist but because the default value it’s ok (so far) we tend to forget it. It is just sitting there, waiting for the day we want/need to change it.&lt;/p>
+&lt;h2 id="the-oddity">The oddity&lt;/h2>
+&lt;p>Few days ago I was talking with a friend that show me some &amp;ldquo;odd behavior&amp;rdquo; when working with dates on SQL Server.
+&lt;img src="https://claudioessilva.eu/img/2018/09/oddity_ouput.png" alt="oddity_ouput">&lt;/p></description></item><item><title>Learn, Evolve and Giving Back - TSQL Tuesday 102</title><link>https://claudioessilva.eu/2018/05/08/Learn-Evolve-and-Giving-Back-TSQL-Tuesday-102/</link><pubDate>Tue, 08 May 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/05/08/Learn-Evolve-and-Giving-Back-TSQL-Tuesday-102/</guid><description>&lt;p>&lt;img src="https://claudioessilva.eu/img/2017/09/tsql2sday.jpg" alt="tsql2sday">&lt;/p>
+&lt;p>This month’s T-SQL Tuesday is brought to us by Riley Major‏ (&lt;a href="https://scribnasium.com"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ b
+&lt;/a>
+ | &lt;a href="https://twitter.com/RileyMajor"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ t
+&lt;/a>
+) and he encourage us to talk about how we are helping by giving back to our community.&lt;/p>
+&lt;p>This is the 102nd edition of &lt;a href="http://tsqltuesday.com/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ TSQL2sDay
+&lt;/a>
+ - an Adam Machanic’s (&lt;a href="http://dataeducation.com/blog/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ b
+&lt;/a>
+ | &lt;a href="https://twitter.com/AdamMachanic"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ t
+&lt;/a>
+) brainchild.&lt;/p>
+&lt;h2 id="lets-go-back-for-a-moment">&amp;ldquo;Let&amp;rsquo;s go back for a moment:&amp;rdquo;&lt;/h2>
+&lt;p>I have heard about SQL Server the first time back in 2003 when I was on the high school and I had a database class. Was a slow start and, at that moment I haven&amp;rsquo;t imagined that would follow that path professionally.&lt;/p></description></item><item><title>dbachecks - Going parallel - Cut off your execution times</title><link>https://claudioessilva.eu/2018/04/26/dbachecks-Going-parallel-Cut-off-your-execution-times/</link><pubDate>Thu, 26 Apr 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/04/26/dbachecks-Going-parallel-Cut-off-your-execution-times/</guid><description>&lt;p>On one of the last clients I have worked, I have implemented &lt;a href="http://dbachecks.io"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbachecks
+&lt;/a>
+ in order to get the state of art and know how cool or bad the environments are before start knocking down the bad practices.&lt;/p>
+&lt;p>This client has &lt;strong>seven&lt;/strong> different environments with more than 100 instances and more than 2000 databases.&lt;/p>
+&lt;h3 id="serial-execution">Serial execution&lt;/h3>
+&lt;p>A non-parallel execution (single session) took more than 2 hours.
+This is not a big problem when we run it out of hours and we don&amp;rsquo;t want/need to be looking or waiting for it to finish.
+I set up it to run at 6 in the morning and when I arrive at the office I can refresh the Power BI dashboard a get a recent state of art.&lt;/p></description></item><item><title>dbachecks - Setting temporary configuration values</title><link>https://claudioessilva.eu/2018/04/24/dbachecks-Setting-temporary-configuration-values/</link><pubDate>Tue, 24 Apr 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/04/24/dbachecks-Setting-temporary-configuration-values/</guid><description>&lt;p>&lt;a href="https://dbachecks.io"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbachecks
+&lt;/a>
+ has seen the light about two months ago. As I&amp;rsquo;m writing this blog post, the module counts with more than 2600 downloads just from the &lt;a href="https://www.powershellgallery.com/packages/dbachecks"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ PowerShell gallery
+&lt;/a>
+.
+The module has about 110 configurable checks that make our live easier!&lt;/p>
+&lt;p>Today I will write about an option that I think users still do not realize that exists.&lt;/p>
+&lt;h3 id="the-default">The default&lt;/h3>
+&lt;p>dbachecks works with the values previously saved (for that we use &lt;code>Set-DbcConfig&lt;/code>). This means that when we start a new session and the last session has changed any configuration, that configuration is now, by default, the one that will be used in the new session.&lt;/p></description></item><item><title>dbachecks - A different approach for an in-progress and incremental validation</title><link>https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/</link><pubDate>Thu, 22 Feb 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/</guid><description>&lt;p>&lt;a href="https://dbachecks.io/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbachecks
+&lt;/a>
+ is a new PowerShell module from the SQL Server Community! For more information, read &lt;a href="https://dbatools.io/introducing-dbachecks/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ introducing dbachecks
+&lt;/a>
+.&lt;/p>
+&lt;p>If you don&amp;rsquo;t know dbachecks, we have released a good amount of blog posts that will help you:
+&lt;a href="https://sqldbawithabeard.com/2018/02/22/announcing-dbachecks-configurable-powershell-validation-for-your-sql-instances/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell
+&lt;/a>
+
+&lt;a href="https://dbachecks.io/introducing"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ introducing dbachecks - a new module from the dbatools team! by Chrissy LeMaire
+&lt;/a>
+
+&lt;a href="https://dbachecks.io/install"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ install dbachecks by Chrissy LeMaire
+&lt;/a>
+
+&lt;a href="https://dbachecks.io/commands"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbachecks commands by Chrissy LeMaire
+&lt;/a>
+
+&lt;a href="http://claudioessilva.eu/2018/02/22/dbachecks-using-power-bi-dashboards-to-analyse-results/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbachecks – Using Power BI dashboards to analyse results by Cláudio Silva
+&lt;/a>
+
+&lt;a href="https://v-roddba.blogspot.com/2018/02/wrapper-for-dbachecks.html"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ My wrapper for dbachecks by Tony Wilhelm
+&lt;/a>
+
+&lt;a href="http://jesspomfret.com/checking-backups-with-dbachecks/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Checking backups with dbachecks by Jess Promfret
+&lt;/a>
+
+&lt;a href="http://blog.garrybargsley.com/dbachecks-please"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbachecks please! by Garry Bargsley
+&lt;/a>
+
+&lt;a href="https://sqldbawithabeard.com/2018/02/22/dbachecks-configuration-deep-dive/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbachecks – Configuration Deep Dive by Rob Sewell
+&lt;/a>
+
+&lt;a href="https://www.sqlstad.nl/powershell/test-log-shipping-with-dbachecks/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Test Log Shipping with dbachecks
+&lt;/a>
+
+&lt;a href="https://corrick.io/blog/checking-your-backup-strategy-with-dbachecks"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Checking your backup strategy with dbachecks by Joshua Corrick
+&lt;/a>
+
+&lt;a href="http://www.sqlnotnull.com/2018/02/20/enterprise-level-reporting-with-dbachecks-from-the-makers-of-dbatools"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Enterprise-level reporting with dbachecks by Jason Squires
+&lt;/a>
+
+&lt;a href="http://nocolumnname.blog/2018/02/22/adding-your-own-checks-to-dbachecks"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Adding your own checks to dbachecks by Shane O&amp;rsquo;Neill
+&lt;/a>
+
+&lt;a href="https://claudioessilva.eu/2018/02/22/dbachecks-a-different-approach-for-an-in-progress-and-incremental-validation/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbachecks - A different approach for an in-progress and incremental validation by Cláudio Silva
+&lt;/a>
+&lt;/p></description></item><item><title>dbachecks - Using Power BI dashboards to analyse results</title><link>https://claudioessilva.eu/2018/02/22/dbachecks-Using-Power-BI-dashboards-to-analyse-results/</link><pubDate>Thu, 22 Feb 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/02/22/dbachecks-Using-Power-BI-dashboards-to-analyse-results/</guid><description>&lt;p>For the last couple of months, members of the &lt;a href="http://dbatools.io/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbatools
+&lt;/a>
+ team have been working on a new PowerShell module called dbachecks. This open source PowerShell module will enable you to validate your SQL Instances. Today it is released for you all to start to use 🙂&lt;/p>
+&lt;h3 id="dbachecks-launch---the-blog-posts-series">dbachecks launch - the blog posts series&lt;/h3>
+&lt;p>Here you can find a list of the blog posts made available today:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://sqldbawithabeard.com/2018/02/22/announcing-dbachecks-configurable-powershell-validation-for-your-sql-instances/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://dbachecks.io/introducing"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ introducing dbachecks - a new module from the dbatools team! by Chrissy LeMaire
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://dbachecks.io/install"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ install dbachecks by Chrissy LeMaire
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://dbachecks.io/commands"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbachecks commands by Chrissy LeMaire
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="http://claudioessilva.eu/2018/02/22/dbachecks-using-power-bi-dashboards-to-analyse-results/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbachecks – Using Power BI dashboards to analyse results by Cláudio Silva
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://v-roddba.blogspot.com/2018/02/wrapper-for-dbachecks.html"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ My wrapper for dbachecks by Tony Wilhelm
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="http://jesspomfret.com/checking-backups-with-dbachecks/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Checking backups with dbachecks by Jess Promfret
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="http://blog.garrybargsley.com/dbachecks-please"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbachecks please! by Garry Bargsley
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://sqldbawithabeard.com/2018/02/22/dbachecks-configuration-deep-dive/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbachecks – Configuration Deep Dive by Rob Sewell
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://www.sqlstad.nl/powershell/test-log-shipping-with-dbachecks/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Test Log Shipping with dbachecks
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://corrick.io/blog/checking-your-backup-strategy-with-dbachecks"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Checking your backup strategy with dbachecks by Joshua Corrick
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="http://www.sqlnotnull.com/2018/02/20/enterprise-level-reporting-with-dbachecks-from-the-makers-of-dbatools"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Enterprise-level reporting with dbachecks by Jason Squires
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="http://nocolumnname.blog/2018/02/22/adding-your-own-checks-to-dbachecks"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Adding your own checks to dbachecks by Shane O&amp;rsquo;Neill
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://claudioessilva.eu/2018/02/22/dbachecks-a-different-approach-for-an-in-progress-and-incremental-validation/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbachecks - A different approach for an in-progress and incremental validation by Cláudio Silva
+&lt;/a>
+&lt;/li>
+&lt;/ul>
+&lt;p>Other documentation:&lt;/p></description></item><item><title>Using dbatools to verify your SQL Server instances version compliance</title><link>https://claudioessilva.eu/2018/01/23/Using-dbatools-to-verify-your-SQL-Server-instances-version-compliance/</link><pubDate>Tue, 23 Jan 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/01/23/Using-dbatools-to-verify-your-SQL-Server-instances-version-compliance/</guid><description>&lt;p>One of the main DBA&amp;rsquo;s duties is to guarantee that SQL Server instances are up-to-date in terms of patches (Service Packs, Cumulative Updates or Security Updates).&lt;/p>
+&lt;p>Recently, dbatools added a new command that turns this validation a piece of cake. Thanks to Simone Bizzotto (@niphlod) for baking up the command that &lt;a href="https://twitter.com/wsmelton"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Shawn Melton (@wsmelton)
+&lt;/a>
+ and I initially requested.&lt;/p>
+&lt;p>Some dbatools users already expressed their happiness with the command, like &lt;a href="https://twitter.com/jpomfret"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Jess Pomfret
+&lt;/a>
+ did &lt;a href="https://twitter.com/jpomfret/status/954018103507251201"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ here
+&lt;/a>
+&lt;/p></description></item><item><title>New version of sp_WhoIsActive (v11.20) is available - Deployed on 123 instances in less than 1 minute</title><link>https://claudioessilva.eu/2017/12/05/New-version-of-sp_WhoIsActive-v11.20-is-available-Deployed-on-123-instances-in-less-than-1-minute/</link><pubDate>Tue, 05 Dec 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/12/05/New-version-of-sp_WhoIsActive-v11.20-is-available-Deployed-on-123-instances-in-less-than-1-minute/</guid><description>&lt;p>Last night, I received Adam Machanic&amp;rsquo;s (&lt;a href="http://dataeducation.com"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ b
+&lt;/a>
+ | &lt;a href="https://twitter.com/AdamMachanic"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ t
+&lt;/a>
+) newsletter &amp;ldquo;Announcing sp_whoisactive v11.20: Live Query Plans&amp;rdquo;.&lt;/p>
+&lt;p>For those who don&amp;rsquo;t know about it, &lt;a href="http://whoisactive.com"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ sp_WhoIsActive
+&lt;/a>
+ is a stored procedure that provides detailed information about the sessions running on your SQL Server instance.
+It is a great tool when we need to troubleshoot some problems such as long-running queries or blocking. (&lt;strong>just&lt;/strong> two examples)&lt;/p>
+&lt;p>This stored procedure works on any version/edition since SQL Server 2005 SP1. Although, you only will be able to see the new feature (live query plans) if you run it on SQL Server 2016 or 2017.&lt;/p></description></item><item><title>Someone is not following the best practices - dbatools and Pester don't lie!</title><link>https://claudioessilva.eu/2017/09/12/Someone-is-not-following-the-best-practices-dbatools-and-Pester-dont-lie/</link><pubDate>Tue, 12 Sep 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/09/12/Someone-is-not-following-the-best-practices-dbatools-and-Pester-dont-lie/</guid><description>&lt;p>&lt;a href="https://sqldbawithabeard.com/2017/09/05/tsql2sday-94-lets-get-all-posh/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ &lt;img src="https://claudioessilva.eu/img/2017/09/tsql2sday.jpg" alt="(TSQL2sDay)">
+&lt;/a>
+&lt;/p>
+&lt;p>This month’s T-SQL Tuesday is brought to us by my good friend Rob Sewell (&lt;a href="https://twitter.com/sqldbawithbeard"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ b
+&lt;/a>
+ | &lt;a href="https://sqldbawithabeard.com"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ t
+&lt;/a>
+). Together “Let’s get all Posh – What are you going to automate today?”&lt;/p>
+&lt;p>I have written some blog posts on how I use PowerShell to automate mundane tasks or some other more complex scenarios like:  &lt;a href="http://redglue.org/find-and-fix-sql-server-databases-with-empty-owner-property-using-dbatools-powershell-module/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Find and fix SQL Server databases with empty owner property using dbatools PowerShell module
+&lt;/a>
+ or &lt;a href="http://redglue.org/have-you-backed-up-your-sql-logins-today/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Have you backed up your SQL Logins today?
+&lt;/a>
+  or even using ReportingServicesTools module for deploy reports - &lt;a href="http://redglue.org/ssrs-report-deployment-made-easy-700-times-faster/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ SSRS Report Deployment Made Easy – 700 times Faster
+&lt;/a>
+.&lt;/p></description></item><item><title>'Invalid class [0x80041010]' error when trying to access SQLServer's WMI classes</title><link>https://claudioessilva.eu/2017/09/07/Invalid-class-0x80041010-error-when-trying-to-access-SQLServers-WMI-classes/</link><pubDate>Thu, 07 Sep 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/09/07/Invalid-class-0x80041010-error-when-trying-to-access-SQLServers-WMI-classes/</guid><description>&lt;p>I was using open source PowerShell module &lt;a href="http://dbatools.io"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbatools
+&lt;/a>
+ (&lt;a href="https://github.com/sqlcollaborative/dbatools"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ GitHub repository
+&lt;/a>
+) to get the list of SQL Server services I have on a bunch of hosts so I could confirm if they are in &amp;ldquo;&lt;em>running&lt;/em>&amp;rdquo; state.&lt;/p>
+&lt;p>&amp;ndash; Quick note &amp;ndash;
+For those who don’t know, dbatools is a module, written by the community, that makes SQL Server administration much easier using PowerShell. Today, the module has more than 260 commands. Go get it and try it! If you have any doubt you can join the team on the #dbatools channel at the &lt;a href="http://dbatools.io/slack"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Slack - SQL Server Community
+&lt;/a>
+.
+&amp;ndash; Quick note &amp;ndash;&lt;/p></description></item></channel></rss>

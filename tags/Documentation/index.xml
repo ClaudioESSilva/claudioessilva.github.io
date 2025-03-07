@@ -1,12 +1,72 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Documentation on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/Documentation/</link><description>Recent content in Documentation on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 10 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/Documentation/index.xml" rel="self" type="application/rss+xml"/><item><title>Access is denied - Using DTCPing utility between two Windows Server 2016</title><link>https://claudioessilva.eu/2019/05/10/Access-is-denied-Using-DTCPing-utility-between-two-Windows-Server-2016/</link><pubDate>Fri, 10 May 2019 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2019/05/10/Access-is-denied-Using-DTCPing-utility-between-two-Windows-Server-2016/</guid><description>Few days ago a client requested the configuration of MSDTC (Microsoft Distributed Transaction Coordinator).
-NOTE: If you want to know more about it here is a nice FAQ from Microsoft blogs - MSDTC Recommendations on SQL Failover Cluster ?
-The client has 2 machines: one an application server and one a database server.
-Both run on Windows Server 2016 OS and, the database server runs SQL Server 2016 using Availability Groups feature (where their databases resides).</description></item><item><title>SSMS GUI not working? Try to use T-SQL!</title><link>https://claudioessilva.eu/2019/03/29/SSMS-GUI-not-working-Try-to-use-T-SQL/</link><pubDate>Fri, 29 Mar 2019 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2019/03/29/SSMS-GUI-not-working-Try-to-use-T-SQL/</guid><description>One of the good things, when we have new clients, is that sometimes they have needs that you never heard before. This does not necessarily mean that they are complex. As a matter of fact, they can be really simple..now the question is..are they doable? :-)
-From my experience, this can happen mainly because one of two reasons, they have some very specific need, or because the way the application is built will make you work with features that you haven&amp;rsquo;t played yet.</description></item><item><title>SQL Server Operations Studio and VSCode: The wrong default datetimeoffset format</title><link>https://claudioessilva.eu/2018/09/12/SQL-Server-Operations-Studio-and-VSCode-The-wrong-default-datetimeoffset-format/</link><pubDate>Wed, 12 Sep 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/09/12/SQL-Server-Operations-Studio-and-VSCode-The-wrong-default-datetimeoffset-format/</guid><description>This post is to answer the question: &amp;ldquo;You are used to seeing in the format of yyyy-MM-dd right?&amp;rdquo; that I have raised on my blog post Don’t cutoff yourself with dates in T-SQL – Did you know… .
-As you could see from that blog post, my screen shots were from VSCode and in this case using mssql extension, but this happens also on SQL Server Operations Studio .
-&amp;ldquo;But why are my datetimeoffset values on VSCode being showed in that format?</description></item><item><title>Offline Microsoft Documentation? Download it!</title><link>https://claudioessilva.eu/2017/08/30/Offline-Microsoft-Documentation-Download-it/</link><pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/08/30/Offline-Microsoft-Documentation-Download-it/</guid><description>On my last article I shared how we can now Contribute to Microsoft Documentation . Today I bring another quick tip on Microsoft Documentation!
-Download Microsoft Documentation Did you know that we can download PDF files with Microsoft Documentation? I did not know until my colleague called my attention to it few days ago.
-Important note: This tip is not (yet?) available for all Microsoft&amp;rsquo;s product suite. You should confirm if this tip applies to the product you need.</description></item><item><title>Contribute to Microsoft Documentation</title><link>https://claudioessilva.eu/2017/08/28/Contribute-to-Microsoft-Documentation/</link><pubDate>Mon, 28 Aug 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/08/28/Contribute-to-Microsoft-Documentation/</guid><description>Times have changed and Microsoft has changed the way we can contribute for documentation !
-We already have access to the source code from some programs. One example is PowerShell, that has an GitHub repository where anyone can contribute!
-Now anyone can contribute to the documentation too!
-How and where? If you haven&amp;rsquo;t seen before, now we have a pencil icon on the top right corner that makes possible to suggest a change.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Documentation on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/Documentation/</link><description>Recent content in Documentation on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 10 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/Documentation/index.xml" rel="self" type="application/rss+xml"/><item><title>Access is denied - Using DTCPing utility between two Windows Server 2016</title><link>https://claudioessilva.eu/2019/05/10/Access-is-denied-Using-DTCPing-utility-between-two-Windows-Server-2016/</link><pubDate>Fri, 10 May 2019 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2019/05/10/Access-is-denied-Using-DTCPing-utility-between-two-Windows-Server-2016/</guid><description>&lt;p>&lt;img src="https://claudioessilva.eu/img/2019/05/featureimage_smaller-1.png" alt="featureimage_smaller">&lt;/p>
+&lt;p>Few days ago a client requested the configuration of MSDTC (Microsoft Distributed Transaction Coordinator).&lt;/p>
+&lt;p>NOTE: If you want to know more about it here is a nice FAQ from Microsoft blogs - &lt;a href="https://blogs.msdn.microsoft.com/alwaysonpro/2014/01/15/msdtc-recommendations-on-sql-failover-cluster"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ MSDTC Recommendations on SQL Failover Cluster
+&lt;/a>
+?&lt;/p>
+&lt;p>The client has 2 machines: one an application server and one a database server.&lt;/p>
+&lt;p>Both run on Windows Server 2016 OS and, the database server runs SQL Server 2016 using Availability Groups feature (where their databases resides).&lt;/p></description></item><item><title>SSMS GUI not working? Try to use T-SQL!</title><link>https://claudioessilva.eu/2019/03/29/SSMS-GUI-not-working-Try-to-use-T-SQL/</link><pubDate>Fri, 29 Mar 2019 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2019/03/29/SSMS-GUI-not-working-Try-to-use-T-SQL/</guid><description>&lt;p>One of the good things, when we have new clients, is that sometimes they have needs that you never heard before.
+This does not necessarily mean that they are complex. As a matter of fact, they can be really simple..now the question is..are they doable? :-)&lt;/p>
+&lt;p>From my experience, this can happen mainly because one of two reasons, they have some very specific need, or because the way the application is built will make you work with features that you haven&amp;rsquo;t played yet.&lt;/p></description></item><item><title>SQL Server Operations Studio and VSCode: The wrong default datetimeoffset format</title><link>https://claudioessilva.eu/2018/09/12/SQL-Server-Operations-Studio-and-VSCode-The-wrong-default-datetimeoffset-format/</link><pubDate>Wed, 12 Sep 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/09/12/SQL-Server-Operations-Studio-and-VSCode-The-wrong-default-datetimeoffset-format/</guid><description>&lt;p>This post is to answer the question: &amp;ldquo;You are used to seeing in the format of &lt;code>yyyy-MM-dd&lt;/code> right?&amp;rdquo; that I have raised on my blog post &lt;a href="https://claudioessilva.eu/2018/09/04/dont-cutoff-yourself-when-dealing-with-dates-in-t-sql-did-you-know/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Don’t cutoff yourself with dates in T-SQL – Did you know…
+&lt;/a>
+.&lt;/p>
+&lt;p>As you could see from that blog post, my screen shots were from &lt;a href="https://code.visualstudio.com/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ VSCode
+&lt;/a>
+ and in this case using &lt;a href="https://github.com/Microsoft/vscode-mssql"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ mssql
+&lt;/a>
+ extension, but this happens also on &lt;a href="https://docs.microsoft.com/en-us/sql/sql-operations-studio/download?view=sql-server-2017"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ SQL Server Operations Studio
+&lt;/a>
+.&lt;/p></description></item><item><title>Offline Microsoft Documentation? Download it!</title><link>https://claudioessilva.eu/2017/08/30/Offline-Microsoft-Documentation-Download-it/</link><pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/08/30/Offline-Microsoft-Documentation-Download-it/</guid><description>&lt;p>On my last article I shared how we can now &lt;a href="http://claudioessilva.eu/2017/08/28/contribute-to-microsoft-documentation/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Contribute to Microsoft Documentation
+&lt;/a>
+. Today I bring another quick tip on Microsoft Documentation!&lt;/p>
+&lt;h2 id="download-microsoft-documentation">Download Microsoft Documentation&lt;/h2>
+&lt;p>Did you know that we can download PDF files with Microsoft Documentation?
+I did not know until my colleague called my attention to it few days ago.&lt;/p>
+&lt;p>&lt;strong>Important note:&lt;/strong> This tip is not (yet?) available for all Microsoft&amp;rsquo;s product suite. You should confirm if this tip applies to the product you need.&lt;/p></description></item><item><title>Contribute to Microsoft Documentation</title><link>https://claudioessilva.eu/2017/08/28/Contribute-to-Microsoft-Documentation/</link><pubDate>Mon, 28 Aug 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/08/28/Contribute-to-Microsoft-Documentation/</guid><description>&lt;p>Times have changed and Microsoft has changed the way we can contribute for &lt;a href="https://docs.microsoft.com/en-gb/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ documentation
+&lt;/a>
+!&lt;/p>
+&lt;p>We already have access to the source code from some programs. One example is &lt;a href="https://github.com/PowerShell/PowerShell"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ PowerShell, that has an GitHub repository
+&lt;/a>
+ where anyone can contribute!&lt;/p>
+&lt;p>Now anyone can contribute to the documentation too!&lt;/p>
+&lt;h2 id="how-and-where">How and where?&lt;/h2>
+&lt;p>If you haven&amp;rsquo;t seen before, now we have a pencil icon on the top right corner that makes possible to suggest a change.&lt;/p></description></item></channel></rss>

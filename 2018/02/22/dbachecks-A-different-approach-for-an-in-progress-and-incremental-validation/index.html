@@ -1,9 +1,257 @@
-<!doctype html><html lang=en-us><head><script type=application/ld+json>{"@context":"http://schema.org","@type":"Website","@id":"https:\/\/claudioessilva.eu\/","author":{"@type":"Person","name":"Cláudio Silva","image":"https://claudioessilva.eu/img/avatar.jpg"},"name":"Cláudio Silva\u0027s Blog","description":"dbachecks is a new PowerShell module from the SQL Server Community! For more information, read introducing dbachecks .\nIf you don\u0026rsquo;t know dbachecks, we have released a good amount of blog posts that will help you: Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell introducing dbachecks - a new module from the dbatools team! by Chrissy LeMaire install dbachecks by Chrissy LeMaire dbachecks commands by Chrissy LeMaire dbachecks – Using Power BI dashboards to analyse results by Cláudio Silva My wrapper for dbachecks by Tony Wilhelm Checking backups with dbachecks by Jess Promfret dbachecks please!","url":"https:\/\/claudioessilva.eu\/2018\/02\/22\/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation\/","keywords":"[]"}</script><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=generator content="Hugo 0.131.0 with theme Tranquilpeak 0.5.3-BETA"><meta name=author content="Cláudio Silva"><meta name=keywords content><meta name=description content="dbachecks is a new PowerShell module from the SQL Server Community! For more information, read introducing dbachecks .
-If you don&rsquo;t know dbachecks, we have released a good amount of blog posts that will help you: Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell introducing dbachecks - a new module from the dbatools team! by Chrissy LeMaire install dbachecks by Chrissy LeMaire dbachecks commands by Chrissy LeMaire dbachecks – Using Power BI dashboards to analyse results by Cláudio Silva My wrapper for dbachecks by Tony Wilhelm Checking backups with dbachecks by Jess Promfret dbachecks please!"><meta property="og:description" content="dbachecks is a new PowerShell module from the SQL Server Community! For more information, read introducing dbachecks .
-If you don&rsquo;t know dbachecks, we have released a good amount of blog posts that will help you: Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell introducing dbachecks - a new module from the dbatools team! by Chrissy LeMaire install dbachecks by Chrissy LeMaire dbachecks commands by Chrissy LeMaire dbachecks – Using Power BI dashboards to analyse results by Cláudio Silva My wrapper for dbachecks by Tony Wilhelm Checking backups with dbachecks by Jess Promfret dbachecks please!"><meta property="og:type" content="article"><meta property="og:title" content="dbachecks - A different approach for an in-progress and incremental validation"><meta name=twitter:title content="dbachecks - A different approach for an in-progress and incremental validation"><meta property="og:url" content="https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/"><meta property="twitter:url" content="https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/"><meta property="og:site_name" content="Cláudio Silva's Blog"><meta property="og:description" content="dbachecks is a new PowerShell module from the SQL Server Community! For more information, read introducing dbachecks .
-If you don&rsquo;t know dbachecks, we have released a good amount of blog posts that will help you: Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell introducing dbachecks - a new module from the dbatools team! by Chrissy LeMaire install dbachecks by Chrissy LeMaire dbachecks commands by Chrissy LeMaire dbachecks – Using Power BI dashboards to analyse results by Cláudio Silva My wrapper for dbachecks by Tony Wilhelm Checking backups with dbachecks by Jess Promfret dbachecks please!"><meta name=twitter:description content="dbachecks is a new PowerShell module from the SQL Server Community! For more information, read introducing dbachecks .
-If you don&rsquo;t know dbachecks, we have released a good amount of blog posts that will help you: Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell introducing dbachecks - a new module from the dbatools team! by Chrissy LeMaire install dbachecks by Chrissy LeMaire dbachecks commands by Chrissy LeMaire dbachecks – Using Power BI dashboards to analyse results by Cláudio Silva My wrapper for dbachecks by Tony Wilhelm Checking backups with dbachecks by Jess Promfret dbachecks please!"><meta property="og:locale" content="en-us"><meta property="article:published_time" content="2018-02-22T00:00:00"><meta property="article:modified_time" content="2018-02-22T00:00:00"><meta property="article:tag" content="dbachecks"><meta property="article:tag" content="dbatools"><meta property="article:tag" content="Pester"><meta property="article:tag" content="Power BI"><meta property="article:tag" content="PowerBI"><meta property="article:tag" content="PowerShell"><meta property="article:tag" content="SQLServer"><meta property="article:tag" content="syndicated"><meta name=twitter:card content="summary"><meta name=twitter:site content="@claudioessilva"><meta name=twitter:creator content="@claudioessilva"><meta property="og:image" content="https://claudioessilva.eu/img/avatar.jpg"><meta property="twitter:image" content="https://claudioessilva.eu/img/avatar.jpg"><title>dbachecks - A different approach for an in-progress and incremental validation</title>
-<link rel=icon href=https://claudioessilva.eu/img/favicon.jpg><link rel=canonical href=https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://claudioessilva.eu/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css></head><body><div id=blog><header id=header data-behavior=4><i id=btn-open-sidebar class="fa fa-lg fa-bars"></i><div class=header-title><a class=header-title-link href=/ aria-label="Go to homepage">Cláudio Silva's Blog</a></div><a class=header-right-picture href=/#about aria-label="Open the link: /#about"><img class=header-picture src=https://claudioessilva.eu/img/avatar.jpg alt="Author's picture"></a></header><nav id=sidebar data-behavior=4><div class=sidebar-container><div class=sidebar-profile><a href=/#about aria-label="Read more about the author"><img class=sidebar-profile-picture src=https://claudioessilva.eu/img/avatar.jpg alt="Author's picture"></a><h4 class=sidebar-profile-name>Cláudio Silva</h4><h5 class=sidebar-profile-bio>Data Platform Architect and PowerShell lover.</h5></div><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=/ title=Home><i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden=true></i>
+<!doctype html><html lang=en-us><head><script type=application/ld+json>{"@context":"http://schema.org","@type":"Website","@id":"https:\/\/claudioessilva.eu\/","author":{"@type":"Person","name":null},"name":"Cláudio Silva\u0027s Blog","description":"\u003cp\u003e\u003ca href=\u0022https:\/\/dbachecks.io\/\u0022\n\n \n    target=\u0022_blank\u0022 rel=\u0022noopener noreferrer\u0022\n\u003e\n   dbachecks\n\u003c\/a\u003e\n is a new PowerShell module from the SQL Server Community! For more information, read \u003ca href=\u0022https:\/\/dbatools.io\/introducing-dbachecks\/\u0022\n\n \n    target=\u0022_blank\u0022 rel=\u0022noopener noreferrer\u0022\n\u003e\n   introducing dbachecks\n\u003c\/a\u003e\n.\u003c\/p\u003e\n\u003cp\u003eIf you don\u0026rsquo;t know dbachecks, we have released a good amount of blog posts that will help you:\n\u003ca href=\u0022https:\/\/sqldbawithabeard.com\/2018\/02\/22\/announcing-dbachecks-configurable-powershell-validation-for-your-sql-instances\/\u0022\n\n \n    target=\u0022_blank\u0022 rel=\u0022noopener noreferrer\u0022\n\u003e\n   Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell\n\u003c\/a\u003e\n\n\u003ca href=\u0022https:\/\/dbachecks.io\/introducing\u0022\n\n \n    target=\u0022_blank\u0022 rel=\u0022noopener noreferrer\u0022\n\u003e\n   introducing dbachecks - a new module from the dbatools team! by Chrissy LeMaire\n\u003c\/a\u003e\n\n\u003ca href=\u0022https:\/\/dbachecks.io\/install\u0022\n\n \n    target=\u0022_blank\u0022 rel=\u0022noopener noreferrer\u0022\n\u003e\n   install dbachecks by Chrissy LeMaire\n\u003c\/a\u003e\n\n\u003ca href=\u0022https:\/\/dbachecks.io\/commands\u0022\n\n \n    target=\u0022_blank\u0022 rel=\u0022noopener noreferrer\u0022\n\u003e\n   dbachecks commands by Chrissy LeMaire\n\u003c\/a\u003e\n\n\u003ca href=\u0022http:\/\/claudioessilva.eu\/2018\/02\/22\/dbachecks-using-power-bi-dashboards-to-analyse-results\/\u0022\n\n \n    target=\u0022_blank\u0022 rel=\u0022noopener noreferrer\u0022\n\u003e\n   dbachecks – Using Power BI dashboards to analyse results by Cláudio Silva\n\u003c\/a\u003e\n\n\u003ca href=\u0022https:\/\/v-roddba.blogspot.com\/2018\/02\/wrapper-for-dbachecks.html\u0022\n\n \n    target=\u0022_blank\u0022 rel=\u0022noopener noreferrer\u0022\n\u003e\n   My wrapper for dbachecks by Tony Wilhelm\n\u003c\/a\u003e\n\n\u003ca href=\u0022http:\/\/jesspomfret.com\/checking-backups-with-dbachecks\/\u0022\n\n \n    target=\u0022_blank\u0022 rel=\u0022noopener noreferrer\u0022\n\u003e\n   Checking backups with dbachecks by Jess Promfret\n\u003c\/a\u003e\n\n\u003ca href=\u0022http:\/\/blog.garrybargsley.com\/dbachecks-please\u0022\n\n \n    target=\u0022_blank\u0022 rel=\u0022noopener noreferrer\u0022\n\u003e\n   dbachecks please! by Garry Bargsley\n\u003c\/a\u003e\n\n\u003ca href=\u0022https:\/\/sqldbawithabeard.com\/2018\/02\/22\/dbachecks-configuration-deep-dive\/\u0022\n\n \n    target=\u0022_blank\u0022 rel=\u0022noopener noreferrer\u0022\n\u003e\n   dbachecks – Configuration Deep Dive by Rob Sewell\n\u003c\/a\u003e\n\n\u003ca href=\u0022https:\/\/www.sqlstad.nl\/powershell\/test-log-shipping-with-dbachecks\/\u0022\n\n \n    target=\u0022_blank\u0022 rel=\u0022noopener noreferrer\u0022\n\u003e\n   Test Log Shipping with dbachecks\n\u003c\/a\u003e\n\n\u003ca href=\u0022https:\/\/corrick.io\/blog\/checking-your-backup-strategy-with-dbachecks\u0022\n\n \n    target=\u0022_blank\u0022 rel=\u0022noopener noreferrer\u0022\n\u003e\n   Checking your backup strategy with dbachecks by Joshua Corrick\n\u003c\/a\u003e\n\n\u003ca href=\u0022http:\/\/www.sqlnotnull.com\/2018\/02\/20\/enterprise-level-reporting-with-dbachecks-from-the-makers-of-dbatools\u0022\n\n \n    target=\u0022_blank\u0022 rel=\u0022noopener noreferrer\u0022\n\u003e\n   Enterprise-level reporting with dbachecks by Jason Squires\n\u003c\/a\u003e\n\n\u003ca href=\u0022http:\/\/nocolumnname.blog\/2018\/02\/22\/adding-your-own-checks-to-dbachecks\u0022\n\n \n    target=\u0022_blank\u0022 rel=\u0022noopener noreferrer\u0022\n\u003e\n   Adding your own checks to dbachecks by Shane O\u0026rsquo;Neill\n\u003c\/a\u003e\n\n\u003ca href=\u0022https:\/\/claudioessilva.eu\/2018\/02\/22\/dbachecks-a-different-approach-for-an-in-progress-and-incremental-validation\/\u0022\n\n \n    target=\u0022_blank\u0022 rel=\u0022noopener noreferrer\u0022\n\u003e\n   dbachecks - A different approach for an in-progress and incremental validation by Cláudio Silva\n\u003c\/a\u003e\n\u003c\/p\u003e","url":"https:\/\/claudioessilva.eu\/2018\/02\/22\/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation\/","keywords":"[]"}</script><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=generator content="Hugo 0.145.0 with theme Tranquilpeak 0.5.3-BETA"><meta name=author content><meta name=keywords content><meta name=description content="
+   dbachecks
+
+ is a new PowerShell module from the SQL Server Community! For more information, read 
+   introducing dbachecks
+
+.
+If you don&rsquo;t know dbachecks, we have released a good amount of blog posts that will help you:
+
+   Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell
+
+
+
+   introducing dbachecks - a new module from the dbatools team! by Chrissy LeMaire
+
+
+
+   install dbachecks by Chrissy LeMaire
+
+
+
+   dbachecks commands by Chrissy LeMaire
+
+
+
+   dbachecks – Using Power BI dashboards to analyse results by Cláudio Silva
+
+
+
+   My wrapper for dbachecks by Tony Wilhelm
+
+
+
+   Checking backups with dbachecks by Jess Promfret
+
+
+
+   dbachecks please! by Garry Bargsley
+
+
+
+   dbachecks – Configuration Deep Dive by Rob Sewell
+
+
+
+   Test Log Shipping with dbachecks
+
+
+
+   Checking your backup strategy with dbachecks by Joshua Corrick
+
+
+
+   Enterprise-level reporting with dbachecks by Jason Squires
+
+
+
+   Adding your own checks to dbachecks by Shane O&rsquo;Neill
+
+
+
+   dbachecks - A different approach for an in-progress and incremental validation by Cláudio Silva
+
+"><meta property="og:description" content="
+   dbachecks
+
+ is a new PowerShell module from the SQL Server Community! For more information, read 
+   introducing dbachecks
+
+.
+If you don&rsquo;t know dbachecks, we have released a good amount of blog posts that will help you:
+
+   Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell
+
+
+
+   introducing dbachecks - a new module from the dbatools team! by Chrissy LeMaire
+
+
+
+   install dbachecks by Chrissy LeMaire
+
+
+
+   dbachecks commands by Chrissy LeMaire
+
+
+
+   dbachecks – Using Power BI dashboards to analyse results by Cláudio Silva
+
+
+
+   My wrapper for dbachecks by Tony Wilhelm
+
+
+
+   Checking backups with dbachecks by Jess Promfret
+
+
+
+   dbachecks please! by Garry Bargsley
+
+
+
+   dbachecks – Configuration Deep Dive by Rob Sewell
+
+
+
+   Test Log Shipping with dbachecks
+
+
+
+   Checking your backup strategy with dbachecks by Joshua Corrick
+
+
+
+   Enterprise-level reporting with dbachecks by Jason Squires
+
+
+
+   Adding your own checks to dbachecks by Shane O&rsquo;Neill
+
+
+
+   dbachecks - A different approach for an in-progress and incremental validation by Cláudio Silva
+
+"><meta property="og:type" content="article"><meta property="og:title" content="dbachecks - A different approach for an in-progress and incremental validation"><meta name=twitter:title content="dbachecks - A different approach for an in-progress and incremental validation"><meta property="og:url" content="https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/"><meta property="twitter:url" content="https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/"><meta property="og:site_name" content="Cláudio Silva's Blog"><meta property="og:description" content="
+   dbachecks
+
+ is a new PowerShell module from the SQL Server Community! For more information, read 
+   introducing dbachecks
+
+.
+If you don&rsquo;t know dbachecks, we have released a good amount of blog posts that will help you:
+
+   Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell
+
+
+
+   introducing dbachecks - a new module from the dbatools team! by Chrissy LeMaire
+
+
+
+   install dbachecks by Chrissy LeMaire
+
+
+
+   dbachecks commands by Chrissy LeMaire
+
+
+
+   dbachecks – Using Power BI dashboards to analyse results by Cláudio Silva
+
+
+
+   My wrapper for dbachecks by Tony Wilhelm
+
+
+
+   Checking backups with dbachecks by Jess Promfret
+
+
+
+   dbachecks please! by Garry Bargsley
+
+
+
+   dbachecks – Configuration Deep Dive by Rob Sewell
+
+
+
+   Test Log Shipping with dbachecks
+
+
+
+   Checking your backup strategy with dbachecks by Joshua Corrick
+
+
+
+   Enterprise-level reporting with dbachecks by Jason Squires
+
+
+
+   Adding your own checks to dbachecks by Shane O&rsquo;Neill
+
+
+
+   dbachecks - A different approach for an in-progress and incremental validation by Cláudio Silva
+
+"><meta name=twitter:description content="
+   dbachecks
+
+ is a new PowerShell module from the SQL Server Community! For more information, read 
+   introducing dbachecks
+
+.
+If you don&rsquo;t know dbachecks, we have released a good amount of blog posts that will help you:
+
+   Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell
+
+
+
+   introducing dbachecks - a new module from the dbatools team! by Chrissy LeMaire
+
+
+
+   install dbachecks by Chrissy LeMaire
+
+
+
+   dbachecks commands by Chrissy LeMaire
+
+
+
+   dbachecks – Using Power BI dashboards to analyse results by Cláudio Silva
+
+
+
+   My wrapper for dbachecks by Tony Wilhelm
+
+
+
+   Checking backups with dbachecks by Jess Promfret
+
+
+
+   dbachecks please! by Garry Bargsley
+
+
+
+   dbachecks – Configuration Deep Dive by Rob Sewell
+
+
+
+   Test Log Shipping with dbachecks
+
+
+
+   Checking your backup strategy with dbachecks by Joshua Corrick
+
+
+
+   Enterprise-level reporting with dbachecks by Jason Squires
+
+
+
+   Adding your own checks to dbachecks by Shane O&rsquo;Neill
+
+
+
+   dbachecks - A different approach for an in-progress and incremental validation by Cláudio Silva
+
+"><meta property="og:locale" content="en-us"><meta property="article:published_time" content="2018-02-22T00:00:00"><meta property="article:modified_time" content="2018-02-22T00:00:00"><meta property="article:tag" content="dbachecks"><meta property="article:tag" content="dbatools"><meta property="article:tag" content="Pester"><meta property="article:tag" content="Power BI"><meta property="article:tag" content="PowerBI"><meta property="article:tag" content="PowerShell"><meta property="article:tag" content="SQLServer"><meta property="article:tag" content="syndicated"><meta name=twitter:card content="summary"><title>dbachecks - A different approach for an in-progress and incremental validation</title>
+<link rel=icon href=https://claudioessilva.eu/img/favicon.jpg><link rel=canonical href=https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://claudioessilva.eu/css/style-h6ccsoet3mzkbb0wngshlfbaweimexgqcxj0h5hu4h82olsdzz6wmqdkajm.min.css><script async src="https://www.googletagmanager.com/gtag/js?id=G-55EWW6EWZM"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-55EWW6EWZM")}</script></head><body><div id=blog><header id=header data-behavior=4><i id=btn-open-sidebar class="fa fa-lg fa-bars"></i><div class=header-title><a class=header-title-link href=/ aria-label="Go to homepage">Cláudio Silva's Blog</a></div><a class=header-right-picture href=/#about aria-label="Open the link: /#about"></a></header><nav id=sidebar data-behavior=4><div class=sidebar-container><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=/ title=Home><i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden=true></i>
 <span class=sidebar-button-desc>Home</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=/tags title=Tags><i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden=true></i>
 <span class=sidebar-button-desc>Tags</span></a></li><li class=sidebar-button><a class=sidebar-button-link href=/#about title=About><i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden=true></i>
 <span class=sidebar-button-desc>About</span></a></li></ul><ul class=sidebar-buttons><li class=sidebar-button><a class=sidebar-button-link href=https://github.com/claudioessilva target=_blank rel=noopener title=GitHub><i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden=true></i>
@@ -54,6 +302,6 @@ This way it took just the time of that test and not all of them. Quick and easil
 <a class="tag tag--primary tag--small" href=/tags/SQLServer/>SQLServer</a>
 <a class="tag tag--primary tag--small" href=/tags/syndicated/>syndicated</a></div><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=/2018/04/06/Did-you-knowyou-cant-do-arithmetic-operations-with-datetime2-like-with-datetime/ data-tooltip="Did you know…you can’t do arithmetic operations with datetime2 like with datetime?" aria-label="NEXT: Did you know…you can’t do arithmetic operations with datetime2 like with datetime?"><i class="fa fa-angle-left"></i>
 <span class="hide-xs hide-sm text-small icon-ml">NEXT</span></a></li><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=/2018/02/22/dbachecks-Using-Power-BI-dashboards-to-analyse-results/ data-tooltip="dbachecks - Using Power BI dashboards to analyse results" aria-label="PREVIOUS: dbachecks - Using Power BI dashboards to analyse results"><span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-<i class="fa fa-angle-right"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions aria-label="Share this post"><i class="fa fa-share-alt" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/" title="Share on Facebook" aria-label="Share on Facebook"><i class="fab fa-facebook-square" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/" title="Share on Twitter" aria-label="Share on Twitter"><i class="fab fa-twitter" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.linkedin.com/sharing/share-offsite/?url=https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/" title="Share on Linkedin" aria-label="Share on Linkedin"><i class="fab fa-linkedin" aria-hidden=true></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#top aria-label="Back to top"><i class="fa fa-arrow-up" aria-hidden=true></i></a></li></ul></div><div class=comments><script src=https://utteranc.es/client.js repo=ClaudioESSilva/blog-comments issue-term=og:title theme=github-light crossorigin=anonymous async></script></div></div></article><footer id=footer class=main-content-wrap><span class=copyrights>&copy; 2024 Cláudio Silva. All Rights Reserved</span></footer></div><div id=bottom-bar class=post-bottom-bar data-behavior=4><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=/2018/04/06/Did-you-knowyou-cant-do-arithmetic-operations-with-datetime2-like-with-datetime/ data-tooltip="Did you know…you can’t do arithmetic operations with datetime2 like with datetime?" aria-label="NEXT: Did you know…you can’t do arithmetic operations with datetime2 like with datetime?"><i class="fa fa-angle-left"></i>
+<i class="fa fa-angle-right"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions aria-label="Share this post"><i class="fa fa-share-alt" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/" title="Share on Facebook" aria-label="Share on Facebook"><i class="fab fa-facebook-square" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/" title="Share on Twitter" aria-label="Share on Twitter"><i class="fab fa-twitter" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.linkedin.com/sharing/share-offsite/?url=https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/" title="Share on Linkedin" aria-label="Share on Linkedin"><i class="fab fa-linkedin" aria-hidden=true></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#top aria-label="Back to top"><i class="fa fa-arrow-up" aria-hidden=true></i></a></li></ul></div><div class=comments><script src=https://utteranc.es/client.js repo=ClaudioESSilva/blog-comments issue-term=og:title theme=github-light crossorigin=anonymous async></script></div></div></article><footer id=footer class=main-content-wrap><span class=copyrights>&copy; 2025 Cláudio Silva's Blog. All Rights Reserved</span></footer></div><div id=bottom-bar class=post-bottom-bar data-behavior=4><div class=post-actions-wrap><nav><ul class="post-actions post-action-nav"><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=/2018/04/06/Did-you-knowyou-cant-do-arithmetic-operations-with-datetime2-like-with-datetime/ data-tooltip="Did you know…you can’t do arithmetic operations with datetime2 like with datetime?" aria-label="NEXT: Did you know…you can’t do arithmetic operations with datetime2 like with datetime?"><i class="fa fa-angle-left"></i>
 <span class="hide-xs hide-sm text-small icon-ml">NEXT</span></a></li><li class=post-action><a class="post-action-btn btn btn--default tooltip--top" href=/2018/02/22/dbachecks-Using-Power-BI-dashboards-to-analyse-results/ data-tooltip="dbachecks - Using Power BI dashboards to analyse results" aria-label="PREVIOUS: dbachecks - Using Power BI dashboards to analyse results"><span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
-<i class="fa fa-angle-right"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions aria-label="Share this post"><i class="fa fa-share-alt" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/" title="Share on Facebook" aria-label="Share on Facebook"><i class="fab fa-facebook-square" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/" title="Share on Twitter" aria-label="Share on Twitter"><i class="fab fa-twitter" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.linkedin.com/sharing/share-offsite/?url=https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/" title="Share on Linkedin" aria-label="Share on Linkedin"><i class="fab fa-linkedin" aria-hidden=true></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#top aria-label="Back to top"><i class="fa fa-arrow-up" aria-hidden=true></i></a></li></ul></div></div><div id=share-options-bar class=share-options-bar data-behavior=4><i id=btn-close-shareoptions class="fa fa-times"></i><ul class=share-options><li class=share-option><a class=share-option-btn target=new href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fclaudioessilva.eu%2F2018%2F02%2F22%2Fdbachecks-A-different-approach-for-an-in-progress-and-incremental-validation%2F" aria-label="Share on Facebook"><i class="fab fa-facebook-square" aria-hidden=true></i><span>Share on Facebook</span></a></li><li class=share-option><a class=share-option-btn target=new href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fclaudioessilva.eu%2F2018%2F02%2F22%2Fdbachecks-A-different-approach-for-an-in-progress-and-incremental-validation%2F" aria-label="Share on Twitter"><i class="fab fa-twitter" aria-hidden=true></i><span>Share on Twitter</span></a></li><li class=share-option><a class=share-option-btn target=new href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fclaudioessilva.eu%2F2018%2F02%2F22%2Fdbachecks-A-different-approach-for-an-in-progress-and-incremental-validation%2F" aria-label="Share on Linkedin"><i class="fab fa-linkedin" aria-hidden=true></i><span>Share on Linkedin</span></a></li></ul></div><div id=share-options-mask class=share-options-mask></div></div><div id=about><div id=about-card><div id=about-btn-close><i class="fa fa-times"></i></div><img id=about-card-picture src=https://claudioessilva.eu/img/avatar.jpg alt="Author's picture"><h4 id=about-card-name>Cláudio Silva</h4><div id=about-card-bio>Data Platform Architect and PowerShell lover.</div><div id=about-card-job><i class="fa fa-briefcase"></i><br>Data Platform Architect</div><div id=about-card-location><i class="fa fa-map-marker-alt"></i><br>Portugal</div></div></div><div id=cover style=background-image:url(https://claudioessilva.eu/images/cover_bridge.jpg)></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://claudioessilva.eu/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js></script><script>$(document).ready(function(){hljs.configure({classPrefix:"",useBR:!1}),$("pre.code-highlight > code, pre > code").each(function(e,t){$(this).hasClass("codeblock")||$(this).addClass("codeblock"),hljs.highlightBlock(t)})})</script></body></html>
+<i class="fa fa-angle-right"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href=#btn-open-shareoptions aria-label="Share this post"><i class="fa fa-share-alt" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.facebook.com/sharer/sharer.php?u=https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/" title="Share on Facebook" aria-label="Share on Facebook"><i class="fab fa-facebook-square" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://twitter.com/intent/tweet?text=https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/" title="Share on Twitter" aria-label="Share on Twitter"><i class="fab fa-twitter" aria-hidden=true></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target=new href="https://www.linkedin.com/sharing/share-offsite/?url=https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/" title="Share on Linkedin" aria-label="Share on Linkedin"><i class="fab fa-linkedin" aria-hidden=true></i></a></li><li class=post-action><a class="post-action-btn btn btn--default" href=#top aria-label="Back to top"><i class="fa fa-arrow-up" aria-hidden=true></i></a></li></ul></div></div><div id=share-options-bar class=share-options-bar data-behavior=4><i id=btn-close-shareoptions class="fa fa-times"></i><ul class=share-options><li class=share-option><a class=share-option-btn target=new href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fclaudioessilva.eu%2F2018%2F02%2F22%2Fdbachecks-A-different-approach-for-an-in-progress-and-incremental-validation%2F" aria-label="Share on Facebook"><i class="fab fa-facebook-square" aria-hidden=true></i><span>Share on Facebook</span></a></li><li class=share-option><a class=share-option-btn target=new href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fclaudioessilva.eu%2F2018%2F02%2F22%2Fdbachecks-A-different-approach-for-an-in-progress-and-incremental-validation%2F" aria-label="Share on Twitter"><i class="fab fa-twitter" aria-hidden=true></i><span>Share on Twitter</span></a></li><li class=share-option><a class=share-option-btn target=new href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fclaudioessilva.eu%2F2018%2F02%2F22%2Fdbachecks-A-different-approach-for-an-in-progress-and-incremental-validation%2F" aria-label="Share on Linkedin"><i class="fab fa-linkedin" aria-hidden=true></i><span>Share on Linkedin</span></a></li></ul></div><div id=share-options-mask class=share-options-mask></div></div><div id=about><div id=about-card><div id=about-btn-close><i class="fa fa-times"></i></div><h4 id=about-card-name></h4></div></div><div id=cover style=background-image:url(https://claudioessilva.eu/images/cover_bridge.jpg)></div><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://claudioessilva.eu/js/script-yqzy9wdlzix4lbbwdnzvwx3egsne77earqmn73v9uno8aupuph8wfguccut.min.js></script><script>$(document).ready(function(){hljs.configure({classPrefix:"",useBR:!1}),$("pre.code-highlight > code, pre > code").each(function(e,t){$(this).hasClass("codeblock")||$(this).addClass("codeblock"),hljs.highlightBlock(t)})})</script></body></html>

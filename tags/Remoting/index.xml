@@ -1,5 +1,45 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Remoting on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/Remoting/</link><description>Recent content in Remoting on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 20 Aug 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/Remoting/index.xml" rel="self" type="application/rss+xml"/><item><title>More PowerShell Remoting coverage in dbatools</title><link>https://claudioessilva.eu/2019/08/20/More-PowerShell-Remoting-coverage-in-dbatools/</link><pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2019/08/20/More-PowerShell-Remoting-coverage-in-dbatools/</guid><description>Starting on dbatools version 1.0.31 we introduced better coverage for commands that make use of PowerShell Remoting.
-Which commands? Commands like Get-DbaComputerCertificate, Get-DbaPrivilege, Get-DbaClientAlias, just to mention a few of them, make use of the internal function Invoke-Command2 which uses New-PSSession when we run it against a remote computer.
-&amp;ldquo;Why have you changed it?&amp;rdquo; Let me give you a little bit of background&amp;hellip; At my company, I found that some dbatools commands were not working.</description></item><item><title>'Invalid class [0x80041010]' error when trying to access SQLServer's WMI classes</title><link>https://claudioessilva.eu/2017/09/07/Invalid-class-0x80041010-error-when-trying-to-access-SQLServers-WMI-classes/</link><pubDate>Thu, 07 Sep 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/09/07/Invalid-class-0x80041010-error-when-trying-to-access-SQLServers-WMI-classes/</guid><description>I was using open source PowerShell module dbatools ( GitHub repository ) to get the list of SQL Server services I have on a bunch of hosts so I could confirm if they are in &amp;ldquo;running&amp;rdquo; state.
-&amp;ndash; Quick note &amp;ndash; For those who don’t know, dbatools is a module, written by the community, that makes SQL Server administration much easier using PowerShell. Today, the module has more than 260 commands.</description></item><item><title>HTTP 403 error - PowerShell Remoting, Different Domains and Proxies</title><link>https://claudioessilva.eu/2017/09/04/HTTP-403-error-PowerShell-Remoting-Different-Domains-and-Proxies/</link><pubDate>Mon, 04 Sep 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/09/04/HTTP-403-error-PowerShell-Remoting-Different-Domains-and-Proxies/</guid><description>On my day to day work I use Nagios monitoring software. I want to add some custom SQL Server scripts to enrich the monitoring, and to accomplish this I will need to:
-Find a folder Create a sub folder Copy bunch of file edit a ini file to verify/add new entries all of this for every single host on my entire estate. Obviously (for me :-) ) I decided to use PowerShell!</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Remoting on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/Remoting/</link><description>Recent content in Remoting on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 20 Aug 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/Remoting/index.xml" rel="self" type="application/rss+xml"/><item><title>More PowerShell Remoting coverage in dbatools</title><link>https://claudioessilva.eu/2019/08/20/More-PowerShell-Remoting-coverage-in-dbatools/</link><pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2019/08/20/More-PowerShell-Remoting-coverage-in-dbatools/</guid><description>&lt;p>Starting on dbatools version 1.0.31 we introduced better coverage for commands that make use of PowerShell Remoting.&lt;/p>
+&lt;h2 id="which-commands">Which commands?&lt;/h2>
+&lt;p>Commands like &lt;code>Get-DbaComputerCertificate&lt;/code>, &lt;code>Get-DbaPrivilege&lt;/code>, &lt;code>Get-DbaClientAlias&lt;/code>, just to mention a few of them, make use of the internal function &lt;code>Invoke-Command2&lt;/code> which uses &lt;code>New-PSSession&lt;/code> when we run it against a remote computer.&lt;/p>
+&lt;h2 id="why-have-you-changed-it">&amp;ldquo;Why have you changed it?&amp;rdquo;&lt;/h2>
+&lt;p>Let me give you a little bit of background&amp;hellip;
+At my company, I found that some dbatools commands were not working. They were returning errors related with WinRM configurations, as seen here when attempting to create a new session using &lt;code>New-PSSession&lt;/code>:
+&lt;img src="https://claudioessilva.eu/img/2019/08/new-pssession_error.png" alt="new-pssession_error">&lt;/p></description></item><item><title>'Invalid class [0x80041010]' error when trying to access SQLServer's WMI classes</title><link>https://claudioessilva.eu/2017/09/07/Invalid-class-0x80041010-error-when-trying-to-access-SQLServers-WMI-classes/</link><pubDate>Thu, 07 Sep 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/09/07/Invalid-class-0x80041010-error-when-trying-to-access-SQLServers-WMI-classes/</guid><description>&lt;p>I was using open source PowerShell module &lt;a href="http://dbatools.io"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ dbatools
+&lt;/a>
+ (&lt;a href="https://github.com/sqlcollaborative/dbatools"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ GitHub repository
+&lt;/a>
+) to get the list of SQL Server services I have on a bunch of hosts so I could confirm if they are in &amp;ldquo;&lt;em>running&lt;/em>&amp;rdquo; state.&lt;/p>
+&lt;p>&amp;ndash; Quick note &amp;ndash;
+For those who don’t know, dbatools is a module, written by the community, that makes SQL Server administration much easier using PowerShell. Today, the module has more than 260 commands. Go get it and try it! If you have any doubt you can join the team on the #dbatools channel at the &lt;a href="http://dbatools.io/slack"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Slack - SQL Server Community
+&lt;/a>
+.
+&amp;ndash; Quick note &amp;ndash;&lt;/p></description></item><item><title>HTTP 403 error - PowerShell Remoting, Different Domains and Proxies</title><link>https://claudioessilva.eu/2017/09/04/HTTP-403-error-PowerShell-Remoting-Different-Domains-and-Proxies/</link><pubDate>Mon, 04 Sep 2017 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2017/09/04/HTTP-403-error-PowerShell-Remoting-Different-Domains-and-Proxies/</guid><description>&lt;p>On my day to day work I use &lt;a href="https://www.nagios.org/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Nagios
+&lt;/a>
+ monitoring software. I want to add some custom SQL Server scripts to enrich the monitoring, and to accomplish this I will need to:&lt;/p>
+&lt;ul>
+&lt;li>Find a folder&lt;/li>
+&lt;li>Create a sub folder&lt;/li>
+&lt;li>Copy bunch of file&lt;/li>
+&lt;li>edit a ini file to verify/add new entries&lt;/li>
+&lt;/ul>
+&lt;p>all of this for every single host on my entire estate. Obviously (for me :-) ) I decided to use PowerShell!&lt;/p></description></item></channel></rss>
