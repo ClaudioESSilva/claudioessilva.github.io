@@ -13,7 +13,7 @@ permalinks:
   post: /:year/:month/:day/:title/
 
 
-googleAnalytics: UA-27703765-1
+googleAnalytics: G-55EWW6EWZM
 
 markup:
   tableOfContents:
