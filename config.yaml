@@ -7,7 +7,8 @@ title: Cláudio Silva's Blog
 
 theme: "hugo-tranquilpeak-theme"
 
-paginate: 5
+pagination:
+   pagerSize: 5 
 
 permalinks:
   post: /:year/:month/:day/:title/
@@ -21,15 +22,15 @@ markup:
     ordered: false
     startLevel: 2
 
-author:
-  name: Cláudio Silva
-  bio: >-
-    Data Platform Architect and PowerShell lover. 
-  job: Data Platform Architect
-  location: Portugal
-  picture: "/img/avatar.jpg"
-  twitter: "claudioessilva"
-
+site:
+  author:
+    name: Cláudio Silva
+    bio: >-
+      Data Platform Architect and PowerShell lover. 
+    job: Data Platform Architect
+    location: Portugal
+    picture: "/img/avatar.jpg"
+    twitter: "claudioessilva"
 
 menu:
   main:
