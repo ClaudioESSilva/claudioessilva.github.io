@@ -1,4 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cláudio Silva's Blog</title><link>https://claudioessilva.eu/</link><description>Recent content on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 05 Aug 2024 10:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/index.xml" rel="self" type="application/rss+xml"/><item><title>How much space can I expect to recover from a rebuild after dropping a column?</title><link>https://claudioessilva.eu/2024/08/05/How-much-space-can-I-expect-to-recover-from-a-rebuild-after-dropping-a-column/</link><pubDate>Mon, 05 Aug 2024 10:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2024/08/05/How-much-space-can-I-expect-to-recover-from-a-rebuild-after-dropping-a-column/</guid><description>&lt;p>In my last article - &lt;a href="https://www.sqlservercentral.com/articles/identify-tables-with-dropped-columns"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cláudio Silva's Blog</title><link>https://claudioessilva.eu/</link><description>Recent content on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 14 Apr 2025 17:10:56 +0100</lastBuildDate><atom:link href="https://claudioessilva.eu/index.xml" rel="self" type="application/rss+xml"/><item><title>Privacy Policy</title><link>https://claudioessilva.eu/privacy-policy/</link><pubDate>Mon, 14 Apr 2025 17:10:56 +0100</pubDate><guid>https://claudioessilva.eu/privacy-policy/</guid><description>&lt;p>We value your privacy. This policy explains what personal data we collect and why.&lt;/p>
+&lt;h2 id="what-we-collect">What We Collect&lt;/h2>
+&lt;ul>
+&lt;li>Cookies (for analytics, only after consent)&lt;/li>
+&lt;li>IP addresses (stored anonymously by our hosting provider)&lt;/li>
+&lt;li>Contact form data (if you contact us)&lt;/li>
+&lt;/ul>
+&lt;h2 id="why-we-collect-it">Why We Collect It&lt;/h2>
+&lt;ul>
+&lt;li>To analyze traffic and improve user experience&lt;/li>
+&lt;li>To respond to inquiries&lt;/li>
+&lt;/ul>
+&lt;h2 id="third-party-services">Third-Party Services&lt;/h2>
+&lt;p>We use:&lt;/p>
+&lt;ul>
+&lt;li>Google Analytics (optional, anonymized)&lt;/li>
+&lt;/ul>
+&lt;h2 id="your-rights">Your Rights&lt;/h2>
+&lt;p>Under the GDPR, you have the right to access, rectify, or delete your data. Contact us at [your email here].&lt;/p></description></item><item><title>How much space can I expect to recover from a rebuild after dropping a column?</title><link>https://claudioessilva.eu/2024/08/05/How-much-space-can-I-expect-to-recover-from-a-rebuild-after-dropping-a-column/</link><pubDate>Mon, 05 Aug 2024 10:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2024/08/05/How-much-space-can-I-expect-to-recover-from-a-rebuild-after-dropping-a-column/</guid><description>&lt;p>In my last article - &lt;a href="https://www.sqlservercentral.com/articles/identify-tables-with-dropped-columns"
 
  
  target="_blank" rel="noopener noreferrer"
