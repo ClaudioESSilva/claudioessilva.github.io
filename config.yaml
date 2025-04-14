@@ -64,6 +64,12 @@ menu:
         <i class="sidebar-button-icon fas fa-lg fa-question"
         aria-hidden="true"></i>
       url: /#about
+
+    - weight: 7
+      identifier: rss
+      name: RSS
+      pre: <i class="sidebar-button-icon fas fa-lg fa-rss" aria-hidden="true"></i>
+      url: /index.xml
   links:
     - weight: 1
       identifier: github
@@ -86,12 +92,14 @@ menu:
         <i class="sidebar-button-icon fab fa-lg fa-linkedin"
         aria-hidden="true"></i>
       url: 'https://www.linkedin.com/in/claudioessilva'
-  misc:
-    - weight: 1
-      identifier: rss
-      name: RSS
-      pre: <i class="sidebar-button-icon fas fa-lg fa-rss" aria-hidden="true"></i>
-      url: /index.xml
+    - weight: 4
+      identifier: sessionize
+      name: Sessionize
+      pre: >-
+        <i class="sidebar-button-icon fab fa-presentation-screen"></i>
+      url: 'https://sessionize.com/claudio-silva'
+
+#  misc:
 
 params:
   #GitHubComments: true
