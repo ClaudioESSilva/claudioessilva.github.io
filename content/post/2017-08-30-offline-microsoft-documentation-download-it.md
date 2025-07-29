@@ -16,7 +16,7 @@ coverImage: /img/2017/08/maintopic.png
 metaAlignment: center
 coverMeta: out
 ---
-On my last article I shared how we can now [Contribute to Microsoft Documentation](http://claudioessilva.eu/2017/08/28/contribute-to-microsoft-documentation/). Today I bring another quick tip on Microsoft Documentation!
+On my last article I shared how we can now [Contribute to Microsoft Documentation](https://claudioessilva.eu/2017/08/28/Contribute-to-Microsoft-Documentation/). Today I bring another quick tip on Microsoft Documentation!
 
 ## Download Microsoft Documentation
 

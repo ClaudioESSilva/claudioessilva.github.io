@@ -194,7 +194,7 @@ SELECT
 UDDT named `INT_VALUE`, that represents an INT, used in the following way `CAST(column AS INT_VALUE)` needs to be replaced as
 `CAST(column as INT)`.
 
-Why we need to do this replace? I have written about it on my blog post [Using CAST() function with User-Defined Data Types…Did you know…](https://claudioessilva.eu/2018/05/02/using-cast-function-with-user-defined-data-types-did-you-know/) take a look.
+Why we need to do this replace? I have written about it on my blog post [Using CAST() function with User-Defined Data Types…Did you know…](https://claudioessilva.eu/2018/05/02/Using-CAST-function-with-User-Defined-Data-Types...Did-you-know.../) take a look.
 
 ## Wrap up - Life saver and time saved
 

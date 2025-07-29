@@ -16,24 +16,24 @@ title: dbachecks - A different approach for an in-progress and incremental valid
 [dbachecks](https://dbachecks.io/) is a new PowerShell module from the SQL Server Community! For more information, read [introducing dbachecks](https://dbatools.io/introducing-dbachecks/).
 
 If you don't know dbachecks, we have released a good amount of blog posts that will help you:
-[Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell](https://sqldbawithabeard.com/2018/02/22/announcing-dbachecks-configurable-powershell-validation-for-your-sql-instances/)
-[introducing dbachecks - a new module from the dbatools team! by Chrissy LeMaire](https://dbachecks.io/introducing)
-[install dbachecks by Chrissy LeMaire](https://dbachecks.io/install)
-[dbachecks commands by Chrissy LeMaire](https://dbachecks.io/commands)
-[dbachecks – Using Power BI dashboards to analyse results by Cláudio Silva](http://claudioessilva.eu/2018/02/22/dbachecks-using-power-bi-dashboards-to-analyse-results/)
-[My wrapper for dbachecks by Tony Wilhelm](https://v-roddba.blogspot.com/2018/02/wrapper-for-dbachecks.html)
-[Checking backups with dbachecks by Jess Promfret](http://jesspomfret.com/checking-backups-with-dbachecks/)
-[dbachecks please! by Garry Bargsley](http://blog.garrybargsley.com/dbachecks-please)
-[dbachecks – Configuration Deep Dive by Rob Sewell](https://sqldbawithabeard.com/2018/02/22/dbachecks-configuration-deep-dive/)
-[Test Log Shipping with dbachecks](https://www.sqlstad.nl/powershell/test-log-shipping-with-dbachecks/)
-[Checking your backup strategy with dbachecks by Joshua Corrick](https://corrick.io/blog/checking-your-backup-strategy-with-dbachecks)
-[Enterprise-level reporting with dbachecks by Jason Squires](http://www.sqlnotnull.com/2018/02/20/enterprise-level-reporting-with-dbachecks-from-the-makers-of-dbatools)
-[Adding your own checks to dbachecks by Shane O'Neill](http://nocolumnname.blog/2018/02/22/adding-your-own-checks-to-dbachecks)
-[dbachecks - A different approach for an in-progress and incremental validation by Cláudio Silva](https://claudioessilva.eu/2018/02/22/dbachecks-a-different-approach-for-an-in-progress-and-incremental-validation/)
+- [Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell](https://sqldbawithabeard.com/2018/02/22/announcing-dbachecks-configurable-powershell-validation-for-your-sql-instances/)
+- [introducing dbachecks - a new module from the dbatools team! by Chrissy LeMaire](https://dbachecks.io/introducing)
+- [install dbachecks by Chrissy LeMaire](https://dbachecks.io/install)
+- [dbachecks commands by Chrissy LeMaire](https://dbachecks.io/commands)
+- [dbachecks – Using Power BI dashboards to analyse results by Cláudio Silva](https://claudioessilva.eu/2018/02/22/dbachecks-Using-Power-BI-dashboards-to-analyse-results/)
+- [My wrapper for dbachecks by Tony Wilhelm](https://v-roddba.blogspot.com/2018/02/wrapper-for-dbachecks.html)
+- [Checking backups with dbachecks by Jess Promfret](http://jesspomfret.com/checking-backups-with-dbachecks/)
+- [dbachecks please! by Garry Bargsley](http://blog.garrybargsley.com/dbachecks-please)
+- [dbachecks – Configuration Deep Dive by Rob Sewell](https://sqldbawithabeard.com/2018/02/22/dbachecks-configuration-deep-dive/)
+- [Test Log Shipping with dbachecks](https://www.sqlstad.nl/powershell/test-log-shipping-with-dbachecks/)
+- [Checking your backup strategy with dbachecks by Joshua Corrick](https://corrick.io/blog/checking-your-backup-strategy-with-dbachecks)
+- [Enterprise-level reporting with dbachecks by Jason Squires](http://www.sqlnotnull.com/2018/02/20/enterprise-level-reporting-with-dbachecks-from-the-makers-of-dbatools)
+- [Adding your own checks to dbachecks by Shane O'Neill](http://nocolumnname.blog/2018/02/22/adding-your-own-checks-to-dbachecks)
+- [dbachecks - A different approach for an in-progress and incremental validation by Cláudio Silva](https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/)
 
 Other documentation:
-[dbachecks readme](https://github.com/sqlcollaborative/dbachecks)
-[dbachecks wiki (for developers)](https://github.com/sqlcollaborative/dbachecks/wiki)
+- [dbachecks readme](https://github.com/sqlcollaborative/dbachecks)
+- [dbachecks wiki (for developers)](https://github.com/sqlcollaborative/dbachecks/wiki)
 
 I will share one of the ways I like to use dbachecks when I'm knocking down the problems in order to increase the green percentage and lower the red one!
 
@@ -82,7 +82,7 @@ WOW! Big difference right?
 
 ### Fear nothing
 
-Yes, it is a big difference but that is no problem at all! The Power BI file will deal with this increase flawlessly as I have mentioned before on [dbachecks – Using Power BI dashboards to analyse results](http://claudioessilva.eu/2018/02/22/dbachecks-using-power-bi-dashboards-to-analyse-results/) blog post.
+Yes, it is a big difference but that is no problem at all! The Power BI file will deal with this increase flawlessly as I have mentioned before on [dbachecks – Using Power BI dashboards to analyse results](https://claudioessilva.eu/2018/02/22/dbachecks-Using-Power-BI-dashboards-to-analyse-results/) blog post.
 
 ## Advantages
 

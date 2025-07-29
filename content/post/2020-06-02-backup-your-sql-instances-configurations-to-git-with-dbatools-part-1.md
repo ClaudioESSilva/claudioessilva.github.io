@@ -268,7 +268,7 @@ On top of that, I have shown how you can format the results so you can add it to
 I hope this gives you, at least, a good starting point to implement backups over the time of your instances configurations.
 Adjust for your needs, test, and keep it running.
 
-In the second and final part of this process ([Backup your SQL instances configurations to GIT with dbatools – Part 2 – Add parallelism](https://claudioessilva.eu/2020/06/04/backup-your-sql-instances-configurations-to-git-with-dbatools-part-2-add-parallelism/)), we will implement parallelism to lower down our execution times.
+In the second and final part of this process ([Backup your SQL instances configurations to GIT with dbatools – Part 2 – Add parallelism](https://claudioessilva.eu/2020/06/04/Backup-your-SQL-instances-configurations-to-GIT-with-dbatools-Part-2-Add-parallelism/)), we will implement parallelism to lower down our execution times.
 Stay tuned.
 
 Thanks for reading!

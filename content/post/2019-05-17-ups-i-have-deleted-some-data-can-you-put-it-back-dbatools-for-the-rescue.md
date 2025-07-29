@@ -110,7 +110,7 @@ Primary key was missing and some constraints and indexes as well.
 
 ## Beyond default scripting options
 
-As I have demonstrated on my last post [Scripting SQL Server objects with dbatools – Beyond default options](https://claudioessilva.eu/2019/05/15/scripting-sql-server-objects-with-dbatools-beyond-default-options/), we can generate an object of `ScriptingOptions` and use the `-ScriptingOptionsObject` parameter available on the `Export-DbaScript` command to specify more than the defaults.
+As I have demonstrated on my last post [Scripting SQL Server objects with dbatools – Beyond default options](https://claudioessilva.eu/2019/05/15/Scripting-SQL-Server-objects-with-dbatools-Beyond-default-options/), we can generate an object of `ScriptingOptions` and use the `-ScriptingOptionsObject` parameter available on the `Export-DbaScript` command to specify more than the defaults.
 
 ### Exploring other options
 

@@ -33,7 +33,7 @@ If you don't know what `sp_WhoIsActive` ([Adam Machanic's creation](http://datae
 
 > sp_whoisactive is a comprehensive activity monitoring stored procedure that works for all versions of SQL Server from 2005 through 2017.
 
-You can download it from the [download](http://whoisactive.com/downloads) page or if you use [dbatools](https://dbatools.io) you can use the command that will download it for you and install it. You can read more about it in my previous blog post [New Version Of sp_WhoIsActive (V11.20) Is Available – Deployed On 123 Instances In Less Than 1 Minute](https://claudioessilva.eu/2017/12/05/new-version-of-sp_whoisactive-v11-20-is-available-deployed-on-123-instances-in-less-than-1-minute/)
+You can download it from the [download](http://whoisactive.com/downloads) page or if you use [dbatools](https://dbatools.io) you can use the command that will download it for you and install it. You can read more about it in my previous blog post [New Version Of sp_WhoIsActive (V11.20) Is Available – Deployed On 123 Instances In Less Than 1 Minute](https://claudioessilva.eu/2017/12/05/New-version-of-sp_WhoIsActive-v11.20-is-available-Deployed-on-123-instances-in-less-than-1-minute/)
 
 ### Using `sp_WhoIsActive` to get the current running query
 

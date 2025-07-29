@@ -19,11 +19,11 @@ For the last couple of months, members of the [dbatools](http://dbatools.io/) te
 
 Here you can find a list of the blog posts made available today:
 
-* [Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell](https://sqldbawithabeard.com/2018/02/22/announcing-dbachecks-configurable-powershell-validation-for-your-sql-instances/)  
+- [Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell](https://sqldbawithabeard.com/2018/02/22/announcing-dbachecks-configurable-powershell-validation-for-your-sql-instances/)  
 * [introducing dbachecks - a new module from the dbatools team! by Chrissy LeMaire](https://dbachecks.io/introducing)  
 * [install dbachecks by Chrissy LeMaire](https://dbachecks.io/install)  
 * [dbachecks commands by Chrissy LeMaire](https://dbachecks.io/commands)  
-* [dbachecks – Using Power BI dashboards to analyse results by Cláudio Silva](http://claudioessilva.eu/2018/02/22/dbachecks-using-power-bi-dashboards-to-analyse-results/)  
+* [dbachecks – Using Power BI dashboards to analyse results by Cláudio Silva](https://claudioessilva.eu/2018/02/22/dbachecks-Using-Power-BI-dashboards-to-analyse-results/)  
 * [My wrapper for dbachecks by Tony Wilhelm](https://v-roddba.blogspot.com/2018/02/wrapper-for-dbachecks.html)  
 * [Checking backups with dbachecks by Jess Promfret](http://jesspomfret.com/checking-backups-with-dbachecks/)  
 * [dbachecks please! by Garry Bargsley](http://blog.garrybargsley.com/dbachecks-please)  
@@ -32,7 +32,7 @@ Here you can find a list of the blog posts made available today:
 * [Checking your backup strategy with dbachecks by Joshua Corrick](https://corrick.io/blog/checking-your-backup-strategy-with-dbachecks)  
 * [Enterprise-level reporting with dbachecks by Jason Squires](http://www.sqlnotnull.com/2018/02/20/enterprise-level-reporting-with-dbachecks-from-the-makers-of-dbatools)  
 * [Adding your own checks to dbachecks by Shane O'Neill](http://nocolumnname.blog/2018/02/22/adding-your-own-checks-to-dbachecks)  
-* [dbachecks - A different approach for an in-progress and incremental validation by Cláudio Silva](https://claudioessilva.eu/2018/02/22/dbachecks-a-different-approach-for-an-in-progress-and-incremental-validation/)
+* [dbachecks - A different approach for an in-progress and incremental validation by Cláudio Silva](https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/)
 
 Other documentation:
 
@@ -178,16 +178,16 @@ You can also come in the [SQL Server Community Slack](https://sqlps.io/slack) an
 
 I want to say thank you to all of the people who have enabled dbachecks to get this far. These wonderful people have used their own time to ensure that you have a useful tool available to you for free
 
-Chrissy Lemaire [@cl](https://twitter.com/cl)
-Rob Sewell [@sqldbawithbeard](https://github.com/sqldbawithbeard)
-Fred Weinmann [@FredWeinmann](https://twitter.com/FredWeinmann)
-Stuart Moore [@napalmgram](https://github.com/napalmgram)
-Shawn Melton [@wsmelton](https://twitter.com/wsmelton)
-Garry Bargsley [@gbargsley](https://twitter.com/gbargsley)
-Stephen Bennett [@staggerlee011](https://twitter.com/staggerlee011)
-Sander Stad [@SQLStad](https://twitter.com/sqlstad)
-Jess Pomfret [@jpomfret](https://twitter.com/jpomfret)
-Jason Squires [@js0505](https://twitter.com/js0505)
-Shane O'Neill [@SOZDBA](https://twitter.com/SOZDBA)
+Chrissy Lemaire [@cl](https://twitter.com/cl)  
+Rob Sewell [@sqldbawithbeard](https://github.com/sqldbawithbeard)  
+Fred Weinmann [@FredWeinmann](https://twitter.com/FredWeinmann)  
+Stuart Moore [@napalmgram](https://github.com/napalmgram)  
+Shawn Melton [@wsmelton](https://twitter.com/wsmelton)  
+Garry Bargsley [@gbargsley](https://twitter.com/gbargsley)  
+Stephen Bennett [@staggerlee011](https://twitter.com/staggerlee011)  
+Sander Stad [@SQLStad](https://twitter.com/sqlstad)  
+Jess Pomfret [@jpomfret](https://twitter.com/jpomfret)  
+Jason Squires [@js0505](https://twitter.com/js0505)  
+Shane O'Neill [@SOZDBA](https://twitter.com/SOZDBA)  
 
 and all of the other people who have contributed in the dbachecks Slack channel
