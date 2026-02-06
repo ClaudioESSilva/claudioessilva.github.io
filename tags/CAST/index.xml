@@ -1,24 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CAST on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/CAST/</link><description>Recent content in CAST on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 02 May 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/CAST/index.xml" rel="self" type="application/rss+xml"/><item><title>Using CAST() function with User-Defined Data Types...Did you know...</title><link>https://claudioessilva.eu/2018/05/02/Using-CAST-function-with-User-Defined-Data-Types...Did-you-know.../</link><pubDate>Wed, 02 May 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/05/02/Using-CAST-function-with-User-Defined-Data-Types...Did-you-know.../</guid><description>&lt;p>I&amp;rsquo;m converting some &lt;a href="https://www.firebirdsql.org"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CAST on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/CAST/</link><description>Recent content in CAST on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 02 May 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/CAST/index.xml" rel="self" type="application/rss+xml"/><item><title>Using CAST() function with User-Defined Data Types...Did you know...</title><link>https://claudioessilva.eu/2018/05/02/Using-CAST-function-with-User-Defined-Data-Types...Did-you-know.../</link><pubDate>Wed, 02 May 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/05/02/Using-CAST-function-with-User-Defined-Data-Types...Did-you-know.../</guid><description>&lt;p&gt;I&amp;rsquo;m converting some &lt;a href="https://www.firebirdsql.org"
 
  
  target="_blank" rel="noopener noreferrer"
->
+&gt;
  Firebird
-&lt;/a>
+&lt;/a&gt;
  database code to T-SQL and I&amp;rsquo;m seeing a lot of code that doesn&amp;rsquo;t work in the same way that SQL Server.
-No surprise - I already expected that but for those that still say that &amp;ldquo;all engines/databases are equal&amp;rdquo;&amp;hellip;&amp;ldquo;is SQL right?&amp;rdquo; here is another proof that is not true.&lt;/p>
-&lt;p>On Firebird it is possible to use the CAST function using a &lt;a href="https://firebirdsql.org/file/documentation/reference_manuals/fblangref25-en/html/fblangref25-ddl-domn.html"
+No surprise - I already expected that but for those that still say that &amp;ldquo;all engines/databases are equal&amp;rdquo;&amp;hellip;&amp;ldquo;is SQL right?&amp;rdquo; here is another proof that is not true.&lt;/p&gt;
+&lt;p&gt;On Firebird it is possible to use the CAST function using a &lt;a href="https://firebirdsql.org/file/documentation/reference_manuals/fblangref25-en/html/fblangref25-ddl-domn.html"
 
  
  target="_blank" rel="noopener noreferrer"
->
+&gt;
  DOMAIN
-&lt;/a>
+&lt;/a&gt;
  (the equivalent in SQLServer is &lt;a href="https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference/data-types/user-defined-data-type"
 
  
  target="_blank" rel="noopener noreferrer"
->
+&gt;
  UDDT - User-Defined Data Types
-&lt;/a>
-) as target data-type, well turns out that on SQL Server&amp;hellip;&lt;strong>that is not possible&lt;/strong>.&lt;/p></description></item></channel></rss>
+&lt;/a&gt;
+) as target data-type, well turns out that on SQL Server&amp;hellip;&lt;strong&gt;that is not possible&lt;/strong&gt;.&lt;/p&gt;</description></item></channel></rss>
