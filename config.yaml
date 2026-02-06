@@ -79,13 +79,6 @@ menu:
         <i class="sidebar-button-icon fab fa-lg fa-github"
         aria-hidden="true"></i>
       url: 'https://github.com/claudioessilva'
-    - weight: 2
-      identifier: twitter
-      name: Twitter
-      pre: >-
-        <i class="sidebar-button-icon fab fa-lg fa-twitter"
-        aria-hidden="true"></i>
-      url: 'https://twitter.com/claudioessilva'
     - weight: 3
       identifier: linkedin
       name: LinkedIn
@@ -97,7 +90,8 @@ menu:
       identifier: sessionize
       name: Sessionize
       pre: >-
-        <i class="sidebar-button-icon fab fa-presentation-screen"></i>
+        <i class="sidebar-button-icon fas fa-lg fa-chalkboard-teacher"
+        aria-hidden="true"></i>
       url: 'https://sessionize.com/claudio-silva'
 
 #  misc:
