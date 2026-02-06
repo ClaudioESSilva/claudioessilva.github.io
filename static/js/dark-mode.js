@@ -3,14 +3,17 @@
 (function() {
   'use strict';
 
-  // Check for saved theme preference or default to dark mode
+  // Check for saved theme preference or default to system preference
   function getPreferredTheme() {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
       return savedTheme;
     }
-    // Default to dark mode
-    return 'dark';
+    // Check system preference
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+    return 'light';
   }
 
   // Apply the theme to the document
