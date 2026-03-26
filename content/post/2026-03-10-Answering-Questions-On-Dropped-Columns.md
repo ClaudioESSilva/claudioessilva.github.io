@@ -1,7 +1,7 @@
 ---
 author: claudiosilva
 comments: true
-date: "2026-03-10T10:00:00Z"
+date: "2026-04-19T10:00:00Z"
 tags:
 - SQLServer
 - TSQL
