@@ -1,257 +1,257 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Power BI on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/Power-BI/</link><description>Recent content in Power BI on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 22 Feb 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/Power-BI/index.xml" rel="self" type="application/rss+xml"/><item><title>dbachecks - A different approach for an in-progress and incremental validation</title><link>https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/</link><pubDate>Thu, 22 Feb 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/</guid><description>&lt;p&gt;&lt;a href="https://dbachecks.io/"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Power BI on Cláudio Silva's Blog</title><link>https://claudioessilva.eu/tags/Power-BI/</link><description>Recent content in Power BI on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 22 Feb 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/tags/Power-BI/index.xml" rel="self" type="application/rss+xml"/><item><title>dbachecks - A different approach for an in-progress and incremental validation</title><link>https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/</link><pubDate>Thu, 22 Feb 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/</guid><description>&lt;p>&lt;a href="https://dbachecks.io/"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  dbachecks
-&lt;/a&gt;
+&lt;/a>
  is a new PowerShell module from the SQL Server Community! For more information, read &lt;a href="https://dbatools.io/introducing-dbachecks/"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  introducing dbachecks
-&lt;/a&gt;
-.&lt;/p&gt;
-&lt;p&gt;If you don&amp;rsquo;t know dbachecks, we have released a good amount of blog posts that will help you:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://sqldbawithabeard.com/2018/02/22/announcing-dbachecks-configurable-powershell-validation-for-your-sql-instances/"
+&lt;/a>
+.&lt;/p>
+&lt;p>If you don&amp;rsquo;t know dbachecks, we have released a good amount of blog posts that will help you:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://sqldbawithabeard.com/2018/02/22/announcing-dbachecks-configurable-powershell-validation-for-your-sql-instances/"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://dbachecks.io/introducing"
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://dbachecks.io/introducing"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  introducing dbachecks - a new module from the dbatools team! by Chrissy LeMaire
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://dbachecks.io/install"
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://dbachecks.io/install"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  install dbachecks by Chrissy LeMaire
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://dbachecks.io/commands"
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://dbachecks.io/commands"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  dbachecks commands by Chrissy LeMaire
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://claudioessilva.eu/2018/02/22/dbachecks-Using-Power-BI-dashboards-to-analyse-results/"
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://claudioessilva.eu/2018/02/22/dbachecks-Using-Power-BI-dashboards-to-analyse-results/"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  dbachecks – Using Power BI dashboards to analyse results by Cláudio Silva
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://v-roddba.blogspot.com/2018/02/wrapper-for-dbachecks.html"
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://v-roddba.blogspot.com/2018/02/wrapper-for-dbachecks.html"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  My wrapper for dbachecks by Tony Wilhelm
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://jesspomfret.com/checking-backups-with-dbachecks/"
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="http://jesspomfret.com/checking-backups-with-dbachecks/"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  Checking backups with dbachecks by Jess Promfret
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://blog.garrybargsley.com/dbachecks-please"
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="http://blog.garrybargsley.com/dbachecks-please"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  dbachecks please! by Garry Bargsley
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://sqldbawithabeard.com/2018/02/22/dbachecks-configuration-deep-dive/"
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://sqldbawithabeard.com/2018/02/22/dbachecks-configuration-deep-dive/"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  dbachecks – Configuration Deep Dive by Rob Sewell
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.sqlstad.nl/powershell/test-log-shipping-with-dbachecks/"
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://www.sqlstad.nl/powershell/test-log-shipping-with-dbachecks/"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  Test Log Shipping with dbachecks
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://corrick.io/blog/checking-your-backup-strategy-with-dbachecks"
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://corrick.io/blog/checking-your-backup-strategy-with-dbachecks"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  Checking your backup strategy with dbachecks by Joshua Corrick
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://www.sqlnotnull.com/2018/02/20/enterprise-level-reporting-with-dbachecks-from-the-makers-of-dbatools"
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="http://www.sqlnotnull.com/2018/02/20/enterprise-level-reporting-with-dbachecks-from-the-makers-of-dbatools"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  Enterprise-level reporting with dbachecks by Jason Squires
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://nocolumnname.blog/2018/02/22/adding-your-own-checks-to-dbachecks"
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="http://nocolumnname.blog/2018/02/22/adding-your-own-checks-to-dbachecks"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  Adding your own checks to dbachecks by Shane O&amp;rsquo;Neill
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/"
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  dbachecks - A different approach for an in-progress and incremental validation by Cláudio Silva
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Other documentation:&lt;/p&gt;</description></item><item><title>dbachecks - Using Power BI dashboards to analyse results</title><link>https://claudioessilva.eu/2018/02/22/dbachecks-Using-Power-BI-dashboards-to-analyse-results/</link><pubDate>Thu, 22 Feb 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/02/22/dbachecks-Using-Power-BI-dashboards-to-analyse-results/</guid><description>&lt;p&gt;For the last couple of months, members of the &lt;a href="http://dbatools.io/"
+&lt;/a>
+&lt;/li>
+&lt;/ul>
+&lt;p>Other documentation:&lt;/p></description></item><item><title>dbachecks - Using Power BI dashboards to analyse results</title><link>https://claudioessilva.eu/2018/02/22/dbachecks-Using-Power-BI-dashboards-to-analyse-results/</link><pubDate>Thu, 22 Feb 2018 00:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2018/02/22/dbachecks-Using-Power-BI-dashboards-to-analyse-results/</guid><description>&lt;p>For the last couple of months, members of the &lt;a href="http://dbatools.io/"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  dbatools
-&lt;/a&gt;
- team have been working on a new PowerShell module called dbachecks. This open source PowerShell module will enable you to validate your SQL Instances. Today it is released for you all to start to use 🙂&lt;/p&gt;
-&lt;h3 id="dbachecks-launch---the-blog-posts-series"&gt;dbachecks launch - the blog posts series&lt;/h3&gt;
-&lt;p&gt;Here you can find a list of the blog posts made available today:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://sqldbawithabeard.com/2018/02/22/announcing-dbachecks-configurable-powershell-validation-for-your-sql-instances/"
+&lt;/a>
+ team have been working on a new PowerShell module called dbachecks. This open source PowerShell module will enable you to validate your SQL Instances. Today it is released for you all to start to use 🙂&lt;/p>
+&lt;h3 id="dbachecks-launch---the-blog-posts-series">dbachecks launch - the blog posts series&lt;/h3>
+&lt;p>Here you can find a list of the blog posts made available today:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://sqldbawithabeard.com/2018/02/22/announcing-dbachecks-configurable-powershell-validation-for-your-sql-instances/"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  Announcing dbachecks – Configurable PowerShell Validation For Your SQL Instances by Rob Sewell
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://dbachecks.io/introducing"
+&lt;/a>
+&lt;/li>
+&lt;/ul>
+&lt;ul>
+&lt;li>&lt;a href="https://dbachecks.io/introducing"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  introducing dbachecks - a new module from the dbatools team! by Chrissy LeMaire
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://dbachecks.io/install"
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://dbachecks.io/install"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  install dbachecks by Chrissy LeMaire
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://dbachecks.io/commands"
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://dbachecks.io/commands"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  dbachecks commands by Chrissy LeMaire
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://claudioessilva.eu/2018/02/22/dbachecks-Using-Power-BI-dashboards-to-analyse-results/"
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://claudioessilva.eu/2018/02/22/dbachecks-Using-Power-BI-dashboards-to-analyse-results/"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  dbachecks – Using Power BI dashboards to analyse results by Cláudio Silva
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://v-roddba.blogspot.com/2018/02/wrapper-for-dbachecks.html"
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://v-roddba.blogspot.com/2018/02/wrapper-for-dbachecks.html"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  My wrapper for dbachecks by Tony Wilhelm
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://jesspomfret.com/checking-backups-with-dbachecks/"
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="http://jesspomfret.com/checking-backups-with-dbachecks/"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  Checking backups with dbachecks by Jess Promfret
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://blog.garrybargsley.com/dbachecks-please"
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="http://blog.garrybargsley.com/dbachecks-please"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  dbachecks please! by Garry Bargsley
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://sqldbawithabeard.com/2018/02/22/dbachecks-configuration-deep-dive/"
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://sqldbawithabeard.com/2018/02/22/dbachecks-configuration-deep-dive/"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  dbachecks – Configuration Deep Dive by Rob Sewell
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.sqlstad.nl/powershell/test-log-shipping-with-dbachecks/"
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://www.sqlstad.nl/powershell/test-log-shipping-with-dbachecks/"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  Test Log Shipping with dbachecks
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://corrick.io/blog/checking-your-backup-strategy-with-dbachecks"
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://corrick.io/blog/checking-your-backup-strategy-with-dbachecks"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  Checking your backup strategy with dbachecks by Joshua Corrick
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://www.sqlnotnull.com/2018/02/20/enterprise-level-reporting-with-dbachecks-from-the-makers-of-dbatools"
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="http://www.sqlnotnull.com/2018/02/20/enterprise-level-reporting-with-dbachecks-from-the-makers-of-dbatools"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  Enterprise-level reporting with dbachecks by Jason Squires
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://nocolumnname.blog/2018/02/22/adding-your-own-checks-to-dbachecks"
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="http://nocolumnname.blog/2018/02/22/adding-your-own-checks-to-dbachecks"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  Adding your own checks to dbachecks by Shane O&amp;rsquo;Neill
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/"
+&lt;/a>
+&lt;/li>
+&lt;li>&lt;a href="https://claudioessilva.eu/2018/02/22/dbachecks-A-different-approach-for-an-in-progress-and-incremental-validation/"
 
  
  target="_blank" rel="noopener noreferrer"
-&gt;
+>
  dbachecks - A different approach for an in-progress and incremental validation by Cláudio Silva
-&lt;/a&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Other documentation:&lt;/p&gt;</description></item></channel></rss>
+&lt;/a>
+&lt;/li>
+&lt;/ul>
+&lt;p>Other documentation:&lt;/p></description></item></channel></rss>
