@@ -1,4 +1,37 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cláudio Silva's Blog</title><link>https://claudioessilva.eu/</link><description>Recent content on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 14 Apr 2025 17:10:56 +0100</lastBuildDate><atom:link href="https://claudioessilva.eu/index.xml" rel="self" type="application/rss+xml"/><item><title>Privacy Policy</title><link>https://claudioessilva.eu/privacy-policy/</link><pubDate>Mon, 14 Apr 2025 17:10:56 +0100</pubDate><guid>https://claudioessilva.eu/privacy-policy/</guid><description>&lt;p>We value your privacy. This policy explains what personal data we collect and why.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cláudio Silva's Blog</title><link>https://claudioessilva.eu/</link><description>Recent content on Cláudio Silva's Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 19 Apr 2026 10:00:00 +0000</lastBuildDate><atom:link href="https://claudioessilva.eu/index.xml" rel="self" type="application/rss+xml"/><item><title>Answering Questions On Dropped Columns</title><link>https://claudioessilva.eu/2026/04/19/Answering-Questions-On-Dropped-Columns/</link><pubDate>Sun, 19 Apr 2026 10:00:00 +0000</pubDate><guid>https://claudioessilva.eu/2026/04/19/Answering-Questions-On-Dropped-Columns/</guid><description>&lt;p>Howdy folks! Long time no write.&lt;/p>
+&lt;p>In this post, I will be answering a couple of questions from the previous posts about dropping columns.&lt;/p>
+&lt;h2 id="a-quick-refresh">A quick refresh&lt;/h2>
+&lt;p>If you haven&amp;rsquo;t read the previous posts on this topic, here is the list:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://claudioessilva.eu/2024/05/29/What-happens-when-we-drop-a-column-on-a-SQL-Server-table-Wheres-my-space/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ What happens when we drop a column on a SQL Server table? Where&amp;rsquo;s my space?
+&lt;/a>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://claudioessilva.eu/2024/07/09/Identify-Tables-With-Dropped-Columns/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ Identify Tables With Dropped Columns
+&lt;/a>
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://claudioessilva.eu/2024/08/05/How-much-space-can-I-expect-to-recover-from-a-rebuild-after-dropping-a-column/"
+
+ 
+ target="_blank" rel="noopener noreferrer"
+>
+ How much Space can I expect to recover from a rebuild after dropping a column?
+&lt;/a>
+&lt;/p></description></item><item><title>Privacy Policy</title><link>https://claudioessilva.eu/privacy-policy/</link><pubDate>Mon, 14 Apr 2025 17:10:56 +0100</pubDate><guid>https://claudioessilva.eu/privacy-policy/</guid><description>&lt;p>We value your privacy. This policy explains what personal data we collect and why.&lt;/p>
 &lt;h2 id="what-we-collect">What We Collect&lt;/h2>
 &lt;ul>
 &lt;li>Cookies (for analytics, only after consent)&lt;/li>
