@@ -13,8 +13,8 @@ tags:
 title: "Answering Questions On Dropped Columns"
 autoThumbnailImage: false
 thumbnailImagePosition: top
-thumbnailImage: /img/2026/0206/NewRecord_SpaceOccupied.png
-coverImage: /img/2026/0206/NewRecord_SpaceOccupied.png
+thumbnailImage: 
+coverImage: 
 metaAlignment: center
 coverMeta: out
 draft: false
